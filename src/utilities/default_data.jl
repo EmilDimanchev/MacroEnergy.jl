@@ -38,7 +38,11 @@ function edge_default_data()
         :capital_recovery_period => 1,
         :wacc => 0.0,
         :retirement_period => 0,
-        :annualized_investment_cost => nothing
+        :annualized_investment_cost => nothing,
+        :de_duration => 1,
+        :af_duration => 1,
+        :cc_duration => 1,
+        :n_learning_pwl_segments => 0
     )
 end
 
@@ -83,7 +87,11 @@ function storage_default_data()
         :lifetime => 1,
         :wacc => 0.0,
         :retirement_period =>0,
-        :annualized_investment_cost => nothing
+        :annualized_investment_cost => nothing,
+        :de_duration => 1,
+        :af_duration => 1,
+        :cc_duration => 1,
+        :n_learning_pwl_segments => 0
     )
 end
 

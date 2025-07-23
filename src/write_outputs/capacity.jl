@@ -116,6 +116,8 @@ get_af_capacity(asset::AbstractAsset; scaling::Float64=1.0) = get_optimal_capaci
 # CC
 get_new_cc_capacity(asset::AbstractAsset; scaling::Float64=1.0) = get_optimal_capacity_by_field(asset, new_cc_capacity, scaling)
 get_cc_capacity(asset::AbstractAsset; scaling::Float64=1.0) = get_optimal_capacity_by_field(asset, cc_capacity, scaling)
+# Learning
+get_endog_costs(system::System; scaling::Float64=1.0) = get_optimal_capacity_by_field(system, endog_annualized_cost, scaling)
 """
     write_capacity(
         file_path::AbstractString, 
