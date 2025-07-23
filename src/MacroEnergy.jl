@@ -168,6 +168,7 @@ include("model/assets/cementplant.jl")
 include("model/assets/aluminumrefining.jl")
 include("model/assets/aluminumsmelting.jl")
 include("model/assets/aluminaplant.jl")
+include("model/technological_learning.jl")
 
 include("config/configure_settings.jl")
 include("config/case_settings.jl")
@@ -281,6 +282,8 @@ export AbstractAsset,
     download_examples,
     example_readme,
     example_contents,
-    authenticate_github
+    authenticate_github,
+    MaxCapacityGrowthConstraint,
+    DevelopmentConstraint
     
 end # module MacroEnergy

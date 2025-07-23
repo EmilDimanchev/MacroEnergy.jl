@@ -915,6 +915,11 @@ function write_outputs(case_path::AbstractString, case::Case, model::Model)
         mkpath(results_dir)
         write_outputs(results_dir, period, model)
     end
+    
+    results_dir = joinpath(case_path, "results_all_periods/")
+    mkpath(results_dir)
+
+    write_capacity_all_periods(results_dir, case)
 
     return nothing
 end
@@ -986,7 +991,13 @@ function write_outputs(case_path::AbstractString, case::Case, bd_results::Bender
         costs = prepare_costs_benders(period, bd_results, subop_indices_period, settings)
         write_costs(joinpath(results_dir, "costs.csv"), period, costs)
         write_undiscounted_costs(joinpath(results_dir, "undiscounted_costs.csv"), period, costs)
+
     end
+
+    # Capacity across all periods
+    results_dir = joinpath(case_path, "results_all_periods/")
+    mkpath(results_dir)
+    write_capacity_all_periods(results_dir, case)
 
     return nothing
 end

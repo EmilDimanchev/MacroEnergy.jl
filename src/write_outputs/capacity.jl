@@ -98,7 +98,24 @@ get_optimal_capacity(asset::AbstractAsset; scaling::Float64=1.0) = get_optimal_c
 get_optimal_new_capacity(asset::AbstractAsset; scaling::Float64=1.0) = get_optimal_capacity_by_field(asset, new_capacity, scaling)
 get_optimal_retired_capacity(asset::AbstractAsset; scaling::Float64=1.0) = get_optimal_capacity_by_field(asset, retired_capacity, scaling)
 get_existing_capacity(asset::AbstractAsset; scaling::Float64=1.0) = get_optimal_capacity_by_field(asset, existing_capacity, scaling)
+# Shadow
+get_new_de_capacity(system::System) = get_optimal_capacity_by_field(system, new_de_capacity)
+get_new_af_capacity(system::System) = get_optimal_capacity_by_field(system, new_af_capacity)
+get_new_cc_capacity(system::System) = get_optimal_capacity_by_field(system, new_cc_capacity)
 
+get_de_capacity(system::System) = get_optimal_capacity_by_field(system, de_capacity)
+get_af_capacity(system::System) = get_optimal_capacity_by_field(system, af_capacity)
+get_cc_capacity(system::System) = get_optimal_capacity_by_field(system, cc_capacity)
+
+# De
+get_new_de_capacity(asset::AbstractAsset; scaling::Float64=1.0) = get_optimal_capacity_by_field(asset, new_de_capacity, scaling)
+get_de_capacity(asset::AbstractAsset; scaling::Float64=1.0) = get_optimal_capacity_by_field(asset, de_capacity, scaling)
+# AF
+get_new_af_capacity(asset::AbstractAsset; scaling::Float64=1.0) = get_optimal_capacity_by_field(asset, new_af_capacity, scaling)
+get_af_capacity(asset::AbstractAsset; scaling::Float64=1.0) = get_optimal_capacity_by_field(asset, af_capacity, scaling)
+# CC
+get_new_cc_capacity(asset::AbstractAsset; scaling::Float64=1.0) = get_optimal_capacity_by_field(asset, new_cc_capacity, scaling)
+get_cc_capacity(asset::AbstractAsset; scaling::Float64=1.0) = get_optimal_capacity_by_field(asset, cc_capacity, scaling)
 """
     write_capacity(
         file_path::AbstractString, 
@@ -218,5 +235,47 @@ function write_capacity(
     end
 
     write_dataframe(file_path, all_capacity_results, drop_cols)
+    return nothing
+end
+
+function write_capacity_all_periods(
+    file_path::AbstractString, 
+    case::Case; 
+    scaling::Float64=1.0, 
+    drop_cols::Vector{<:AbstractString}=String[],
+    commodity::Union{AbstractString,Vector{<:AbstractString},Nothing}=nothing,
+    asset_type::Union{AbstractString,Vector{<:AbstractString},Nothing}=nothing
+)
+
+    if get_output_layout(case.systems[1], :Capacity) == "long"
+
+        @info "Writing all capacity results to $file_path"
+        results_all_periods = DataFrame[]
+
+        for system in case.systems
+            capacity_results = get_optimal_capacity(system; scaling)
+            new_capacity_results = get_optimal_new_capacity(system; scaling)
+            retired_capacity_results = get_optimal_retired_capacity(system; scaling)
+            # Learning
+            endog_costs = get_endog_costs(system; scaling)
+            # Shadow
+            new_de_capacity_results = get_new_de_capacity(system)
+            new_af_capacity_results = get_new_af_capacity(system)
+            new_cc_capacity_results = get_new_cc_capacity(system)
+            cc_capacity_results = get_cc_capacity(system)
+            all_capacity_results = vcat(capacity_results, new_capacity_results, retired_capacity_results, endog_costs, new_de_capacity_results, new_af_capacity_results, new_cc_capacity_results, cc_capacity_results)
+
+            system_number = findfirst(==(system), case.systems)
+            period_number_vector = fill(system_number, nrow(all_capacity_results))
+            insertcols!(all_capacity_results, ncol(all_capacity_results), :period => period_number_vector)
+
+            push!(results_all_periods, all_capacity_results)
+            global capacity_results_all_periods = vcat(results_all_periods...)
+
+        end
+    
+        write_dataframe(string(file_path,"capacity_all_periods.csv"), capacity_results_all_periods, drop_cols)
+    end
+    
     return nothing
 end

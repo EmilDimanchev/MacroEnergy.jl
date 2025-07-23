@@ -34,6 +34,39 @@ macro AbstractStorageBaseAttributes()
         storage_level::JuMPVariable = Vector{VariableRef}()
         wacc::Union{Missing,Float64} = missing
         annualized_investment_cost::Union{Nothing,Float64} = $storage_defaults[:annualized_investment_cost]
+        # Learning
+        learning_type::String = ""
+        n_learning_pwl_segments::Int64 = $storage_defaults[:n_learning_pwl_segments]
+        learning_parameter::Float64 = 0.0
+        cumulative_capacity_init::Float64 = 0.0
+        annuities_mult::Float64 = 0.0
+        annualization_factor::Float64 = 0.0
+        endog_annualized_cost::Float64 = 0.0
+        # Shadow
+        de_duration::Int64 = $storage_defaults[:de_duration]
+        af_duration::Int64 = $storage_defaults[:af_duration]
+        cc_duration::Int64 = $storage_defaults[:cc_duration]
+        # Definition and evaluation (DE)
+        de_cost::Float64 = 0.0
+        new_de_capacity::AffExpr = AffExpr(0.0)
+        new_de_capacity_track::Dict{Int64,AffExpr} = Dict(1=>AffExpr(0.0))
+        de_capacity::AffExpr = AffExpr(0.0)
+        de_capacity_track::Dict{Int64,AffExpr} = Dict(1=>AffExpr(0.0))
+        new_de_units::Union{JuMPVariable,Float64} = 0.0
+        # Approvals and funding (AF)
+        new_af_capacity::AffExpr = AffExpr(0.0)
+        new_af_capacity_track::Dict{Int64,AffExpr} = Dict(1=>AffExpr(0.0))
+        af_capacity::AffExpr = AffExpr(0.0)
+        af_capacity_track::Dict{Int64,AffExpr} = Dict(1=>AffExpr(0.0))
+        new_af_units::Union{JuMPVariable,Float64} = 0.0
+        # Construction and Commissioning (CC)
+        new_cc_capacity::AffExpr = AffExpr(0.0)
+        new_cc_capacity_track::Dict{Int64,AffExpr} = Dict(1=>AffExpr(0.0))
+        cc_capacity::AffExpr = AffExpr(0.0)
+        cc_capacity_track::Dict{Int64,AffExpr} = Dict(1=>AffExpr(0.0))
+        new_cc_units::Union{JuMPVariable,Float64} = 0.0
+        # Max growth formulation
+        max_new_capacity_init::Float64 = 0.0
     end)
 end
 
@@ -168,6 +201,43 @@ storage_level(g::AbstractStorage) = g.storage_level;
 storage_level(g::AbstractStorage, t::Int64) = storage_level(g)[t];
 wacc(g::AbstractStorage) = g.wacc;
 annualized_investment_cost(g::AbstractStorage) = g.annualized_investment_cost;
+# Learning
+learning_type(g::AbstractStorage) = g.learning_type;
+n_learning_pwl_segments(g::AbstractStorage) = g.n_learning_pwl_segments;
+learning_parameter(g::AbstractStorage) = g.learning_parameter;
+annuities_mult(g::AbstractStorage) = g.annuities_mult;
+annualization_factor(g::AbstractStorage) = g.annualization_factor;
+endog_annualized_cost(g::AbstractStorage) = g.endog_annualized_cost;
+# Shadow
+de_duration(g::AbstractStorage) = g.de_duration;
+af_duration(g::AbstractStorage) = g.af_duration;
+cc_duration(g::AbstractStorage) = g.cc_duration;
+# Definition and evaluation (DE)
+new_de_capacity(g::AbstractStorage) = g.new_de_capacity;
+de_capacity(g::AbstractStorage) = g.de_capacity;
+new_de_capacity_track(g::AbstractStorage) = g.new_de_capacity_track;
+new_de_capacity_track(g::AbstractStorage,s::Int64) =  (haskey(new_de_capacity_track(g),s) == false) ? 0.0 : g.new_de_capacity_track[s];
+de_capacity_track(g::AbstractStorage) = g.de_capacity_track;
+de_capacity_track(g::AbstractStorage,s::Int64) =  (haskey(de_capacity_track(g),s) == false) ? 0.0 : g.de_capacity_track[s];
+new_de_units(g::AbstractStorage) = g.new_de_units;
+# Approvals and funding (AF)
+new_af_capacity(g::AbstractStorage) = g.new_af_capacity;
+af_capacity(g::AbstractStorage) = g.af_capacity;
+new_af_capacity_track(g::AbstractStorage) = g.new_af_capacity_track;
+new_af_capacity_track(g::AbstractStorage,s::Int64) =  (haskey(new_af_capacity_track(g),s) == false) ? 0.0 : g.new_af_capacity_track[s];
+af_capacity_track(g::AbstractStorage) = g.af_capacity_track;
+af_capacity_track(g::AbstractStorage,s::Int64) =  (haskey(af_capacity_track(g),s) == false) ? 0.0 : g.af_capacity_track[s];
+new_af_units(g::AbstractStorage) = g.new_af_units;
+# Construction and commissioning (CC)
+new_cc_capacity(g::AbstractStorage) = g.new_cc_capacity;
+cc_capacity(g::AbstractStorage) = g.cc_capacity;
+new_cc_capacity_track(g::AbstractStorage) = g.new_cc_capacity_track;
+new_cc_capacity_track(g::AbstractStorage,s::Int64) =  (haskey(new_cc_capacity_track(g),s) == false) ? 0.0 : g.new_cc_capacity_track[s];
+cc_capacity_track(g::AbstractStorage) = g.cc_capacity_track;
+cc_capacity_track(g::AbstractStorage,s::Int64) =  (haskey(cc_capacity_track(g),s) == false) ? 0.0 : g.cc_capacity_track[s];
+new_cc_units(g::AbstractStorage) = g.new_cc_units;
+# Max growth formulation
+max_new_capacity_init(g::AbstractStorage) = g.max_new_capacity_init;
 
 function add_linking_variables!(g::Storage, model::Model)
     if has_capacity(g)
@@ -196,10 +266,33 @@ function define_available_capacity!(g::AbstractStorage, model::Model)
         #     model,
         #     new_capacity(g) - retired_capacity(g) + existing_capacity(g)
         # )
+
+        # Shadow
+        # Definition and evaluation (DE)
+        g.new_de_units = @variable(model, lower_bound = 0.0, base_name = "vNEWDEUNIT_$(id(g))_stage$(period_index(g))")
+        g.new_de_capacity = @expression(model, capacity_size(g) * new_de_units(g))
+        g.new_de_capacity_track[period_index(g)] = new_de_capacity(g)
+        g.de_capacity = @variable(model, lower_bound = 0.0, base_name = "vDECAP_$(id(g))_stage$(period_index(g))")
+        g.de_capacity_track[period_index(g)] = de_capacity(g)
+        # Approvals and funding (AF)
+        g.new_af_units = @variable(model, lower_bound = 0.0, base_name = "vNEWAFUNIT_$(id(g))_stage$(period_index(g))")
+        g.new_af_capacity = @expression(model, capacity_size(g) * new_af_units(g))
+        g.new_af_capacity_track[period_index(g)] = new_af_capacity(g)
+        g.af_capacity = @variable(model, lower_bound = 0.0, base_name = "vAFCAP_$(id(g))_stage$(period_index(g))")
+        g.af_capacity_track[period_index(g)] = af_capacity(g)
+        # Construction and commissioning (CC)
+        g.new_cc_units = @variable(model, lower_bound = 0.0, base_name = "vNEWCCUNIT_$(id(g))_stage$(period_index(g))")
+        g.new_cc_capacity = @expression(model, capacity_size(g) * new_cc_units(g))
+        g.new_cc_capacity_track[period_index(g)] = new_cc_capacity(g)
+        g.cc_capacity = @variable(model, lower_bound = 0.0, base_name = "vCCCAP_$(id(g))_stage$(period_index(g))")
+        g.cc_capacity_track[period_index(g)] = cc_capacity(g)
     end
 end
 
 function planning_model!(g::Storage, model::Model)
+
+    g.annualized_investment_cost = investment_cost(g)*annualization_factor(g)*annuities_mult(g)
+    g.endog_annualized_cost = annualized_investment_cost(g)
 
     if !g.can_expand
         fix(new_units(g), 0.0; force = true)
@@ -301,6 +394,8 @@ end
 
 
 function planning_model!(g::LongDurationStorage, model::Model)
+
+    g.annualized_investment_cost = annualized_investment_cost(g)*annuities_mult(g)
 
     if !g.can_expand
         fix(new_units(g), 0.0; force = true)
