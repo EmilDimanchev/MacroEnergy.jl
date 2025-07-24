@@ -34,6 +34,7 @@ function generate_model(case::Case)
         define_available_capacity!(system, model)
 
         @info(" -- Generating planning model")
+        add_learning!(system, model)
         planning_model!(system, model)
 
         @info(" -- Including age-based retirements")
@@ -239,6 +240,18 @@ function carry_over_capacities!(y::Union{AbstractEdge,AbstractStorage},y_prev::U
             if perfect_foresight
                 y.new_capacity_track[prev_period] = new_capacity_track(y_prev,prev_period)
                 y.retired_capacity_track[prev_period] = retired_capacity_track(y_prev,prev_period)
+                # Learning
+                if learning_parameter(y) != 0.0
+                    y.learning_pwl_track[prev_period] = learning_pwl_track(y_prev, prev_period)
+                    y.segments_sos1_track[prev_period] = segments_sos1_track(y_prev,prev_period)
+                end
+                # Shadow capacity
+                y.new_de_capacity_track[prev_period] = new_de_capacity_track(y_prev,prev_period)
+                y.new_af_capacity_track[prev_period] = new_af_capacity_track(y_prev,prev_period)
+                y.new_cc_capacity_track[prev_period] = new_cc_capacity_track(y_prev,prev_period)
+                y.de_capacity_track[prev_period] = de_capacity_track(y_prev,prev_period)
+                y.af_capacity_track[prev_period] = af_capacity_track(y_prev,prev_period)
+                y.cc_capacity_track[prev_period] = cc_capacity_track(y_prev,prev_period)
             else
                 y.new_capacity_track[prev_period] = value(new_capacity_track(y_prev,prev_period))
                 y.retired_capacity_track[prev_period] = value(retired_capacity_track(y_prev,prev_period))
@@ -271,8 +284,8 @@ function compute_annualized_costs!(y::Union{AbstractEdge,AbstractStorage},settin
         if ismissing(wacc(y))
             y.wacc = settings.DiscountRate;
         end
-        annualization_factor = wacc(y)>0 ? wacc(y) / (1 - (1 + wacc(y))^-capital_recovery_period(y))  : 1.0
-        y.annualized_investment_cost = investment_cost(y) * annualization_factor;
+        y.annualization_factor = wacc(y)>0 ? wacc(y) / (1 - (1 + wacc(y))^-capital_recovery_period(y))  : 1.0
+        y.annualized_investment_cost = investment_cost(y)*annualization_factor(y)
     end
 end
 
@@ -310,7 +323,9 @@ function discount_fixed_costs!(y::Union{AbstractEdge,AbstractStorage},settings::
         nothing
     end
 
-    y.annualized_investment_cost = annualized_investment_cost(y) * sum(1 / (1 + settings.DiscountRate)^s for s in 1:payment_years_remaining; init=0);
+    # y.annualized_investment_cost = annualized_investment_cost(y) * sum(1 / (1 + settings.DiscountRate)^s for s in 1:payment_years_remaining; init=0);
+
+    y.annuities_mult = sum(1 / (1 + settings.DiscountRate)^s for s in 1:payment_years_remaining; init=0);
     
     opexmult = sum([1 / (1 + settings.DiscountRate)^(i) for i in 1:settings.PeriodLengths[period_index(y)]])
 

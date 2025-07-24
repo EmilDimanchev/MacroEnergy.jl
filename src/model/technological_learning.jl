@@ -71,11 +71,11 @@ function add_learning!(system::System, model::Model)
             @constraint(model, [k in 2:n_segments+1], cumulative_experience(e)[k] >= (x_points[k-1] + ϵ[k-1]) * segments_sos1(e)[k])
             @constraint(model, [k in 1:n_segments+1], cumulative_experience(e)[k] <= x_points[k] * segments_sos1(e)[k])
 
-            # println(string(e.id," points"))
-            # println(x_points)
-            # println(y_points)
-            # println("All slopes")
-            # println(e.pwl_cost_slopes)
+            println(string(e.id," points"))
+            println(x_points)
+            println(y_points)
+            println("All slopes")
+            println(e.pwl_cost_slopes)
             
             # Slope reached after building new capacity
             e.learning_pwl_slope = @expression(model, sum(segments_sos1(e)[k] * pwl_cost_slopes(e)[k] for k in 1:n_segments+1))
