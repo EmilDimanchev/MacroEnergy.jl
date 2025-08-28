@@ -25,8 +25,6 @@ function add_model_constraint!(ct::DevelopmentConstraint, y::Union{AbstractEdge,
         ct.constraint_ref = @constraint(model, new_cc_capacity_track(y, curr_period) <= 0)
         ct.constraint_ref = @constraint(model, cc_capacity_track(y, curr_period) == new_cc_capacity_track(y, curr_period))
 
-        ct.constraint_ref = @constraint(model, new_capacity_track(y, curr_period) <= 0)
-
     elseif curr_period >= 2
         # Track cumulative developed capacity
         # Definition and evaluation (DE)
