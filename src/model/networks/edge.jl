@@ -5,6 +5,7 @@ macro AbstractEdgeBaseAttributes()
         timedata::TimeData{T}
         start_vertex::AbstractVertex
         end_vertex::AbstractVertex
+        is_learning_edge::Bool = false
         availability::Vector{Float64} = Float64[]
         can_expand::Bool = $edge_defaults[:can_expand]
         can_retire::Bool = $edge_defaults[:can_retire]
@@ -62,6 +63,7 @@ macro AbstractEdgeBaseAttributes()
         endog_annualized_cost::AffExpr = AffExpr(0.0)
         cumulative_external_capacity::Float64 = 0.0
         endog_investment_cost::AffExpr = 0.0
+        max_cumul_capacity::Float64 = 0.0
         # Shadow
         de_duration::Int64 = $edge_defaults[:de_duration]
         af_duration::Int64 = $edge_defaults[:af_duration]
@@ -154,6 +156,7 @@ function make_edge(
     commodity::DataType,
     start_vertex::AbstractVertex,
     end_vertex::AbstractVertex,
+    settings::NamedTuple=NamedTuple()
 )
     if !(target_is_valid(commodity, start_vertex))
         error("Edge $id cannot be connected to its start vertex, $(start_vertex.id).\nThey have different commodities\n$id is a $commodity edge.\n$(start_vertex.id) is a $(commodity_type(start_vertex)) vertex.")
@@ -181,6 +184,11 @@ function make_edge(
         end_vertex = end_vertex,
         filtered_data...
     )
+
+    if !isempty(settings) && settings[:TechnologyLearning] == false
+        _edge.is_learning_edge = false
+    end
+    
     return _edge
 end
 Edge(
@@ -190,7 +198,8 @@ Edge(
     commodity::DataType,
     start_vertex::AbstractVertex,
     end_vertex::AbstractVertex,
-) = make_edge(id, data, time_data, commodity, start_vertex, end_vertex)
+    settings::NamedTuple=NamedTuple(),
+) = make_edge(id, data, time_data, commodity, start_vertex, end_vertex, settings)
 
 
 # Function to filter edges with capacity variables from a Vector of edges.
@@ -218,6 +227,7 @@ function availability(e::AbstractEdge, t::Int64)
 end
 can_expand(e::AbstractEdge) = e.can_expand;
 can_retire(e::AbstractEdge) = e.can_retire;
+is_learning_edge(e::AbstractEdge) = e.is_learning_edge;
 capacity(e::AbstractEdge) = e.capacity;
 capacity_size(e::AbstractEdge) = e.capacity_size;
 capital_recovery_period(e::AbstractEdge) = e.capital_recovery_period;
@@ -285,6 +295,7 @@ annuities_mult(e::AbstractEdge) = e.annuities_mult;
 annualization_factor(e::AbstractEdge) = e.annualization_factor;
 endog_annualized_cost(e::AbstractEdge) = e.endog_annualized_cost;
 cumulative_external_capacity(e::AbstractEdge) = e.cumulative_external_capacity;
+max_cumul_capacity(e::AbstractEdge) = e.max_cumul_capacity;
 # Shadow
 de_duration(e::AbstractEdge) = e.de_duration;
 af_duration(e::AbstractEdge) = e.af_duration;
@@ -410,10 +421,12 @@ function compute_investment_costs!(e::AbstractEdge, model::Model)
         if can_expand(e)
             
             # Linearized learning
-            if learning_parameter(e) != 0.0
+            if e.is_learning_edge && learning_parameter(e) != 0.0
+                
                 model[:eInvestmentFixedCost] += e.annualized_investment_cost_with_learning*annuities_mult(e)
+                
             else
-                # Non learning
+                # No learning
                 add_to_expression!(
                 model[:eInvestmentFixedCost],
                 annualized_investment_cost(e)*annuities_mult(e),
@@ -439,14 +452,6 @@ function compute_investment_costs!(e::AbstractEdge, model::Model)
                 annualized_investment_cost(e)*annuities_mult(e)*0.1,
                 new_cc_capacity(e),
             )
-            
-            
-            # Old 
-            # add_to_expression!(
-            #         model[:eFixedCost],
-            #         annualized_investment_cost(e),
-            #         new_capacity(e),
-            #     )
         end
     end
 end
@@ -568,12 +573,17 @@ function make_edge_UC(
     commodity::DataType,
     start_vertex::AbstractVertex,
     end_vertex::AbstractVertex,
+    settings::NamedTuple=NamedTuple()
 )
 
     if !(target_is_valid(commodity, start_vertex))
         error("Edge $id cannot be connected to its start vertex, $(start_vertex.id).\nThey have different commodities\n$id is a $commodity edge.\n$(start_vertex.id) is a $(commodity_type(start_vertex)) vertex.")
     elseif !target_is_valid(commodity, end_vertex)
         error("Edge $id cannot be connected to its end vertex, $(end_vertex.id).\nThey have different commodities\n$id is a $commodity edge.\n$(end_vertex.id) is a $(commodity_type(end_vertex)) vertex.")
+    end
+
+    if !isempty(settings) && settings[:TechnologyLearning] == false
+        e.is_learning_edge = false
     end
 
     edge_kwargs = Base.fieldnames(EdgeWithUC)
@@ -602,7 +612,8 @@ EdgeWithUC(
     commodity::DataType,
     start_vertex::AbstractVertex,
     end_vertex::AbstractVertex,
-) = make_edge_UC(id, data, time_data, commodity, start_vertex, end_vertex)
+    settings::NamedTuple=NamedTuple(),
+) = make_edge_UC(id, data, time_data, commodity, start_vertex, end_vertex, settings)
 
 ######### EdgeWithUC interface #########
 min_down_time(e::EdgeWithUC) = e.min_down_time;

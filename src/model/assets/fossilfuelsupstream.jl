@@ -135,6 +135,7 @@ function make(asset_type::Type{FossilFuelsUpstream}, data::AbstractDict{Symbol,A
         commodity,
         fossil_fuel_start_node,
         fossil_fuel_end_node,
+        system.settings
     )
 
     fuel_edge_key = :fuel_edge
@@ -163,6 +164,7 @@ function make(asset_type::Type{FossilFuelsUpstream}, data::AbstractDict{Symbol,A
         commodity,
         fuel_start_node,
         fuel_end_node,
+        system.settings
     )
 
     co2_edge_key = :co2_edge
@@ -189,6 +191,7 @@ function make(asset_type::Type{FossilFuelsUpstream}, data::AbstractDict{Symbol,A
         CO2,
         co2_start_node,
         co2_end_node,
+        system.settings
     )
 
     fossilfuelsupstream_transform.balance_data = Dict(

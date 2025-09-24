@@ -137,7 +137,12 @@ function make(asset_type::Type{<:VRE}, data::AbstractDict{Symbol,Any}, system::S
         Electricity,
         elec_start_node,
         elec_end_node,
+        system.settings,
     )
 
+    # if system.settings[:TechnologyLearning] == true
+    #     elec_edge.is_learning_edge = true
+    # end
+    
     return asset_type(id, vre_transform, elec_edge)
 end

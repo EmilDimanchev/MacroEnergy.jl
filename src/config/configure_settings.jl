@@ -6,7 +6,8 @@ function default_settings()
         OutputDir = "results",
         OutputLayout = "long",
         AutoCreateNodes = false,
-        AutoCreateLocations = true
+        AutoCreateLocations = true,
+        TechnologyLearning = false
     )
 end
 

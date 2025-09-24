@@ -34,7 +34,9 @@ function generate_model(case::Case)
         define_available_capacity!(system, model)
 
         @info(" -- Generating planning model")
-        add_learning!(system, model)
+        if settings[:TechnologyLearning] == true
+            add_learning!(system, model)
+        end
         planning_model!(system, model)
 
         @info(" -- Including age-based retirements")
@@ -241,7 +243,7 @@ function carry_over_capacities!(y::Union{AbstractEdge,AbstractStorage},y_prev::U
                 y.new_capacity_track[prev_period] = new_capacity_track(y_prev,prev_period)
                 y.retired_capacity_track[prev_period] = retired_capacity_track(y_prev,prev_period)
                 # Learning
-                if learning_parameter(y) != 0.0
+                if y.is_learning_edge && learning_parameter(y) != 0.0
                     y.learning_pwl_track[prev_period] = learning_pwl_track(y_prev, prev_period)
                     y.segments_sos1_track[prev_period] = segments_sos1_track(y_prev,prev_period)
                 end

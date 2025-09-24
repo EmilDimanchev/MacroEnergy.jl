@@ -6,6 +6,7 @@ macro AbstractStorageBaseAttributes()
         spillage_edge::Union{Nothing, AbstractEdge} = nothing
         can_expand::Bool = $storage_defaults[:can_expand]
         can_retire::Bool = $storage_defaults[:can_retire]
+        is_learning_edge::Bool = false
         capacity::Union{JuMPVariable,AffExpr,Float64} = AffExpr(0.0)
         capacity_size::Float64 = $storage_defaults[:capacity_size]
         capital_recovery_period::Int64 = $storage_defaults[:capital_recovery_period]
@@ -123,6 +124,7 @@ function make_storage(
     data::Dict{Symbol,Any},
     time_data::TimeData,
     commodity::DataType,
+    settings::NamedTuple=NamedTuple()
 )
     # We could instead filter on an explicit list of keys
     # As it is, this will add configure several additional
@@ -145,10 +147,15 @@ function make_storage(
         timedata = time_data,
         filtered_data...
     )
+
+    if !isempty(settings) && settings[:TechnologyLearning] == false
+        _storage.is_learning_edge = false
+    end
+
     return _storage
 end
-Storage(id::Symbol, data::Dict{Symbol,Any}, time_data::TimeData, commodity::DataType) =
-    make_storage(id, data, time_data, commodity)
+Storage(id::Symbol, data::Dict{Symbol,Any}, time_data::TimeData, commodity::DataType, settings::NamedTuple=NamedTuple()) =
+    make_storage(id, data, time_data, commodity, settings)
 
 ######### Storage interface #########
 all_constraints(g::AbstractStorage) = g.constraints;

@@ -6,7 +6,8 @@ function default_case_settings()
     return Dict(
         :PeriodLengths => [1],
         :DiscountRate => 0.,
-        :SolutionAlgorithm => "Monolithic"
+        :SolutionAlgorithm => "Monolithic",
+        :TechnologyLearning => false
     )
 end
 

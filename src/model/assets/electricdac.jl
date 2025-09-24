@@ -107,6 +107,7 @@ function make(asset_type::Type{ElectricDAC}, data::AbstractDict{Symbol,Any}, sys
         CO2,
         co2_start_node,
         co2_end_node,
+        system.settings
     )
 
     elec_edge_key = :elec_edge
@@ -133,6 +134,7 @@ function make(asset_type::Type{ElectricDAC}, data::AbstractDict{Symbol,Any}, sys
         Electricity,
         elec_start_node,
         elec_end_node,
+        system.settings
     )
 
     co2_captured_edge_key = :co2_captured_edge
@@ -159,6 +161,7 @@ function make(asset_type::Type{ElectricDAC}, data::AbstractDict{Symbol,Any}, sys
         CO2Captured,
         co2_captured_start_node,
         co2_captured_end_node,
+        system.settings
     )
 
     electricdac_transform.balance_data = Dict(

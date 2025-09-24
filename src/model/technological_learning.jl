@@ -12,8 +12,13 @@ function add_learning!(system::System, model::Model)
     for e in edges
         
         if learning_parameter(e) != 0.0
-        
-            if max_capacity(e) == Inf
+            
+            e.annualization_factor = wacc(e)>0 ? wacc(e) / (1 - (1 + wacc(e))^-capital_recovery_period(e))  : 1.0
+            println(string("investment cost is",investment_cost(e)))
+            e.investment_cost = annualized_investment_cost(e)/annualization_factor(e) 
+            println(string("investment cost is",investment_cost(e)))
+
+            if max_cumul_capacity(e) == Inf
                 error("Maximum capacity not specified for learning technology")
             end
     
@@ -22,7 +27,7 @@ function add_learning!(system::System, model::Model)
             if n_segments == 0
                 error("Number of segments not specified for learning technology")
             end
-            segment_length = (max_capacity(e)-cumulative_capacity_init(e))/n_segments
+            segment_length = (max_cumul_capacity(e)-cumulative_capacity_init(e))/n_segments
             
             # Define (x,y) coordinates for piece-wise linear curve (cumulative cost as a function of cumulative capacity added)
             x_points = zeros(n_segments+1)

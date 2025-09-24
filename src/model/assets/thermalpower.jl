@@ -187,6 +187,7 @@ function make(asset_type::Type{ThermalPower}, data::AbstractDict{Symbol,Any}, sy
         commodity,
         fuel_start_node,
         fuel_end_node,
+        system.settings
     )
 
     co2_edge_key = :co2_edge
@@ -213,6 +214,7 @@ function make(asset_type::Type{ThermalPower}, data::AbstractDict{Symbol,Any}, sy
         CO2,
         co2_start_node,
         co2_end_node,
+        system.settings
     )
 
     thermal_transform.balance_data = Dict(
