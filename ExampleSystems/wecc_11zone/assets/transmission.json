@@ -1,0 +1,398 @@
+{
+    "transmission": {
+        "global_data": {
+            "transforms": {
+            },
+            "edges": {
+                "transmission_edge": {
+                    "unidirectional": false,
+                    "has_capacity": true,
+                    "commodity": "Electricity"
+                }
+            }
+        },
+        "instance_data": [
+            {
+                "id": "AZ_to_NM",
+                "edges": {
+                    "transmission_edge": {
+                        "can_retire": false,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "start_vertex": "elec_AZ",
+                        "line_loss_percentage": 0.0908,
+                        "end_vertex": "elec_NM",
+                        "max_capacity": 9365.8805,
+                        "can_expand": true,
+                        "existing_capacity": 4682.8805,
+                        "investment_cost": 45771
+                    }
+                }
+            },
+            {
+                "id": "AZ_to_NV",
+                "edges": {
+                    "transmission_edge": {
+                        "can_retire": false,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "start_vertex": "elec_AZ",
+                        "line_loss_percentage": 0.0792,
+                        "end_vertex": "elec_NV",
+                        "max_capacity": 12906.456,
+                        "can_expand": true,
+                        "existing_capacity": 6453.456,
+                        "investment_cost": 45798
+                    }
+                }
+            },
+            {
+                "id": "AZ_to_UT",
+                "edges": {
+                    "transmission_edge": {
+                        "can_retire": false,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "start_vertex": "elec_AZ",
+                        "line_loss_percentage": 0.1045,
+                        "end_vertex": "elec_UT",
+                        "max_capacity": 562.996,
+                        "can_expand": true,
+                        "existing_capacity": 162.996,
+                        "investment_cost": 55378
+                    }
+                }
+            },
+            {
+                "id": "CA_to_NV",
+                "edges": {
+                    "transmission_edge": {
+                        "can_retire": false,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "start_vertex": "elec_CA",
+                        "line_loss_percentage": 0.074,
+                        "end_vertex": "elec_NV",
+                        "max_capacity": 767.3140000000001,
+                        "can_expand": true,
+                        "existing_capacity": 367.314,
+                        "investment_cost": 53745
+                    }
+                }
+            },
+            {
+                "id": "CA_to_OR",
+                "edges": {
+                    "transmission_edge": {
+                        "can_retire": false,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "start_vertex": "elec_CA",
+                        "line_loss_percentage": 0.079,
+                        "end_vertex": "elec_OR",
+                        "max_capacity": 10521.673999999999,
+                        "can_expand": true,
+                        "existing_capacity": 5260.674,
+                        "investment_cost": 56669
+                    }
+                }
+            },
+            {
+                "id": "CO_to_NM",
+                "edges": {
+                    "transmission_edge": {
+                        "can_retire": false,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "start_vertex": "elec_CO",
+                        "line_loss_percentage": 0.0375,
+                        "end_vertex": "elec_NM",
+                        "max_capacity": 2833.9605,
+                        "can_expand": true,
+                        "existing_capacity": 1416.9605,
+                        "investment_cost": 30519
+                    }
+                }
+            },
+            {
+                "id": "CO_to_UT",
+                "edges": {
+                    "transmission_edge": {
+                        "can_retire": false,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "start_vertex": "elec_CO",
+                        "line_loss_percentage": 0.0466,
+                        "end_vertex": "elec_UT",
+                        "max_capacity": 4774.3150000000005,
+                        "can_expand": true,
+                        "existing_capacity": 2387.315,
+                        "investment_cost": 35526
+                    }
+                }
+            },
+            {
+                "id": "CO_to_WY",
+                "edges": {
+                    "transmission_edge": {
+                        "can_retire": false,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "start_vertex": "elec_CO",
+                        "line_loss_percentage": 0.0449,
+                        "end_vertex": "elec_WY",
+                        "max_capacity": 8804.074,
+                        "can_expand": true,
+                        "existing_capacity": 4402.074,
+                        "investment_cost": 13641
+                    }
+                }
+            },
+            {
+                "id": "ID_to_MT",
+                "edges": {
+                    "transmission_edge": {
+                        "can_retire": false,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "start_vertex": "elec_ID",
+                        "line_loss_percentage": 0.0484,
+                        "end_vertex": "elec_MT",
+                        "max_capacity": 5884.2615000000005,
+                        "can_expand": true,
+                        "existing_capacity": 2942.2615,
+                        "investment_cost": 36251
+                    }
+                }
+            },
+            {
+                "id": "ID_to_NV",
+                "edges": {
+                    "transmission_edge": {
+                        "can_retire": false,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "start_vertex": "elec_ID",
+                        "line_loss_percentage": 0.0569,
+                        "end_vertex": "elec_NV",
+                        "max_capacity": 1000,
+                        "can_expand": true,
+                        "existing_capacity": 500,
+                        "investment_cost": 37969
+                    }
+                }
+            },
+            {
+                "id": "ID_to_OR",
+                "edges": {
+                    "transmission_edge": {
+                        "can_retire": false,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "start_vertex": "elec_ID",
+                        "line_loss_percentage": 0.0376,
+                        "end_vertex": "elec_OR",
+                        "max_capacity": 14275.6325,
+                        "can_expand": true,
+                        "existing_capacity": 7137.6325,
+                        "investment_cost": 33383
+                    }
+                }
+            },
+            {
+                "id": "ID_to_UT",
+                "edges": {
+                    "transmission_edge": {
+                        "can_retire": false,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "start_vertex": "elec_ID",
+                        "line_loss_percentage": 0.0308,
+                        "end_vertex": "elec_UT",
+                        "max_capacity": 3374.1795,
+                        "can_expand": true,
+                        "existing_capacity": 1687.1795,
+                        "investment_cost": 27679
+                    }
+                }
+            },
+            {
+                "id": "ID_to_WA",
+                "edges": {
+                    "transmission_edge": {
+                        "can_retire": false,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "start_vertex": "elec_ID",
+                        "line_loss_percentage": 0.041,
+                        "end_vertex": "elec_WA",
+                        "max_capacity": 8325.520499999999,
+                        "can_expand": true,
+                        "existing_capacity": 4162.5205,
+                        "investment_cost": 35116
+                    }
+                }
+            },
+            {
+                "id": "ID_to_WY",
+                "edges": {
+                    "transmission_edge": {
+                        "can_retire": false,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "start_vertex": "elec_ID",
+                        "line_loss_percentage": 0.0664,
+                        "end_vertex": "elec_WY",
+                        "max_capacity": 4612.3765,
+                        "can_expand": true,
+                        "existing_capacity": 2306.3765,
+                        "investment_cost": 42317
+                    }
+                }
+            },
+            {
+                "id": "MT_to_WA",
+                "edges": {
+                    "transmission_edge": {
+                        "can_retire": false,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "start_vertex": "elec_MT",
+                        "line_loss_percentage": 0.091,
+                        "end_vertex": "elec_WA",
+                        "max_capacity": 3810.3,
+                        "can_expand": true,
+                        "existing_capacity": 1905.3,
+                        "investment_cost": 58148
+                    }
+                }
+            },
+            {
+                "id": "MT_to_WY",
+                "edges": {
+                    "transmission_edge": {
+                        "can_retire": false,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "start_vertex": "elec_MT",
+                        "line_loss_percentage": 0.0388,
+                        "end_vertex": "elec_WY",
+                        "max_capacity": 1466.1595,
+                        "can_expand": true,
+                        "existing_capacity": 733.1595,
+                        "investment_cost": 30867
+                    }
+                }
+            },
+            {
+                "id": "NM_to_UT",
+                "edges": {
+                    "transmission_edge": {
+                        "can_retire": false,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "start_vertex": "elec_NM",
+                        "line_loss_percentage": 0.0513,
+                        "end_vertex": "elec_UT",
+                        "max_capacity": 1314.1785,
+                        "can_expand": true,
+                        "existing_capacity": 657.1785,
+                        "investment_cost": 37701
+                    }
+                }
+            },
+            {
+                "id": "NV_to_UT",
+                "edges": {
+                    "transmission_edge": {
+                        "can_retire": false,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "start_vertex": "elec_NV",
+                        "line_loss_percentage": 0.0354,
+                        "end_vertex": "elec_UT",
+                        "max_capacity": 1396.2615,
+                        "can_expand": true,
+                        "existing_capacity": 698.2615,
+                        "investment_cost": 30671
+                    }
+                }
+            },
+            {
+                "id": "OR_to_WA",
+                "edges": {
+                    "transmission_edge": {
+                        "can_retire": false,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "start_vertex": "elec_OR",
+                        "line_loss_percentage": 0.019,
+                        "end_vertex": "elec_WA",
+                        "max_capacity": 42558.085999999996,
+                        "can_expand": true,
+                        "existing_capacity": 21279.086,
+                        "investment_cost": 26471
+                    }
+                }
+            },
+            {
+                "id": "UT_to_WY",
+                "edges": {
+                    "transmission_edge": {
+                        "can_retire": false,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "start_vertex": "elec_UT",
+                        "line_loss_percentage": 0.0411,
+                        "end_vertex": "elec_WY",
+                        "max_capacity": 1838.231,
+                        "can_expand": true,
+                        "existing_capacity": 919.231,
+                        "investment_cost": 32854
+                    }
+                }
+            }
+        ],
+        "type": "TransmissionLink"
+    }
+}

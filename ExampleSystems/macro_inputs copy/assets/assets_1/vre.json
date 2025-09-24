@@ -1,0 +1,2713 @@
+{
+    "VRE": {
+        "global_data": {
+            "transforms": {
+                "timedata": "Electricity"
+            },
+            "edges": {
+                "edge": {
+                    "unidirectional": true,
+                    "has_capacity": true,
+                    "commodity": "Electricity"
+                }
+            }
+        },
+        "instance_data": [
+            {
+                "id": "AZ_onshore_wind_turbine_1",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 0,
+                        "can_expand": false,
+                        "constraints": {
+                            "CapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 0,
+                        "end_vertex": "elec_AZ",
+                        "investment_cost": 0,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "AZ_onshore_wind_turbine_1",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 617.3
+                    }
+                }
+            },
+            {
+                "id": "AZ_solar_photovoltaic_1",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 0,
+                        "can_expand": false,
+                        "constraints": {
+                            "CapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 0,
+                        "end_vertex": "elec_AZ",
+                        "investment_cost": 0,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "AZ_solar_photovoltaic_1",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 3049.6
+                    }
+                }
+            },
+            {
+                "id": "CA_onshore_wind_turbine_1",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 0,
+                        "can_expand": false,
+                        "constraints": {
+                            "CapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 0,
+                        "end_vertex": "elec_CA",
+                        "investment_cost": 0,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "CA_onshore_wind_turbine_1",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 1578.7
+                    }
+                }
+            },
+            {
+                "id": "CA_solar_photovoltaic_1",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 0,
+                        "can_expand": false,
+                        "constraints": {
+                            "CapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 0,
+                        "end_vertex": "elec_CA",
+                        "investment_cost": 0,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "CA_solar_photovoltaic_1",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 5102
+                    }
+                }
+            },
+            {
+                "id": "CO_onshore_wind_turbine_1",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 0,
+                        "can_expand": false,
+                        "constraints": {
+                            "CapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 0,
+                        "end_vertex": "elec_CO",
+                        "investment_cost": 0,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "CO_onshore_wind_turbine_1",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 4958
+                    }
+                }
+            },
+            {
+                "id": "CO_solar_photovoltaic_1",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 0,
+                        "can_expand": false,
+                        "constraints": {
+                            "CapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 0,
+                        "end_vertex": "elec_CO",
+                        "investment_cost": 0,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "CO_solar_photovoltaic_1",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 2269.7
+                    }
+                }
+            },
+            {
+                "id": "ID_onshore_wind_turbine_1",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 0,
+                        "can_expand": false,
+                        "constraints": {
+                            "CapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 0,
+                        "end_vertex": "elec_ID",
+                        "investment_cost": 0,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "ID_onshore_wind_turbine_1",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 912.8
+                    }
+                }
+            },
+            {
+                "id": "ID_solar_photovoltaic_1",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 0,
+                        "can_expand": false,
+                        "constraints": {
+                            "CapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 0,
+                        "end_vertex": "elec_ID",
+                        "investment_cost": 0,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "ID_solar_photovoltaic_1",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 228
+                    }
+                }
+            },
+            {
+                "id": "MT_onshore_wind_turbine_1",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 0,
+                        "can_expand": false,
+                        "constraints": {
+                            "CapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 0,
+                        "end_vertex": "elec_MT",
+                        "investment_cost": 0,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "MT_onshore_wind_turbine_1",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 842.9
+                    }
+                }
+            },
+            {
+                "id": "MT_solar_photovoltaic_1",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 0,
+                        "can_expand": false,
+                        "constraints": {
+                            "CapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 0,
+                        "end_vertex": "elec_MT",
+                        "investment_cost": 0,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "MT_solar_photovoltaic_1",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 177
+                    }
+                }
+            },
+            {
+                "id": "NM_onshore_wind_turbine_1",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 0,
+                        "can_expand": false,
+                        "constraints": {
+                            "CapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 0,
+                        "end_vertex": "elec_NM",
+                        "investment_cost": 0,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "NM_onshore_wind_turbine_1",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 2149.9
+                    }
+                }
+            },
+            {
+                "id": "NM_solar_photovoltaic_1",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 0,
+                        "can_expand": false,
+                        "constraints": {
+                            "CapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 0,
+                        "end_vertex": "elec_NM",
+                        "investment_cost": 0,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "NM_solar_photovoltaic_1",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 1057.5
+                    }
+                }
+            },
+            {
+                "id": "NV_onshore_wind_turbine_1",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 0,
+                        "can_expand": false,
+                        "constraints": {
+                            "CapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 0,
+                        "end_vertex": "elec_NV",
+                        "investment_cost": 0,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "NV_onshore_wind_turbine_1",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 150
+                    }
+                }
+            },
+            {
+                "id": "NV_solar_photovoltaic_1",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 0,
+                        "can_expand": false,
+                        "constraints": {
+                            "CapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 0,
+                        "end_vertex": "elec_NV",
+                        "investment_cost": 0,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "NV_solar_photovoltaic_1",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 5164.4
+                    }
+                }
+            },
+            {
+                "id": "OR_onshore_wind_turbine_1",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 0,
+                        "can_expand": false,
+                        "constraints": {
+                            "CapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 0,
+                        "end_vertex": "elec_OR",
+                        "investment_cost": 0,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "OR_onshore_wind_turbine_1",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 3954.8
+                    }
+                }
+            },
+            {
+                "id": "OR_solar_photovoltaic_1",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 0,
+                        "can_expand": false,
+                        "constraints": {
+                            "CapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 0,
+                        "end_vertex": "elec_OR",
+                        "investment_cost": 0,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "OR_solar_photovoltaic_1",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 1477.8
+                    }
+                }
+            },
+            {
+                "id": "UT_onshore_wind_turbine_1",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 0,
+                        "can_expand": false,
+                        "constraints": {
+                            "CapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 0,
+                        "end_vertex": "elec_UT",
+                        "investment_cost": 0,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "UT_onshore_wind_turbine_1",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 389.7
+                    }
+                }
+            },
+            {
+                "id": "UT_solar_photovoltaic_1",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 0,
+                        "can_expand": false,
+                        "constraints": {
+                            "CapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 0,
+                        "end_vertex": "elec_UT",
+                        "investment_cost": 0,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "UT_solar_photovoltaic_1",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 2113.2
+                    }
+                }
+            },
+            {
+                "id": "WA_onshore_wind_turbine_1",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 0,
+                        "can_expand": false,
+                        "constraints": {
+                            "CapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 0,
+                        "end_vertex": "elec_WA",
+                        "investment_cost": 0,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "WA_onshore_wind_turbine_1",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 3500.9
+                    }
+                }
+            },
+            {
+                "id": "WA_solar_photovoltaic_1",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 0,
+                        "can_expand": false,
+                        "constraints": {
+                            "CapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 0,
+                        "end_vertex": "elec_WA",
+                        "investment_cost": 0,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "WA_solar_photovoltaic_1",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 187.1
+                    }
+                }
+            },
+            {
+                "id": "WY_onshore_wind_turbine_1",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 0,
+                        "can_expand": false,
+                        "constraints": {
+                            "CapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 0,
+                        "end_vertex": "elec_WY",
+                        "investment_cost": 0,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "WY_onshore_wind_turbine_1",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 4450.4
+                    }
+                }
+            },
+            {
+                "id": "WY_solar_photovoltaic_1",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 0,
+                        "can_expand": false,
+                        "constraints": {
+                            "CapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 0,
+                        "end_vertex": "elec_WY",
+                        "investment_cost": 0,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "WY_solar_photovoltaic_1",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 92
+                    }
+                }
+            },
+            {
+                "id": "AZ_landbasedwind_class3_moderate_1",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 41490,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 25879,
+                        "end_vertex": "elec_AZ",
+                        "investment_cost": 113337,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "AZ_landbasedwind_class3_moderate_1",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            },
+            {
+                "id": "AZ_landbasedwind_class3_moderate_2",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 41467.4,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 25879,
+                        "end_vertex": "elec_AZ",
+                        "investment_cost": 116652,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "AZ_landbasedwind_class3_moderate_2",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            },
+            {
+                "id": "AZ_landbasedwind_class3_moderate_3",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 41355.1,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 25879,
+                        "end_vertex": "elec_AZ",
+                        "investment_cost": 117711,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "AZ_landbasedwind_class3_moderate_3",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            },
+            {
+                "id": "AZ_utilitypv_class1_moderate_1",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 291737.3,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 15910,
+                        "end_vertex": "elec_AZ",
+                        "investment_cost": 79824,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "AZ_utilitypv_class1_moderate_1",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            },
+            {
+                "id": "AZ_utilitypv_class1_moderate_2",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 291666.2,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 15910,
+                        "end_vertex": "elec_AZ",
+                        "investment_cost": 92733,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "AZ_utilitypv_class1_moderate_2",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            },
+            {
+                "id": "AZ_utilitypv_class1_moderate_3",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 291609.2,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 15910,
+                        "end_vertex": "elec_AZ",
+                        "investment_cost": 112391,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "AZ_utilitypv_class1_moderate_3",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            },
+            {
+                "id": "CA_landbasedwind_class3_moderate_1",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 6194.9,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 25879,
+                        "end_vertex": "elec_CA",
+                        "investment_cost": 189821,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "CA_landbasedwind_class3_moderate_1",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            },
+            {
+                "id": "CA_landbasedwind_class3_moderate_2",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 6198.3,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 25879,
+                        "end_vertex": "elec_CA",
+                        "investment_cost": 185827,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "CA_landbasedwind_class3_moderate_2",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            },
+            {
+                "id": "CA_landbasedwind_class3_moderate_3",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 6176.2,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 25879,
+                        "end_vertex": "elec_CA",
+                        "investment_cost": 188100,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "CA_landbasedwind_class3_moderate_3",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            },
+            {
+                "id": "CA_utilitypv_class1_moderate_1",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 227029.7,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 15910,
+                        "end_vertex": "elec_CA",
+                        "investment_cost": 95818,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "CA_utilitypv_class1_moderate_1",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            },
+            {
+                "id": "CA_utilitypv_class1_moderate_2",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 226973.6,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 15910,
+                        "end_vertex": "elec_CA",
+                        "investment_cost": 113803,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "CA_utilitypv_class1_moderate_2",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            },
+            {
+                "id": "CA_utilitypv_class1_moderate_3",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 226829.3,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 15910,
+                        "end_vertex": "elec_CA",
+                        "investment_cost": 122956,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "CA_utilitypv_class1_moderate_3",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            },
+            {
+                "id": "CA_offshorewind_class3_moderate_fixed_1_1",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 171067.5,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 69431,
+                        "end_vertex": "elec_CA",
+                        "investment_cost": 346605,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "CA_offshorewind_class3_moderate_fixed_1_1",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            },
+            {
+                "id": "CA_offshorewind_class3_moderate_fixed_0_1",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 171067.5,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 69431,
+                        "end_vertex": "elec_CA",
+                        "investment_cost": 346605,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "CA_offshorewind_class3_moderate_fixed_0_1",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            },
+            {
+                "id": "CA_offshorewind_class12_moderate_floating_0_1",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 171067.5,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 64011,
+                        "end_vertex": "elec_CA",
+                        "investment_cost": 593883,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "CA_offshorewind_class12_moderate_floating_0_1",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            },
+            {
+                "id": "CO_landbasedwind_class3_moderate_1",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 40601.4,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 25879,
+                        "end_vertex": "elec_CO",
+                        "investment_cost": 111845,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "CO_landbasedwind_class3_moderate_1",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            },
+            {
+                "id": "CO_landbasedwind_class3_moderate_2",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 40559.6,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 25879,
+                        "end_vertex": "elec_CO",
+                        "investment_cost": 113309,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "CO_landbasedwind_class3_moderate_2",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            },
+            {
+                "id": "CO_landbasedwind_class3_moderate_3",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 40549.4,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 25879,
+                        "end_vertex": "elec_CO",
+                        "investment_cost": 121794,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "CO_landbasedwind_class3_moderate_3",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            },
+            {
+                "id": "CO_utilitypv_class1_moderate_1",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 308898.4,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 15910,
+                        "end_vertex": "elec_CO",
+                        "investment_cost": 85187,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "CO_utilitypv_class1_moderate_1",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            },
+            {
+                "id": "CO_utilitypv_class1_moderate_2",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 308995.3,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 15910,
+                        "end_vertex": "elec_CO",
+                        "investment_cost": 97427,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "CO_utilitypv_class1_moderate_2",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            },
+            {
+                "id": "CO_utilitypv_class1_moderate_3",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 308799,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 15910,
+                        "end_vertex": "elec_CO",
+                        "investment_cost": 112423,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "CO_utilitypv_class1_moderate_3",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            },
+            {
+                "id": "ID_landbasedwind_class3_moderate_1",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 56552.5,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 25879,
+                        "end_vertex": "elec_ID",
+                        "investment_cost": 117466,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "ID_landbasedwind_class3_moderate_1",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            },
+            {
+                "id": "ID_landbasedwind_class3_moderate_2",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 56496,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 25879,
+                        "end_vertex": "elec_ID",
+                        "investment_cost": 123079,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "ID_landbasedwind_class3_moderate_2",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            },
+            {
+                "id": "ID_landbasedwind_class3_moderate_3",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 56455.1,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 25879,
+                        "end_vertex": "elec_ID",
+                        "investment_cost": 124319,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "ID_landbasedwind_class3_moderate_3",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            },
+            {
+                "id": "ID_utilitypv_class1_moderate_1",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 531645.4,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 15910,
+                        "end_vertex": "elec_ID",
+                        "investment_cost": 91839,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "ID_utilitypv_class1_moderate_1",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            },
+            {
+                "id": "ID_utilitypv_class1_moderate_2",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 531538.2,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 15910,
+                        "end_vertex": "elec_ID",
+                        "investment_cost": 104559,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "ID_utilitypv_class1_moderate_2",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            },
+            {
+                "id": "ID_utilitypv_class1_moderate_3",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 531554.2,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 15910,
+                        "end_vertex": "elec_ID",
+                        "investment_cost": 113624,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "ID_utilitypv_class1_moderate_3",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            },
+            {
+                "id": "MT_landbasedwind_class3_moderate_1",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 71917.6,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 25879,
+                        "end_vertex": "elec_MT",
+                        "investment_cost": 139880,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "MT_landbasedwind_class3_moderate_1",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            },
+            {
+                "id": "MT_landbasedwind_class3_moderate_2",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 71859.7,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 25879,
+                        "end_vertex": "elec_MT",
+                        "investment_cost": 141885,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "MT_landbasedwind_class3_moderate_2",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            },
+            {
+                "id": "MT_landbasedwind_class3_moderate_3",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 71841,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 25879,
+                        "end_vertex": "elec_MT",
+                        "investment_cost": 145687,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "MT_landbasedwind_class3_moderate_3",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            },
+            {
+                "id": "MT_utilitypv_class1_moderate_1",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 509309.5,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 15910,
+                        "end_vertex": "elec_MT",
+                        "investment_cost": 84732,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "MT_utilitypv_class1_moderate_1",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            },
+            {
+                "id": "MT_utilitypv_class1_moderate_2",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 509283.3,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 15910,
+                        "end_vertex": "elec_MT",
+                        "investment_cost": 97944,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "MT_utilitypv_class1_moderate_2",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            },
+            {
+                "id": "MT_utilitypv_class1_moderate_3",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 509190.5,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 15910,
+                        "end_vertex": "elec_MT",
+                        "investment_cost": 108161,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "MT_utilitypv_class1_moderate_3",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            },
+            {
+                "id": "NM_landbasedwind_class3_moderate_1",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 62981.1,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 25879,
+                        "end_vertex": "elec_NM",
+                        "investment_cost": 108678,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "NM_landbasedwind_class3_moderate_1",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            },
+            {
+                "id": "NM_landbasedwind_class3_moderate_2",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 63041.7,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 25879,
+                        "end_vertex": "elec_NM",
+                        "investment_cost": 116684,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "NM_landbasedwind_class3_moderate_2",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            },
+            {
+                "id": "NM_landbasedwind_class3_moderate_3",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 62887.2,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 25879,
+                        "end_vertex": "elec_NM",
+                        "investment_cost": 124811,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "NM_landbasedwind_class3_moderate_3",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            },
+            {
+                "id": "NM_utilitypv_class1_moderate_1",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 430778.9,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 15910,
+                        "end_vertex": "elec_NM",
+                        "investment_cost": 84342,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "NM_utilitypv_class1_moderate_1",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            },
+            {
+                "id": "NM_utilitypv_class1_moderate_2",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 430720,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 15910,
+                        "end_vertex": "elec_NM",
+                        "investment_cost": 96464,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "NM_utilitypv_class1_moderate_2",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            },
+            {
+                "id": "NM_utilitypv_class1_moderate_3",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 430655.9,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 15910,
+                        "end_vertex": "elec_NM",
+                        "investment_cost": 112615,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "NM_utilitypv_class1_moderate_3",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            },
+            {
+                "id": "NV_landbasedwind_class3_moderate_1",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 36474.9,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 25879,
+                        "end_vertex": "elec_NV",
+                        "investment_cost": 116101,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "NV_landbasedwind_class3_moderate_1",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            },
+            {
+                "id": "NV_landbasedwind_class3_moderate_2",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 36439.3,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 25879,
+                        "end_vertex": "elec_NV",
+                        "investment_cost": 123390,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "NV_landbasedwind_class3_moderate_2",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            },
+            {
+                "id": "NV_landbasedwind_class3_moderate_3",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 36385.6,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 25879,
+                        "end_vertex": "elec_NV",
+                        "investment_cost": 127804,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "NV_landbasedwind_class3_moderate_3",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            },
+            {
+                "id": "NV_utilitypv_class1_moderate_1",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 383473,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 15910,
+                        "end_vertex": "elec_NV",
+                        "investment_cost": 93521,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "NV_utilitypv_class1_moderate_1",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            },
+            {
+                "id": "NV_utilitypv_class1_moderate_2",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 383462.8,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 15910,
+                        "end_vertex": "elec_NV",
+                        "investment_cost": 103303,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "NV_utilitypv_class1_moderate_2",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            },
+            {
+                "id": "NV_utilitypv_class1_moderate_3",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 383340,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 15910,
+                        "end_vertex": "elec_NV",
+                        "investment_cost": 126761,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "NV_utilitypv_class1_moderate_3",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            },
+            {
+                "id": "OR_landbasedwind_class3_moderate_1",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 19214.8,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 25879,
+                        "end_vertex": "elec_OR",
+                        "investment_cost": 146462,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "OR_landbasedwind_class3_moderate_1",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            },
+            {
+                "id": "OR_landbasedwind_class3_moderate_2",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 19165.9,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 25879,
+                        "end_vertex": "elec_OR",
+                        "investment_cost": 155193,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "OR_landbasedwind_class3_moderate_2",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            },
+            {
+                "id": "OR_landbasedwind_class3_moderate_3",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 19132.6,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 25879,
+                        "end_vertex": "elec_OR",
+                        "investment_cost": 156989,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "OR_landbasedwind_class3_moderate_3",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            },
+            {
+                "id": "OR_utilitypv_class1_moderate_1",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 184036,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 15910,
+                        "end_vertex": "elec_OR",
+                        "investment_cost": 95982,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "OR_utilitypv_class1_moderate_1",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            },
+            {
+                "id": "OR_utilitypv_class1_moderate_2",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 183919.6,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 15910,
+                        "end_vertex": "elec_OR",
+                        "investment_cost": 108023,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "OR_utilitypv_class1_moderate_2",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            },
+            {
+                "id": "OR_utilitypv_class1_moderate_3",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 183912.8,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 15910,
+                        "end_vertex": "elec_OR",
+                        "investment_cost": 115666,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "OR_utilitypv_class1_moderate_3",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            },
+            {
+                "id": "OR_offshorewind_class3_moderate_fixed_1_1",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 339643.9,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 69431,
+                        "end_vertex": "elec_OR",
+                        "investment_cost": 340978,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "OR_offshorewind_class3_moderate_fixed_1_1",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            },
+            {
+                "id": "OR_offshorewind_class3_moderate_fixed_0_1",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 339643.9,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 69431,
+                        "end_vertex": "elec_OR",
+                        "investment_cost": 340978,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "OR_offshorewind_class3_moderate_fixed_0_1",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            },
+            {
+                "id": "OR_offshorewind_class12_moderate_floating_0_1",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 339643.9,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 64011,
+                        "end_vertex": "elec_OR",
+                        "investment_cost": 588256,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "OR_offshorewind_class12_moderate_floating_0_1",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            },
+            {
+                "id": "UT_landbasedwind_class3_moderate_1",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 24433.5,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 25879,
+                        "end_vertex": "elec_UT",
+                        "investment_cost": 117343,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "UT_landbasedwind_class3_moderate_1",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            },
+            {
+                "id": "UT_landbasedwind_class3_moderate_2",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 24513,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 25879,
+                        "end_vertex": "elec_UT",
+                        "investment_cost": 120364,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "UT_landbasedwind_class3_moderate_2",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            },
+            {
+                "id": "UT_landbasedwind_class3_moderate_3",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 24292.2,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 25879,
+                        "end_vertex": "elec_UT",
+                        "investment_cost": 123980,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "UT_landbasedwind_class3_moderate_3",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            },
+            {
+                "id": "UT_utilitypv_class1_moderate_1",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 242743.4,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 15910,
+                        "end_vertex": "elec_UT",
+                        "investment_cost": 91664,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "UT_utilitypv_class1_moderate_1",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            },
+            {
+                "id": "UT_utilitypv_class1_moderate_2",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 242700.4,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 15910,
+                        "end_vertex": "elec_UT",
+                        "investment_cost": 102077,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "UT_utilitypv_class1_moderate_2",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            },
+            {
+                "id": "UT_utilitypv_class1_moderate_3",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 242597.3,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 15910,
+                        "end_vertex": "elec_UT",
+                        "investment_cost": 113632,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "UT_utilitypv_class1_moderate_3",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            },
+            {
+                "id": "WA_landbasedwind_class3_moderate_1",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 15930.6,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 25879,
+                        "end_vertex": "elec_WA",
+                        "investment_cost": 144994,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "WA_landbasedwind_class3_moderate_1",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            },
+            {
+                "id": "WA_landbasedwind_class3_moderate_2",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 15777.1,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 25879,
+                        "end_vertex": "elec_WA",
+                        "investment_cost": 153537,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "WA_landbasedwind_class3_moderate_2",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            },
+            {
+                "id": "WA_landbasedwind_class3_moderate_3",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 15835,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 25879,
+                        "end_vertex": "elec_WA",
+                        "investment_cost": 153250,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "WA_landbasedwind_class3_moderate_3",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            },
+            {
+                "id": "WA_utilitypv_class1_moderate_1",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 131047.1,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 15910,
+                        "end_vertex": "elec_WA",
+                        "investment_cost": 93457,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "WA_utilitypv_class1_moderate_1",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            },
+            {
+                "id": "WA_utilitypv_class1_moderate_2",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 130789.8,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 15910,
+                        "end_vertex": "elec_WA",
+                        "investment_cost": 105379,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "WA_utilitypv_class1_moderate_2",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            },
+            {
+                "id": "WA_utilitypv_class1_moderate_3",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 130905.5,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 15910,
+                        "end_vertex": "elec_WA",
+                        "investment_cost": 114515,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "WA_utilitypv_class1_moderate_3",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            },
+            {
+                "id": "WA_offshorewind_class3_moderate_fixed_1_1",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 68339.3,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 69431,
+                        "end_vertex": "elec_WA",
+                        "investment_cost": 332502,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "WA_offshorewind_class3_moderate_fixed_1_1",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            },
+            {
+                "id": "WA_offshorewind_class3_moderate_fixed_0_1",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 68339.3,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 69431,
+                        "end_vertex": "elec_WA",
+                        "investment_cost": 332502,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "WA_offshorewind_class3_moderate_fixed_0_1",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            },
+            {
+                "id": "WA_offshorewind_class12_moderate_floating_0_1",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 68339.3,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 64011,
+                        "end_vertex": "elec_WA",
+                        "investment_cost": 579780,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "WA_offshorewind_class12_moderate_floating_0_1",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            },
+            {
+                "id": "WY_landbasedwind_class3_moderate_1",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 78317.6,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 25879,
+                        "end_vertex": "elec_WY",
+                        "investment_cost": 106571,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "WY_landbasedwind_class3_moderate_1",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            },
+            {
+                "id": "WY_landbasedwind_class3_moderate_2",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 78295.6,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 25879,
+                        "end_vertex": "elec_WY",
+                        "investment_cost": 112668,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "WY_landbasedwind_class3_moderate_2",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            },
+            {
+                "id": "WY_landbasedwind_class3_moderate_3",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 78276,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 25879,
+                        "end_vertex": "elec_WY",
+                        "investment_cost": 112840,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "WY_landbasedwind_class3_moderate_3",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            },
+            {
+                "id": "WY_utilitypv_class1_moderate_1",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 575337.1,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 15910,
+                        "end_vertex": "elec_WY",
+                        "investment_cost": 84955,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "WY_utilitypv_class1_moderate_1",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            },
+            {
+                "id": "WY_utilitypv_class1_moderate_2",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 575160.6,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 15910,
+                        "end_vertex": "elec_WY",
+                        "investment_cost": 94006,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "WY_utilitypv_class1_moderate_2",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            },
+            {
+                "id": "WY_utilitypv_class1_moderate_3",
+                "edges": {
+                    "edge": {
+                        "can_retire": true,
+                        "max_capacity": 575214.2,
+                        "can_expand": true,
+                        "constraints": {
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "min_capacity": 0,
+                        "commodity": "Electricity",
+                        "fixed_om_cost": 15910,
+                        "end_vertex": "elec_WY",
+                        "investment_cost": 105535,
+                        "variable_om_cost": 0,
+                        "capacity_size": 1,
+                        "availability": {
+                            "timeseries": {
+                                "header": "WY_utilitypv_class1_moderate_3",
+                                "path": "system/vre_availability.csv"
+                            }
+                        },
+                        "existing_capacity": 0
+                    }
+                }
+            }
+        ],
+        "type": "VRE"
+    }
+}

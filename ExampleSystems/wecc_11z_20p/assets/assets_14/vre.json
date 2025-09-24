@@ -617,8 +617,11 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 23397,
@@ -645,8 +648,11 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 23397,
@@ -673,8 +679,11 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 23397,
@@ -701,8 +710,11 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 12080,
@@ -729,8 +741,11 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 12080,
@@ -757,8 +772,11 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 12080,
@@ -785,8 +803,11 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 23397,
@@ -813,8 +834,11 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 23397,
@@ -841,8 +865,11 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 23397,
@@ -869,8 +896,17 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "learning_type": "solar",
+                        "n_learning_pwl_segments": 5,
+                        "max_cumul_capacity": 100000000,
+                        "cumulative_capacity_init":1000000,
+                        "learning_parameter":0.33,
+                        "cumulative_external_capacity":1000000,
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 12080,
@@ -897,8 +933,11 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 12080,
@@ -925,8 +964,11 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 12080,
@@ -953,8 +995,11 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 62843,
@@ -981,8 +1026,11 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 62843,
@@ -1009,8 +1057,11 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 55518,
@@ -1037,8 +1088,11 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 23397,
@@ -1065,8 +1119,11 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 23397,
@@ -1093,8 +1150,11 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 23397,
@@ -1121,8 +1181,11 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 12080,
@@ -1149,8 +1212,11 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 12080,
@@ -1177,8 +1243,11 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 12080,
@@ -1205,8 +1274,11 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 23397,
@@ -1233,8 +1305,11 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 23397,
@@ -1261,8 +1336,11 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 23397,
@@ -1289,8 +1367,11 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 12080,
@@ -1317,8 +1398,11 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 12080,
@@ -1345,8 +1429,11 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 12080,
@@ -1373,8 +1460,11 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 23397,
@@ -1401,8 +1491,11 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 23397,
@@ -1429,8 +1522,11 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 23397,
@@ -1457,8 +1553,11 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 12080,
@@ -1485,8 +1584,11 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 12080,
@@ -1513,8 +1615,11 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 12080,
@@ -1541,8 +1646,11 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 23397,
@@ -1569,8 +1677,11 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 23397,
@@ -1597,8 +1708,11 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 23397,
@@ -1625,8 +1739,11 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 12080,
@@ -1653,8 +1770,11 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 12080,
@@ -1681,8 +1801,11 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 12080,
@@ -1709,8 +1832,11 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 23397,
@@ -1737,8 +1863,11 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 23397,
@@ -1765,8 +1894,11 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 23397,
@@ -1793,8 +1925,11 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 12080,
@@ -1821,8 +1956,11 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 12080,
@@ -1849,8 +1987,11 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 12080,
@@ -1877,8 +2018,11 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 23397,
@@ -1905,8 +2049,11 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 23397,
@@ -1933,8 +2080,11 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 23397,
@@ -1961,8 +2111,11 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 12080,
@@ -1989,8 +2142,11 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 12080,
@@ -2017,8 +2173,11 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 12080,
@@ -2045,8 +2204,11 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 62843,
@@ -2073,8 +2235,11 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 62843,
@@ -2101,8 +2266,11 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 55518,
@@ -2129,8 +2297,11 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 23397,
@@ -2157,8 +2328,11 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 23397,
@@ -2185,8 +2359,11 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 23397,
@@ -2213,8 +2390,11 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 12080,
@@ -2241,8 +2421,11 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 12080,
@@ -2269,8 +2452,11 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 12080,
@@ -2297,8 +2483,11 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 23397,
@@ -2325,8 +2514,11 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 23397,
@@ -2353,8 +2545,11 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 23397,
@@ -2381,8 +2576,11 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 12080,
@@ -2409,8 +2607,11 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 12080,
@@ -2437,8 +2638,11 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 12080,
@@ -2465,8 +2669,11 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 62843,
@@ -2493,8 +2700,11 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 62843,
@@ -2521,8 +2731,11 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 55518,
@@ -2549,8 +2762,11 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 23397,
@@ -2577,8 +2793,11 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 23397,
@@ -2605,8 +2824,11 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 23397,
@@ -2633,8 +2855,11 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 12080,
@@ -2661,8 +2886,11 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 12080,
@@ -2689,8 +2917,11 @@
                         "can_expand": true,
                         "constraints": {
                             "CapacityConstraint": true,
-                            "MaxCapacityConstraint": true
+                            "MaxCapacityConstraint": true,
+                            "DevelopmentConstraint": true,
+                            "MaxCapacityGrowthConstraint": true
                         },
+                        "max_new_capacity_init": 10000,
                         "min_capacity": 0,
                         "commodity": "Electricity",
                         "fixed_om_cost": 12080,

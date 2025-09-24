@@ -1,4 +1,5 @@
 {
     "ConstraintScaling": true,
-    "OutputLayout": "long"
+    "OutputLayout": "long",
+    "TechnologyLearning": false
 }
