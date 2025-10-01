@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#SBATCH --job-name=ed_test        # create a short name for your job
+#SBATCH --job-name=ed_sl        # create a short name for your job
 #SBATCH --nodes=1                # node count
 #SBATCH --ntasks=1               # total number of tasks across all nodes
 #SBATCH --ntasks-per-node=1
