@@ -7,6 +7,7 @@ end
 
 function add_model_constraint!(ct::MaxCapacityGrowthConstraint, y::Union{AbstractEdge,AbstractStorage}, model::Model)
 
+
     curr_stage = period_index(y)
     prev_stage = curr_stage - 1
     # Rate of increase
@@ -23,6 +24,7 @@ function add_model_constraint!(ct::MaxCapacityGrowthConstraint, y::Union{Abstrac
     if curr_stage >= 2
         ct.constraint_ref = @constraint(model, new_capacity_track(y,curr_stage) >= (1-CADR)*new_capacity_track(y, prev_stage))
     end
+
 
     return nothing
 

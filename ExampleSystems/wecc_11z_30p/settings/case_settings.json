@@ -32,5 +32,6 @@
         1
     ],
     "SolutionAlgorithm": "Monolithic",
-    "DiscountRate": 0.045
+    "DiscountRate": 0.045,
+    "TechnologyLearning": false
 }

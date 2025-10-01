@@ -63,6 +63,8 @@
                         "variable_om_cost": 0,
                         "efficiency": 1,
                         "capacity_size": 1,
+                        "wacc": 0,
+                        "capital_recovery_period": 0,
                         "availability": [
                             1
                         ],
@@ -135,6 +137,8 @@
                         "variable_om_cost": 0,
                         "efficiency": 1,
                         "capacity_size": 1,
+                        "wacc": 0,
+                        "capital_recovery_period": 0,
                         "availability": [
                             1
                         ],
@@ -207,6 +211,8 @@
                         "variable_om_cost": 0,
                         "efficiency": 1,
                         "capacity_size": 1,
+                        "wacc": 0,
+                        "capital_recovery_period": 0,
                         "availability": [
                             1
                         ],
@@ -279,6 +285,8 @@
                         "variable_om_cost": 0,
                         "efficiency": 1,
                         "capacity_size": 1,
+                        "wacc": 0,
+                        "capital_recovery_period": 0,
                         "availability": [
                             1
                         ],
@@ -351,6 +359,8 @@
                         "variable_om_cost": 0,
                         "efficiency": 1,
                         "capacity_size": 1,
+                        "wacc": 0,
+                        "capital_recovery_period": 0,
                         "availability": [
                             1
                         ],
@@ -423,6 +433,8 @@
                         "variable_om_cost": 0,
                         "efficiency": 1,
                         "capacity_size": 1,
+                        "wacc": 0,
+                        "capital_recovery_period": 0,
                         "availability": [
                             1
                         ],
@@ -495,6 +507,8 @@
                         "variable_om_cost": 0,
                         "efficiency": 1,
                         "capacity_size": 1,
+                        "wacc": 0,
+                        "capital_recovery_period": 0,
                         "availability": [
                             1
                         ],
@@ -567,6 +581,8 @@
                         "variable_om_cost": 0,
                         "efficiency": 1,
                         "capacity_size": 1,
+                        "wacc": 0,
+                        "capital_recovery_period": 0,
                         "availability": [
                             1
                         ],
@@ -639,6 +655,8 @@
                         "variable_om_cost": 0,
                         "efficiency": 1,
                         "capacity_size": 1,
+                        "wacc": 0,
+                        "capital_recovery_period": 0,
                         "availability": [
                             1
                         ],
@@ -711,6 +729,8 @@
                         "variable_om_cost": 0,
                         "efficiency": 1,
                         "capacity_size": 1,
+                        "wacc": 0,
+                        "capital_recovery_period": 0,
                         "availability": [
                             1
                         ],

@@ -30,6 +30,8 @@
                         "end_vertex": "elec_AZ",
                         "variable_om_cost": 0,
                         "capacity_size": 1,
+                        "wacc": 0,
+                        "capital_recovery_period": 0,
                         "availability": [
                             1
                         ],
@@ -54,6 +56,8 @@
                         "end_vertex": "elec_AZ",
                         "variable_om_cost": 0,
                         "capacity_size": 1,
+                        "wacc": 0,
+                        "capital_recovery_period": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "AZ_small_hydroelectric_1",
@@ -81,6 +85,8 @@
                         "end_vertex": "elec_CA",
                         "variable_om_cost": 0,
                         "capacity_size": 1,
+                        "wacc": 0,
+                        "capital_recovery_period": 0,
                         "availability": [
                             1
                         ],
@@ -105,6 +111,8 @@
                         "end_vertex": "elec_CA",
                         "variable_om_cost": 0,
                         "capacity_size": 1,
+                        "wacc": 0,
+                        "capital_recovery_period": 0,
                         "availability": [
                             1
                         ],
@@ -129,6 +137,8 @@
                         "end_vertex": "elec_CA",
                         "variable_om_cost": 0,
                         "capacity_size": 1,
+                        "wacc": 0,
+                        "capital_recovery_period": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "CA_small_hydroelectric_1",
@@ -156,6 +166,8 @@
                         "end_vertex": "elec_CO",
                         "variable_om_cost": 0,
                         "capacity_size": 1,
+                        "wacc": 0,
+                        "capital_recovery_period": 0,
                         "availability": [
                             1
                         ],
@@ -180,6 +192,8 @@
                         "end_vertex": "elec_CO",
                         "variable_om_cost": 0,
                         "capacity_size": 1,
+                        "wacc": 0,
+                        "capital_recovery_period": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "CO_small_hydroelectric_1",
@@ -207,6 +221,8 @@
                         "end_vertex": "elec_ID",
                         "variable_om_cost": 0,
                         "capacity_size": 1,
+                        "wacc": 0,
+                        "capital_recovery_period": 0,
                         "availability": [
                             1
                         ],
@@ -231,6 +247,8 @@
                         "end_vertex": "elec_ID",
                         "variable_om_cost": 0,
                         "capacity_size": 1,
+                        "wacc": 0,
+                        "capital_recovery_period": 0,
                         "availability": [
                             1
                         ],
@@ -255,6 +273,8 @@
                         "end_vertex": "elec_ID",
                         "variable_om_cost": 0,
                         "capacity_size": 1,
+                        "wacc": 0,
+                        "capital_recovery_period": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "ID_small_hydroelectric_1",
@@ -282,6 +302,8 @@
                         "end_vertex": "elec_MT",
                         "variable_om_cost": 0,
                         "capacity_size": 1,
+                        "wacc": 0,
+                        "capital_recovery_period": 0,
                         "availability": [
                             1
                         ],
@@ -306,6 +328,8 @@
                         "end_vertex": "elec_MT",
                         "variable_om_cost": 0,
                         "capacity_size": 1,
+                        "wacc": 0,
+                        "capital_recovery_period": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "MT_small_hydroelectric_1",
@@ -333,6 +357,8 @@
                         "end_vertex": "elec_NM",
                         "variable_om_cost": 0,
                         "capacity_size": 1,
+                        "wacc": 0,
+                        "capital_recovery_period": 0,
                         "availability": [
                             1
                         ],
@@ -357,6 +383,8 @@
                         "end_vertex": "elec_NM",
                         "variable_om_cost": 0,
                         "capacity_size": 1,
+                        "wacc": 0,
+                        "capital_recovery_period": 0,
                         "availability": [
                             1
                         ],
@@ -381,6 +409,8 @@
                         "end_vertex": "elec_NM",
                         "variable_om_cost": 0,
                         "capacity_size": 1,
+                        "wacc": 0,
+                        "capital_recovery_period": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "NM_small_hydroelectric_1",
@@ -408,6 +438,8 @@
                         "end_vertex": "elec_NV",
                         "variable_om_cost": 0,
                         "capacity_size": 1,
+                        "wacc": 0,
+                        "capital_recovery_period": 0,
                         "availability": [
                             1
                         ],
@@ -432,6 +464,8 @@
                         "end_vertex": "elec_NV",
                         "variable_om_cost": 0,
                         "capacity_size": 1,
+                        "wacc": 0,
+                        "capital_recovery_period": 0,
                         "availability": [
                             1
                         ],
@@ -456,6 +490,8 @@
                         "end_vertex": "elec_NV",
                         "variable_om_cost": 0,
                         "capacity_size": 1,
+                        "wacc": 0,
+                        "capital_recovery_period": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "NV_small_hydroelectric_1",
@@ -483,6 +519,8 @@
                         "end_vertex": "elec_OR",
                         "variable_om_cost": 0,
                         "capacity_size": 1,
+                        "wacc": 0,
+                        "capital_recovery_period": 0,
                         "availability": [
                             1
                         ],
@@ -507,6 +545,8 @@
                         "end_vertex": "elec_OR",
                         "variable_om_cost": 0,
                         "capacity_size": 1,
+                        "wacc": 0,
+                        "capital_recovery_period": 0,
                         "availability": [
                             1
                         ],
@@ -531,6 +571,8 @@
                         "end_vertex": "elec_OR",
                         "variable_om_cost": 0,
                         "capacity_size": 1,
+                        "wacc": 0,
+                        "capital_recovery_period": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "OR_small_hydroelectric_1",
@@ -558,6 +600,8 @@
                         "end_vertex": "elec_UT",
                         "variable_om_cost": 0,
                         "capacity_size": 1,
+                        "wacc": 0,
+                        "capital_recovery_period": 0,
                         "availability": [
                             1
                         ],
@@ -582,6 +626,8 @@
                         "end_vertex": "elec_UT",
                         "variable_om_cost": 0,
                         "capacity_size": 1,
+                        "wacc": 0,
+                        "capital_recovery_period": 0,
                         "availability": [
                             1
                         ],
@@ -606,6 +652,8 @@
                         "end_vertex": "elec_UT",
                         "variable_om_cost": 0,
                         "capacity_size": 1,
+                        "wacc": 0,
+                        "capital_recovery_period": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "UT_small_hydroelectric_1",
@@ -633,6 +681,8 @@
                         "end_vertex": "elec_WA",
                         "variable_om_cost": 0,
                         "capacity_size": 1,
+                        "wacc": 0,
+                        "capital_recovery_period": 0,
                         "availability": [
                             1
                         ],
@@ -657,6 +707,8 @@
                         "end_vertex": "elec_WA",
                         "variable_om_cost": 0,
                         "capacity_size": 1,
+                        "wacc": 0,
+                        "capital_recovery_period": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "WA_small_hydroelectric_1",
@@ -684,6 +736,8 @@
                         "end_vertex": "elec_WY",
                         "variable_om_cost": 0,
                         "capacity_size": 1,
+                        "wacc": 0,
+                        "capital_recovery_period": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "WY_small_hydroelectric_1",

@@ -1,6 +1,0 @@
-{
-  "PeriodLengths": [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
-  "DiscountRate": 0.045,
-  "SolutionAlgorithm": "Monolithic",
-  "TechnologyLearning": false
-}

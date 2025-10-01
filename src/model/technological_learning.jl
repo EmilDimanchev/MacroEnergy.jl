@@ -18,7 +18,7 @@ function add_learning!(system::System, model::Model)
             e.investment_cost = annualized_investment_cost(e)/annualization_factor(e) 
             println(string("investment cost is",investment_cost(e)))
 
-            if max_cumul_capacity(e) == Inf
+            if max_cumul_capacity(e) == Inf || max_cumul_capacity(e) == -1
                 error("Maximum capacity not specified for learning technology")
             end
     
