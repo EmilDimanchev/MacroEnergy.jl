@@ -60,19 +60,30 @@ macro AbstractStorageBaseAttributes()
         af_duration::Int64 = $storage_defaults[:af_duration]
         cc_duration::Int64 = $storage_defaults[:cc_duration]
         # Definition and evaluation (DE)
-        de_cost::Float64 = 0.0
+        de_cost_perc::Float64 = 0.0
+        de_wacc::Float64 = 0.1
+        de_cap_recovery::Int64 = 1
+        de_annualized_cost::Float64 = 0.0
         new_de_capacity::AffExpr = AffExpr(0.0)
         new_de_capacity_track::Dict{Int64,AffExpr} = Dict(1=>AffExpr(0.0))
         de_capacity::AffExpr = AffExpr(0.0)
         de_capacity_track::Dict{Int64,AffExpr} = Dict(1=>AffExpr(0.0))
         new_de_units::Union{JuMPVariable,Float64} = 0.0
         # Approvals and funding (AF)
+        af_cost_perc::Float64 = 0.0
+        af_wacc::Float64 = 0.1
+        af_cap_recovery::Int64 = 1
+        af_annualized_cost::Float64 = 0.0
         new_af_capacity::AffExpr = AffExpr(0.0)
         new_af_capacity_track::Dict{Int64,AffExpr} = Dict(1=>AffExpr(0.0))
         af_capacity::AffExpr = AffExpr(0.0)
         af_capacity_track::Dict{Int64,AffExpr} = Dict(1=>AffExpr(0.0))
         new_af_units::Union{JuMPVariable,Float64} = 0.0
         # Construction and Commissioning (CC)
+        cc_cost_perc::Float64 = 0.0
+        cc_wacc::Float64 = 0.05
+        cc_cap_recovery::Int64 = 1
+        cc_annualized_cost::Float64 = 0.0
         new_cc_capacity::AffExpr = AffExpr(0.0)
         new_cc_capacity_track::Dict{Int64,AffExpr} = Dict(1=>AffExpr(0.0))
         cc_capacity::AffExpr = AffExpr(0.0)
@@ -248,6 +259,18 @@ max_cumul_capacity(g::AbstractStorage) = g.max_cumul_capacity;
 de_duration(g::AbstractStorage) = g.de_duration;
 af_duration(g::AbstractStorage) = g.af_duration;
 cc_duration(g::AbstractStorage) = g.cc_duration;
+de_cost_perc(g::AbstractStorage) = g.de_cost_perc;
+af_cost_perc(g::AbstractStorage) = g.af_cost_perc;
+cc_cost_perc(g::AbstractStorage) = g.cc_cost_perc;
+de_wacc(g::AbstractStorage) = g.de_wacc;
+af_wacc(g::AbstractStorage) = g.af_wacc;
+cc_wacc(g::AbstractStorage) = g.cc_wacc;
+de_cap_recovery(g::AbstractStorage) = g.de_cap_recovery;
+af_cap_recovery(g::AbstractStorage) = g.af_cap_recovery;
+cc_cap_recovery(g::AbstractStorage) = g.cc_cap_recovery;
+de_annualized_cost(g::AbstractStorage) = g.de_annualized_cost;
+af_annualized_cost(g::AbstractStorage) = g.af_annualized_cost;
+cc_annualized_cost(g::AbstractStorage) = g.cc_annualized_cost;
 # Definition and evaluation (DE)
 new_de_capacity(g::AbstractStorage) = g.new_de_capacity;
 de_capacity(g::AbstractStorage) = g.de_capacity;

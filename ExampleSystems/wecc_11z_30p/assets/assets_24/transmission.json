@@ -17,6 +17,7 @@
                 "edges": {
                     "transmission_edge": {
                         "can_retire": false,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 45771,
                         "learning_type": "none",
                         "af_duration": 1,
@@ -24,7 +25,9 @@
                         "de_duration": 5,
                         "can_expand": true,
                         "cumulative_capacity_init": -1,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.05,
+                        "cc_cost_perc": 0.1,
+                        "af_cap_recovery": 1,
                         "cc_duration": 4,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -35,17 +38,20 @@
                         "start_vertex": "elec_AZ",
                         "line_loss_percentage": 0.0908,
                         "max_new_capacity_init": -1,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": -1,
+                        "cc_cap_recovery": 24,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_NM",
                         "cadr": 0.1,
+                        "de_cap_recovery": 5,
                         "cumulative_external_capacity": -1,
                         "learning_parameter": -1,
-                        "cc_cost": 0.1,
-                        "existing_capacity": 4682.8805
+                        "existing_capacity": 4682.8805,
+                        "af_cost_perc": 0.03
                     }
                 }
             },
@@ -54,6 +60,7 @@
                 "edges": {
                     "transmission_edge": {
                         "can_retire": false,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 45798,
                         "learning_type": "none",
                         "af_duration": 1,
@@ -61,7 +68,9 @@
                         "de_duration": 4,
                         "can_expand": true,
                         "cumulative_capacity_init": -1,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.05,
+                        "cc_cost_perc": 0.1,
+                        "af_cap_recovery": 1,
                         "cc_duration": 4,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -72,17 +81,20 @@
                         "start_vertex": "elec_AZ",
                         "line_loss_percentage": 0.0792,
                         "max_new_capacity_init": -1,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": -1,
+                        "cc_cap_recovery": 24,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_NV",
                         "cadr": 0.1,
+                        "de_cap_recovery": 4,
                         "cumulative_external_capacity": -1,
                         "learning_parameter": -1,
-                        "cc_cost": 0.1,
-                        "existing_capacity": 6453.456
+                        "existing_capacity": 6453.456,
+                        "af_cost_perc": 0.03
                     }
                 }
             },
@@ -91,6 +103,7 @@
                 "edges": {
                     "transmission_edge": {
                         "can_retire": false,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 55378,
                         "learning_type": "none",
                         "af_duration": 1,
@@ -98,7 +111,9 @@
                         "de_duration": 5,
                         "can_expand": true,
                         "cumulative_capacity_init": -1,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.05,
+                        "cc_cost_perc": 0.1,
+                        "af_cap_recovery": 1,
                         "cc_duration": 4,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -109,17 +124,20 @@
                         "start_vertex": "elec_AZ",
                         "line_loss_percentage": 0.1045,
                         "max_new_capacity_init": -1,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": -1,
+                        "cc_cap_recovery": 24,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_UT",
                         "cadr": 0.1,
+                        "de_cap_recovery": 5,
                         "cumulative_external_capacity": -1,
                         "learning_parameter": -1,
-                        "cc_cost": 0.1,
-                        "existing_capacity": 162.996
+                        "existing_capacity": 162.996,
+                        "af_cost_perc": 0.03
                     }
                 }
             },
@@ -128,6 +146,7 @@
                 "edges": {
                     "transmission_edge": {
                         "can_retire": false,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 53745,
                         "learning_type": "none",
                         "af_duration": 1,
@@ -135,7 +154,9 @@
                         "de_duration": 5,
                         "can_expand": true,
                         "cumulative_capacity_init": -1,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.05,
+                        "cc_cost_perc": 0.1,
+                        "af_cap_recovery": 1,
                         "cc_duration": 4,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -146,17 +167,20 @@
                         "start_vertex": "elec_CA",
                         "line_loss_percentage": 0.074,
                         "max_new_capacity_init": -1,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": -1,
+                        "cc_cap_recovery": 24,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_NV",
                         "cadr": 0.1,
+                        "de_cap_recovery": 5,
                         "cumulative_external_capacity": -1,
                         "learning_parameter": -1,
-                        "cc_cost": 0.1,
-                        "existing_capacity": 367.314
+                        "existing_capacity": 367.314,
+                        "af_cost_perc": 0.03
                     }
                 }
             },
@@ -165,6 +189,7 @@
                 "edges": {
                     "transmission_edge": {
                         "can_retire": false,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 56669,
                         "learning_type": "none",
                         "af_duration": 1,
@@ -172,7 +197,9 @@
                         "de_duration": 5,
                         "can_expand": true,
                         "cumulative_capacity_init": -1,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.05,
+                        "cc_cost_perc": 0.1,
+                        "af_cap_recovery": 1,
                         "cc_duration": 4,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -183,17 +210,20 @@
                         "start_vertex": "elec_CA",
                         "line_loss_percentage": 0.079,
                         "max_new_capacity_init": -1,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": -1,
+                        "cc_cap_recovery": 24,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_OR",
                         "cadr": 0.1,
+                        "de_cap_recovery": 5,
                         "cumulative_external_capacity": -1,
                         "learning_parameter": -1,
-                        "cc_cost": 0.1,
-                        "existing_capacity": 5260.674
+                        "existing_capacity": 5260.674,
+                        "af_cost_perc": 0.03
                     }
                 }
             },
@@ -202,6 +232,7 @@
                 "edges": {
                     "transmission_edge": {
                         "can_retire": false,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 30519,
                         "learning_type": "none",
                         "af_duration": 1,
@@ -209,7 +240,9 @@
                         "de_duration": 5,
                         "can_expand": true,
                         "cumulative_capacity_init": -1,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.05,
+                        "cc_cost_perc": 0.1,
+                        "af_cap_recovery": 1,
                         "cc_duration": 4,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -220,17 +253,20 @@
                         "start_vertex": "elec_CO",
                         "line_loss_percentage": 0.0375,
                         "max_new_capacity_init": -1,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": -1,
+                        "cc_cap_recovery": 24,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_NM",
                         "cadr": 0.1,
+                        "de_cap_recovery": 5,
                         "cumulative_external_capacity": -1,
                         "learning_parameter": -1,
-                        "cc_cost": 0.1,
-                        "existing_capacity": 1416.9605
+                        "existing_capacity": 1416.9605,
+                        "af_cost_perc": 0.03
                     }
                 }
             },
@@ -239,6 +275,7 @@
                 "edges": {
                     "transmission_edge": {
                         "can_retire": false,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 35526,
                         "learning_type": "none",
                         "af_duration": 1,
@@ -246,7 +283,9 @@
                         "de_duration": 5,
                         "can_expand": true,
                         "cumulative_capacity_init": -1,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.05,
+                        "cc_cost_perc": 0.1,
+                        "af_cap_recovery": 1,
                         "cc_duration": 4,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -257,17 +296,20 @@
                         "start_vertex": "elec_CO",
                         "line_loss_percentage": 0.0466,
                         "max_new_capacity_init": -1,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": -1,
+                        "cc_cap_recovery": 24,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_UT",
                         "cadr": 0.1,
+                        "de_cap_recovery": 5,
                         "cumulative_external_capacity": -1,
                         "learning_parameter": -1,
-                        "cc_cost": 0.1,
-                        "existing_capacity": 2387.315
+                        "existing_capacity": 2387.315,
+                        "af_cost_perc": 0.03
                     }
                 }
             },
@@ -276,6 +318,7 @@
                 "edges": {
                     "transmission_edge": {
                         "can_retire": false,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 13641,
                         "learning_type": "none",
                         "af_duration": 1,
@@ -283,7 +326,9 @@
                         "de_duration": 5,
                         "can_expand": true,
                         "cumulative_capacity_init": -1,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.05,
+                        "cc_cost_perc": 0.1,
+                        "af_cap_recovery": 1,
                         "cc_duration": 4,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -294,17 +339,20 @@
                         "start_vertex": "elec_CO",
                         "line_loss_percentage": 0.0449,
                         "max_new_capacity_init": -1,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": -1,
+                        "cc_cap_recovery": 24,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_WY",
                         "cadr": 0.1,
+                        "de_cap_recovery": 5,
                         "cumulative_external_capacity": -1,
                         "learning_parameter": -1,
-                        "cc_cost": 0.1,
-                        "existing_capacity": 4402.074
+                        "existing_capacity": 4402.074,
+                        "af_cost_perc": 0.03
                     }
                 }
             },
@@ -313,6 +361,7 @@
                 "edges": {
                     "transmission_edge": {
                         "can_retire": false,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 36251,
                         "learning_type": "none",
                         "af_duration": 1,
@@ -320,7 +369,9 @@
                         "de_duration": 5,
                         "can_expand": true,
                         "cumulative_capacity_init": -1,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.05,
+                        "cc_cost_perc": 0.1,
+                        "af_cap_recovery": 1,
                         "cc_duration": 4,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -331,17 +382,20 @@
                         "start_vertex": "elec_ID",
                         "line_loss_percentage": 0.0484,
                         "max_new_capacity_init": -1,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": -1,
+                        "cc_cap_recovery": 24,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_MT",
                         "cadr": 0.1,
+                        "de_cap_recovery": 5,
                         "cumulative_external_capacity": -1,
                         "learning_parameter": -1,
-                        "cc_cost": 0.1,
-                        "existing_capacity": 2942.2615
+                        "existing_capacity": 2942.2615,
+                        "af_cost_perc": 0.03
                     }
                 }
             },
@@ -350,6 +404,7 @@
                 "edges": {
                     "transmission_edge": {
                         "can_retire": false,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 37969,
                         "learning_type": "none",
                         "af_duration": 1,
@@ -357,7 +412,9 @@
                         "de_duration": 5,
                         "can_expand": true,
                         "cumulative_capacity_init": -1,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.05,
+                        "cc_cost_perc": 0.1,
+                        "af_cap_recovery": 1,
                         "cc_duration": 4,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -368,17 +425,20 @@
                         "start_vertex": "elec_ID",
                         "line_loss_percentage": 0.0569,
                         "max_new_capacity_init": -1,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": -1,
+                        "cc_cap_recovery": 24,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_NV",
                         "cadr": 0.1,
+                        "de_cap_recovery": 5,
                         "cumulative_external_capacity": -1,
                         "learning_parameter": -1,
-                        "cc_cost": 0.1,
-                        "existing_capacity": 500
+                        "existing_capacity": 500,
+                        "af_cost_perc": 0.03
                     }
                 }
             },
@@ -387,6 +447,7 @@
                 "edges": {
                     "transmission_edge": {
                         "can_retire": false,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 33383,
                         "learning_type": "none",
                         "af_duration": 1,
@@ -394,7 +455,9 @@
                         "de_duration": 5,
                         "can_expand": true,
                         "cumulative_capacity_init": -1,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.05,
+                        "cc_cost_perc": 0.1,
+                        "af_cap_recovery": 1,
                         "cc_duration": 4,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -405,17 +468,20 @@
                         "start_vertex": "elec_ID",
                         "line_loss_percentage": 0.0376,
                         "max_new_capacity_init": -1,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": -1,
+                        "cc_cap_recovery": 24,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_OR",
                         "cadr": 0.1,
+                        "de_cap_recovery": 5,
                         "cumulative_external_capacity": -1,
                         "learning_parameter": -1,
-                        "cc_cost": 0.1,
-                        "existing_capacity": 7137.6325
+                        "existing_capacity": 7137.6325,
+                        "af_cost_perc": 0.03
                     }
                 }
             },
@@ -424,6 +490,7 @@
                 "edges": {
                     "transmission_edge": {
                         "can_retire": false,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 27679,
                         "learning_type": "none",
                         "af_duration": 1,
@@ -431,7 +498,9 @@
                         "de_duration": 5,
                         "can_expand": true,
                         "cumulative_capacity_init": -1,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.05,
+                        "cc_cost_perc": 0.1,
+                        "af_cap_recovery": 1,
                         "cc_duration": 4,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -442,17 +511,20 @@
                         "start_vertex": "elec_ID",
                         "line_loss_percentage": 0.0308,
                         "max_new_capacity_init": -1,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": -1,
+                        "cc_cap_recovery": 24,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_UT",
                         "cadr": 0.1,
+                        "de_cap_recovery": 5,
                         "cumulative_external_capacity": -1,
                         "learning_parameter": -1,
-                        "cc_cost": 0.1,
-                        "existing_capacity": 1687.1795
+                        "existing_capacity": 1687.1795,
+                        "af_cost_perc": 0.03
                     }
                 }
             },
@@ -461,6 +533,7 @@
                 "edges": {
                     "transmission_edge": {
                         "can_retire": false,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 35116,
                         "learning_type": "none",
                         "af_duration": 1,
@@ -468,7 +541,9 @@
                         "de_duration": 5,
                         "can_expand": true,
                         "cumulative_capacity_init": -1,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.05,
+                        "cc_cost_perc": 0.1,
+                        "af_cap_recovery": 1,
                         "cc_duration": 4,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -479,17 +554,20 @@
                         "start_vertex": "elec_ID",
                         "line_loss_percentage": 0.041,
                         "max_new_capacity_init": -1,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": -1,
+                        "cc_cap_recovery": 24,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_WA",
                         "cadr": 0.1,
+                        "de_cap_recovery": 5,
                         "cumulative_external_capacity": -1,
                         "learning_parameter": -1,
-                        "cc_cost": 0.1,
-                        "existing_capacity": 4162.5205000000005
+                        "existing_capacity": 4162.5205000000005,
+                        "af_cost_perc": 0.03
                     }
                 }
             },
@@ -498,6 +576,7 @@
                 "edges": {
                     "transmission_edge": {
                         "can_retire": false,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 42317,
                         "learning_type": "none",
                         "af_duration": 1,
@@ -505,7 +584,9 @@
                         "de_duration": 5,
                         "can_expand": true,
                         "cumulative_capacity_init": -1,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.05,
+                        "cc_cost_perc": 0.1,
+                        "af_cap_recovery": 1,
                         "cc_duration": 4,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -516,17 +597,20 @@
                         "start_vertex": "elec_ID",
                         "line_loss_percentage": 0.0664,
                         "max_new_capacity_init": -1,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": -1,
+                        "cc_cap_recovery": 24,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_WY",
                         "cadr": 0.1,
+                        "de_cap_recovery": 5,
                         "cumulative_external_capacity": -1,
                         "learning_parameter": -1,
-                        "cc_cost": 0.1,
-                        "existing_capacity": 2306.3765
+                        "existing_capacity": 2306.3765,
+                        "af_cost_perc": 0.03
                     }
                 }
             },
@@ -535,6 +619,7 @@
                 "edges": {
                     "transmission_edge": {
                         "can_retire": false,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 58148,
                         "learning_type": "none",
                         "af_duration": 1,
@@ -542,7 +627,9 @@
                         "de_duration": 5,
                         "can_expand": true,
                         "cumulative_capacity_init": -1,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.05,
+                        "cc_cost_perc": 0.1,
+                        "af_cap_recovery": 1,
                         "cc_duration": 4,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -553,17 +640,20 @@
                         "start_vertex": "elec_MT",
                         "line_loss_percentage": 0.091,
                         "max_new_capacity_init": -1,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": -1,
+                        "cc_cap_recovery": 24,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_WA",
                         "cadr": 0.1,
+                        "de_cap_recovery": 5,
                         "cumulative_external_capacity": -1,
                         "learning_parameter": -1,
-                        "cc_cost": 0.1,
-                        "existing_capacity": 1905.3
+                        "existing_capacity": 1905.3,
+                        "af_cost_perc": 0.03
                     }
                 }
             },
@@ -572,6 +662,7 @@
                 "edges": {
                     "transmission_edge": {
                         "can_retire": false,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 30867,
                         "learning_type": "none",
                         "af_duration": 1,
@@ -579,7 +670,9 @@
                         "de_duration": 5,
                         "can_expand": true,
                         "cumulative_capacity_init": -1,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.05,
+                        "cc_cost_perc": 0.1,
+                        "af_cap_recovery": 1,
                         "cc_duration": 4,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -590,17 +683,20 @@
                         "start_vertex": "elec_MT",
                         "line_loss_percentage": 0.0388,
                         "max_new_capacity_init": -1,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": -1,
+                        "cc_cap_recovery": 24,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_WY",
                         "cadr": 0.1,
+                        "de_cap_recovery": 5,
                         "cumulative_external_capacity": -1,
                         "learning_parameter": -1,
-                        "cc_cost": 0.1,
-                        "existing_capacity": 733.1595
+                        "existing_capacity": 733.1595,
+                        "af_cost_perc": 0.03
                     }
                 }
             },
@@ -609,6 +705,7 @@
                 "edges": {
                     "transmission_edge": {
                         "can_retire": false,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 37701,
                         "learning_type": "none",
                         "af_duration": 1,
@@ -616,7 +713,9 @@
                         "de_duration": 5,
                         "can_expand": true,
                         "cumulative_capacity_init": -1,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.05,
+                        "cc_cost_perc": 0.1,
+                        "af_cap_recovery": 1,
                         "cc_duration": 4,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -627,17 +726,20 @@
                         "start_vertex": "elec_NM",
                         "line_loss_percentage": 0.0513,
                         "max_new_capacity_init": -1,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": -1,
+                        "cc_cap_recovery": 24,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_UT",
                         "cadr": 0.1,
+                        "de_cap_recovery": 5,
                         "cumulative_external_capacity": -1,
                         "learning_parameter": -1,
-                        "cc_cost": 0.1,
-                        "existing_capacity": 657.1785
+                        "existing_capacity": 657.1785,
+                        "af_cost_perc": 0.03
                     }
                 }
             },
@@ -646,6 +748,7 @@
                 "edges": {
                     "transmission_edge": {
                         "can_retire": false,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 30671,
                         "learning_type": "none",
                         "af_duration": 1,
@@ -653,7 +756,9 @@
                         "de_duration": 5,
                         "can_expand": true,
                         "cumulative_capacity_init": -1,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.05,
+                        "cc_cost_perc": 0.1,
+                        "af_cap_recovery": 1,
                         "cc_duration": 4,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -664,17 +769,20 @@
                         "start_vertex": "elec_NV",
                         "line_loss_percentage": 0.0354,
                         "max_new_capacity_init": -1,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": -1,
+                        "cc_cap_recovery": 24,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_UT",
                         "cadr": 0.1,
+                        "de_cap_recovery": 5,
                         "cumulative_external_capacity": -1,
                         "learning_parameter": -1,
-                        "cc_cost": 0.1,
-                        "existing_capacity": 698.2615
+                        "existing_capacity": 698.2615,
+                        "af_cost_perc": 0.03
                     }
                 }
             },
@@ -683,6 +791,7 @@
                 "edges": {
                     "transmission_edge": {
                         "can_retire": false,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 26471,
                         "learning_type": "none",
                         "af_duration": 1,
@@ -690,7 +799,9 @@
                         "de_duration": 5,
                         "can_expand": true,
                         "cumulative_capacity_init": -1,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.05,
+                        "cc_cost_perc": 0.1,
+                        "af_cap_recovery": 1,
                         "cc_duration": 4,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -701,17 +812,20 @@
                         "start_vertex": "elec_OR",
                         "line_loss_percentage": 0.019,
                         "max_new_capacity_init": -1,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": -1,
+                        "cc_cap_recovery": 24,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_WA",
                         "cadr": 0.1,
+                        "de_cap_recovery": 5,
                         "cumulative_external_capacity": -1,
                         "learning_parameter": -1,
-                        "cc_cost": 0.1,
-                        "existing_capacity": 21279.086
+                        "existing_capacity": 21279.086,
+                        "af_cost_perc": 0.03
                     }
                 }
             },
@@ -720,6 +834,7 @@
                 "edges": {
                     "transmission_edge": {
                         "can_retire": false,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 32854,
                         "learning_type": "none",
                         "af_duration": 1,
@@ -727,7 +842,9 @@
                         "de_duration": 5,
                         "can_expand": true,
                         "cumulative_capacity_init": -1,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.05,
+                        "cc_cost_perc": 0.1,
+                        "af_cap_recovery": 1,
                         "cc_duration": 4,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -738,17 +855,20 @@
                         "start_vertex": "elec_UT",
                         "line_loss_percentage": 0.0411,
                         "max_new_capacity_init": -1,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": -1,
+                        "cc_cap_recovery": 24,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_WY",
                         "cadr": 0.1,
+                        "de_cap_recovery": 5,
                         "cumulative_external_capacity": -1,
                         "learning_parameter": -1,
-                        "cc_cost": 0.1,
-                        "existing_capacity": 919.231
+                        "existing_capacity": 919.231,
+                        "af_cost_perc": 0.03
                     }
                 }
             }

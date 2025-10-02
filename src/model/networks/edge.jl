@@ -71,7 +71,7 @@ macro AbstractEdgeBaseAttributes()
         # Definition and evaluation (DE)
         de_cost_perc::Float64 = 0.0
         de_wacc::Float64 = 0.1
-        de_cap_recovery::Int64 = 0
+        de_cap_recovery::Int64 = 1
         de_annualized_cost::Float64 = 0.0
         new_de_capacity::AffExpr = AffExpr(0.0)
         new_de_capacity_track::Dict{Int64,AffExpr} = Dict(1=>AffExpr(0.0))
@@ -81,7 +81,7 @@ macro AbstractEdgeBaseAttributes()
         # Approvals and funding (AF)
         af_cost_perc::Float64 = 0.0
         af_wacc::Float64 = 0.1
-        af_cap_recovery::Int64 = 0
+        af_cap_recovery::Int64 = 1
         af_annualized_cost::Float64 = 0.0
         new_af_capacity::AffExpr = AffExpr(0.0)
         new_af_capacity_track::Dict{Int64,AffExpr} = Dict(1=>AffExpr(0.0))
@@ -91,7 +91,7 @@ macro AbstractEdgeBaseAttributes()
         # Construction and Commissioning (CC)
         cc_cost_perc::Float64 = 0.0
         cc_wacc::Float64 = 0.05
-        cc_cap_recovery::Int64 = 0
+        cc_cap_recovery::Int64 = 1
         cc_annualized_cost::Float64 = 0.0
         new_cc_capacity::AffExpr = AffExpr(0.0)
         new_cc_capacity_track::Dict{Int64,AffExpr} = Dict(1=>AffExpr(0.0))
@@ -306,6 +306,18 @@ max_cumul_capacity(e::AbstractEdge) = e.max_cumul_capacity;
 de_duration(e::AbstractEdge) = e.de_duration;
 af_duration(e::AbstractEdge) = e.af_duration;
 cc_duration(e::AbstractEdge) = e.cc_duration;
+de_cost_perc(e::AbstractEdge) = e.de_cost_perc;
+af_cost_perc(e::AbstractEdge) = e.af_cost_perc;
+cc_cost_perc(e::AbstractEdge) = e.cc_cost_perc;
+de_wacc(e::AbstractEdge) = e.de_wacc;
+af_wacc(e::AbstractEdge) = e.af_wacc;
+cc_wacc(e::AbstractEdge) = e.cc_wacc;
+de_cap_recovery(e::AbstractEdge) = e.de_cap_recovery;
+af_cap_recovery(e::AbstractEdge) = e.af_cap_recovery;
+cc_cap_recovery(e::AbstractEdge) = e.cc_cap_recovery;
+de_annualized_cost(e::AbstractEdge) = e.de_annualized_cost;
+af_annualized_cost(e::AbstractEdge) = e.af_annualized_cost;
+cc_annualized_cost(e::AbstractEdge) = e.cc_annualized_cost;
 # Definition and evaluation (DE)
 new_de_capacity(e::AbstractEdge) = e.new_de_capacity;
 de_capacity(e::AbstractEdge) = e.de_capacity;

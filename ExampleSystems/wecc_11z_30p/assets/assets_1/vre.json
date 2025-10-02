@@ -656,6 +656,7 @@
                 "edges": {
                     "edge": {
                         "can_retire": true,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 120937,
                         "learning_type": "wind",
                         "af_duration": 1,
@@ -663,7 +664,9 @@
                         "de_duration": 2,
                         "can_expand": true,
                         "cumulative_capacity_init": 1000000,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.055,
+                        "cc_cost_perc": 0.885,
+                        "af_cap_recovery": 1,
                         "cc_duration": 2,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -675,14 +678,17 @@
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "fixed_om_cost": 27285,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": 100000000,
+                        "cc_cap_recovery": 22,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_AZ",
                         "cadr": 0.1,
                         "variable_om_cost": 0,
+                        "de_cap_recovery": 2,
                         "cumulative_external_capacity": 1010000,
                         "capacity_size": 1,
                         "wacc": 0.05,
@@ -695,7 +701,7 @@
                             }
                         },
                         "existing_capacity": 0,
-                        "cc_cost": 0.1
+                        "af_cost_perc": 0.01
                     }
                 }
             },
@@ -704,6 +710,7 @@
                 "edges": {
                     "edge": {
                         "can_retire": true,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 124252,
                         "learning_type": "wind",
                         "af_duration": 1,
@@ -711,7 +718,9 @@
                         "de_duration": 2,
                         "can_expand": true,
                         "cumulative_capacity_init": 1000000,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.055,
+                        "cc_cost_perc": 0.885,
+                        "af_cap_recovery": 1,
                         "cc_duration": 2,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -723,14 +732,17 @@
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "fixed_om_cost": 27285,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": 100000000,
+                        "cc_cap_recovery": 22,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_AZ",
                         "cadr": 0.1,
                         "variable_om_cost": 0,
+                        "de_cap_recovery": 2,
                         "cumulative_external_capacity": 1010000,
                         "capacity_size": 1,
                         "wacc": 0.05,
@@ -743,7 +755,7 @@
                             }
                         },
                         "existing_capacity": 0,
-                        "cc_cost": 0.1
+                        "af_cost_perc": 0.01
                     }
                 }
             },
@@ -752,6 +764,7 @@
                 "edges": {
                     "edge": {
                         "can_retire": true,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 125311,
                         "learning_type": "wind",
                         "af_duration": 1,
@@ -759,7 +772,9 @@
                         "de_duration": 2,
                         "can_expand": true,
                         "cumulative_capacity_init": 1000000,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.055,
+                        "cc_cost_perc": 0.885,
+                        "af_cap_recovery": 1,
                         "cc_duration": 2,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -771,14 +786,17 @@
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "fixed_om_cost": 27285,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": 100000000,
+                        "cc_cap_recovery": 22,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_AZ",
                         "cadr": 0.1,
                         "variable_om_cost": 0,
+                        "de_cap_recovery": 2,
                         "cumulative_external_capacity": 1010000,
                         "capacity_size": 1,
                         "wacc": 0.05,
@@ -791,7 +809,7 @@
                             }
                         },
                         "existing_capacity": 0,
-                        "cc_cost": 0.1
+                        "af_cost_perc": 0.01
                     }
                 }
             },
@@ -800,6 +818,7 @@
                 "edges": {
                     "edge": {
                         "can_retire": true,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 93702,
                         "learning_type": "solar",
                         "af_duration": 1,
@@ -807,7 +826,9 @@
                         "de_duration": 1,
                         "can_expand": true,
                         "cumulative_capacity_init": 1000000,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.055,
+                        "cc_cost_perc": 0.885,
+                        "af_cap_recovery": 1,
                         "cc_duration": 1,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -819,14 +840,17 @@
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "fixed_om_cost": 18036,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": 100000000,
+                        "cc_cap_recovery": 21,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_AZ",
                         "cadr": 0.1,
                         "variable_om_cost": 0,
+                        "de_cap_recovery": 1,
                         "cumulative_external_capacity": 1010000,
                         "capacity_size": 1,
                         "wacc": 0.042,
@@ -839,7 +863,7 @@
                             }
                         },
                         "existing_capacity": 0,
-                        "cc_cost": 0.1
+                        "af_cost_perc": 0.01
                     }
                 }
             },
@@ -848,6 +872,7 @@
                 "edges": {
                     "edge": {
                         "can_retire": true,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 106611,
                         "learning_type": "solar",
                         "af_duration": 1,
@@ -855,7 +880,9 @@
                         "de_duration": 1,
                         "can_expand": true,
                         "cumulative_capacity_init": 1000000,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.055,
+                        "cc_cost_perc": 0.885,
+                        "af_cap_recovery": 1,
                         "cc_duration": 1,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -867,14 +894,17 @@
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "fixed_om_cost": 18036,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": 100000000,
+                        "cc_cap_recovery": 21,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_AZ",
                         "cadr": 0.1,
                         "variable_om_cost": 0,
+                        "de_cap_recovery": 1,
                         "cumulative_external_capacity": 1010000,
                         "capacity_size": 1,
                         "wacc": 0.042,
@@ -887,7 +917,7 @@
                             }
                         },
                         "existing_capacity": 0,
-                        "cc_cost": 0.1
+                        "af_cost_perc": 0.01
                     }
                 }
             },
@@ -896,6 +926,7 @@
                 "edges": {
                     "edge": {
                         "can_retire": true,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 126269,
                         "learning_type": "solar",
                         "af_duration": 1,
@@ -903,7 +934,9 @@
                         "de_duration": 1,
                         "can_expand": true,
                         "cumulative_capacity_init": 1000000,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.055,
+                        "cc_cost_perc": 0.885,
+                        "af_cap_recovery": 1,
                         "cc_duration": 1,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -915,14 +948,17 @@
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "fixed_om_cost": 18036,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": 100000000,
+                        "cc_cap_recovery": 21,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_AZ",
                         "cadr": 0.1,
                         "variable_om_cost": 0,
+                        "de_cap_recovery": 1,
                         "cumulative_external_capacity": 1010000,
                         "capacity_size": 1,
                         "wacc": 0.042,
@@ -935,7 +971,7 @@
                             }
                         },
                         "existing_capacity": 0,
-                        "cc_cost": 0.1
+                        "af_cost_perc": 0.01
                     }
                 }
             },
@@ -944,6 +980,7 @@
                 "edges": {
                     "edge": {
                         "can_retire": true,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 203002,
                         "learning_type": "wind",
                         "af_duration": 1,
@@ -951,7 +988,9 @@
                         "de_duration": 2,
                         "can_expand": true,
                         "cumulative_capacity_init": 1000000,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.055,
+                        "cc_cost_perc": 0.885,
+                        "af_cap_recovery": 1,
                         "cc_duration": 2,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -963,14 +1002,17 @@
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "fixed_om_cost": 27285,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": 100000000,
+                        "cc_cap_recovery": 22,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_CA",
                         "cadr": 0.1,
                         "variable_om_cost": 0,
+                        "de_cap_recovery": 2,
                         "cumulative_external_capacity": 1010000,
                         "capacity_size": 1,
                         "wacc": 0.05,
@@ -983,7 +1025,7 @@
                             }
                         },
                         "existing_capacity": 0,
-                        "cc_cost": 0.1
+                        "af_cost_perc": 0.01
                     }
                 }
             },
@@ -992,6 +1034,7 @@
                 "edges": {
                     "edge": {
                         "can_retire": true,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 199008,
                         "learning_type": "wind",
                         "af_duration": 1,
@@ -999,7 +1042,9 @@
                         "de_duration": 2,
                         "can_expand": true,
                         "cumulative_capacity_init": 1000000,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.055,
+                        "cc_cost_perc": 0.885,
+                        "af_cap_recovery": 1,
                         "cc_duration": 2,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -1011,14 +1056,17 @@
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "fixed_om_cost": 27285,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": 100000000,
+                        "cc_cap_recovery": 22,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_CA",
                         "cadr": 0.1,
                         "variable_om_cost": 0,
+                        "de_cap_recovery": 2,
                         "cumulative_external_capacity": 1010000,
                         "capacity_size": 1,
                         "wacc": 0.05,
@@ -1031,7 +1079,7 @@
                             }
                         },
                         "existing_capacity": 0,
-                        "cc_cost": 0.1
+                        "af_cost_perc": 0.01
                     }
                 }
             },
@@ -1040,6 +1088,7 @@
                 "edges": {
                     "edge": {
                         "can_retire": true,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 201281,
                         "learning_type": "wind",
                         "af_duration": 1,
@@ -1047,7 +1096,9 @@
                         "de_duration": 2,
                         "can_expand": true,
                         "cumulative_capacity_init": 1000000,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.055,
+                        "cc_cost_perc": 0.885,
+                        "af_cap_recovery": 1,
                         "cc_duration": 2,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -1059,14 +1110,17 @@
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "fixed_om_cost": 27285,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": 100000000,
+                        "cc_cap_recovery": 22,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_CA",
                         "cadr": 0.1,
                         "variable_om_cost": 0,
+                        "de_cap_recovery": 2,
                         "cumulative_external_capacity": 1010000,
                         "capacity_size": 1,
                         "wacc": 0.05,
@@ -1079,7 +1133,7 @@
                             }
                         },
                         "existing_capacity": 0,
-                        "cc_cost": 0.1
+                        "af_cost_perc": 0.01
                     }
                 }
             },
@@ -1088,6 +1142,7 @@
                 "edges": {
                     "edge": {
                         "can_retire": true,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 111035,
                         "learning_type": "solar",
                         "af_duration": 1,
@@ -1095,7 +1150,9 @@
                         "de_duration": 1,
                         "can_expand": true,
                         "cumulative_capacity_init": 1000000,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.055,
+                        "cc_cost_perc": 0.885,
+                        "af_cap_recovery": 1,
                         "cc_duration": 1,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -1107,14 +1164,17 @@
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "fixed_om_cost": 18036,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": 100000000,
+                        "cc_cap_recovery": 21,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_CA",
                         "cadr": 0.1,
                         "variable_om_cost": 0,
+                        "de_cap_recovery": 1,
                         "cumulative_external_capacity": 1010000,
                         "capacity_size": 1,
                         "wacc": 0.042,
@@ -1127,7 +1187,7 @@
                             }
                         },
                         "existing_capacity": 0,
-                        "cc_cost": 0.1
+                        "af_cost_perc": 0.01
                     }
                 }
             },
@@ -1136,6 +1196,7 @@
                 "edges": {
                     "edge": {
                         "can_retire": true,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 129020,
                         "learning_type": "solar",
                         "af_duration": 1,
@@ -1143,7 +1204,9 @@
                         "de_duration": 1,
                         "can_expand": true,
                         "cumulative_capacity_init": 1000000,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.055,
+                        "cc_cost_perc": 0.885,
+                        "af_cap_recovery": 1,
                         "cc_duration": 1,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -1155,14 +1218,17 @@
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "fixed_om_cost": 18036,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": 100000000,
+                        "cc_cap_recovery": 21,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_CA",
                         "cadr": 0.1,
                         "variable_om_cost": 0,
+                        "de_cap_recovery": 1,
                         "cumulative_external_capacity": 1010000,
                         "capacity_size": 1,
                         "wacc": 0.042,
@@ -1175,7 +1241,7 @@
                             }
                         },
                         "existing_capacity": 0,
-                        "cc_cost": 0.1
+                        "af_cost_perc": 0.01
                     }
                 }
             },
@@ -1184,6 +1250,7 @@
                 "edges": {
                     "edge": {
                         "can_retire": true,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 138173,
                         "learning_type": "solar",
                         "af_duration": 1,
@@ -1191,7 +1258,9 @@
                         "de_duration": 1,
                         "can_expand": true,
                         "cumulative_capacity_init": 1000000,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.055,
+                        "cc_cost_perc": 0.885,
+                        "af_cap_recovery": 1,
                         "cc_duration": 1,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -1203,14 +1272,17 @@
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "fixed_om_cost": 18036,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": 100000000,
+                        "cc_cap_recovery": 21,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_CA",
                         "cadr": 0.1,
                         "variable_om_cost": 0,
+                        "de_cap_recovery": 1,
                         "cumulative_external_capacity": 1010000,
                         "capacity_size": 1,
                         "wacc": 0.042,
@@ -1223,7 +1295,7 @@
                             }
                         },
                         "existing_capacity": 0,
-                        "cc_cost": 0.1
+                        "af_cost_perc": 0.01
                     }
                 }
             },
@@ -1232,6 +1304,7 @@
                 "edges": {
                     "edge": {
                         "can_retire": true,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 421532,
                         "learning_type": "offshorewind",
                         "af_duration": 1,
@@ -1239,7 +1312,9 @@
                         "de_duration": 2,
                         "can_expand": true,
                         "cumulative_capacity_init": 1000000,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.055,
+                        "cc_cost_perc": 0.885,
+                        "af_cap_recovery": 1,
                         "cc_duration": 4,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -1251,14 +1326,17 @@
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "fixed_om_cost": 72717,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": 100000000,
+                        "cc_cap_recovery": 24,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_CA",
                         "cadr": 0.1,
                         "variable_om_cost": 0,
+                        "de_cap_recovery": 2,
                         "cumulative_external_capacity": 1010000,
                         "capacity_size": 1,
                         "wacc": 0.052,
@@ -1271,7 +1349,7 @@
                             }
                         },
                         "existing_capacity": 0,
-                        "cc_cost": 0.1
+                        "af_cost_perc": 0.01
                     }
                 }
             },
@@ -1280,6 +1358,7 @@
                 "edges": {
                     "edge": {
                         "can_retire": true,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 421532,
                         "learning_type": "offshorewind",
                         "af_duration": 1,
@@ -1287,7 +1366,9 @@
                         "de_duration": 2,
                         "can_expand": true,
                         "cumulative_capacity_init": 1000000,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.055,
+                        "cc_cost_perc": 0.885,
+                        "af_cap_recovery": 1,
                         "cc_duration": 4,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -1299,14 +1380,17 @@
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "fixed_om_cost": 72717,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": 100000000,
+                        "cc_cap_recovery": 24,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_CA",
                         "cadr": 0.1,
                         "variable_om_cost": 0,
+                        "de_cap_recovery": 2,
                         "cumulative_external_capacity": 1010000,
                         "capacity_size": 1,
                         "wacc": 0.052,
@@ -1319,7 +1403,7 @@
                             }
                         },
                         "existing_capacity": 0,
-                        "cc_cost": 0.1
+                        "af_cost_perc": 0.01
                     }
                 }
             },
@@ -1358,6 +1442,7 @@
                 "edges": {
                     "edge": {
                         "can_retire": true,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 119445,
                         "learning_type": "wind",
                         "af_duration": 1,
@@ -1365,7 +1450,9 @@
                         "de_duration": 2,
                         "can_expand": true,
                         "cumulative_capacity_init": 1000000,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.055,
+                        "cc_cost_perc": 0.885,
+                        "af_cap_recovery": 1,
                         "cc_duration": 2,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -1377,14 +1464,17 @@
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "fixed_om_cost": 27285,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": 100000000,
+                        "cc_cap_recovery": 22,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_CO",
                         "cadr": 0.1,
                         "variable_om_cost": 0,
+                        "de_cap_recovery": 2,
                         "cumulative_external_capacity": 1010000,
                         "capacity_size": 1,
                         "wacc": 0.05,
@@ -1397,7 +1487,7 @@
                             }
                         },
                         "existing_capacity": 0,
-                        "cc_cost": 0.1
+                        "af_cost_perc": 0.01
                     }
                 }
             },
@@ -1406,6 +1496,7 @@
                 "edges": {
                     "edge": {
                         "can_retire": true,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 120909,
                         "learning_type": "wind",
                         "af_duration": 1,
@@ -1413,7 +1504,9 @@
                         "de_duration": 2,
                         "can_expand": true,
                         "cumulative_capacity_init": 1000000,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.055,
+                        "cc_cost_perc": 0.885,
+                        "af_cap_recovery": 1,
                         "cc_duration": 2,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -1425,14 +1518,17 @@
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "fixed_om_cost": 27285,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": 100000000,
+                        "cc_cap_recovery": 22,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_CO",
                         "cadr": 0.1,
                         "variable_om_cost": 0,
+                        "de_cap_recovery": 2,
                         "cumulative_external_capacity": 1010000,
                         "capacity_size": 1,
                         "wacc": 0.05,
@@ -1445,7 +1541,7 @@
                             }
                         },
                         "existing_capacity": 0,
-                        "cc_cost": 0.1
+                        "af_cost_perc": 0.01
                     }
                 }
             },
@@ -1454,6 +1550,7 @@
                 "edges": {
                     "edge": {
                         "can_retire": true,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 129394,
                         "learning_type": "wind",
                         "af_duration": 1,
@@ -1461,7 +1558,9 @@
                         "de_duration": 2,
                         "can_expand": true,
                         "cumulative_capacity_init": 1000000,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.055,
+                        "cc_cost_perc": 0.885,
+                        "af_cap_recovery": 1,
                         "cc_duration": 2,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -1473,14 +1572,17 @@
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "fixed_om_cost": 27285,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": 100000000,
+                        "cc_cap_recovery": 22,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_CO",
                         "cadr": 0.1,
                         "variable_om_cost": 0,
+                        "de_cap_recovery": 2,
                         "cumulative_external_capacity": 1010000,
                         "capacity_size": 1,
                         "wacc": 0.05,
@@ -1493,7 +1595,7 @@
                             }
                         },
                         "existing_capacity": 0,
-                        "cc_cost": 0.1
+                        "af_cost_perc": 0.01
                     }
                 }
             },
@@ -1502,6 +1604,7 @@
                 "edges": {
                     "edge": {
                         "can_retire": true,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 99227,
                         "learning_type": "solar",
                         "af_duration": 1,
@@ -1509,7 +1612,9 @@
                         "de_duration": 1,
                         "can_expand": true,
                         "cumulative_capacity_init": 1000000,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.055,
+                        "cc_cost_perc": 0.885,
+                        "af_cap_recovery": 1,
                         "cc_duration": 1,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -1521,14 +1626,17 @@
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "fixed_om_cost": 18036,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": 100000000,
+                        "cc_cap_recovery": 21,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_CO",
                         "cadr": 0.1,
                         "variable_om_cost": 0,
+                        "de_cap_recovery": 1,
                         "cumulative_external_capacity": 1010000,
                         "capacity_size": 1,
                         "wacc": 0.042,
@@ -1541,7 +1649,7 @@
                             }
                         },
                         "existing_capacity": 0,
-                        "cc_cost": 0.1
+                        "af_cost_perc": 0.01
                     }
                 }
             },
@@ -1550,6 +1658,7 @@
                 "edges": {
                     "edge": {
                         "can_retire": true,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 111467,
                         "learning_type": "solar",
                         "af_duration": 1,
@@ -1557,7 +1666,9 @@
                         "de_duration": 1,
                         "can_expand": true,
                         "cumulative_capacity_init": 1000000,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.055,
+                        "cc_cost_perc": 0.885,
+                        "af_cap_recovery": 1,
                         "cc_duration": 1,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -1569,14 +1680,17 @@
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "fixed_om_cost": 18036,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": 100000000,
+                        "cc_cap_recovery": 21,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_CO",
                         "cadr": 0.1,
                         "variable_om_cost": 0,
+                        "de_cap_recovery": 1,
                         "cumulative_external_capacity": 1010000,
                         "capacity_size": 1,
                         "wacc": 0.042,
@@ -1589,7 +1703,7 @@
                             }
                         },
                         "existing_capacity": 0,
-                        "cc_cost": 0.1
+                        "af_cost_perc": 0.01
                     }
                 }
             },
@@ -1598,6 +1712,7 @@
                 "edges": {
                     "edge": {
                         "can_retire": true,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 126463,
                         "learning_type": "solar",
                         "af_duration": 1,
@@ -1605,7 +1720,9 @@
                         "de_duration": 1,
                         "can_expand": true,
                         "cumulative_capacity_init": 1000000,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.055,
+                        "cc_cost_perc": 0.885,
+                        "af_cap_recovery": 1,
                         "cc_duration": 1,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -1617,14 +1734,17 @@
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "fixed_om_cost": 18036,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": 100000000,
+                        "cc_cap_recovery": 21,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_CO",
                         "cadr": 0.1,
                         "variable_om_cost": 0,
+                        "de_cap_recovery": 1,
                         "cumulative_external_capacity": 1010000,
                         "capacity_size": 1,
                         "wacc": 0.042,
@@ -1637,7 +1757,7 @@
                             }
                         },
                         "existing_capacity": 0,
-                        "cc_cost": 0.1
+                        "af_cost_perc": 0.01
                     }
                 }
             },
@@ -1646,6 +1766,7 @@
                 "edges": {
                     "edge": {
                         "can_retire": true,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 125066,
                         "learning_type": "wind",
                         "af_duration": 1,
@@ -1653,7 +1774,9 @@
                         "de_duration": 2,
                         "can_expand": true,
                         "cumulative_capacity_init": 1000000,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.055,
+                        "cc_cost_perc": 0.885,
+                        "af_cap_recovery": 1,
                         "cc_duration": 2,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -1665,14 +1788,17 @@
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "fixed_om_cost": 27285,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": 100000000,
+                        "cc_cap_recovery": 22,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_ID",
                         "cadr": 0.1,
                         "variable_om_cost": 0,
+                        "de_cap_recovery": 2,
                         "cumulative_external_capacity": 1010000,
                         "capacity_size": 1,
                         "wacc": 0.05,
@@ -1685,7 +1811,7 @@
                             }
                         },
                         "existing_capacity": 0,
-                        "cc_cost": 0.1
+                        "af_cost_perc": 0.01
                     }
                 }
             },
@@ -1694,6 +1820,7 @@
                 "edges": {
                     "edge": {
                         "can_retire": true,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 130679,
                         "learning_type": "wind",
                         "af_duration": 1,
@@ -1701,7 +1828,9 @@
                         "de_duration": 2,
                         "can_expand": true,
                         "cumulative_capacity_init": 1000000,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.055,
+                        "cc_cost_perc": 0.885,
+                        "af_cap_recovery": 1,
                         "cc_duration": 2,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -1713,14 +1842,17 @@
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "fixed_om_cost": 27285,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": 100000000,
+                        "cc_cap_recovery": 22,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_ID",
                         "cadr": 0.1,
                         "variable_om_cost": 0,
+                        "de_cap_recovery": 2,
                         "cumulative_external_capacity": 1010000,
                         "capacity_size": 1,
                         "wacc": 0.05,
@@ -1733,7 +1865,7 @@
                             }
                         },
                         "existing_capacity": 0,
-                        "cc_cost": 0.1
+                        "af_cost_perc": 0.01
                     }
                 }
             },
@@ -1742,6 +1874,7 @@
                 "edges": {
                     "edge": {
                         "can_retire": true,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 131919,
                         "learning_type": "wind",
                         "af_duration": 1,
@@ -1749,7 +1882,9 @@
                         "de_duration": 2,
                         "can_expand": true,
                         "cumulative_capacity_init": 1000000,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.055,
+                        "cc_cost_perc": 0.885,
+                        "af_cap_recovery": 1,
                         "cc_duration": 2,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -1761,14 +1896,17 @@
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "fixed_om_cost": 27285,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": 100000000,
+                        "cc_cap_recovery": 22,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_ID",
                         "cadr": 0.1,
                         "variable_om_cost": 0,
+                        "de_cap_recovery": 2,
                         "cumulative_external_capacity": 1010000,
                         "capacity_size": 1,
                         "wacc": 0.05,
@@ -1781,7 +1919,7 @@
                             }
                         },
                         "existing_capacity": 0,
-                        "cc_cost": 0.1
+                        "af_cost_perc": 0.01
                     }
                 }
             },
@@ -1790,6 +1928,7 @@
                 "edges": {
                     "edge": {
                         "can_retire": true,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 106009,
                         "learning_type": "solar",
                         "af_duration": 1,
@@ -1797,7 +1936,9 @@
                         "de_duration": 1,
                         "can_expand": true,
                         "cumulative_capacity_init": 1000000,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.055,
+                        "cc_cost_perc": 0.885,
+                        "af_cap_recovery": 1,
                         "cc_duration": 1,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -1809,14 +1950,17 @@
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "fixed_om_cost": 18036,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": 100000000,
+                        "cc_cap_recovery": 21,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_ID",
                         "cadr": 0.1,
                         "variable_om_cost": 0,
+                        "de_cap_recovery": 1,
                         "cumulative_external_capacity": 1010000,
                         "capacity_size": 1,
                         "wacc": 0.042,
@@ -1829,7 +1973,7 @@
                             }
                         },
                         "existing_capacity": 0,
-                        "cc_cost": 0.1
+                        "af_cost_perc": 0.01
                     }
                 }
             },
@@ -1838,6 +1982,7 @@
                 "edges": {
                     "edge": {
                         "can_retire": true,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 118729,
                         "learning_type": "solar",
                         "af_duration": 1,
@@ -1845,7 +1990,9 @@
                         "de_duration": 1,
                         "can_expand": true,
                         "cumulative_capacity_init": 1000000,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.055,
+                        "cc_cost_perc": 0.885,
+                        "af_cap_recovery": 1,
                         "cc_duration": 1,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -1857,14 +2004,17 @@
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "fixed_om_cost": 18036,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": 100000000,
+                        "cc_cap_recovery": 21,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_ID",
                         "cadr": 0.1,
                         "variable_om_cost": 0,
+                        "de_cap_recovery": 1,
                         "cumulative_external_capacity": 1010000,
                         "capacity_size": 1,
                         "wacc": 0.042,
@@ -1877,7 +2027,7 @@
                             }
                         },
                         "existing_capacity": 0,
-                        "cc_cost": 0.1
+                        "af_cost_perc": 0.01
                     }
                 }
             },
@@ -1886,6 +2036,7 @@
                 "edges": {
                     "edge": {
                         "can_retire": true,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 127794,
                         "learning_type": "solar",
                         "af_duration": 1,
@@ -1893,7 +2044,9 @@
                         "de_duration": 1,
                         "can_expand": true,
                         "cumulative_capacity_init": 1000000,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.055,
+                        "cc_cost_perc": 0.885,
+                        "af_cap_recovery": 1,
                         "cc_duration": 1,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -1905,14 +2058,17 @@
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "fixed_om_cost": 18036,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": 100000000,
+                        "cc_cap_recovery": 21,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_ID",
                         "cadr": 0.1,
                         "variable_om_cost": 0,
+                        "de_cap_recovery": 1,
                         "cumulative_external_capacity": 1010000,
                         "capacity_size": 1,
                         "wacc": 0.042,
@@ -1925,7 +2081,7 @@
                             }
                         },
                         "existing_capacity": 0,
-                        "cc_cost": 0.1
+                        "af_cost_perc": 0.01
                     }
                 }
             },
@@ -1934,6 +2090,7 @@
                 "edges": {
                     "edge": {
                         "can_retire": true,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 149954,
                         "learning_type": "wind",
                         "af_duration": 1,
@@ -1941,7 +2098,9 @@
                         "de_duration": 2,
                         "can_expand": true,
                         "cumulative_capacity_init": 1000000,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.055,
+                        "cc_cost_perc": 0.885,
+                        "af_cap_recovery": 1,
                         "cc_duration": 2,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -1953,14 +2112,17 @@
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "fixed_om_cost": 27285,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": 100000000,
+                        "cc_cap_recovery": 22,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_MT",
                         "cadr": 0.1,
                         "variable_om_cost": 0,
+                        "de_cap_recovery": 2,
                         "cumulative_external_capacity": 1010000,
                         "capacity_size": 1,
                         "wacc": 0.05,
@@ -1973,7 +2135,7 @@
                             }
                         },
                         "existing_capacity": 0,
-                        "cc_cost": 0.1
+                        "af_cost_perc": 0.01
                     }
                 }
             },
@@ -1982,6 +2144,7 @@
                 "edges": {
                     "edge": {
                         "can_retire": true,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 151959,
                         "learning_type": "wind",
                         "af_duration": 1,
@@ -1989,7 +2152,9 @@
                         "de_duration": 2,
                         "can_expand": true,
                         "cumulative_capacity_init": 1000000,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.055,
+                        "cc_cost_perc": 0.885,
+                        "af_cap_recovery": 1,
                         "cc_duration": 2,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -2001,14 +2166,17 @@
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "fixed_om_cost": 27285,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": 100000000,
+                        "cc_cap_recovery": 22,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_MT",
                         "cadr": 0.1,
                         "variable_om_cost": 0,
+                        "de_cap_recovery": 2,
                         "cumulative_external_capacity": 1010000,
                         "capacity_size": 1,
                         "wacc": 0.05,
@@ -2021,7 +2189,7 @@
                             }
                         },
                         "existing_capacity": 0,
-                        "cc_cost": 0.1
+                        "af_cost_perc": 0.01
                     }
                 }
             },
@@ -2030,6 +2198,7 @@
                 "edges": {
                     "edge": {
                         "can_retire": true,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 155761,
                         "learning_type": "wind",
                         "af_duration": 1,
@@ -2037,7 +2206,9 @@
                         "de_duration": 2,
                         "can_expand": true,
                         "cumulative_capacity_init": 1000000,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.055,
+                        "cc_cost_perc": 0.885,
+                        "af_cap_recovery": 1,
                         "cc_duration": 2,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -2049,14 +2220,17 @@
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "fixed_om_cost": 27285,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": 100000000,
+                        "cc_cap_recovery": 22,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_MT",
                         "cadr": 0.1,
                         "variable_om_cost": 0,
+                        "de_cap_recovery": 2,
                         "cumulative_external_capacity": 1010000,
                         "capacity_size": 1,
                         "wacc": 0.05,
@@ -2069,7 +2243,7 @@
                             }
                         },
                         "existing_capacity": 0,
-                        "cc_cost": 0.1
+                        "af_cost_perc": 0.01
                     }
                 }
             },
@@ -2078,6 +2252,7 @@
                 "edges": {
                     "edge": {
                         "can_retire": true,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 98955,
                         "learning_type": "solar",
                         "af_duration": 1,
@@ -2085,7 +2260,9 @@
                         "de_duration": 1,
                         "can_expand": true,
                         "cumulative_capacity_init": 1000000,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.055,
+                        "cc_cost_perc": 0.885,
+                        "af_cap_recovery": 1,
                         "cc_duration": 1,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -2097,14 +2274,17 @@
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "fixed_om_cost": 18036,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": 100000000,
+                        "cc_cap_recovery": 21,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_MT",
                         "cadr": 0.1,
                         "variable_om_cost": 0,
+                        "de_cap_recovery": 1,
                         "cumulative_external_capacity": 1010000,
                         "capacity_size": 1,
                         "wacc": 0.042,
@@ -2117,7 +2297,7 @@
                             }
                         },
                         "existing_capacity": 0,
-                        "cc_cost": 0.1
+                        "af_cost_perc": 0.01
                     }
                 }
             },
@@ -2126,6 +2306,7 @@
                 "edges": {
                     "edge": {
                         "can_retire": true,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 112167,
                         "learning_type": "solar",
                         "af_duration": 1,
@@ -2133,7 +2314,9 @@
                         "de_duration": 1,
                         "can_expand": true,
                         "cumulative_capacity_init": 1000000,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.055,
+                        "cc_cost_perc": 0.885,
+                        "af_cap_recovery": 1,
                         "cc_duration": 1,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -2145,14 +2328,17 @@
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "fixed_om_cost": 18036,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": 100000000,
+                        "cc_cap_recovery": 21,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_MT",
                         "cadr": 0.1,
                         "variable_om_cost": 0,
+                        "de_cap_recovery": 1,
                         "cumulative_external_capacity": 1010000,
                         "capacity_size": 1,
                         "wacc": 0.042,
@@ -2165,7 +2351,7 @@
                             }
                         },
                         "existing_capacity": 0,
-                        "cc_cost": 0.1
+                        "af_cost_perc": 0.01
                     }
                 }
             },
@@ -2174,6 +2360,7 @@
                 "edges": {
                     "edge": {
                         "can_retire": true,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 122384,
                         "learning_type": "solar",
                         "af_duration": 1,
@@ -2181,7 +2368,9 @@
                         "de_duration": 1,
                         "can_expand": true,
                         "cumulative_capacity_init": 1000000,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.055,
+                        "cc_cost_perc": 0.885,
+                        "af_cap_recovery": 1,
                         "cc_duration": 1,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -2193,14 +2382,17 @@
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "fixed_om_cost": 18036,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": 100000000,
+                        "cc_cap_recovery": 21,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_MT",
                         "cadr": 0.1,
                         "variable_om_cost": 0,
+                        "de_cap_recovery": 1,
                         "cumulative_external_capacity": 1010000,
                         "capacity_size": 1,
                         "wacc": 0.042,
@@ -2213,7 +2405,7 @@
                             }
                         },
                         "existing_capacity": 0,
-                        "cc_cost": 0.1
+                        "af_cost_perc": 0.01
                     }
                 }
             },
@@ -2222,6 +2414,7 @@
                 "edges": {
                     "edge": {
                         "can_retire": true,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 116278,
                         "learning_type": "wind",
                         "af_duration": 1,
@@ -2229,7 +2422,9 @@
                         "de_duration": 2,
                         "can_expand": true,
                         "cumulative_capacity_init": 1000000,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.055,
+                        "cc_cost_perc": 0.885,
+                        "af_cap_recovery": 1,
                         "cc_duration": 2,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -2241,14 +2436,17 @@
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "fixed_om_cost": 27285,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": 100000000,
+                        "cc_cap_recovery": 22,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_NM",
                         "cadr": 0.1,
                         "variable_om_cost": 0,
+                        "de_cap_recovery": 2,
                         "cumulative_external_capacity": 1010000,
                         "capacity_size": 1,
                         "wacc": 0.05,
@@ -2261,7 +2459,7 @@
                             }
                         },
                         "existing_capacity": 0,
-                        "cc_cost": 0.1
+                        "af_cost_perc": 0.01
                     }
                 }
             },
@@ -2270,6 +2468,7 @@
                 "edges": {
                     "edge": {
                         "can_retire": true,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 124284,
                         "learning_type": "wind",
                         "af_duration": 1,
@@ -2277,7 +2476,9 @@
                         "de_duration": 2,
                         "can_expand": true,
                         "cumulative_capacity_init": 1000000,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.055,
+                        "cc_cost_perc": 0.885,
+                        "af_cap_recovery": 1,
                         "cc_duration": 2,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -2289,14 +2490,17 @@
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "fixed_om_cost": 27285,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": 100000000,
+                        "cc_cap_recovery": 22,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_NM",
                         "cadr": 0.1,
                         "variable_om_cost": 0,
+                        "de_cap_recovery": 2,
                         "cumulative_external_capacity": 1010000,
                         "capacity_size": 1,
                         "wacc": 0.05,
@@ -2309,7 +2513,7 @@
                             }
                         },
                         "existing_capacity": 0,
-                        "cc_cost": 0.1
+                        "af_cost_perc": 0.01
                     }
                 }
             },
@@ -2318,6 +2522,7 @@
                 "edges": {
                     "edge": {
                         "can_retire": true,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 132411,
                         "learning_type": "wind",
                         "af_duration": 1,
@@ -2325,7 +2530,9 @@
                         "de_duration": 2,
                         "can_expand": true,
                         "cumulative_capacity_init": 1000000,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.055,
+                        "cc_cost_perc": 0.885,
+                        "af_cap_recovery": 1,
                         "cc_duration": 2,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -2337,14 +2544,17 @@
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "fixed_om_cost": 27285,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": 100000000,
+                        "cc_cap_recovery": 22,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_NM",
                         "cadr": 0.1,
                         "variable_om_cost": 0,
+                        "de_cap_recovery": 2,
                         "cumulative_external_capacity": 1010000,
                         "capacity_size": 1,
                         "wacc": 0.05,
@@ -2357,7 +2567,7 @@
                             }
                         },
                         "existing_capacity": 0,
-                        "cc_cost": 0.1
+                        "af_cost_perc": 0.01
                     }
                 }
             },
@@ -2366,6 +2576,7 @@
                 "edges": {
                     "edge": {
                         "can_retire": true,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 98220,
                         "learning_type": "solar",
                         "af_duration": 1,
@@ -2373,7 +2584,9 @@
                         "de_duration": 1,
                         "can_expand": true,
                         "cumulative_capacity_init": 1000000,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.055,
+                        "cc_cost_perc": 0.885,
+                        "af_cap_recovery": 1,
                         "cc_duration": 1,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -2385,14 +2598,17 @@
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "fixed_om_cost": 18036,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": 100000000,
+                        "cc_cap_recovery": 21,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_NM",
                         "cadr": 0.1,
                         "variable_om_cost": 0,
+                        "de_cap_recovery": 1,
                         "cumulative_external_capacity": 1010000,
                         "capacity_size": 1,
                         "wacc": 0.042,
@@ -2405,7 +2621,7 @@
                             }
                         },
                         "existing_capacity": 0,
-                        "cc_cost": 0.1
+                        "af_cost_perc": 0.01
                     }
                 }
             },
@@ -2414,6 +2630,7 @@
                 "edges": {
                     "edge": {
                         "can_retire": true,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 110342,
                         "learning_type": "solar",
                         "af_duration": 1,
@@ -2421,7 +2638,9 @@
                         "de_duration": 1,
                         "can_expand": true,
                         "cumulative_capacity_init": 1000000,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.055,
+                        "cc_cost_perc": 0.885,
+                        "af_cap_recovery": 1,
                         "cc_duration": 1,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -2433,14 +2652,17 @@
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "fixed_om_cost": 18036,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": 100000000,
+                        "cc_cap_recovery": 21,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_NM",
                         "cadr": 0.1,
                         "variable_om_cost": 0,
+                        "de_cap_recovery": 1,
                         "cumulative_external_capacity": 1010000,
                         "capacity_size": 1,
                         "wacc": 0.042,
@@ -2453,7 +2675,7 @@
                             }
                         },
                         "existing_capacity": 0,
-                        "cc_cost": 0.1
+                        "af_cost_perc": 0.01
                     }
                 }
             },
@@ -2462,6 +2684,7 @@
                 "edges": {
                     "edge": {
                         "can_retire": true,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 126493,
                         "learning_type": "solar",
                         "af_duration": 1,
@@ -2469,7 +2692,9 @@
                         "de_duration": 1,
                         "can_expand": true,
                         "cumulative_capacity_init": 1000000,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.055,
+                        "cc_cost_perc": 0.885,
+                        "af_cap_recovery": 1,
                         "cc_duration": 1,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -2481,14 +2706,17 @@
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "fixed_om_cost": 18036,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": 100000000,
+                        "cc_cap_recovery": 21,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_NM",
                         "cadr": 0.1,
                         "variable_om_cost": 0,
+                        "de_cap_recovery": 1,
                         "cumulative_external_capacity": 1010000,
                         "capacity_size": 1,
                         "wacc": 0.042,
@@ -2501,7 +2729,7 @@
                             }
                         },
                         "existing_capacity": 0,
-                        "cc_cost": 0.1
+                        "af_cost_perc": 0.01
                     }
                 }
             },
@@ -2510,6 +2738,7 @@
                 "edges": {
                     "edge": {
                         "can_retire": true,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 123701,
                         "learning_type": "wind",
                         "af_duration": 1,
@@ -2517,7 +2746,9 @@
                         "de_duration": 2,
                         "can_expand": true,
                         "cumulative_capacity_init": 1000000,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.055,
+                        "cc_cost_perc": 0.885,
+                        "af_cap_recovery": 1,
                         "cc_duration": 2,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -2529,14 +2760,17 @@
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "fixed_om_cost": 27285,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": 100000000,
+                        "cc_cap_recovery": 22,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_NV",
                         "cadr": 0.1,
                         "variable_om_cost": 0,
+                        "de_cap_recovery": 2,
                         "cumulative_external_capacity": 1010000,
                         "capacity_size": 1,
                         "wacc": 0.05,
@@ -2549,7 +2783,7 @@
                             }
                         },
                         "existing_capacity": 0,
-                        "cc_cost": 0.1
+                        "af_cost_perc": 0.01
                     }
                 }
             },
@@ -2558,6 +2792,7 @@
                 "edges": {
                     "edge": {
                         "can_retire": true,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 130990,
                         "learning_type": "wind",
                         "af_duration": 1,
@@ -2565,7 +2800,9 @@
                         "de_duration": 2,
                         "can_expand": true,
                         "cumulative_capacity_init": 1000000,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.055,
+                        "cc_cost_perc": 0.885,
+                        "af_cap_recovery": 1,
                         "cc_duration": 2,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -2577,14 +2814,17 @@
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "fixed_om_cost": 27285,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": 100000000,
+                        "cc_cap_recovery": 22,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_NV",
                         "cadr": 0.1,
                         "variable_om_cost": 0,
+                        "de_cap_recovery": 2,
                         "cumulative_external_capacity": 1010000,
                         "capacity_size": 1,
                         "wacc": 0.05,
@@ -2597,7 +2837,7 @@
                             }
                         },
                         "existing_capacity": 0,
-                        "cc_cost": 0.1
+                        "af_cost_perc": 0.01
                     }
                 }
             },
@@ -2606,6 +2846,7 @@
                 "edges": {
                     "edge": {
                         "can_retire": true,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 135404,
                         "learning_type": "wind",
                         "af_duration": 1,
@@ -2613,7 +2854,9 @@
                         "de_duration": 2,
                         "can_expand": true,
                         "cumulative_capacity_init": 1000000,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.055,
+                        "cc_cost_perc": 0.885,
+                        "af_cap_recovery": 1,
                         "cc_duration": 2,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -2625,14 +2868,17 @@
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "fixed_om_cost": 27285,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": 100000000,
+                        "cc_cap_recovery": 22,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_NV",
                         "cadr": 0.1,
                         "variable_om_cost": 0,
+                        "de_cap_recovery": 2,
                         "cumulative_external_capacity": 1010000,
                         "capacity_size": 1,
                         "wacc": 0.05,
@@ -2645,7 +2891,7 @@
                             }
                         },
                         "existing_capacity": 0,
-                        "cc_cost": 0.1
+                        "af_cost_perc": 0.01
                     }
                 }
             },
@@ -2654,6 +2900,7 @@
                 "edges": {
                     "edge": {
                         "can_retire": true,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 107691,
                         "learning_type": "solar",
                         "af_duration": 1,
@@ -2661,7 +2908,9 @@
                         "de_duration": 1,
                         "can_expand": true,
                         "cumulative_capacity_init": 1000000,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.055,
+                        "cc_cost_perc": 0.885,
+                        "af_cap_recovery": 1,
                         "cc_duration": 1,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -2673,14 +2922,17 @@
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "fixed_om_cost": 18036,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": 100000000,
+                        "cc_cap_recovery": 21,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_NV",
                         "cadr": 0.1,
                         "variable_om_cost": 0,
+                        "de_cap_recovery": 1,
                         "cumulative_external_capacity": 1010000,
                         "capacity_size": 1,
                         "wacc": 0.042,
@@ -2693,7 +2945,7 @@
                             }
                         },
                         "existing_capacity": 0,
-                        "cc_cost": 0.1
+                        "af_cost_perc": 0.01
                     }
                 }
             },
@@ -2702,6 +2954,7 @@
                 "edges": {
                     "edge": {
                         "can_retire": true,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 117473,
                         "learning_type": "solar",
                         "af_duration": 1,
@@ -2709,7 +2962,9 @@
                         "de_duration": 1,
                         "can_expand": true,
                         "cumulative_capacity_init": 1000000,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.055,
+                        "cc_cost_perc": 0.885,
+                        "af_cap_recovery": 1,
                         "cc_duration": 1,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -2721,14 +2976,17 @@
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "fixed_om_cost": 18036,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": 100000000,
+                        "cc_cap_recovery": 21,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_NV",
                         "cadr": 0.1,
                         "variable_om_cost": 0,
+                        "de_cap_recovery": 1,
                         "cumulative_external_capacity": 1010000,
                         "capacity_size": 1,
                         "wacc": 0.042,
@@ -2741,7 +2999,7 @@
                             }
                         },
                         "existing_capacity": 0,
-                        "cc_cost": 0.1
+                        "af_cost_perc": 0.01
                     }
                 }
             },
@@ -2750,6 +3008,7 @@
                 "edges": {
                     "edge": {
                         "can_retire": true,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 140931,
                         "learning_type": "solar",
                         "af_duration": 1,
@@ -2757,7 +3016,9 @@
                         "de_duration": 1,
                         "can_expand": true,
                         "cumulative_capacity_init": 1000000,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.055,
+                        "cc_cost_perc": 0.885,
+                        "af_cap_recovery": 1,
                         "cc_duration": 1,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -2769,14 +3030,17 @@
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "fixed_om_cost": 18036,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": 100000000,
+                        "cc_cap_recovery": 21,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_NV",
                         "cadr": 0.1,
                         "variable_om_cost": 0,
+                        "de_cap_recovery": 1,
                         "cumulative_external_capacity": 1010000,
                         "capacity_size": 1,
                         "wacc": 0.042,
@@ -2789,7 +3053,7 @@
                             }
                         },
                         "existing_capacity": 0,
-                        "cc_cost": 0.1
+                        "af_cost_perc": 0.01
                     }
                 }
             },
@@ -2798,6 +3062,7 @@
                 "edges": {
                     "edge": {
                         "can_retire": true,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 156536,
                         "learning_type": "wind",
                         "af_duration": 1,
@@ -2805,7 +3070,9 @@
                         "de_duration": 2,
                         "can_expand": true,
                         "cumulative_capacity_init": 1000000,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.055,
+                        "cc_cost_perc": 0.885,
+                        "af_cap_recovery": 1,
                         "cc_duration": 2,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -2817,14 +3084,17 @@
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "fixed_om_cost": 27285,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": 100000000,
+                        "cc_cap_recovery": 22,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_OR",
                         "cadr": 0.1,
                         "variable_om_cost": 0,
+                        "de_cap_recovery": 2,
                         "cumulative_external_capacity": 1010000,
                         "capacity_size": 1,
                         "wacc": 0.05,
@@ -2837,7 +3107,7 @@
                             }
                         },
                         "existing_capacity": 0,
-                        "cc_cost": 0.1
+                        "af_cost_perc": 0.01
                     }
                 }
             },
@@ -2846,6 +3116,7 @@
                 "edges": {
                     "edge": {
                         "can_retire": true,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 165267,
                         "learning_type": "wind",
                         "af_duration": 1,
@@ -2853,7 +3124,9 @@
                         "de_duration": 2,
                         "can_expand": true,
                         "cumulative_capacity_init": 1000000,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.055,
+                        "cc_cost_perc": 0.885,
+                        "af_cap_recovery": 1,
                         "cc_duration": 2,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -2865,14 +3138,17 @@
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "fixed_om_cost": 27285,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": 100000000,
+                        "cc_cap_recovery": 22,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_OR",
                         "cadr": 0.1,
                         "variable_om_cost": 0,
+                        "de_cap_recovery": 2,
                         "cumulative_external_capacity": 1010000,
                         "capacity_size": 1,
                         "wacc": 0.05,
@@ -2885,7 +3161,7 @@
                             }
                         },
                         "existing_capacity": 0,
-                        "cc_cost": 0.1
+                        "af_cost_perc": 0.01
                     }
                 }
             },
@@ -2894,6 +3170,7 @@
                 "edges": {
                     "edge": {
                         "can_retire": true,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 167063,
                         "learning_type": "wind",
                         "af_duration": 1,
@@ -2901,7 +3178,9 @@
                         "de_duration": 2,
                         "can_expand": true,
                         "cumulative_capacity_init": 1000000,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.055,
+                        "cc_cost_perc": 0.885,
+                        "af_cap_recovery": 1,
                         "cc_duration": 2,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -2913,14 +3192,17 @@
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "fixed_om_cost": 27285,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": 100000000,
+                        "cc_cap_recovery": 22,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_OR",
                         "cadr": 0.1,
                         "variable_om_cost": 0,
+                        "de_cap_recovery": 2,
                         "cumulative_external_capacity": 1010000,
                         "capacity_size": 1,
                         "wacc": 0.05,
@@ -2933,7 +3215,7 @@
                             }
                         },
                         "existing_capacity": 0,
-                        "cc_cost": 0.1
+                        "af_cost_perc": 0.01
                     }
                 }
             },
@@ -2942,6 +3224,7 @@
                 "edges": {
                     "edge": {
                         "can_retire": true,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 110205,
                         "learning_type": "solar",
                         "af_duration": 1,
@@ -2949,7 +3232,9 @@
                         "de_duration": 1,
                         "can_expand": true,
                         "cumulative_capacity_init": 1000000,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.055,
+                        "cc_cost_perc": 0.885,
+                        "af_cap_recovery": 1,
                         "cc_duration": 1,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -2961,14 +3246,17 @@
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "fixed_om_cost": 18036,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": 100000000,
+                        "cc_cap_recovery": 21,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_OR",
                         "cadr": 0.1,
                         "variable_om_cost": 0,
+                        "de_cap_recovery": 1,
                         "cumulative_external_capacity": 1010000,
                         "capacity_size": 1,
                         "wacc": 0.042,
@@ -2981,7 +3269,7 @@
                             }
                         },
                         "existing_capacity": 0,
-                        "cc_cost": 0.1
+                        "af_cost_perc": 0.01
                     }
                 }
             },
@@ -2990,6 +3278,7 @@
                 "edges": {
                     "edge": {
                         "can_retire": true,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 122246,
                         "learning_type": "solar",
                         "af_duration": 1,
@@ -2997,7 +3286,9 @@
                         "de_duration": 1,
                         "can_expand": true,
                         "cumulative_capacity_init": 1000000,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.055,
+                        "cc_cost_perc": 0.885,
+                        "af_cap_recovery": 1,
                         "cc_duration": 1,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -3009,14 +3300,17 @@
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "fixed_om_cost": 18036,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": 100000000,
+                        "cc_cap_recovery": 21,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_OR",
                         "cadr": 0.1,
                         "variable_om_cost": 0,
+                        "de_cap_recovery": 1,
                         "cumulative_external_capacity": 1010000,
                         "capacity_size": 1,
                         "wacc": 0.042,
@@ -3029,7 +3323,7 @@
                             }
                         },
                         "existing_capacity": 0,
-                        "cc_cost": 0.1
+                        "af_cost_perc": 0.01
                     }
                 }
             },
@@ -3038,6 +3332,7 @@
                 "edges": {
                     "edge": {
                         "can_retire": true,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 129889,
                         "learning_type": "solar",
                         "af_duration": 1,
@@ -3045,7 +3340,9 @@
                         "de_duration": 1,
                         "can_expand": true,
                         "cumulative_capacity_init": 1000000,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.055,
+                        "cc_cost_perc": 0.885,
+                        "af_cap_recovery": 1,
                         "cc_duration": 1,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -3057,14 +3354,17 @@
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "fixed_om_cost": 18036,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": 100000000,
+                        "cc_cap_recovery": 21,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_OR",
                         "cadr": 0.1,
                         "variable_om_cost": 0,
+                        "de_cap_recovery": 1,
                         "cumulative_external_capacity": 1010000,
                         "capacity_size": 1,
                         "wacc": 0.042,
@@ -3077,7 +3377,7 @@
                             }
                         },
                         "existing_capacity": 0,
-                        "cc_cost": 0.1
+                        "af_cost_perc": 0.01
                     }
                 }
             },
@@ -3086,6 +3386,7 @@
                 "edges": {
                     "edge": {
                         "can_retire": true,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 415905,
                         "learning_type": "offshorewind",
                         "af_duration": 1,
@@ -3093,7 +3394,9 @@
                         "de_duration": 2,
                         "can_expand": true,
                         "cumulative_capacity_init": 1000000,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.055,
+                        "cc_cost_perc": 0.885,
+                        "af_cap_recovery": 1,
                         "cc_duration": 4,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -3105,14 +3408,17 @@
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "fixed_om_cost": 72717,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": 100000000,
+                        "cc_cap_recovery": 24,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_OR",
                         "cadr": 0.1,
                         "variable_om_cost": 0,
+                        "de_cap_recovery": 2,
                         "cumulative_external_capacity": 1010000,
                         "capacity_size": 1,
                         "wacc": 0.052,
@@ -3125,7 +3431,7 @@
                             }
                         },
                         "existing_capacity": 0,
-                        "cc_cost": 0.1
+                        "af_cost_perc": 0.01
                     }
                 }
             },
@@ -3134,6 +3440,7 @@
                 "edges": {
                     "edge": {
                         "can_retire": true,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 415905,
                         "learning_type": "offshorewind",
                         "af_duration": 1,
@@ -3141,7 +3448,9 @@
                         "de_duration": 2,
                         "can_expand": true,
                         "cumulative_capacity_init": 1000000,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.055,
+                        "cc_cost_perc": 0.885,
+                        "af_cap_recovery": 1,
                         "cc_duration": 4,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -3153,14 +3462,17 @@
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "fixed_om_cost": 72717,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": 100000000,
+                        "cc_cap_recovery": 24,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_OR",
                         "cadr": 0.1,
                         "variable_om_cost": 0,
+                        "de_cap_recovery": 2,
                         "cumulative_external_capacity": 1010000,
                         "capacity_size": 1,
                         "wacc": 0.052,
@@ -3173,7 +3485,7 @@
                             }
                         },
                         "existing_capacity": 0,
-                        "cc_cost": 0.1
+                        "af_cost_perc": 0.01
                     }
                 }
             },
@@ -3212,6 +3524,7 @@
                 "edges": {
                     "edge": {
                         "can_retire": true,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 124943,
                         "learning_type": "wind",
                         "af_duration": 1,
@@ -3219,7 +3532,9 @@
                         "de_duration": 2,
                         "can_expand": true,
                         "cumulative_capacity_init": 1000000,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.055,
+                        "cc_cost_perc": 0.885,
+                        "af_cap_recovery": 1,
                         "cc_duration": 2,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -3231,14 +3546,17 @@
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "fixed_om_cost": 27285,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": 100000000,
+                        "cc_cap_recovery": 22,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_UT",
                         "cadr": 0.1,
                         "variable_om_cost": 0,
+                        "de_cap_recovery": 2,
                         "cumulative_external_capacity": 1010000,
                         "capacity_size": 1,
                         "wacc": 0.05,
@@ -3251,7 +3569,7 @@
                             }
                         },
                         "existing_capacity": 0,
-                        "cc_cost": 0.1
+                        "af_cost_perc": 0.01
                     }
                 }
             },
@@ -3260,6 +3578,7 @@
                 "edges": {
                     "edge": {
                         "can_retire": true,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 127964,
                         "learning_type": "wind",
                         "af_duration": 1,
@@ -3267,7 +3586,9 @@
                         "de_duration": 2,
                         "can_expand": true,
                         "cumulative_capacity_init": 1000000,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.055,
+                        "cc_cost_perc": 0.885,
+                        "af_cap_recovery": 1,
                         "cc_duration": 2,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -3279,14 +3600,17 @@
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "fixed_om_cost": 27285,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": 100000000,
+                        "cc_cap_recovery": 22,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_UT",
                         "cadr": 0.1,
                         "variable_om_cost": 0,
+                        "de_cap_recovery": 2,
                         "cumulative_external_capacity": 1010000,
                         "capacity_size": 1,
                         "wacc": 0.05,
@@ -3299,7 +3623,7 @@
                             }
                         },
                         "existing_capacity": 0,
-                        "cc_cost": 0.1
+                        "af_cost_perc": 0.01
                     }
                 }
             },
@@ -3308,6 +3632,7 @@
                 "edges": {
                     "edge": {
                         "can_retire": true,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 131580,
                         "learning_type": "wind",
                         "af_duration": 1,
@@ -3315,7 +3640,9 @@
                         "de_duration": 2,
                         "can_expand": true,
                         "cumulative_capacity_init": 1000000,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.055,
+                        "cc_cost_perc": 0.885,
+                        "af_cap_recovery": 1,
                         "cc_duration": 2,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -3327,14 +3654,17 @@
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "fixed_om_cost": 27285,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": 100000000,
+                        "cc_cap_recovery": 22,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_UT",
                         "cadr": 0.1,
                         "variable_om_cost": 0,
+                        "de_cap_recovery": 2,
                         "cumulative_external_capacity": 1010000,
                         "capacity_size": 1,
                         "wacc": 0.05,
@@ -3347,7 +3677,7 @@
                             }
                         },
                         "existing_capacity": 0,
-                        "cc_cost": 0.1
+                        "af_cost_perc": 0.01
                     }
                 }
             },
@@ -3356,6 +3686,7 @@
                 "edges": {
                     "edge": {
                         "can_retire": true,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 105834,
                         "learning_type": "solar",
                         "af_duration": 1,
@@ -3363,7 +3694,9 @@
                         "de_duration": 1,
                         "can_expand": true,
                         "cumulative_capacity_init": 1000000,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.055,
+                        "cc_cost_perc": 0.885,
+                        "af_cap_recovery": 1,
                         "cc_duration": 1,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -3375,14 +3708,17 @@
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "fixed_om_cost": 18036,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": 100000000,
+                        "cc_cap_recovery": 21,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_UT",
                         "cadr": 0.1,
                         "variable_om_cost": 0,
+                        "de_cap_recovery": 1,
                         "cumulative_external_capacity": 1010000,
                         "capacity_size": 1,
                         "wacc": 0.042,
@@ -3395,7 +3731,7 @@
                             }
                         },
                         "existing_capacity": 0,
-                        "cc_cost": 0.1
+                        "af_cost_perc": 0.01
                     }
                 }
             },
@@ -3404,6 +3740,7 @@
                 "edges": {
                     "edge": {
                         "can_retire": true,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 116247,
                         "learning_type": "solar",
                         "af_duration": 1,
@@ -3411,7 +3748,9 @@
                         "de_duration": 1,
                         "can_expand": true,
                         "cumulative_capacity_init": 1000000,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.055,
+                        "cc_cost_perc": 0.885,
+                        "af_cap_recovery": 1,
                         "cc_duration": 1,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -3423,14 +3762,17 @@
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "fixed_om_cost": 18036,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": 100000000,
+                        "cc_cap_recovery": 21,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_UT",
                         "cadr": 0.1,
                         "variable_om_cost": 0,
+                        "de_cap_recovery": 1,
                         "cumulative_external_capacity": 1010000,
                         "capacity_size": 1,
                         "wacc": 0.042,
@@ -3443,7 +3785,7 @@
                             }
                         },
                         "existing_capacity": 0,
-                        "cc_cost": 0.1
+                        "af_cost_perc": 0.01
                     }
                 }
             },
@@ -3452,6 +3794,7 @@
                 "edges": {
                     "edge": {
                         "can_retire": true,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 127802,
                         "learning_type": "solar",
                         "af_duration": 1,
@@ -3459,7 +3802,9 @@
                         "de_duration": 1,
                         "can_expand": true,
                         "cumulative_capacity_init": 1000000,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.055,
+                        "cc_cost_perc": 0.885,
+                        "af_cap_recovery": 1,
                         "cc_duration": 1,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -3471,14 +3816,17 @@
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "fixed_om_cost": 18036,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": 100000000,
+                        "cc_cap_recovery": 21,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_UT",
                         "cadr": 0.1,
                         "variable_om_cost": 0,
+                        "de_cap_recovery": 1,
                         "cumulative_external_capacity": 1010000,
                         "capacity_size": 1,
                         "wacc": 0.042,
@@ -3491,7 +3839,7 @@
                             }
                         },
                         "existing_capacity": 0,
-                        "cc_cost": 0.1
+                        "af_cost_perc": 0.01
                     }
                 }
             },
@@ -3500,6 +3848,7 @@
                 "edges": {
                     "edge": {
                         "can_retire": true,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 155068,
                         "learning_type": "wind",
                         "af_duration": 1,
@@ -3507,7 +3856,9 @@
                         "de_duration": 2,
                         "can_expand": true,
                         "cumulative_capacity_init": 1000000,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.055,
+                        "cc_cost_perc": 0.885,
+                        "af_cap_recovery": 1,
                         "cc_duration": 2,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -3519,14 +3870,17 @@
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "fixed_om_cost": 27285,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": 100000000,
+                        "cc_cap_recovery": 22,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_WA",
                         "cadr": 0.1,
                         "variable_om_cost": 0,
+                        "de_cap_recovery": 2,
                         "cumulative_external_capacity": 1010000,
                         "capacity_size": 1,
                         "wacc": 0.05,
@@ -3539,7 +3893,7 @@
                             }
                         },
                         "existing_capacity": 0,
-                        "cc_cost": 0.1
+                        "af_cost_perc": 0.01
                     }
                 }
             },
@@ -3548,6 +3902,7 @@
                 "edges": {
                     "edge": {
                         "can_retire": true,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 163611,
                         "learning_type": "wind",
                         "af_duration": 1,
@@ -3555,7 +3910,9 @@
                         "de_duration": 2,
                         "can_expand": true,
                         "cumulative_capacity_init": 1000000,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.055,
+                        "cc_cost_perc": 0.885,
+                        "af_cap_recovery": 1,
                         "cc_duration": 2,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -3567,14 +3924,17 @@
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "fixed_om_cost": 27285,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": 100000000,
+                        "cc_cap_recovery": 22,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_WA",
                         "cadr": 0.1,
                         "variable_om_cost": 0,
+                        "de_cap_recovery": 2,
                         "cumulative_external_capacity": 1010000,
                         "capacity_size": 1,
                         "wacc": 0.05,
@@ -3587,7 +3947,7 @@
                             }
                         },
                         "existing_capacity": 0,
-                        "cc_cost": 0.1
+                        "af_cost_perc": 0.01
                     }
                 }
             },
@@ -3596,6 +3956,7 @@
                 "edges": {
                     "edge": {
                         "can_retire": true,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 163324,
                         "learning_type": "wind",
                         "af_duration": 1,
@@ -3603,7 +3964,9 @@
                         "de_duration": 2,
                         "can_expand": true,
                         "cumulative_capacity_init": 1000000,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.055,
+                        "cc_cost_perc": 0.885,
+                        "af_cap_recovery": 1,
                         "cc_duration": 2,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -3615,14 +3978,17 @@
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "fixed_om_cost": 27285,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": 100000000,
+                        "cc_cap_recovery": 22,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_WA",
                         "cadr": 0.1,
                         "variable_om_cost": 0,
+                        "de_cap_recovery": 2,
                         "cumulative_external_capacity": 1010000,
                         "capacity_size": 1,
                         "wacc": 0.05,
@@ -3635,7 +4001,7 @@
                             }
                         },
                         "existing_capacity": 0,
-                        "cc_cost": 0.1
+                        "af_cost_perc": 0.01
                     }
                 }
             },
@@ -3644,6 +4010,7 @@
                 "edges": {
                     "edge": {
                         "can_retire": true,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 107680,
                         "learning_type": "solar",
                         "af_duration": 1,
@@ -3651,7 +4018,9 @@
                         "de_duration": 1,
                         "can_expand": true,
                         "cumulative_capacity_init": 1000000,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.055,
+                        "cc_cost_perc": 0.885,
+                        "af_cap_recovery": 1,
                         "cc_duration": 1,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -3663,14 +4032,17 @@
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "fixed_om_cost": 18036,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": 100000000,
+                        "cc_cap_recovery": 21,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_WA",
                         "cadr": 0.1,
                         "variable_om_cost": 0,
+                        "de_cap_recovery": 1,
                         "cumulative_external_capacity": 1010000,
                         "capacity_size": 1,
                         "wacc": 0.042,
@@ -3683,7 +4055,7 @@
                             }
                         },
                         "existing_capacity": 0,
-                        "cc_cost": 0.1
+                        "af_cost_perc": 0.01
                     }
                 }
             },
@@ -3692,6 +4064,7 @@
                 "edges": {
                     "edge": {
                         "can_retire": true,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 119602,
                         "learning_type": "solar",
                         "af_duration": 1,
@@ -3699,7 +4072,9 @@
                         "de_duration": 1,
                         "can_expand": true,
                         "cumulative_capacity_init": 1000000,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.055,
+                        "cc_cost_perc": 0.885,
+                        "af_cap_recovery": 1,
                         "cc_duration": 1,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -3711,14 +4086,17 @@
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "fixed_om_cost": 18036,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": 100000000,
+                        "cc_cap_recovery": 21,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_WA",
                         "cadr": 0.1,
                         "variable_om_cost": 0,
+                        "de_cap_recovery": 1,
                         "cumulative_external_capacity": 1010000,
                         "capacity_size": 1,
                         "wacc": 0.042,
@@ -3731,7 +4109,7 @@
                             }
                         },
                         "existing_capacity": 0,
-                        "cc_cost": 0.1
+                        "af_cost_perc": 0.01
                     }
                 }
             },
@@ -3740,6 +4118,7 @@
                 "edges": {
                     "edge": {
                         "can_retire": true,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 128738,
                         "learning_type": "solar",
                         "af_duration": 1,
@@ -3747,7 +4126,9 @@
                         "de_duration": 1,
                         "can_expand": true,
                         "cumulative_capacity_init": 1000000,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.055,
+                        "cc_cost_perc": 0.885,
+                        "af_cap_recovery": 1,
                         "cc_duration": 1,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -3759,14 +4140,17 @@
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "fixed_om_cost": 18036,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": 100000000,
+                        "cc_cap_recovery": 21,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_WA",
                         "cadr": 0.1,
                         "variable_om_cost": 0,
+                        "de_cap_recovery": 1,
                         "cumulative_external_capacity": 1010000,
                         "capacity_size": 1,
                         "wacc": 0.042,
@@ -3779,7 +4163,7 @@
                             }
                         },
                         "existing_capacity": 0,
-                        "cc_cost": 0.1
+                        "af_cost_perc": 0.01
                     }
                 }
             },
@@ -3788,6 +4172,7 @@
                 "edges": {
                     "edge": {
                         "can_retire": true,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 407429,
                         "learning_type": "offshorewind",
                         "af_duration": 1,
@@ -3795,7 +4180,9 @@
                         "de_duration": 2,
                         "can_expand": true,
                         "cumulative_capacity_init": 1000000,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.055,
+                        "cc_cost_perc": 0.885,
+                        "af_cap_recovery": 1,
                         "cc_duration": 4,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -3807,14 +4194,17 @@
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "fixed_om_cost": 72717,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": 100000000,
+                        "cc_cap_recovery": 24,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_WA",
                         "cadr": 0.1,
                         "variable_om_cost": 0,
+                        "de_cap_recovery": 2,
                         "cumulative_external_capacity": 1010000,
                         "capacity_size": 1,
                         "wacc": 0.052,
@@ -3827,7 +4217,7 @@
                             }
                         },
                         "existing_capacity": 0,
-                        "cc_cost": 0.1
+                        "af_cost_perc": 0.01
                     }
                 }
             },
@@ -3836,6 +4226,7 @@
                 "edges": {
                     "edge": {
                         "can_retire": true,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 407429,
                         "learning_type": "offshorewind",
                         "af_duration": 1,
@@ -3843,7 +4234,9 @@
                         "de_duration": 2,
                         "can_expand": true,
                         "cumulative_capacity_init": 1000000,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.055,
+                        "cc_cost_perc": 0.885,
+                        "af_cap_recovery": 1,
                         "cc_duration": 4,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -3855,14 +4248,17 @@
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "fixed_om_cost": 72717,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": 100000000,
+                        "cc_cap_recovery": 24,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_WA",
                         "cadr": 0.1,
                         "variable_om_cost": 0,
+                        "de_cap_recovery": 2,
                         "cumulative_external_capacity": 1010000,
                         "capacity_size": 1,
                         "wacc": 0.052,
@@ -3875,7 +4271,7 @@
                             }
                         },
                         "existing_capacity": 0,
-                        "cc_cost": 0.1
+                        "af_cost_perc": 0.01
                     }
                 }
             },
@@ -3914,6 +4310,7 @@
                 "edges": {
                     "edge": {
                         "can_retire": true,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 114171,
                         "learning_type": "wind",
                         "af_duration": 1,
@@ -3921,7 +4318,9 @@
                         "de_duration": 2,
                         "can_expand": true,
                         "cumulative_capacity_init": 1000000,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.055,
+                        "cc_cost_perc": 0.885,
+                        "af_cap_recovery": 1,
                         "cc_duration": 2,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -3933,14 +4332,17 @@
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "fixed_om_cost": 27285,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": 100000000,
+                        "cc_cap_recovery": 22,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_WY",
                         "cadr": 0.1,
                         "variable_om_cost": 0,
+                        "de_cap_recovery": 2,
                         "cumulative_external_capacity": 1010000,
                         "capacity_size": 1,
                         "wacc": 0.05,
@@ -3953,7 +4355,7 @@
                             }
                         },
                         "existing_capacity": 0,
-                        "cc_cost": 0.1
+                        "af_cost_perc": 0.01
                     }
                 }
             },
@@ -3962,6 +4364,7 @@
                 "edges": {
                     "edge": {
                         "can_retire": true,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 120268,
                         "learning_type": "wind",
                         "af_duration": 1,
@@ -3969,7 +4372,9 @@
                         "de_duration": 2,
                         "can_expand": true,
                         "cumulative_capacity_init": 1000000,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.055,
+                        "cc_cost_perc": 0.885,
+                        "af_cap_recovery": 1,
                         "cc_duration": 2,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -3981,14 +4386,17 @@
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "fixed_om_cost": 27285,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": 100000000,
+                        "cc_cap_recovery": 22,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_WY",
                         "cadr": 0.1,
                         "variable_om_cost": 0,
+                        "de_cap_recovery": 2,
                         "cumulative_external_capacity": 1010000,
                         "capacity_size": 1,
                         "wacc": 0.05,
@@ -4001,7 +4409,7 @@
                             }
                         },
                         "existing_capacity": 0,
-                        "cc_cost": 0.1
+                        "af_cost_perc": 0.01
                     }
                 }
             },
@@ -4010,6 +4418,7 @@
                 "edges": {
                     "edge": {
                         "can_retire": true,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 120440,
                         "learning_type": "wind",
                         "af_duration": 1,
@@ -4017,7 +4426,9 @@
                         "de_duration": 2,
                         "can_expand": true,
                         "cumulative_capacity_init": 1000000,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.055,
+                        "cc_cost_perc": 0.885,
+                        "af_cap_recovery": 1,
                         "cc_duration": 2,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -4029,14 +4440,17 @@
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "fixed_om_cost": 27285,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": 100000000,
+                        "cc_cap_recovery": 22,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_WY",
                         "cadr": 0.1,
                         "variable_om_cost": 0,
+                        "de_cap_recovery": 2,
                         "cumulative_external_capacity": 1010000,
                         "capacity_size": 1,
                         "wacc": 0.05,
@@ -4049,7 +4463,7 @@
                             }
                         },
                         "existing_capacity": 0,
-                        "cc_cost": 0.1
+                        "af_cost_perc": 0.01
                     }
                 }
             },
@@ -4058,6 +4472,7 @@
                 "edges": {
                     "edge": {
                         "can_retire": true,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 99125,
                         "learning_type": "solar",
                         "af_duration": 1,
@@ -4065,7 +4480,9 @@
                         "de_duration": 1,
                         "can_expand": true,
                         "cumulative_capacity_init": 1000000,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.055,
+                        "cc_cost_perc": 0.885,
+                        "af_cap_recovery": 1,
                         "cc_duration": 1,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -4077,14 +4494,17 @@
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "fixed_om_cost": 18036,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": 100000000,
+                        "cc_cap_recovery": 21,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_WY",
                         "cadr": 0.1,
                         "variable_om_cost": 0,
+                        "de_cap_recovery": 1,
                         "cumulative_external_capacity": 1010000,
                         "capacity_size": 1,
                         "wacc": 0.042,
@@ -4097,7 +4517,7 @@
                             }
                         },
                         "existing_capacity": 0,
-                        "cc_cost": 0.1
+                        "af_cost_perc": 0.01
                     }
                 }
             },
@@ -4106,6 +4526,7 @@
                 "edges": {
                     "edge": {
                         "can_retire": true,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 108176,
                         "learning_type": "solar",
                         "af_duration": 1,
@@ -4113,7 +4534,9 @@
                         "de_duration": 1,
                         "can_expand": true,
                         "cumulative_capacity_init": 1000000,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.055,
+                        "cc_cost_perc": 0.885,
+                        "af_cap_recovery": 1,
                         "cc_duration": 1,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -4125,14 +4548,17 @@
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "fixed_om_cost": 18036,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": 100000000,
+                        "cc_cap_recovery": 21,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_WY",
                         "cadr": 0.1,
                         "variable_om_cost": 0,
+                        "de_cap_recovery": 1,
                         "cumulative_external_capacity": 1010000,
                         "capacity_size": 1,
                         "wacc": 0.042,
@@ -4145,7 +4571,7 @@
                             }
                         },
                         "existing_capacity": 0,
-                        "cc_cost": 0.1
+                        "af_cost_perc": 0.01
                     }
                 }
             },
@@ -4154,6 +4580,7 @@
                 "edges": {
                     "edge": {
                         "can_retire": true,
+                        "de_wacc": 0.1,
                         "annualized_investment_cost": 119705,
                         "learning_type": "solar",
                         "af_duration": 1,
@@ -4161,7 +4588,9 @@
                         "de_duration": 1,
                         "can_expand": true,
                         "cumulative_capacity_init": 1000000,
-                        "de_cost": 0.05,
+                        "de_cost_perc": 0.055,
+                        "cc_cost_perc": 0.885,
+                        "af_cap_recovery": 1,
                         "cc_duration": 1,
                         "constraints": {
                             "MaxCapacityGrowthConstraint": true,
@@ -4173,14 +4602,17 @@
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "fixed_om_cost": 18036,
-                        "af_cost": 0.03,
                         "cagr": 0.15,
+                        "cc_wacc": 0.06,
+                        "af_wacc": 0.1,
                         "project_attrition": 0.9,
                         "max_cumul_capacity": 100000000,
+                        "cc_cap_recovery": 21,
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_WY",
                         "cadr": 0.1,
                         "variable_om_cost": 0,
+                        "de_cap_recovery": 1,
                         "cumulative_external_capacity": 1010000,
                         "capacity_size": 1,
                         "wacc": 0.042,
@@ -4193,7 +4625,7 @@
                             }
                         },
                         "existing_capacity": 0,
-                        "cc_cost": 0.1
+                        "af_cost_perc": 0.01
                     }
                 }
             }
