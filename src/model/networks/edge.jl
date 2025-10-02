@@ -69,19 +69,30 @@ macro AbstractEdgeBaseAttributes()
         af_duration::Int64 = $edge_defaults[:af_duration]
         cc_duration::Int64 = $edge_defaults[:cc_duration]
         # Definition and evaluation (DE)
-        de_cost::Float64 = 0.0
+        de_cost_perc::Float64 = 0.0
+        de_wacc::Float64 = 0.1
+        de_cap_recovery::Int64 = 0
+        de_annualized_cost::Float64 = 0.0
         new_de_capacity::AffExpr = AffExpr(0.0)
         new_de_capacity_track::Dict{Int64,AffExpr} = Dict(1=>AffExpr(0.0))
         de_capacity::AffExpr = AffExpr(0.0)
         de_capacity_track::Dict{Int64,AffExpr} = Dict(1=>AffExpr(0.0))
         new_de_units::Union{JuMPVariable,Float64} = 0.0
         # Approvals and funding (AF)
+        af_cost_perc::Float64 = 0.0
+        af_wacc::Float64 = 0.1
+        af_cap_recovery::Int64 = 0
+        af_annualized_cost::Float64 = 0.0
         new_af_capacity::AffExpr = AffExpr(0.0)
         new_af_capacity_track::Dict{Int64,AffExpr} = Dict(1=>AffExpr(0.0))
         af_capacity::AffExpr = AffExpr(0.0)
         af_capacity_track::Dict{Int64,AffExpr} = Dict(1=>AffExpr(0.0))
         new_af_units::Union{JuMPVariable,Float64} = 0.0
         # Construction and Commissioning (CC)
+        cc_cost_perc::Float64 = 0.0
+        cc_wacc::Float64 = 0.05
+        cc_cap_recovery::Int64 = 0
+        cc_annualized_cost::Float64 = 0.0
         new_cc_capacity::AffExpr = AffExpr(0.0)
         new_cc_capacity_track::Dict{Int64,AffExpr} = Dict(1=>AffExpr(0.0))
         cc_capacity::AffExpr = AffExpr(0.0)
@@ -434,17 +445,17 @@ function compute_investment_costs!(e::AbstractEdge, model::Model, settings::Name
             # Shadow capacity for project development constraints
             add_to_expression!(
                 model[:eInvestmentFixedCost],
-                annualized_investment_cost(e)*annuities_mult(e)*0.1,
+                de_annualized_cost(e)*annuities_mult(e),
                 new_de_capacity(e),
             )
             add_to_expression!(
                 model[:eInvestmentFixedCost],
-                annualized_investment_cost(e)*annuities_mult(e)*0.1,
+                af_annualized_cost(e)*annuities_mult(e),
                 new_af_capacity(e),
             )
             add_to_expression!(
                 model[:eInvestmentFixedCost],
-                annualized_investment_cost(e)*annuities_mult(e)*0.1,
+                cc_annualized_cost(e)*annuities_mult(e),
                 new_cc_capacity(e),
             )
         end

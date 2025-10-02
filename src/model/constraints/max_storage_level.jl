@@ -16,7 +16,7 @@ Add a max storage level constraint to the storage `g`. The functional form of th
 ```
 for each time `t` in `time_interval(g)` for the storage `g`.
 """
-function add_model_constraint!(ct::MaxStorageLevelConstraint, g::AbstractStorage, model::Model)
+function add_model_constraint!(ct::MaxStorageLevelConstraint, g::AbstractStorage, model::Model, settings::NamedTuple)
 
     ct.constraint_ref = @constraint(
         model,

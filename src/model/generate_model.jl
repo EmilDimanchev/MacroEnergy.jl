@@ -294,7 +294,14 @@ function compute_annualized_costs!(y::Union{AbstractEdge,AbstractStorage},settin
             y.wacc = settings.DiscountRate;
         end
         y.annualization_factor = wacc(y)>0 ? wacc(y) / (1 - (1 + wacc(y))^-capital_recovery_period(y))  : 1.0
-        y.annualized_investment_cost = investment_cost(y)*annualization_factor(y)
+        deployment_cost_perc = 1 - de_cost_perc(y) - af_cost_perc(y) - cc_cost_perc(y)
+        y.annualized_investment_cost = investment_cost(y)*annualization_factor(y)*deployment_cost_perc
+        de_annualization_factor = de_wacc(y)>0 ? de_wacc(y) / (1 - (1 + de_wacc(y))^-de_cap_recovery(y))  : 1.0
+        af_annualization_factor = af_wacc(y)>0 ? af_wacc(y) / (1 - (1 + af_wacc(y))^-af_cap_recovery(y))  : 1.0
+        cc_annualization_factor = cc_wacc(y)>0 ? cc_wacc(y) / (1 - (1 + cc_wacc(y))^-cc_cap_recovery(y))  : 1.0
+        y.de_annualized_cost = investment_cost(y)*de_annualization_factor(y)*de_cost_perc(y)
+        y.af_annualized_cost = investment_cost(y)*af_annualization_factor(y)*af_cost_perc(y)
+        y.cc_annualized_cost = investment_cost(y)*cc_annualization_factor(y)*cc_cost_perc(y)
     end
 end
 

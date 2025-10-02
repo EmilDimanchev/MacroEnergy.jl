@@ -70,34 +70,34 @@ function write_undiscounted_costs(
     return nothing
 end
 
-function compute_fixed_costs!(system::System, model::Model)
+function compute_fixed_costs!(system::System, model::Model, settings::NamedTuple)
     for a in system.assets
-        compute_fixed_costs!(a, model)
+        compute_fixed_costs!(a, model, settings)
     end
 end
 
-function compute_fixed_costs!(a::AbstractAsset, model::Model)
+function compute_fixed_costs!(a::AbstractAsset, model::Model, settings::NamedTuple)
     for t in fieldnames(typeof(a))
-        compute_fixed_costs!(getfield(a, t), model)
+        compute_fixed_costs!(getfield(a, t), model, settings)
     end
 end
 
-function compute_fixed_costs!(g::Union{Node,Transformation},model::Model)
+function compute_fixed_costs!(g::Union{Node,Transformation},model::Model, settings::NamedTuple)
     return nothing
 end
 
-function compute_investment_costs!(system::System, model::Model)
+function compute_investment_costs!(system::System, model::Model, settings::NamedTuple)
     for a in system.assets
-        compute_investment_costs!(a, model)
+        compute_investment_costs!(a, model, settings)
     end
 end
 
-function compute_investment_costs!(a::AbstractAsset, model::Model)
+function compute_investment_costs!(a::AbstractAsset, model::Model, settings::NamedTuple)
     for t in fieldnames(typeof(a))
-        compute_investment_costs!(getfield(a, t), model)
+        compute_investment_costs!(getfield(a, t), model, settings)
     end
 end
 
-function compute_investment_costs!(g::Union{Node,Transformation},model::Model)
+function compute_investment_costs!(g::Union{Node,Transformation},model::Model, settings::NamedTuple)
     return nothing
 end
