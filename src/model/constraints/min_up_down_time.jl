@@ -25,7 +25,7 @@ for each time `t` in `time_interval(e)` for the edge `e`. The function [`timeste
 !!! note "Min down time duration"
     This constraint will throw an error if the minimum down time is longer than the length of one subperiod.
 """
-function add_model_constraint!(ct::MinDownTimeConstraint, e::EdgeWithUC, model::Model)
+function add_model_constraint!(ct::MinDownTimeConstraint, e::EdgeWithUC, model::Model, settings::NamedTuple)
 
     if min_down_time(e) > minimum(length.(subperiods(e)))
         error(
@@ -62,7 +62,7 @@ for each time `t` in `time_interval(e)` for the edge `e`. The function [`timeste
 !!! note "Min up time duration"
     This constraint will throw an error if the minimum up time is longer than the length of one subperiod.
 """
-function add_model_constraint!(ct::MinUpTimeConstraint, e::EdgeWithUC, model::Model)
+function add_model_constraint!(ct::MinUpTimeConstraint, e::EdgeWithUC, model::Model, settings::NamedTuple)
     if min_up_time(e) > minimum(length.(subperiods(e)))
         error("The minimum up time for $(id(e)) is longer than the length of one subperiod")
     else

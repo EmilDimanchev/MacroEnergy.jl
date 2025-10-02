@@ -22,7 +22,7 @@ Add a storage charge discharge ratio constraint to the storage `g`. The function
 function add_model_constraint!(
     ct::StorageChargeDischargeRatioConstraint,
     g::AbstractStorage,
-    model::Model,
+    model::Model, settings::NamedTuple
 )
 
     ct.constraint_ref = @constraint(model,

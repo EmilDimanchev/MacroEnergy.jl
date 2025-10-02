@@ -25,7 +25,7 @@ If the edge is bidirectional, the constraint is:
 
 for each time `t` in `time_interval(e)` for the edge `e` and each `i` in `{0, 1}`. The function `availability` returns the time series of the capacity factor of the edge at time `t`.
 """
-function add_model_constraint!(ct::CapacityConstraint, e::Edge, model::Model)
+function add_model_constraint!(ct::CapacityConstraint, e::Edge, model::Model, settings::NamedTuple)
 
     if e.unidirectional
 
@@ -66,7 +66,7 @@ If the edge is bidirectional, the constraint is:
 
 for each time `t` in `time_interval(e)` for the edge `e` and each `i` in `[-1, 1]`. The function `availability` returns the time series of the availability of the edge at time `t`.
 """
-function add_model_constraint!(ct::CapacityConstraint, e::EdgeWithUC, model::Model)
+function add_model_constraint!(ct::CapacityConstraint, e::EdgeWithUC, model::Model, settings::NamedTuple)
 
     if e.unidirectional
 

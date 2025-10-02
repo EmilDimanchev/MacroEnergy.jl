@@ -20,7 +20,7 @@ for each time `t` in `time_interval(e)` for the edge `e`. The function [`timeste
 !!! note "Storage discharge limit constraint"
     This constraint is only applied to edges with a start vertex that is a storage.
 """
-function add_model_constraint!(ct::StorageDischargeLimitConstraint, e::Edge, model::Model)
+function add_model_constraint!(ct::StorageDischargeLimitConstraint, e::Edge, model::Model, settings::NamedTuple)
 
     if isa(start_vertex(e), Storage)
         ct.constraint_ref = @constraint(

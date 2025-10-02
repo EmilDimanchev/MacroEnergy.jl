@@ -468,7 +468,7 @@ function compute_fixed_costs!(e::AbstractEdge, model::Model, settings::NamedTupl
     compute_om_fixed_costs!(e, model)
 end
 
-function operation_model!(e::Edge, model::Model)
+function operation_model!(e::Edge, model::Model, settings::NamedTuple)
 
     if e.unidirectional
         e.flow = @variable(
@@ -628,7 +628,7 @@ ustart(e::EdgeWithUC) = e.ustart;
 ustart(e::EdgeWithUC, t::Int64) = ustart(e)[t];
 ##### End of EdgeWithUC interface #####
 
-function operation_model!(e::EdgeWithUC, model::Model)
+function operation_model!(e::EdgeWithUC, model::Model, settings::NamedTuple)
 
     if !e.unidirectional
         error(

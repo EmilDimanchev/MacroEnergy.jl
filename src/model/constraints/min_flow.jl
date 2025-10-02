@@ -18,7 +18,7 @@ for each time `t` in `time_interval(e)` for the edge `e`.
 !!! note
     This constraint is available only for unidirectional edges.
 """
-function add_model_constraint!(ct::MinFlowConstraint, e::Edge, model::Model)
+function add_model_constraint!(ct::MinFlowConstraint, e::Edge, model::Model, settings::NamedTuple)
     if e.unidirectional
         ct.constraint_ref = @constraint(
             model,
@@ -46,7 +46,7 @@ for each time `t` in `time_interval(e)` for the edge `e`.
 !!! note
     This constraint is available only for unidirectional edges.
 """
-function add_model_constraint!(ct::MinFlowConstraint, e::EdgeWithUC, model::Model)
+function add_model_constraint!(ct::MinFlowConstraint, e::EdgeWithUC, model::Model, settings::NamedTuple)
     if e.unidirectional
         ct.constraint_ref = @constraint(
             model,

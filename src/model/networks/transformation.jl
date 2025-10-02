@@ -31,7 +31,7 @@ function define_available_capacity!(g::Transformation, model::Model)
     return nothing
 end
 
-function operation_model!(g::Transformation, model::Model)
+function operation_model!(g::Transformation, model::Model, settings::NamedTuple)
     if !isempty(balance_ids(g))
         for i in balance_ids(g)
             g.operation_expr[i] =

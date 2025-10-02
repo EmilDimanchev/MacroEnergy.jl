@@ -62,7 +62,7 @@ function generate_planning_problem(case::Case)
         planning_model!(system, model, system.settings)
 
         @info(" -- Including age-based retirements")
-        add_age_based_retirements!.(system.assets, model)
+        add_age_based_retirements!.(system.assets, model, Ref(system.settings))
 
         if period_idx < number_of_periods
             @info(" -- Available capacity in period $(period_idx) is being carried over to period $(period_idx+1)")

@@ -5,7 +5,7 @@ Base.@kwdef mutable struct MaxNewCapacityConstraint <: PlanningConstraint
 end
 
 
-function add_model_constraint!(ct::MaxNewCapacityConstraint, y::Union{AbstractEdge,AbstractStorage}, model::Model)
+function add_model_constraint!(ct::MaxNewCapacityConstraint, y::Union{AbstractEdge,AbstractStorage}, model::Model, settings::NamedTuple)
 
     ct.constraint_ref = @constraint(model, new_capacity(y) <= max_new_capacity(y))
 

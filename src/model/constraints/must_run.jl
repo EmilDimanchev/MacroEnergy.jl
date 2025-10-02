@@ -19,7 +19,7 @@ for each time `t` in `time_interval(e)` for the edge `e`.
 !!! note "Must run constraint"
     This constraint is available only for unidirectional edges.
 """
-function add_model_constraint!(ct::MustRunConstraint, e::Edge, model::Model)
+function add_model_constraint!(ct::MustRunConstraint, e::Edge, model::Model, settings::NamedTuple)
     if e.unidirectional
 
         ct.constraint_ref = @constraint(

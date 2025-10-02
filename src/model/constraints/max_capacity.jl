@@ -16,7 +16,7 @@ Add a max capacity constraint to the edge or storage `y`. The functional form of
 \end{aligned}
 ```
 """
-function add_model_constraint!(ct::MaxCapacityConstraint, y::Union{AbstractEdge,AbstractStorage}, model::Model)
+function add_model_constraint!(ct::MaxCapacityConstraint, y::Union{AbstractEdge,AbstractStorage}, model::Model, settings::NamedTuple)
 
     ct.constraint_ref = @constraint(model, capacity(y) <= max_capacity(y))
 

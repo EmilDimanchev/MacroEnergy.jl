@@ -42,7 +42,7 @@ function run_myopic_iteration!(case::Case, opt::Optimizer)
         planning_model!(system, model)
 
         @info(" -- Generating operational model")
-        operation_model!(system, model)
+        operation_model!(system, model, system.settings)
 
         # Express myopic cost in present value from perspective of start of modeling horizon, in consistency with Monolithic version
 
@@ -72,7 +72,7 @@ function run_myopic_iteration!(case::Case, opt::Optimizer)
         @objective(model, Min, model[:eFixedCost] + model[:eVariableCost])
 
         @info(" -- Including age-based retirements")
-        add_age_based_retirements!.(system.assets, model)
+        add_age_based_retirements!.(system.assets, model, Ref(system.settings))
 
         set_optimizer(model, opt)
 

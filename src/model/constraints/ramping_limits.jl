@@ -23,7 +23,7 @@ On the other hand, the ramping down limit constraint is:
 ```
 for each time `t` in `time_interval(e)` for the edge `e`. The function [`timestepbefore`](@ref) is used to perform the time wrapping within the subperiods and get the correct time step before `t`.
 """
-function add_model_constraint!(ct::RampingLimitConstraint, e::Edge, model::Model)
+function add_model_constraint!(ct::RampingLimitConstraint, e::Edge, model::Model, settings::NamedTuple)
 
     #### For now these are set to zero because we are not modeling reserves
     reserves_term = @expression(model, [t in time_interval(e)], 0 * model[:vREF])
@@ -77,7 +77,7 @@ On the other hand, the ramping down limit constraint is:
 
 for each time `t` in `time_interval(e)` for the edge `e`. The function [`timestepbefore`](@ref) is used to perform the time wrapping within the subperiods and get the correct time step before `t`.
 """
-function add_model_constraint!(ct::RampingLimitConstraint, e::EdgeWithUC, model::Model)
+function add_model_constraint!(ct::RampingLimitConstraint, e::EdgeWithUC, model::Model, settings::NamedTuple)
 
     #### For now these are set to zero because we are not modeling reserves
     reserves_term = @expression(model, [t in time_interval(e)], 0 * model[:vREF])

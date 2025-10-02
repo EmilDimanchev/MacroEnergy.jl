@@ -35,20 +35,21 @@ function generate_model(case::Case)
 
         @info(" -- Generating planning model")
         if settings[:TechnologyLearning] == true
+            @info(" -- Adding technology learning")
             add_learning!(system, model)
         end
-        planning_model!(system, model, system.settings)
+        planning_model!(system, model, settings)
 
         @info(" -- Including age-based retirements")
-        add_age_based_retirements!.(system.assets, model)
+        add_age_based_retirements!.(system.assets, model, Ref(settings))
 
         if period_idx < num_periods
             @info(" -- Available capacity in period $(period_idx) is being carried over to period $(period_idx+1)")
-            carry_over_capacities!(periods[period_idx+1], system)
+            carry_over_capacities!(periods[period_idx+1], system, settings)
         end
 
         @info(" -- Generating operational model")
-        operation_model!(system, model)
+        operation_model!(system, model, settings)
 
         model[:eFixedCost] = model[:eInvestmentFixedCost] + model[:eOMFixedCost]
         fixed_cost[period_idx] = model[:eFixedCost];
@@ -96,22 +97,22 @@ end
 
 function planning_model!(system::System, model::Model, settings::NamedTuple)
 
-    planning_model!.(system.locations, Ref(model))
+    planning_model!.(system.locations, Ref(model), Ref(settings))
 
     planning_model!.(system.assets, Ref(model), Ref(settings))
 
-    add_constraints_by_type!(system, model, PlanningConstraint)
+    add_constraints_by_type!(system, model, PlanningConstraint, settings)
 
 end
 
 
-function operation_model!(system::System, model::Model)
+function operation_model!(system::System, model::Model, settings::NamedTuple)
 
-    operation_model!.(system.locations, Ref(model))
+    operation_model!.(system.locations, Ref(model), Ref(settings))
 
-    operation_model!.(system.assets, Ref(model))
+    operation_model!.(system.assets, Ref(model), Ref(settings))
 
-    add_constraints_by_type!(system, model, OperationConstraint)
+    add_constraints_by_type!(system, model, OperationConstraint, settings)
 
 end
 
@@ -122,9 +123,9 @@ function planning_model!(a::AbstractAsset, model::Model, settings::NamedTuple)
     return nothing
 end
 
-function operation_model!(a::AbstractAsset, model::Model)
+function operation_model!(a::AbstractAsset, model::Model, settings::NamedTuple)
     for t in fieldnames(typeof(a))
-        operation_model!(getfield(a, t), model)
+        operation_model!(getfield(a, t), model, settings)
     end
     return nothing
 end
@@ -157,14 +158,14 @@ function define_available_capacity!(a::AbstractAsset, model::Model)
     end
 end
 
-function add_age_based_retirements!(a::AbstractAsset,model::Model)
+function add_age_based_retirements!(a::AbstractAsset,model::Model, settings::NamedTuple)
 
     for t in fieldnames(typeof(a))
         y = getfield(a, t)
         if isa(y,AbstractEdge) || isa(y,Storage)
             if y.retirement_period > 0
                 push!(y.constraints, AgeBasedRetirementConstraint())
-                add_model_constraint!(y.constraints[end], y, model)
+                add_model_constraint!(y.constraints[end], y, model, settings)
             end
         end
     end
@@ -206,7 +207,7 @@ function compute_retirement_period!(a::AbstractAsset, period_lengths::Vector{Int
     return nothing
 end
 
-function carry_over_capacities!(system::System, system_prev::System; perfect_foresight::Bool = true)
+function carry_over_capacities!(system::System, system_prev::System, settings::NamedTuple; perfect_foresight::Bool = true)
 
     for a in system.assets
         a_prev_index = findfirst(id.(system_prev.assets).==id(a))
@@ -215,21 +216,21 @@ function carry_over_capacities!(system::System, system_prev::System; perfect_for
             validate_existing_capacity(a)
         else
             a_prev = system_prev.assets[a_prev_index];
-            carry_over_capacities!(a, a_prev ; perfect_foresight)
+            carry_over_capacities!(a, a_prev, settings; perfect_foresight)
         end
     end
 
 end
 
-function carry_over_capacities!(a::AbstractAsset, a_prev::AbstractAsset; perfect_foresight::Bool = true)
+function carry_over_capacities!(a::AbstractAsset, a_prev::AbstractAsset, settings::NamedTuple; perfect_foresight::Bool = true)
 
     for t in fieldnames(typeof(a))
-        carry_over_capacities!(getfield(a,t), getfield(a_prev,t); perfect_foresight)
+        carry_over_capacities!(getfield(a,t), getfield(a_prev,t), settings; perfect_foresight)
     end
 
 end
 
-function carry_over_capacities!(y::Union{AbstractEdge,AbstractStorage},y_prev::Union{AbstractEdge,AbstractStorage}; perfect_foresight::Bool = true)
+function carry_over_capacities!(y::Union{AbstractEdge,AbstractStorage},y_prev::Union{AbstractEdge,AbstractStorage}, settings::NamedTuple; perfect_foresight::Bool = true)
     if has_capacity(y_prev)
         
         if perfect_foresight
@@ -247,7 +248,7 @@ function carry_over_capacities!(y::Union{AbstractEdge,AbstractStorage},y_prev::U
             y.retired_capacity_track[prev_period] = retired_capacity_track(y_prev,prev_period)
             # Learning
             # println("Carrying over learning variables for $(id(y))")
-            if learning_parameter(y) != 0.0 && !occursin("_transmission_edge", string(y.id))
+            if settings[:TechnologyLearning] && learning_parameter(y) != 0.0 && !occursin("_transmission_edge", string(y.id))
                 # println("Learning for $(id(y))")
                 y.learning_pwl_track[prev_period] = learning_pwl_track(y_prev, prev_period)
                 
@@ -268,10 +269,10 @@ function carry_over_capacities!(y::Union{AbstractEdge,AbstractStorage},y_prev::U
 
 
 end
-function carry_over_capacities!(g::Transformation,g_prev::Transformation; perfect_foresight::Bool = true)
+function carry_over_capacities!(g::Transformation,g_prev::Transformation, settings::NamedTuple; perfect_foresight::Bool = true)
     return nothing
 end
-function carry_over_capacities!(n::Node,n_prev::Node; perfect_foresight::Bool = true)
+function carry_over_capacities!(n::Node,n_prev::Node, settings::NamedTuple; perfect_foresight::Bool = true) 
     return nothing
 end
 

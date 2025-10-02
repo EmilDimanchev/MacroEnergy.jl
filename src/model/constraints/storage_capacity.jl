@@ -16,7 +16,7 @@ Add a storage capacity constraint to the storage `g`. The functional form of the
 ```
 for each time `t` in `time_interval(g)` for the storage `g`.
 """
-function add_model_constraint!(ct::StorageCapacityConstraint, g::AbstractStorage, model::Model)
+function add_model_constraint!(ct::StorageCapacityConstraint, g::AbstractStorage, model::Model, settings::NamedTuple)
 
     ct.constraint_ref = @constraint(
         model,

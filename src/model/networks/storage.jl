@@ -344,7 +344,7 @@ function planning_model!(g::Storage, model::Model, settings::NamedTuple)
 
 end
 
-function operation_model!(g::Storage, model::Model)
+function operation_model!(g::Storage, model::Model, settings::NamedTuple)
 
     g.storage_level = @variable(
         model,
@@ -429,7 +429,7 @@ function add_linking_variables!(g::LongDurationStorage, model::Model)
 end
 
 
-function planning_model!(g::LongDurationStorage, model::Model)
+function planning_model!(g::LongDurationStorage, model::Model, settings::NamedTuple)
 
     if !g.can_expand
         fix(new_units(g), 0.0; force = true)
@@ -457,7 +457,7 @@ function planning_model!(g::LongDurationStorage, model::Model)
 end
 
 
-function operation_model!(g::LongDurationStorage, model::Model)
+function operation_model!(g::LongDurationStorage, model::Model, settings::NamedTuple)
 
     g.storage_level = @variable(
         model,

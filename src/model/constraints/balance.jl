@@ -18,7 +18,7 @@ Add a balance constraint to the vertex `v`.
 \end{aligned}
 ```
 """
-function add_model_constraint!(ct::BalanceConstraint, v::AbstractVertex, model::Model)
+function add_model_constraint!(ct::BalanceConstraint, v::AbstractVertex, model::Model, settings::NamedTuple)
 
     ct.constraint_ref = @constraint(
         model,

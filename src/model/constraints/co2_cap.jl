@@ -23,7 +23,7 @@ Therefore, the functional form of the constraint is:
 !!! note "Enabling CO2 emissions for an asset"
     **For modelers**: To allow for an asset to contribute to the CO2 emissions of a CO2 node, the asset must have an "emissions" key in its `balance_data` dictionary. The value of this key should be the `emission_rate` of the asset.
 """
-function add_model_constraint!(ct::CO2CapConstraint, n::Node{CO2}, model::Model)
+function add_model_constraint!(ct::CO2CapConstraint, n::Node{CO2}, model::Model, settings::NamedTuple)
     ct_type = typeof(ct)
 
     subperiod_balance = @expression(model, [w in subperiod_indices(n)], 0 * model[:vREF])

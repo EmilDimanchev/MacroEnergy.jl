@@ -23,7 +23,7 @@ Add a storage symmetric capacity constraint to the storage `g`. The functional f
 function add_model_constraint!(
     ct::StorageSymmetricCapacityConstraint,
     g::AbstractStorage,
-    model::Model,
+    model::Model, settings::NamedTuple
 )
     e_discharge = g.discharge_edge
     e_charge = g.charge_edge

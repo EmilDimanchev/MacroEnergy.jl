@@ -60,10 +60,10 @@ function define_available_capacity!(location::Location, model::Model)
     return nothing
 end
 
-function planning_model!(location::Location, model::Model)
+function planning_model!(location::Location, model::Model, settings::NamedTuple)
     return nothing
 end
 
-function operation_model!(location::Location, model::Model)
+function operation_model!(location::Location, model::Model, settings::NamedTuple)
     return nothing
 end
