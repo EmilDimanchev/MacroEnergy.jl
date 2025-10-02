@@ -6,7 +6,7 @@
 #SBATCH --cpus-per-task=8 
 #SBATCH --mem=200GB              # total memory
 #SBATCH --constraint=amd
-#SBATCH --time=2:00:00          # total run time limit (HH:MM:SS)
+#SBATCH --time=1:00:00          # total run time limit (HH:MM:SS)
 #SBATCH --mail-type=all          # send email when job ends
 #SBATCH --mail-user=ed0400@princeton.edu
 

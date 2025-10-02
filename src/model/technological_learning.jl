@@ -80,7 +80,7 @@ function add_learning!(system::System, model::Model)
                 @constraint(model, [k in 2:n_segments+1], cumulative_experience(e)[k] >= (x_points[k-1] + ϵ[k-1]) * segments_sos1(e)[k])
                 @constraint(model, [k in 1:n_segments+1], cumulative_experience(e)[k] <= x_points[k] * segments_sos1(e)[k])
 
-                println(string(e.id," points"))
+                # println(string(e.id," points"))
                 # println(x_points)
                 # println(y_points)
                 # println("All slopes")
