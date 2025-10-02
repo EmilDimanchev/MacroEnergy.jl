@@ -462,7 +462,7 @@ function planning_model!(g::LongDurationStorage, model::Model, settings::NamedTu
         fix(retired_units(g), 0.0; force = true)
     end
 
-    compute_fixed_costs!(g, model)
+    compute_fixed_costs!(g, model, settings)
 
     @constraint(model, retired_capacity(g) <= existing_capacity(g))
 

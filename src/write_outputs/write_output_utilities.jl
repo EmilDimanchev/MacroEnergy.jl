@@ -1137,7 +1137,7 @@ function compute_undiscounted_costs!(model::Model, system::System, settings::Nam
     model[:eFixedCost] = AffExpr(0.0)
     model[:eOMFixedCost] = AffExpr(0.0)
     model[:eInvestmentFixedCost] = AffExpr(0.0)
-    compute_fixed_costs!(system, model)
+    compute_fixed_costs!(system, model, settings)
     model[:eFixedCost] = model[:eInvestmentFixedCost] + model[:eOMFixedCost] 
 
     cum_years = sum(period_lengths[i] for i in 1:period_index-1; init=0);
