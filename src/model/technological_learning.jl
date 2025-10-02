@@ -15,12 +15,12 @@ function add_learning!(system::System, model::Model)
         else
         
             if learning_parameter(e) != 0.0
-                println(string("Learning parameter for ", e.id, " is ", learning_parameter(e))) 
+                # println(string("Learning parameter for ", e.id, " is ", learning_parameter(e))) 
                 
                 e.annualization_factor = wacc(e)>0 ? wacc(e) / (1 - (1 + wacc(e))^-capital_recovery_period(e))  : 1.0
-                println(string("investment cost is",investment_cost(e)))
+                # println(string("investment cost is",investment_cost(e)))
                 e.investment_cost = annualized_investment_cost(e)/annualization_factor(e) 
-                println(string("investment cost is",investment_cost(e)))
+                # println(string("investment cost is",investment_cost(e)))
 
                 if max_cumul_capacity(e) == Inf || max_cumul_capacity(e) == -1
                     error(string(e.id, " is a learning technology but max cumulative capacity is incorrectly specified"))
@@ -81,10 +81,10 @@ function add_learning!(system::System, model::Model)
                 @constraint(model, [k in 1:n_segments+1], cumulative_experience(e)[k] <= x_points[k] * segments_sos1(e)[k])
 
                 println(string(e.id," points"))
-                println(x_points)
-                println(y_points)
-                println("All slopes")
-                println(e.pwl_cost_slopes)
+                # println(x_points)
+                # println(y_points)
+                # println("All slopes")
+                # println(e.pwl_cost_slopes)
                 
                 # Slope reached after building new capacity
                 e.learning_pwl_slope = @expression(model, sum(segments_sos1(e)[k] * pwl_cost_slopes(e)[k] for k in 1:n_segments+1))

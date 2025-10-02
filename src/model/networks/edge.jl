@@ -184,10 +184,6 @@ function make_edge(
         end_vertex = end_vertex,
         filtered_data...
     )
-
-    if !isempty(settings) && settings[:TechnologyLearning] == false
-        _edge.is_learning_edge = false
-    end
     
     return _edge
 end
@@ -227,7 +223,6 @@ function availability(e::AbstractEdge, t::Int64)
 end
 can_expand(e::AbstractEdge) = e.can_expand;
 can_retire(e::AbstractEdge) = e.can_retire;
-is_learning_edge(e::AbstractEdge) = e.is_learning_edge;
 capacity(e::AbstractEdge) = e.capacity;
 capacity_size(e::AbstractEdge) = e.capacity_size;
 capital_recovery_period(e::AbstractEdge) = e.capital_recovery_period;
@@ -386,7 +381,7 @@ function define_available_capacity!(e::AbstractEdge, model::Model)
 
 end
 
-function planning_model!(e::AbstractEdge, model::Model)
+function planning_model!(e::AbstractEdge, model::Model, settings::NamedTuple)
 
     if has_capacity(e)
 
@@ -410,18 +405,18 @@ function planning_model!(e::AbstractEdge, model::Model)
 
     end
 
-    compute_fixed_costs!(e, model)
+    compute_fixed_costs!(e, model, settings)
 
     return nothing
 
 end
 
-function compute_investment_costs!(e::AbstractEdge, model::Model)
+function compute_investment_costs!(e::AbstractEdge, model::Model, settings::NamedTuple)
     if has_capacity(e)
         if can_expand(e)
             
             # Linearized learning
-            if e.is_learning_edge && learning_parameter(e) != 0.0
+            if settings[:TechnologyLearning] && learning_parameter(e) != 0.0
                 
                 model[:eInvestmentFixedCost] += e.annualized_investment_cost_with_learning*annuities_mult(e)
                 
@@ -468,8 +463,8 @@ function compute_om_fixed_costs!(e::AbstractEdge, model::Model)
     end
 end
 
-function compute_fixed_costs!(e::AbstractEdge, model::Model)
-    compute_investment_costs!(e, model)
+function compute_fixed_costs!(e::AbstractEdge, model::Model, settings::NamedTuple)
+    compute_investment_costs!(e, model, settings)
     compute_om_fixed_costs!(e, model)
 end
 
@@ -582,10 +577,6 @@ function make_edge_UC(
         error("Edge $id cannot be connected to its end vertex, $(end_vertex.id).\nThey have different commodities\n$id is a $commodity edge.\n$(end_vertex.id) is a $(commodity_type(end_vertex)) vertex.")
     end
 
-    if !isempty(settings) && settings[:TechnologyLearning] == false
-        e.is_learning_edge = false
-    end
-
     edge_kwargs = Base.fieldnames(EdgeWithUC)
     filtered_data = Dict{Symbol,Any}(
         k => v for (k, v) in data if k in edge_kwargs
@@ -596,6 +587,7 @@ function make_edge_UC(
             delete!(filtered_data, key)
         end
     end
+
     _edge = EdgeWithUC{commodity}(;
         id = id,
         timedata = time_data,
@@ -603,6 +595,13 @@ function make_edge_UC(
         end_vertex = end_vertex,
         filtered_data...,
     )
+
+    if settings[:TechnologyLearning] == false
+        _edge.is_learning_edge = false
+    else
+        _edge.is_learning_edge = true
+    end
+    
     return _edge
 end
 EdgeWithUC(

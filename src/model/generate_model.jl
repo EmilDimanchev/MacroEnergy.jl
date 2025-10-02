@@ -37,7 +37,7 @@ function generate_model(case::Case)
         if settings[:TechnologyLearning] == true
             add_learning!(system, model)
         end
-        planning_model!(system, model)
+        planning_model!(system, model, system.settings)
 
         @info(" -- Including age-based retirements")
         add_age_based_retirements!.(system.assets, model)
@@ -94,11 +94,11 @@ function generate_model(case::Case)
     
 end
 
-function planning_model!(system::System, model::Model)
+function planning_model!(system::System, model::Model, settings::NamedTuple)
 
     planning_model!.(system.locations, Ref(model))
 
-    planning_model!.(system.assets, Ref(model))
+    planning_model!.(system.assets, Ref(model), Ref(settings))
 
     add_constraints_by_type!(system, model, PlanningConstraint)
 
@@ -115,9 +115,9 @@ function operation_model!(system::System, model::Model)
 
 end
 
-function planning_model!(a::AbstractAsset, model::Model)
+function planning_model!(a::AbstractAsset, model::Model, settings::NamedTuple)
     for t in fieldnames(typeof(a))
-        planning_model!(getfield(a, t), model)
+        planning_model!(getfield(a, t), model, settings)
     end
     return nothing
 end
@@ -238,29 +238,35 @@ function carry_over_capacities!(y::Union{AbstractEdge,AbstractStorage},y_prev::U
             y.existing_capacity = value(capacity(y_prev))
         end
         
-        for prev_period in keys(new_capacity_track(y_prev))
-            if perfect_foresight
-                y.new_capacity_track[prev_period] = new_capacity_track(y_prev,prev_period)
-                y.retired_capacity_track[prev_period] = retired_capacity_track(y_prev,prev_period)
-                # Learning
-                if y.is_learning_edge && learning_parameter(y) != 0.0
-                    y.learning_pwl_track[prev_period] = learning_pwl_track(y_prev, prev_period)
-                    y.segments_sos1_track[prev_period] = segments_sos1_track(y_prev,prev_period)
-                end
-                # Shadow capacity
-                y.new_de_capacity_track[prev_period] = new_de_capacity_track(y_prev,prev_period)
-                y.new_af_capacity_track[prev_period] = new_af_capacity_track(y_prev,prev_period)
-                y.new_cc_capacity_track[prev_period] = new_cc_capacity_track(y_prev,prev_period)
-                y.de_capacity_track[prev_period] = de_capacity_track(y_prev,prev_period)
-                y.af_capacity_track[prev_period] = af_capacity_track(y_prev,prev_period)
-                y.cc_capacity_track[prev_period] = cc_capacity_track(y_prev,prev_period)
-            else
-                y.new_capacity_track[prev_period] = value(new_capacity_track(y_prev,prev_period))
-                y.retired_capacity_track[prev_period] = value(retired_capacity_track(y_prev,prev_period))
-            end
-        end
         
     end
+
+    for prev_period in keys(new_capacity_track(y_prev))
+        if perfect_foresight
+            y.new_capacity_track[prev_period] = new_capacity_track(y_prev,prev_period)
+            y.retired_capacity_track[prev_period] = retired_capacity_track(y_prev,prev_period)
+            # Learning
+            # println("Carrying over learning variables for $(id(y))")
+            if learning_parameter(y) != 0.0 && !occursin("_transmission_edge", string(y.id))
+                # println("Learning for $(id(y))")
+                y.learning_pwl_track[prev_period] = learning_pwl_track(y_prev, prev_period)
+                
+                y.segments_sos1_track[prev_period] = segments_sos1_track(y_prev,prev_period)
+            end
+            # Shadow capacity
+            y.new_de_capacity_track[prev_period] = new_de_capacity_track(y_prev,prev_period)
+            y.new_af_capacity_track[prev_period] = new_af_capacity_track(y_prev,prev_period)
+            y.new_cc_capacity_track[prev_period] = new_cc_capacity_track(y_prev,prev_period)
+            y.de_capacity_track[prev_period] = de_capacity_track(y_prev,prev_period)
+            y.af_capacity_track[prev_period] = af_capacity_track(y_prev,prev_period)
+            y.cc_capacity_track[prev_period] = cc_capacity_track(y_prev,prev_period)
+        else
+            y.new_capacity_track[prev_period] = value(new_capacity_track(y_prev,prev_period))
+            y.retired_capacity_track[prev_period] = value(retired_capacity_track(y_prev,prev_period))
+        end
+    end
+
+
 end
 function carry_over_capacities!(g::Transformation,g_prev::Transformation; perfect_foresight::Bool = true)
     return nothing

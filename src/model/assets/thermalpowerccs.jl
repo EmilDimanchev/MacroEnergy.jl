@@ -156,6 +156,7 @@ function make(asset_type::Type{ThermalPowerCCS}, data::AbstractDict{Symbol,Any},
         Electricity,
         elec_start_node,
         elec_end_node,
+        system.settings
     )
     if has_uc
         uc_constraints = [MinUpTimeConstraint(), MinDownTimeConstraint()]

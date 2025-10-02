@@ -36,13 +36,25 @@ macro AbstractStorageBaseAttributes()
         wacc::Union{Missing,Float64} = missing
         annualized_investment_cost::Union{Nothing,Float64} = $storage_defaults[:annualized_investment_cost]
         # Learning
+        n_learning_pwl_segments::Int64 = 5
         learning_type::String = ""
-        n_learning_pwl_segments::Int64 = $storage_defaults[:n_learning_pwl_segments]
         learning_parameter::Float64 = 0.0
         cumulative_capacity_init::Float64 = 0.0
+        segments_sos1::JuMPVariable = Vector{VariableRef}()
+        segments_sos1_track::Dict{Int64,Union{JuMPVariable}} = Dict(1 => Vector{VariableRef}())
+        segments_sos1_prev::Union{JuMPVariable,Float64} = Vector{VariableRef}()
+        aux_new_capacity::Union{JuMPVariable,Float64} = 0.0
+        cumulative_experience::Union{JuMPVariable,Float64} = 0.0
+        learning_pwl_slope::AffExpr = AffExpr(0.0)
+        learning_pwl_track::Dict{Int64,AffExpr} = Dict(1=>AffExpr(0.0))
+        pwl_cost_slopes::Vector{Float64} = Float64[]
+        annualized_investment_cost_with_learning::AffExpr = AffExpr(0.0)
         annuities_mult::Float64 = 0.0
         annualization_factor::Float64 = 0.0
-        endog_annualized_cost::Float64 = 0.0
+        endog_annualized_cost::AffExpr = AffExpr(0.0)
+        cumulative_external_capacity::Float64 = 0.0
+        endog_investment_cost::AffExpr = 0.0
+        max_cumul_capacity::Float64 = 0.0
         # Shadow
         de_duration::Int64 = $storage_defaults[:de_duration]
         af_duration::Int64 = $storage_defaults[:af_duration]
@@ -150,6 +162,8 @@ function make_storage(
 
     if !isempty(settings) && settings[:TechnologyLearning] == false
         _storage.is_learning_edge = false
+    else
+        _storage.is_learning_edge = true
     end
 
     return _storage
@@ -212,9 +226,24 @@ annualized_investment_cost(g::AbstractStorage) = g.annualized_investment_cost;
 learning_type(g::AbstractStorage) = g.learning_type;
 n_learning_pwl_segments(g::AbstractStorage) = g.n_learning_pwl_segments;
 learning_parameter(g::AbstractStorage) = g.learning_parameter;
+cumulative_capacity_init(g::AbstractStorage) = g.cumulative_capacity_init;
+endog_investment_cost(g::AbstractStorage) = g.endog_investment_cost;
+segments_sos1_prev(g::AbstractStorage) = g.segments_sos1_prev;
+segments_sos1(g::AbstractStorage) = g.segments_sos1;
+cumulative_experience(g::AbstractStorage) = g.cumulative_experience;
+learning_pwl_slope(g::AbstractStorage) = g.learning_pwl_slope;
+learning_pwl_track(g::AbstractStorage) = g.learning_pwl_track;
+learning_pwl_track(g::AbstractStorage,s::Int64) =  (haskey(learning_pwl_track(g),s) == false) ? 0.0 : g.learning_pwl_track[s];
+segments_sos1_track(g::AbstractStorage) = g.segments_sos1_track;
+segments_sos1_track(g::AbstractStorage,s::Int64) =  (haskey(segments_sos1_track(g),s) == false) ? 0.0 : g.segments_sos1_track[s];
+pwl_cost_slopes(g::AbstractStorage) = g.pwl_cost_slopes;
+aux_new_capacity(g::AbstractStorage) = g.aux_new_capacity;
+annualized_investment_cost_with_learning(g::AbstractStorage) = g.annualized_investment_cost_with_learning;
 annuities_mult(g::AbstractStorage) = g.annuities_mult;
 annualization_factor(g::AbstractStorage) = g.annualization_factor;
 endog_annualized_cost(g::AbstractStorage) = g.endog_annualized_cost;
+cumulative_external_capacity(g::AbstractStorage) = g.cumulative_external_capacity;
+max_cumul_capacity(g::AbstractStorage) = g.max_cumul_capacity;
 # Shadow
 de_duration(g::AbstractStorage) = g.de_duration;
 af_duration(g::AbstractStorage) = g.af_duration;
@@ -296,9 +325,9 @@ function define_available_capacity!(g::AbstractStorage, model::Model)
     end
 end
 
-function planning_model!(g::Storage, model::Model)
+function planning_model!(g::Storage, model::Model, settings::NamedTuple)
 
-    g.annualized_investment_cost = investment_cost(g)*annualization_factor(g)*annuities_mult(g)
+    g.annualized_investment_cost = investment_cost(g)*annualization_factor(g)
     g.endog_annualized_cost = annualized_investment_cost(g)
 
     if !g.can_expand
@@ -309,7 +338,7 @@ function planning_model!(g::Storage, model::Model)
         fix(retired_units(g), 0.0; force = true)
     end
 
-    compute_fixed_costs!(g, model)
+    compute_fixed_costs!(g, model, settings)
 
     @constraint(model, retired_capacity(g) <= existing_capacity(g))
 
@@ -402,8 +431,6 @@ end
 
 function planning_model!(g::LongDurationStorage, model::Model)
 
-    g.annualized_investment_cost = annualized_investment_cost(g)*annuities_mult(g)
-
     if !g.can_expand
         fix(new_units(g), 0.0; force = true)
     end
@@ -479,14 +506,48 @@ function operation_model!(g::LongDurationStorage, model::Model)
 
 end
 
-function compute_investment_costs!(g::AbstractStorage, model::Model)
+function compute_investment_costs!(g::AbstractStorage, model::Model, settings::NamedTuple)
     if has_capacity(g)
         if can_expand(g)
+
+            # Linearized learning
+            if settings[:TechnologyLearning] == true && learning_parameter(g) != 0.0
+                
+                model[:eInvestmentFixedCost] += g.annualized_investment_cost_with_learning*annuities_mult(g)
+                
+            else
+                # No learning
+                add_to_expression!(
+                model[:eInvestmentFixedCost],
+                annualized_investment_cost(g)*annuities_mult(g),
+                new_capacity(g),
+            )
+            end
+            # Nonlinear version for benchmarking
+            # model[:eInvestmentFixedCost] += endog_investment_cost(g)*annuities_mult(g)*new_capacity(g)
+
+            # Shadow capacity for project development constraints
             add_to_expression!(
-                    model[:eInvestmentFixedCost],
-                    annualized_investment_cost(g),
-                    new_capacity(g),
-                )
+                model[:eInvestmentFixedCost],
+                annualized_investment_cost(g)*annuities_mult(g)*0.1,
+                new_de_capacity(g),
+            )
+            add_to_expression!(
+                model[:eInvestmentFixedCost],
+                annualized_investment_cost(g)*annuities_mult(g)*0.1,
+                new_af_capacity(g),
+            )
+            add_to_expression!(
+                model[:eInvestmentFixedCost],
+                annualized_investment_cost(g)*annuities_mult(g)*0.1,
+                new_cc_capacity(g),
+            )
+
+            # add_to_expression!(
+            #         model[:eInvestmentFixedCost],
+            #         annualized_investment_cost(g),
+            #         new_capacity(g),
+            #     )
         end
     end
 end
@@ -503,7 +564,7 @@ function compute_om_fixed_costs!(g::AbstractStorage, model::Model)
     end
 end
 
-function compute_fixed_costs!(g::AbstractStorage, model::Model)
-    compute_investment_costs!(g, model)
+function compute_fixed_costs!(g::AbstractStorage, model::Model, settings::NamedTuple)
+    compute_investment_costs!(g, model, settings)
     compute_om_fixed_costs!(g, model)
 end
