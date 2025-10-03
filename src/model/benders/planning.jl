@@ -59,10 +59,10 @@ function generate_planning_problem(case::Case)
         if settings[:TechnologyLearning] == true
             add_learning!(system, model)
         end
-        planning_model!(system, model, system.settings)
+        planning_model!(system, model, settings)
 
         @info(" -- Including age-based retirements")
-        add_age_based_retirements!.(system.assets, model, Ref(system.settings))
+        add_age_based_retirements!.(system.assets, model, Ref(settings))
 
         if period_idx < number_of_periods
             @info(" -- Available capacity in period $(period_idx) is being carried over to period $(period_idx+1)")

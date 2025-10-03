@@ -7,6 +7,10 @@ function generate_model(case::Case)
 
     @info("Generating model")
 
+    @info("Deployment inertia set to $(settings[:DeploymentInertia])")
+    @info("Project development set to $(settings[:ProjectDevelopment])")
+    @info("Technology learning set to $(settings[:TechnologyLearning])")
+
     start_time = time();
 
     model = Model()
@@ -309,7 +313,6 @@ function compute_annualized_costs!(y::Union{AbstractEdge,AbstractStorage},settin
 
     if settings[:ProjectDevelopment]
         # Distribute deployment cost in case deployment stage costs are included
-        @info(" -- Including project development costs for asset $(id(y))")
         deployment_cost_perc = 1 - de_cost_perc(y) - af_cost_perc(y) - cc_cost_perc(y)
 
         # Update cost of deployment

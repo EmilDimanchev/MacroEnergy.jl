@@ -1,10 +1,12 @@
 #!/bin/bash
 
-#SBATCH --job-name=ed_test        # create a short name for your job
+#SBATCH --job-name=ed_sl_bd        # create a short name for your job
+#SBATCH --nodes=1                # node count
 #SBATCH --ntasks=5               # total number of tasks across all nodes
 #SBATCH --ntasks-per-node=5
-#SBATCH --cpus-per-task=4 
-#SBATCH --mem=100GB              # total memory
+#SBATCH --cpus-per-task=32
+#SBATCH --output=slurm-%j.out 
+#SBATCH --mem=120GB              # total memory
 #SBATCH --constraint=amd
 #SBATCH --time=6:00:00          # total run time limit (HH:MM:SS)
 #SBATCH --mail-type=all          # send email when job ends

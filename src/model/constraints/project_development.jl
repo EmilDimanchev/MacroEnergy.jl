@@ -20,7 +20,6 @@ function add_model_constraint!(ct::DevelopmentConstraint, y::Union{AbstractEdge,
             prev_period_de = curr_period - de_duration(y) + 1
             prev_period_af = curr_period - af_duration(y) + 1
             prev_period_cc = curr_period - cc_duration(y) + 1
-            project_attrition = 0.9
 
             ct.constraint_ref = @constraint(model, new_capacity_track(y, curr_period) <= cc_capacity_track(y, prev_period))
             
@@ -37,11 +36,11 @@ function add_model_constraint!(ct::DevelopmentConstraint, y::Union{AbstractEdge,
             elseif curr_period >= 2
                 # Track cumulative developed capacity
                 # Definition and evaluation (DE)
-                ct.constraint_ref = @constraint(model, de_capacity_track(y, curr_period) == de_capacity_track(y, prev_period)*project_attrition + new_de_capacity_track(y, prev_period_de) - new_af_capacity_track(y, curr_period))
+                ct.constraint_ref = @constraint(model, de_capacity_track(y, curr_period) == de_capacity_track(y, prev_period) + new_de_capacity_track(y, prev_period_de) - new_af_capacity_track(y, curr_period))
                 # Approvals and funding (AF)
-                ct.constraint_ref = @constraint(model, af_capacity_track(y, curr_period) == af_capacity_track(y, prev_period)*project_attrition + new_af_capacity_track(y, prev_period_af) - new_cc_capacity_track(y, curr_period))
+                ct.constraint_ref = @constraint(model, af_capacity_track(y, curr_period) == af_capacity_track(y, prev_period) + new_af_capacity_track(y, prev_period_af) - new_cc_capacity_track(y, curr_period))
                 # Construction and commissioning (CC)
-                ct.constraint_ref = @constraint(model, cc_capacity_track(y, curr_period) == cc_capacity_track(y, prev_period)*project_attrition + new_cc_capacity_track(y, prev_period_cc) - new_capacity_track(y, curr_period))
+                ct.constraint_ref = @constraint(model, cc_capacity_track(y, curr_period) == cc_capacity_track(y, prev_period) + new_cc_capacity_track(y, prev_period_cc) - new_capacity_track(y, curr_period))
                 # Projects proceeding to next stage
                 # Definition and evaluation (DE)
                 ct.constraint_ref = @constraint(model, new_af_capacity_track(y, curr_period) <= de_capacity_track(y, prev_period))
