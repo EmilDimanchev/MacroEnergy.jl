@@ -171,12 +171,6 @@ function make_storage(
         filtered_data...
     )
 
-    if !isempty(settings) && settings[:TechnologyLearning] == false
-        _storage.is_learning_edge = false
-    else
-        _storage.is_learning_edge = true
-    end
-
     return _storage
 end
 Storage(id::Symbol, data::Dict{Symbol,Any}, time_data::TimeData, commodity::DataType, settings::NamedTuple=NamedTuple()) =
@@ -534,7 +528,7 @@ function compute_investment_costs!(g::AbstractStorage, model::Model, settings::N
         if can_expand(g)
 
             # Linearized learning
-            if settings[:TechnologyLearning] == true && learning_parameter(g) != 0.0
+            if settings[:TechnologyLearning] && learning_parameter(g) != 0.0
                 
                 model[:eInvestmentFixedCost] += g.annualized_investment_cost_with_learning*annuities_mult(g)
                 
@@ -552,17 +546,17 @@ function compute_investment_costs!(g::AbstractStorage, model::Model, settings::N
             # Shadow capacity for project development constraints
             add_to_expression!(
                 model[:eInvestmentFixedCost],
-                annualized_investment_cost(g)*annuities_mult(g)*0.1,
+                de_annualized_cost(g)*annuities_mult(g),
                 new_de_capacity(g),
             )
             add_to_expression!(
                 model[:eInvestmentFixedCost],
-                annualized_investment_cost(g)*annuities_mult(g)*0.1,
+                af_annualized_cost(g)*annuities_mult(g),
                 new_af_capacity(g),
             )
             add_to_expression!(
                 model[:eInvestmentFixedCost],
-                annualized_investment_cost(g)*annuities_mult(g)*0.1,
+                cc_annualized_cost(g)*annuities_mult(g),
                 new_cc_capacity(g),
             )
 

@@ -15,19 +15,13 @@ function add_learning!(system::System, model::Model)
         else
         
             if learning_parameter(e) != 0.0
-                # println(string("Learning parameter for ", e.id, " is ", learning_parameter(e))) 
-                
-                e.annualization_factor = wacc(e)>0 ? wacc(e) / (1 - (1 + wacc(e))^-capital_recovery_period(e))  : 1.0
-                # println(string("investment cost is",investment_cost(e)))
-                e.investment_cost = annualized_investment_cost(e)/annualization_factor(e) 
-                # println(string("investment cost is",investment_cost(e)))
 
                 if max_cumul_capacity(e) == Inf || max_cumul_capacity(e) == -1
                     error(string(e.id, " is a learning technology but max cumulative capacity is incorrectly specified"))
                 end
         
                 # Number of segments
-                n_segments = 5 #n_learning_pwl_segments(e)
+                n_segments = n_learning_pwl_segments(e)
                 if n_segments == 0
                     error("Number of segments not specified for learning technology")
                 end
