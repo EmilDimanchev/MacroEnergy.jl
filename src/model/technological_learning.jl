@@ -1,4 +1,4 @@
-function add_learning!(system::System, model::Model)
+function add_learning!(system::System, model::Model, learning_techs::Vector{String})
     ```
     Builds endogenous technological learning formulation. The main purpose is to formulate the endogenous investment cost, called "annualized_investment_cost_with_learning", which is used in edge.jl for any learning technologies
 
@@ -20,11 +20,12 @@ function add_learning!(system::System, model::Model)
                     error(string(e.id, " is a learning technology but max cumulative capacity is incorrectly specified"))
                 end
         
+                # Find position in learning techs list
+                learning_type_index = findfirst(x -> x == learning_type(e), learning_techs)
+
                 # Number of segments
-                n_segments = n_learning_pwl_segments(e)
-                if n_segments == 0
-                    error("Number of segments not specified for learning technology")
-                end
+                n_segments = 5
+
                 segment_length = (max_cumul_capacity(e)-cumulative_capacity_init(e))/n_segments
                 
                 # Define (x,y) coordinates for piece-wise linear curve (cumulative cost as a function of cumulative capacity added)
@@ -42,7 +43,7 @@ function add_learning!(system::System, model::Model)
 
                 # Slope computation for piece-wise linear curve
                 # First segment represents no new capacity and no learning
-                push!(e.pwl_cost_slopes, investment_cost(e))
+                push!(e.pwl_cost_slopespwl_cost_slopes, investment_cost(e))
                 # Remaining segments:
                 for k in 2:n_segments+1
                     push!(e.pwl_cost_slopes, (y_points[k] - y_points[k-1])/(x_points[k]-x_points[k-1]))
@@ -50,9 +51,9 @@ function add_learning!(system::System, model::Model)
                 
                 # SOS1 variables for piece-wise linearization
                 # e.segments_sos1 = @variable(model, [k in 1:n_segments+1], lower_bound = 0.0, base_name = "vSOS1SEG_$(id(e))_stage$(period_index(e))_seg_$k")
-                e.segments_sos1 = @variable(model, [k in 1:n_segments+1], binary=true, base_name = "vSOS1SEG_$(id(e))_stage$(period_index(e))_seg_$k")
+                # e.segments_sos1 = @variable(model, [k in 1:n_segments+1], binary=true, base_name = "vSOS1SEG_$(id(e))_stage$(period_index(e))_seg_$k")
                 # @constraint(model, [k in 1:n_segments+1], segments_sos1(e)[k] <= 1)
-                @constraint(model, sum(segments_sos1(e)[k] for k in 1:n_segments+1) == 1)
+                # @constraint(model, sum(segments_sos1(e)[k] for k in 1:n_segments+1) == 1)
                 # SOS1 constraint ensuring only one value is nonzero
                 # @constraint(model, segments_sos1(e) in SOS1())
                 # Cumulative experience for estimating movement along the learning curve 
@@ -71,8 +72,8 @@ function add_learning!(system::System, model::Model)
                 # Ensure strict inequality
                 epsilon_learning = cumulative_capacity_init(e)/1e6
                 ϵ = ones(length(x_points))*epsilon_learning
-                @constraint(model, [k in 2:n_segments+1], cumulative_experience(e)[k] >= (x_points[k-1] + ϵ[k-1]) * segments_sos1(e)[k])
-                @constraint(model, [k in 1:n_segments+1], cumulative_experience(e)[k] <= x_points[k] * segments_sos1(e)[k])
+                @constraint(model, [k in 2:n_segments+1], cumulative_experience(e)[k] >= (x_points[k-1] + ϵ[k-1]) * learning_pwl_segment_chosen[learning_type_index, period_index(e), k])
+                @constraint(model, [k in 1:n_segments+1], cumulative_experience(e)[k] <= x_points[k] * learning_pwl_segment_chosen[learning_type_index, period_index(e), k])
 
                 # println(string(e.id," points"))
                 # println(x_points)
@@ -81,9 +82,9 @@ function add_learning!(system::System, model::Model)
                 # println(e.pwl_cost_slopes)
                 
                 # Slope reached after building new capacity
-                e.learning_pwl_slope = @expression(model, sum(segments_sos1(e)[k] * pwl_cost_slopes(e)[k] for k in 1:n_segments+1))
+                e.learning_pwl_slope = @expression(model, sum(learning_pwl_segment_chosen[learning_type_index, period_index(e), k] * pwl_cost_slopes(e)[k] for k in 1:n_segments+1))
                 e.learning_pwl_track[period_index(e)] = learning_pwl_slope(e)
-                e.segments_sos1_track[period_index(e)] = segments_sos1(e)
+                e.segments_sos1_track[period_index(e)] = learning_pwl_segment_chosen[learning_type_index, period_index(e), :]
                 
                 # Determine investment cost
                 # Depends on learning lag
