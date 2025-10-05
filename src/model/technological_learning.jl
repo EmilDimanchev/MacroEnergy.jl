@@ -137,3 +137,17 @@ function get_edges_of_type(system::System, type::String)
     end
     return tech_edges
 end
+
+function get_learning_technologies(case::Case)
+    learning_techs = String[]
+    for system in get_periods(case)
+        for e in get_edges(system)
+            if learning_type(e) != "" && !occursin("_transmission_edge", string(e.id))
+                if !(learning_type(e) in learning_techs)
+                    push!(learning_techs, learning_type(e))
+                end
+            end
+        end
+    end
+    return learning_techs
+end
