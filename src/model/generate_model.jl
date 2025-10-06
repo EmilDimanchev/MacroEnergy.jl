@@ -23,12 +23,7 @@ function generate_model(case::Case)
     investment_cost = Dict()
     variable_cost = Dict()
 
-    learning_techs = get_learning_technologies(case)
-    n_learning_techs = length(learning_techs)
-
-    n_segments = 5
-    @variable(model, learning_pwl_segment_chosen[y in 1:n_learning_techs, i in 1:num_periods, k in 1:n_segments+1], binary=true)
-    @constraint(model, learning_pwl_sum_to_one[y in 1:n_learning_techs, i in 1:num_periods], sum(learning_pwl_segment_chosen[y,i,k] for k in 1:n_segments+1) == 1)
+            
 
     for (period_idx,system) in enumerate(periods)
 
@@ -48,7 +43,7 @@ function generate_model(case::Case)
         @info(" -- Generating planning model")
         if settings[:TechnologyLearning] == true
             @info(" -- Adding technology learning")
-            add_learning!(system, model, learning_techs)
+            add_learning!(system, model, get_learning_technologies(case))
         end
         planning_model!(system, model, settings)
 

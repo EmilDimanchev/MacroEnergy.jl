@@ -82,7 +82,7 @@ function run_myopic_iteration!(case::Case, opt::Optimizer)
 
         if period_idx < num_periods
             @info(" -- Final capacity in period $(period_idx) is being carried over to period $(period_idx+1)")
-            carry_over_capacities!(periods[period_idx+1], system, perfect_foresight=false)
+            carry_over_capacities!(periods[period_idx+1], system, settings, perfect_foresight=false)
         end
 
         models[period_idx] = model

@@ -6,6 +6,13 @@ function add_learning!(system::System, model::Model, learning_techs::Vector{Stri
     Takes a system input because we need to combine new_capacity across edges of the same "learning_type" attribute to determine the amount of learning for a given technology. e.g., solar costs depend on total capacity expansion across all solar edges.
     ```
 
+    n_learning_techs = length(learning_techs)
+
+    n_segments = 5
+    learning_pwl_segment_chosen = @variable(model, [y in 1:n_learning_techs, k in 1:n_segments+1], binary=true)
+    @constraint(model, [y in 1:n_learning_techs], sum(learning_pwl_segment_chosen[y,k] for k in 1:n_segments+1) == 1)
+
+
     # Need to loop through edges here since the function is called for a whole system
     edges = get_edges(system)
 
@@ -43,7 +50,7 @@ function add_learning!(system::System, model::Model, learning_techs::Vector{Stri
 
                 # Slope computation for piece-wise linear curve
                 # First segment represents no new capacity and no learning
-                push!(e.pwl_cost_slopespwl_cost_slopes, investment_cost(e))
+                push!(e.pwl_cost_slopes, investment_cost(e))
                 # Remaining segments:
                 for k in 2:n_segments+1
                     push!(e.pwl_cost_slopes, (y_points[k] - y_points[k-1])/(x_points[k]-x_points[k-1]))
@@ -72,8 +79,8 @@ function add_learning!(system::System, model::Model, learning_techs::Vector{Stri
                 # Ensure strict inequality
                 epsilon_learning = cumulative_capacity_init(e)/1e6
                 ϵ = ones(length(x_points))*epsilon_learning
-                @constraint(model, [k in 2:n_segments+1], cumulative_experience(e)[k] >= (x_points[k-1] + ϵ[k-1]) * learning_pwl_segment_chosen[learning_type_index, period_index(e), k])
-                @constraint(model, [k in 1:n_segments+1], cumulative_experience(e)[k] <= x_points[k] * learning_pwl_segment_chosen[learning_type_index, period_index(e), k])
+                @constraint(model, [k in 2:n_segments+1], cumulative_experience(e)[k] >= (x_points[k-1] + ϵ[k-1]) * learning_pwl_segment_chosen[learning_type_index, k])
+                @constraint(model, [k in 1:n_segments+1], cumulative_experience(e)[k] <= x_points[k] * learning_pwl_segment_chosen[learning_type_index, k])
 
                 # println(string(e.id," points"))
                 # println(x_points)
@@ -82,9 +89,9 @@ function add_learning!(system::System, model::Model, learning_techs::Vector{Stri
                 # println(e.pwl_cost_slopes)
                 
                 # Slope reached after building new capacity
-                e.learning_pwl_slope = @expression(model, sum(learning_pwl_segment_chosen[learning_type_index, period_index(e), k] * pwl_cost_slopes(e)[k] for k in 1:n_segments+1))
+                e.learning_pwl_slope = @expression(model, sum(learning_pwl_segment_chosen[learning_type_index, k] * pwl_cost_slopes(e)[k] for k in 1:n_segments+1))
                 e.learning_pwl_track[period_index(e)] = learning_pwl_slope(e)
-                e.segments_sos1_track[period_index(e)] = learning_pwl_segment_chosen[learning_type_index, period_index(e), :]
+                e.segments_sos1_track[period_index(e)] = learning_pwl_segment_chosen[learning_type_index, :]
                 
                 # Determine investment cost
                 # Depends on learning lag
@@ -142,7 +149,7 @@ function get_learning_technologies(case::Case)
     learning_techs = String[]
     for system in get_periods(case)
         for e in get_edges(system)
-            if learning_type(e) != "" && !occursin("_transmission_edge", string(e.id))
+            if learning_type(e) != "" && !occursin("_transmission_edge", string(e.id)) && learning_parameter(e) != 0.0
                 if !(learning_type(e) in learning_techs)
                     push!(learning_techs, learning_type(e))
                 end

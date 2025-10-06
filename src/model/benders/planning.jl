@@ -57,7 +57,7 @@ function generate_planning_problem(case::Case)
 
         @info(" -- Generating planning model")
         if settings[:TechnologyLearning] == true
-            add_learning!(system, model)
+            add_learning!(system, model, get_learning_technologies(case))
         end
         planning_model!(system, model, settings)
 
@@ -66,7 +66,7 @@ function generate_planning_problem(case::Case)
 
         if period_idx < number_of_periods
             @info(" -- Available capacity in period $(period_idx) is being carried over to period $(period_idx+1)")
-            carry_over_capacities!(periods[period_idx+1], system)
+            carry_over_capacities!(periods[period_idx+1], system, settings)
         end
 
         model[:eFixedCost] = model[:eInvestmentFixedCost] + model[:eOMFixedCost]

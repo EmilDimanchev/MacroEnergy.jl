@@ -31,9 +31,9 @@
         1,
         1
     ],
-    "SolutionAlgorithm": "Monolithic",
+    "SolutionAlgorithm": "Benders",
     "DiscountRate": 0.045,
-    "TechnologyLearning": false,
-    "DeploymentInertia": true,
-    "ProjectDevelopment": true
+    "TechnologyLearning": true,
+    "DeploymentInertia": false,
+    "ProjectDevelopment": false
 }
