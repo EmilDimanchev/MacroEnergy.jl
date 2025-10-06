@@ -33,7 +33,7 @@
     ],
     "SolutionAlgorithm": "Benders",
     "DiscountRate": 0.045,
-    "TechnologyLearning": true,
+    "TechnologyLearning": false,
     "DeploymentInertia": false,
     "ProjectDevelopment": false
 }

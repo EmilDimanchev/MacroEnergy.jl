@@ -12,7 +12,7 @@ function generate_operation_subproblem(system::System,include_subproblem_slacks:
 
     define_available_capacity!(system, model)
 
-    operation_model!(system, model)
+    operation_model!(system, model, NamedTuple())
 
     if include_subproblem_slacks == true
         @info("Adding slack variables to ensure subproblems are always feasible")
