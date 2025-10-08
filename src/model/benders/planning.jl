@@ -56,9 +56,9 @@ function generate_planning_problem(case::Case)
         define_available_capacity!(system, model)
 
         @info(" -- Generating planning model")
-        # if settings[:TechnologyLearning] == true
-        #     add_learning!(system, model, get_learning_technologies(case))
-        # end
+        if settings[:TechnologyLearning] == true
+            add_learning!(system, model, get_learning_technologies(case))
+        end
         planning_model!(system, model, settings)
 
         @info(" -- Including age-based retirements")

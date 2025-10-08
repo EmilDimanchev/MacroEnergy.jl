@@ -40,7 +40,6 @@ macro AbstractStorageBaseAttributes()
         learning_type::String = ""
         learning_parameter::Float64 = 0.0
         cumulative_capacity_init::Float64 = 0.0
-        segments_sos1::JuMPVariable = Vector{VariableRef}()
         segments_sos1_track::Dict{Int64,Union{JuMPVariable}} = Dict(1 => Vector{VariableRef}())
         segments_sos1_prev::Union{JuMPVariable,Float64} = Vector{VariableRef}()
         aux_new_capacity::Union{JuMPVariable,Float64} = 0.0

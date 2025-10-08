@@ -41,10 +41,10 @@ function generate_model(case::Case)
         define_available_capacity!(system, model)
 
         @info(" -- Generating planning model")
-        # if settings[:TechnologyLearning] == true
-        #     @info(" -- Adding technology learning")
-        #     add_learning!(system, model, get_learning_technologies(case))
-        # end
+        if settings[:TechnologyLearning] == true
+            @info(" -- Adding technology learning")
+            add_learning!(system, model, get_learning_technologies(case))
+        end
         planning_model!(system, model, settings)
 
         @info(" -- Including age-based retirements")
@@ -104,10 +104,10 @@ end
 
 function planning_model!(system::System, model::Model, settings::NamedTuple)
 
-    if settings[:TechnologyLearning] == true
-        @info(" -- Adding technology learning")
-        add_learning!(system, model, ["wind", "solar"])
-    end
+    # if settings[:TechnologyLearning] == true
+    #     @info(" -- Adding technology learning")
+    #     add_learning!(system, model, ["wind", "solar"])
+    # end
 
     planning_model!.(system.locations, Ref(model), Ref(settings))
 

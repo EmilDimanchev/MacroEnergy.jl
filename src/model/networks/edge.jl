@@ -49,7 +49,6 @@ macro AbstractEdgeBaseAttributes()
         learning_type::String = ""
         learning_parameter::Float64 = 0.0
         cumulative_capacity_init::Float64 = 0.0
-        segments_sos1::JuMPVariable = Vector{VariableRef}()
         segments_sos1_track::Dict{Int64,Union{JuMPVariable}} = Dict(1 => Vector{VariableRef}())
         segments_sos1_prev::Union{JuMPVariable,Float64} = Vector{VariableRef}()
         aux_new_capacity::Union{JuMPVariable,Float64} = 0.0
@@ -287,7 +286,6 @@ learning_parameter(e::AbstractEdge) = e.learning_parameter;
 cumulative_capacity_init(e::AbstractEdge) = e.cumulative_capacity_init;
 endog_investment_cost(e::AbstractEdge) = e.endog_investment_cost;
 segments_sos1_prev(e::AbstractEdge) = e.segments_sos1_prev;
-segments_sos1(e::AbstractEdge) = e.segments_sos1;
 cumulative_experience(e::AbstractEdge) = e.cumulative_experience;
 learning_pwl_slope(e::AbstractEdge) = e.learning_pwl_slope;
 learning_pwl_track(e::AbstractEdge) = e.learning_pwl_track;
