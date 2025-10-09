@@ -336,10 +336,6 @@ function compute_annualized_costs!(y::Union{AbstractEdge,AbstractStorage},settin
         y.de_annualized_cost = investment_cost(y)*de_annualization_factor*de_cost_perc(y)
         y.af_annualized_cost = investment_cost(y)*af_annualization_factor*af_cost_perc(y)
         y.cc_annualized_cost = investment_cost(y)*cc_annualization_factor*cc_cost_perc(y)
-        @info("de cost is $(y.de_annualized_cost) for $(y.id)")
-        @info("af cost is $(y.af_annualized_cost) for $(y.id)")
-        @info("cc cost is $(y.cc_annualized_cost) for $(y.id)")
-        @info("aic cost is $(y.annualized_investment_cost) for $(y.id)")
 
     else
         y.de_annualized_cost = 0.0
