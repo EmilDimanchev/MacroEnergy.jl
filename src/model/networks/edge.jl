@@ -71,30 +71,33 @@ macro AbstractEdgeBaseAttributes()
         de_cost_perc::Float64 = 0.0
         de_wacc::Float64 = 0.1
         de_cap_recovery::Int64 = 1
+        de_annuities_mult::Float64 = 0.0
         de_annualized_cost::Float64 = 0.0
         new_de_capacity::AffExpr = AffExpr(0.0)
         new_de_capacity_track::Dict{Int64,AffExpr} = Dict(1=>AffExpr(0.0))
-        de_capacity::AffExpr = AffExpr(0.0)
+        de_capacity::Union{JuMPVariable,AffExpr,Float64} = AffExpr(0.0)
         de_capacity_track::Dict{Int64,AffExpr} = Dict(1=>AffExpr(0.0))
         new_de_units::Union{JuMPVariable,Float64} = 0.0
         # Approvals and funding (AF)
         af_cost_perc::Float64 = 0.0
         af_wacc::Float64 = 0.1
         af_cap_recovery::Int64 = 1
+        af_annuities_mult::Float64 = 0.0
         af_annualized_cost::Float64 = 0.0
         new_af_capacity::AffExpr = AffExpr(0.0)
         new_af_capacity_track::Dict{Int64,AffExpr} = Dict(1=>AffExpr(0.0))
-        af_capacity::AffExpr = AffExpr(0.0)
+        af_capacity::Union{JuMPVariable,AffExpr,Float64} = AffExpr(0.0)
         af_capacity_track::Dict{Int64,AffExpr} = Dict(1=>AffExpr(0.0))
         new_af_units::Union{JuMPVariable,Float64} = 0.0
         # Construction and Commissioning (CC)
         cc_cost_perc::Float64 = 0.0
         cc_wacc::Float64 = 0.05
         cc_cap_recovery::Int64 = 1
+        cc_annuities_mult::Float64 = 0.0
         cc_annualized_cost::Float64 = 0.0
         new_cc_capacity::AffExpr = AffExpr(0.0)
         new_cc_capacity_track::Dict{Int64,AffExpr} = Dict(1=>AffExpr(0.0))
-        cc_capacity::AffExpr = AffExpr(0.0)
+        cc_capacity::Union{JuMPVariable,AffExpr,Float64} = AffExpr(0.0)
         cc_capacity_track::Dict{Int64,AffExpr} = Dict(1=>AffExpr(0.0))
         new_cc_units::Union{JuMPVariable,Float64} = 0.0
         # Max growth formulation
@@ -316,6 +319,9 @@ cc_cap_recovery(e::AbstractEdge) = e.cc_cap_recovery;
 de_annualized_cost(e::AbstractEdge) = e.de_annualized_cost;
 af_annualized_cost(e::AbstractEdge) = e.af_annualized_cost;
 cc_annualized_cost(e::AbstractEdge) = e.cc_annualized_cost;
+de_annuities_mult(e::AbstractEdge) = e.de_annuities_mult;
+af_annuities_mult(e::AbstractEdge) = e.af_annuities_mult;
+cc_annuities_mult(e::AbstractEdge) = e.cc_annuities_mult;
 # Definition and evaluation (DE)
 new_de_capacity(e::AbstractEdge) = e.new_de_capacity;
 de_capacity(e::AbstractEdge) = e.de_capacity;
@@ -408,6 +414,12 @@ function planning_model!(e::AbstractEdge, model::Model, settings::NamedTuple)
 
         if !can_expand(e)
             fix(new_units(e), 0.0; force = true)
+            fix(new_de_units(e), 0.0; force = true)
+            fix(new_af_units(e), 0.0; force = true)
+            fix(new_cc_units(e), 0.0; force = true)
+            fix(de_capacity(e), 0.0; force = true)
+            fix(af_capacity(e), 0.0; force = true)
+            fix(cc_capacity(e), 0.0; force = true)
         else
             if integer_decisions(e)
                 set_integer(new_units(e))
@@ -455,17 +467,17 @@ function compute_investment_costs!(e::AbstractEdge, model::Model, settings::Name
             # Shadow capacity for project development constraints
             add_to_expression!(
                 model[:eInvestmentFixedCost],
-                de_annualized_cost(e)*annuities_mult(e),
+                de_annualized_cost(e)*de_annuities_mult(e),
                 new_de_capacity(e),
             )
             add_to_expression!(
                 model[:eInvestmentFixedCost],
-                af_annualized_cost(e)*annuities_mult(e),
+                af_annualized_cost(e)*af_annuities_mult(e),
                 new_af_capacity(e),
             )
             add_to_expression!(
                 model[:eInvestmentFixedCost],
-                cc_annualized_cost(e)*annuities_mult(e),
+                cc_annualized_cost(e)*cc_annuities_mult(e),
                 new_cc_capacity(e),
             )
         end

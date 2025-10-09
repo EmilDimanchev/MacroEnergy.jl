@@ -326,9 +326,13 @@ function compute_annualized_costs!(y::Union{AbstractEdge,AbstractStorage},settin
         y.annualized_investment_cost = annualized_investment_cost(y)*deployment_cost_perc
 
         # Development annualized costs
-        de_annualization_factor = de_wacc(y)>0 ? de_wacc(y) / (1 - (1 + de_wacc(y))^-de_cap_recovery(y))  : 1.0
-        af_annualization_factor = af_wacc(y)>0 ? af_wacc(y) / (1 - (1 + af_wacc(y))^-af_cap_recovery(y))  : 1.0
-        cc_annualization_factor = cc_wacc(y)>0 ? cc_wacc(y) / (1 - (1 + cc_wacc(y))^-cc_cap_recovery(y))  : 1.0
+        de_annualization_factor = de_wacc(y)>0 && de_cap_recovery(y) > 0 ? de_wacc(y) / (1 - (1 + de_wacc(y))^-de_cap_recovery(y))  : 1.0
+        af_annualization_factor = af_wacc(y)>0 && af_cap_recovery(y) > 0 ? af_wacc(y) / (1 - (1 + af_wacc(y))^-af_cap_recovery(y))  : 1.0
+
+        # Overwrite CC wacc if general wacc is provided
+        y.cc_wacc = wacc(y) > 0 ? wacc(y) : cc_wacc(y)
+
+        cc_annualization_factor = cc_wacc(y)>0 && cc_cap_recovery(y) > 0 ? cc_wacc(y) / (1 - (1 + cc_wacc(y))^-cc_cap_recovery(y))  : 1.0
         y.de_annualized_cost = investment_cost(y)*de_annualization_factor*de_cost_perc(y)
         y.af_annualized_cost = investment_cost(y)*af_annualization_factor*af_cost_perc(y)
         y.cc_annualized_cost = investment_cost(y)*cc_annualization_factor*cc_cost_perc(y)
@@ -373,6 +377,11 @@ function discount_fixed_costs!(y::Union{AbstractEdge,AbstractStorage},settings::
         payment_years_remaining = min(capital_recovery_period(y), settings.PeriodLengths[period_index(y)]);
     elseif isa(solution_algorithm(settings[:SolutionAlgorithm]), Monolithic) || isa(solution_algorithm(settings[:SolutionAlgorithm]), Benders)
         payment_years_remaining = min(capital_recovery_period(y), model_years_remaining);
+        if settings[:ProjectDevelopment] 
+            de_payment_years_remaining = min(de_cap_recovery(y), model_years_remaining);
+            af_payment_years_remaining = min(af_cap_recovery(y), model_years_remaining);
+            cc_payment_years_remaining = min(cc_cap_recovery(y), model_years_remaining);
+        end
     else
         # Placeholder for other future cases like rolling horizon
         nothing
@@ -381,6 +390,11 @@ function discount_fixed_costs!(y::Union{AbstractEdge,AbstractStorage},settings::
     # y.annualized_investment_cost = annualized_investment_cost(y) * sum(1 / (1 + settings.DiscountRate)^s for s in 1:payment_years_remaining; init=0);
 
     y.annuities_mult = sum(1 / (1 + settings.DiscountRate)^s for s in 1:payment_years_remaining; init=0);
+    if settings[:ProjectDevelopment] 
+        y.de_annuities_mult = min(de_cap_recovery(y), model_years_remaining);
+        y.af_annuities_mult = min(af_cap_recovery(y), model_years_remaining);
+        y.cc_annuities_mult = min(cc_cap_recovery(y), model_years_remaining);
+    end
     
     opexmult = sum([1 / (1 + settings.DiscountRate)^(i) for i in 1:settings.PeriodLengths[period_index(y)]])
 
@@ -444,6 +458,8 @@ function add_costs_not_seen_by_myopic!(y::Union{AbstractEdge,AbstractStorage}, s
     myopic_mult = sum(1 / (1 + settings.DiscountRate)^s for s in 1:payment_years_remaining_myopic; init=0)
 
     y.annualized_investment_cost = annualized_investment_cost(y) * total_mult/myopic_mult;
+
+    # TODO add myopic cost for project development stages
 end
 
 function add_costs_not_seen_by_myopic!(a::AbstractAsset,settings::NamedTuple)

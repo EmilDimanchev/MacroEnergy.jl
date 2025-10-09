@@ -62,6 +62,7 @@ macro AbstractStorageBaseAttributes()
         de_cost_perc::Float64 = 0.0
         de_wacc::Float64 = 0.1
         de_cap_recovery::Int64 = 1
+        de_annuities_mult::Float64 = 0.0
         de_annualized_cost::Float64 = 0.0
         new_de_capacity::AffExpr = AffExpr(0.0)
         new_de_capacity_track::Dict{Int64,AffExpr} = Dict(1=>AffExpr(0.0))
@@ -72,6 +73,7 @@ macro AbstractStorageBaseAttributes()
         af_cost_perc::Float64 = 0.0
         af_wacc::Float64 = 0.1
         af_cap_recovery::Int64 = 1
+        af_annuities_mult::Float64 = 0.0
         af_annualized_cost::Float64 = 0.0
         new_af_capacity::AffExpr = AffExpr(0.0)
         new_af_capacity_track::Dict{Int64,AffExpr} = Dict(1=>AffExpr(0.0))
@@ -82,6 +84,7 @@ macro AbstractStorageBaseAttributes()
         cc_cost_perc::Float64 = 0.0
         cc_wacc::Float64 = 0.05
         cc_cap_recovery::Int64 = 1
+        cc_annuities_mult::Float64 = 0.0
         cc_annualized_cost::Float64 = 0.0
         new_cc_capacity::AffExpr = AffExpr(0.0)
         new_cc_capacity_track::Dict{Int64,AffExpr} = Dict(1=>AffExpr(0.0))
@@ -264,6 +267,9 @@ cc_cap_recovery(g::AbstractStorage) = g.cc_cap_recovery;
 de_annualized_cost(g::AbstractStorage) = g.de_annualized_cost;
 af_annualized_cost(g::AbstractStorage) = g.af_annualized_cost;
 cc_annualized_cost(g::AbstractStorage) = g.cc_annualized_cost;
+de_annuities_mult(g::AbstractStorage) = g.de_annuities_mult;
+af_annuities_mult(g::AbstractStorage) = g.af_annuities_mult;
+cc_annuities_mult(g::AbstractStorage) = g.cc_annuities_mult;
 # Definition and evaluation (DE)
 new_de_capacity(g::AbstractStorage) = g.new_de_capacity;
 de_capacity(g::AbstractStorage) = g.de_capacity;
@@ -348,6 +354,9 @@ function planning_model!(g::Storage, model::Model, settings::NamedTuple)
 
     if !g.can_expand
         fix(new_units(g), 0.0; force = true)
+        fix(new_de_units(g), 0.0; force = true)
+        fix(new_af_units(g), 0.0; force = true)
+        fix(new_cc_units(g), 0.0; force = true)
     end
 
     if !g.can_retire
@@ -545,17 +554,17 @@ function compute_investment_costs!(g::AbstractStorage, model::Model, settings::N
             # Shadow capacity for project development constraints
             add_to_expression!(
                 model[:eInvestmentFixedCost],
-                de_annualized_cost(g)*annuities_mult(g),
+                de_annualized_cost(g)*de_annuities_mult(g),
                 new_de_capacity(g),
             )
             add_to_expression!(
                 model[:eInvestmentFixedCost],
-                af_annualized_cost(g)*annuities_mult(g),
+                af_annualized_cost(g)*af_annuities_mult(g),
                 new_af_capacity(g),
             )
             add_to_expression!(
                 model[:eInvestmentFixedCost],
-                cc_annualized_cost(g)*annuities_mult(g),
+                cc_annualized_cost(g)*cc_annuities_mult(g),
                 new_cc_capacity(g),
             )
 
