@@ -209,7 +209,7 @@
             "instance_data": [
                 {
                     "constraints": {
-                        "CO2CapConstraint": true
+                        "CO2CapConstraint": false
                     },
                     "rhs_policy": {
                         "CO2CapConstraint": 0.001
