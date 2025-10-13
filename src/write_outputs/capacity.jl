@@ -264,8 +264,10 @@ function write_capacity_all_periods(
             new_de_capacity_results = get_new_de_capacity(system)
             new_af_capacity_results = get_new_af_capacity(system)
             new_cc_capacity_results = get_new_cc_capacity(system)
+            de_capacity_results = get_de_capacity(system)
+            af_capacity_results = get_af_capacity(system)
             cc_capacity_results = get_cc_capacity(system)
-            all_capacity_results = vcat(capacity_results, new_capacity_results, retired_capacity_results, endog_costs, new_de_capacity_results, new_af_capacity_results, new_cc_capacity_results, cc_capacity_results)
+            all_capacity_results = vcat(capacity_results, new_capacity_results, retired_capacity_results, endog_costs, new_de_capacity_results, new_af_capacity_results, new_cc_capacity_results, de_capacity_results, af_capacity_results, cc_capacity_results)
 
             system_number = findfirst(==(system), case.systems)
             period_number_vector = fill(system_number, nrow(all_capacity_results))
