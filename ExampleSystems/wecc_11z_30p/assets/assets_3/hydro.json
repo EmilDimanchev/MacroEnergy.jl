@@ -50,6 +50,7 @@
                         "can_retire": false,
                         "annualized_investment_cost": 0,
                         "max_capacity": 1000000,
+                        "lifetime": 50,
                         "can_expand": false,
                         "constraints": {
                             "StorageDischargeLimitConstraint": true,
@@ -124,6 +125,7 @@
                         "can_retire": false,
                         "annualized_investment_cost": 0,
                         "max_capacity": 1000000,
+                        "lifetime": 50,
                         "can_expand": false,
                         "constraints": {
                             "StorageDischargeLimitConstraint": true,
@@ -198,6 +200,7 @@
                         "can_retire": false,
                         "annualized_investment_cost": 0,
                         "max_capacity": 1000000,
+                        "lifetime": 50,
                         "can_expand": false,
                         "constraints": {
                             "StorageDischargeLimitConstraint": true,
@@ -272,6 +275,7 @@
                         "can_retire": false,
                         "annualized_investment_cost": 0,
                         "max_capacity": 1000000,
+                        "lifetime": 50,
                         "can_expand": false,
                         "constraints": {
                             "StorageDischargeLimitConstraint": true,
@@ -346,6 +350,7 @@
                         "can_retire": false,
                         "annualized_investment_cost": 0,
                         "max_capacity": 1000000,
+                        "lifetime": 50,
                         "can_expand": false,
                         "constraints": {
                             "StorageDischargeLimitConstraint": true,
@@ -420,6 +425,7 @@
                         "can_retire": false,
                         "annualized_investment_cost": 0,
                         "max_capacity": 1000000,
+                        "lifetime": 50,
                         "can_expand": false,
                         "constraints": {
                             "StorageDischargeLimitConstraint": true,
@@ -494,6 +500,7 @@
                         "can_retire": false,
                         "annualized_investment_cost": 0,
                         "max_capacity": 1000000,
+                        "lifetime": 50,
                         "can_expand": false,
                         "constraints": {
                             "StorageDischargeLimitConstraint": true,
@@ -568,6 +575,7 @@
                         "can_retire": false,
                         "annualized_investment_cost": 0,
                         "max_capacity": 1000000,
+                        "lifetime": 50,
                         "can_expand": false,
                         "constraints": {
                             "StorageDischargeLimitConstraint": true,
@@ -642,6 +650,7 @@
                         "can_retire": false,
                         "annualized_investment_cost": 0,
                         "max_capacity": 1000000,
+                        "lifetime": 50,
                         "can_expand": false,
                         "constraints": {
                             "StorageDischargeLimitConstraint": true,
@@ -716,6 +725,7 @@
                         "can_retire": false,
                         "annualized_investment_cost": 0,
                         "max_capacity": 1000000,
+                        "lifetime": 50,
                         "can_expand": false,
                         "constraints": {
                             "StorageDischargeLimitConstraint": true,

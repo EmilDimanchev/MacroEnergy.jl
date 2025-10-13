@@ -35,5 +35,5 @@
     "DiscountRate": 0.045,
     "TechnologyLearning": false,
     "DeploymentInertia": false,
-    "ProjectDevelopment": true
+    "ProjectDevelopment": false
 }
