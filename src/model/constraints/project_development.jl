@@ -36,7 +36,11 @@ function add_model_constraint!(ct::DevelopmentConstraint, y::Union{AbstractEdge,
                 add_to_expression!(model[:CCCapacity], cc_capacity_track(y, prev_period), 1.0)
 
                 # Subtract used capacity
-                add_to_expression!(model[:DECapacity], new_af_capacity_track(y, curr_period), -1.0)
+                if af_duration(y) > 0
+                    add_to_expression!(model[:DECapacity], new_af_capacity_track(y, curr_period), -1.0)
+                else
+                    add_to_expression!(model[:DECapacity], new_cc_capacity_track(y, curr_period), -1.0)
+                end
                 add_to_expression!(model[:AFCapacity], new_cc_capacity_track(y, curr_period), -1.0)
                 add_to_expression!(model[:CCCapacity], new_capacity_track(y, curr_period), -1.0)
             end
