@@ -40,7 +40,7 @@
                     "elec_edge": {
                         "can_retire": true,
                         "min_up_time": 6,
-                        "max_capacity": -1,
+                        "max_capacity": 10000,
                         "can_expand": true,
                         "min_flow_fraction": 0.468,
                         "constraints": {
@@ -89,7 +89,7 @@
                     "elec_edge": {
                         "can_retire": true,
                         "min_up_time": 6,
-                        "max_capacity": -1,
+                        "max_capacity": 10000,
                         "can_expand": true,
                         "min_flow_fraction": 0.338,
                         "constraints": {
@@ -138,7 +138,7 @@
                     "elec_edge": {
                         "can_retire": true,
                         "min_up_time": 6,
-                        "max_capacity": -1,
+                        "max_capacity": 10000,
                         "can_expand": true,
                         "min_flow_fraction": 0.474,
                         "constraints": {
