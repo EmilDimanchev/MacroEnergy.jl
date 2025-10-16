@@ -9,7 +9,7 @@ function add_learning!(system::System, model::Model, learning_techs::Vector{Stri
     n_learning_techs = length(learning_techs)
 
     n_segments = 5
-    learning_pwl_segment_chosen = @variable(model, [y in 1:n_learning_techs, k in 1:n_segments+1], binary=true)
+    learning_pwl_segment_chosen = @variable(model, [y in 1:n_learning_techs, k in 1:n_segments+1], binary=true, base_name = "vBINSEG_LEARNINGTYPE_$(y)_seg_$k")
     @constraint(model, [y in 1:n_learning_techs], sum(learning_pwl_segment_chosen[y,k] for k in 1:n_segments+1) == 1)
 
 

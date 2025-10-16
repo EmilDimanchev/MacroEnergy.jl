@@ -2,11 +2,11 @@
 
 #SBATCH --job-name=ed_test        # create a short name for your job
 #SBATCH --nodes=1
-#SBATCH --ntasks-per-node=52
+#SBATCH --ntasks-per-node=3
 #SBATCH --cpus-per-task=8 
 #SBATCH --mem=200GB              # total memory
 #SBATCH --constraint=amd
-#SBATCH --time=10:00:00          # total run time limit (HH:MM:SS)
+#SBATCH --time=1:00:00          # total run time limit (HH:MM:SS)
 #SBATCH --mail-type=all          # send email when job ends
 #SBATCH --mail-user=ed0400@princeton.edu
 
