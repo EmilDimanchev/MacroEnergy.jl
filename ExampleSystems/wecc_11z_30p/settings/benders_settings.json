@@ -4,7 +4,7 @@
   "ConvTol": 1e-3,
   "StabParam": 0.5,
   "StabDynamic": false,
-  "IntegerInvestment": false,
+  "IntegerInvestment": true,
   "Distributed": true,
-  "ExpectFeasibleSubproblems": false
+  "ExpectFeasibleSubproblems": true
 }

@@ -4,10 +4,11 @@
 #SBATCH --nodes=1                # node count
 #SBATCH --ntasks=4              # total number of tasks across all nodes
 #SBATCH --ntasks-per-node=4
-#SBATCH --cpus-per-task=4
+#SBATCH --cpus-per-task=24
 #SBATCH --output=slurm-%j.out 
-#SBATCH --mem=120GB              # total memory
-#SBATCH --time=2:00:00          # total run time limit (HH:MM:SS)
+#SBATCH --mem=90GB              # total memory
+#SBATCH --constraint=amd
+#SBATCH --time=10:00:00          # total run time limit (HH:MM:SS)
 #SBATCH --mail-type=all          # send email when job ends
 #SBATCH --mail-user=ed0400@princeton.edu
 

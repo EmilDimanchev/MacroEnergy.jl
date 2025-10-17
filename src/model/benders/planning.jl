@@ -29,6 +29,10 @@ function generate_planning_problem(case::Case)
     periods = case.systems
     settings = case.settings
 
+    @info("Deployment inertia set to $(settings[:DeploymentInertia])")
+    @info("Project development set to $(settings[:ProjectDevelopment])")
+    @info("Technology learning set to $(settings[:TechnologyLearning])")
+
     start_time = time();
 
     model = Model()
@@ -57,7 +61,7 @@ function generate_planning_problem(case::Case)
 
         @info(" -- Generating planning model")
         if settings[:TechnologyLearning] == true
-            add_learning!(system, model, get_learning_technologies(case))
+            add_learning!(system, model, get_learning_technologies(case), period_idx)
         end
         planning_model!(system, model, settings)
 
