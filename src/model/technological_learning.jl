@@ -33,7 +33,7 @@ function add_learning!(system::System, model::Model, learning_techs::Vector{Stri
                 # Number of segments
                 n_segments = 5
 
-                segment_length = (max_cumul_capacity(e)-cumulative_capacity_init(e))/n_segments
+                segment_length = (max_cumul_capacity(e)-cumulative_external_capacity(e))/n_segments
                 
                 # Define (x,y) coordinates for piece-wise linear curve (cumulative cost as a function of cumulative capacity added)
                 x_points = zeros(n_segments+1)
@@ -41,11 +41,11 @@ function add_learning!(system::System, model::Model, learning_techs::Vector{Stri
                 
                 # Compute coordinates
                 for k in 1:n_segments+1    
-                    x_points[k] = (k-1)*(segment_length)+cumulative_capacity_init(e)
+                    x_points[k] = (k-1)*(segment_length)+cumulative_external_capacity(e)
                     # Estimate per-unit CAPEX cost for a given cumulative capacity 
-                    cost_point = investment_cost(e)*(x_points[k]/cumulative_capacity_init(e))^(-learning_parameter(e))
+                    cost_point = investment_cost(e)*(x_points[k]/cumulative_external_capacity(e))^(-learning_parameter(e))
                     # Estimate cost from fixed capacity points
-                    y_points[k] = (1/(1-learning_parameter(e)))*(x_points[k]*cost_point-investment_cost(e)*cumulative_capacity_init(e))
+                    y_points[k] = (1/(1-learning_parameter(e)))*(x_points[k]*cost_point-investment_cost(e)*cumulative_external_capacity(e))
                 end
 
                 # Slope computation for piece-wise linear curve
@@ -73,37 +73,42 @@ function add_learning!(system::System, model::Model, learning_techs::Vector{Stri
                 # Learning from all edges of that type. 
                 tech_edges = get_edges_of_type(system, learning_type(e))
                 # Cumulative_experience combines existing capacity and all new capacity from modeled region and externally
-                @constraint(model, sum(cumulative_experience(e)[k] for k in 1:n_segments+1) == sum(new_capacity_track(e,i) for i=1:curr_period, e in tech_edges) + cumulative_external_capacity(e))
+                if curr_period <= cc_duration(e)
+                    @constraint(model, sum(cumulative_experience(e)[k] for k in 1:n_segments+1) == 0)
+                else
+                    @constraint(model, sum(cumulative_experience(e)[k] for k in 1:n_segments+1) == sum(new_capacity_track(e,i) for i=1:cost_period, e in tech_edges))
+                end
                 
                 # Determine chosen segment
                 # Ensure strict inequality
-                epsilon_learning = cumulative_capacity_init(e)/1e6
+                epsilon_learning = cumulative_external_capacity(e)/1e6
                 ϵ = ones(length(x_points))*epsilon_learning
                 @constraint(model, [k in 2:n_segments+1], cumulative_experience(e)[k] >= (x_points[k-1] + ϵ[k-1]) * learning_pwl_segment_chosen[learning_type_index, k])
                 @constraint(model, [k in 1:n_segments+1], cumulative_experience(e)[k] <= x_points[k] * learning_pwl_segment_chosen[learning_type_index, k])
 
-                # println(string(e.id," points"))
-                # println(x_points)
-                # println(y_points)
-                # println("All slopes")
-                # println(e.pwl_cost_slopes)
+                println(string(e.id," points"))
+                println(x_points)
+                println(y_points)
+                println("All slopes")
+                println(e.pwl_cost_slopes)
                 
                 # Slope reached after building new capacity
                 e.learning_pwl_slope = @expression(model, sum(learning_pwl_segment_chosen[learning_type_index, k] * pwl_cost_slopes(e)[k] for k in 1:n_segments+1))
-                e.learning_pwl_track[period_index(e)] = learning_pwl_slope(e)
-                e.segments_sos1_track[period_index(e)] = learning_pwl_segment_chosen[learning_type_index, :]
+                
+                # e.learning_pwl_track[period_index(e)] = learning_pwl_slope(e)
+                # e.segments_sos1_track[period_index(e)] = learning_pwl_segment_chosen[learning_type_index, :]
                 
                 # Determine investment cost
                 # Depends on learning lag
                 if curr_period <= cc_duration(e)
                     e.annualized_investment_cost_with_learning = annualized_investment_cost(e)*new_capacity(e)
-                    e.segments_sos1_prev = segments_sos1_track(e, curr_period)
+                    # e.segments_sos1_prev = segments_sos1_track(e, curr_period)
                     # For reporting purposes
                     e.endog_annualized_cost = annualized_investment_cost(e)
                     # Nonlinear version for benchmarking
                     # e.endog_investment_cost = annualized_investment_cost(e)
                 else
-                    e.segments_sos1_prev = segments_sos1_track(e, cost_period)
+                    # e.segments_sos1_prev = segments_sos1_track(e, cost_period)
                     # Linearize 
                     e.aux_new_capacity = @variable(model, [k in 1:n_segments+1], lower_bound = 0.0, base_name = "vAUXNEWCAP_$(id(e))_stage$(period_index(e))_seg_$k")
                     # Upper bound on new capacity in a given period
@@ -111,12 +116,15 @@ function add_learning!(system::System, model::Model, learning_techs::Vector{Stri
 
                     @constraint(model, [k in 1:n_segments+1], e.new_capacity - e.aux_new_capacity[k] >= 0)
                     # Big M constraints
-                    @constraint(model, [k in 1:n_segments+1], e.new_capacity - e.aux_new_capacity[k] <= big_M_capacity*(1-segments_sos1_prev(e)[k]))
-                    @constraint(model, [k in 1:n_segments+1], e.aux_new_capacity[k] <= big_M_capacity*e.segments_sos1_prev[k])
+                    @constraint(model, [k in 1:n_segments+1], e.new_capacity - e.aux_new_capacity[k] <= big_M_capacity*(1-learning_pwl_segment_chosen[learning_type_index, k]))
+                    @constraint(model, [k in 1:n_segments+1], e.aux_new_capacity[k] <= big_M_capacity*learning_pwl_segment_chosen[learning_type_index, k])
+
+                    # Investment cost with learning
                     e.annualized_investment_cost_with_learning = @expression(model, sum(e.pwl_cost_slopes[k]*e.aux_new_capacity[k]*annualization_factor(e) for k in 1:n_segments+1))
                     ### Enf of linearization
+
                     # # For reporting purposes
-                    e.endog_annualized_cost = @expression(model, sum(e.pwl_cost_slopes[k]*e.segments_sos1_prev[k]*annualization_factor(e) for k in 1:n_segments+1))
+                    e.endog_annualized_cost = @expression(model, sum(e.pwl_cost_slopes[k]*learning_pwl_segment_chosen[learning_type_index, k]*annualization_factor(e) for k in 1:n_segments+1))
                     # Nonlinear version for benchmarking
                     # e.endog_investment_cost = learning_pwl_track(e, cost_period)*annualization_factor(e)
                 end
