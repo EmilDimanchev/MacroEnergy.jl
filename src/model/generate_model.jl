@@ -43,7 +43,7 @@ function generate_model(case::Case)
         @info(" -- Generating planning model")
         if settings[:TechnologyLearning] == true
             @info(" -- Adding technology learning")
-            add_learning!(system, model, get_learning_technologies(case))
+            add_learning!(system, model, get_learning_technologies(case), period_idx)
         end
         planning_model!(system, model, settings)
 
