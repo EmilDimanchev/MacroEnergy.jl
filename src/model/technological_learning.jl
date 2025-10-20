@@ -33,7 +33,7 @@ function add_learning!(system::System, model::Model, learning_techs::Vector{Stri
                 # Number of segments
                 n_segments = 5
 
-                segment_length = (max_cumul_capacity(e)-cumulative_capacity_init(e))/n_segments
+                segment_length = (max_cumul_capacity(e)-cumulative_external_capacity(e))/n_segments
                 
                 # Define (x,y) coordinates for piece-wise linear curve (cumulative cost as a function of cumulative capacity added)
                 x_points = zeros(n_segments+1)
@@ -41,11 +41,11 @@ function add_learning!(system::System, model::Model, learning_techs::Vector{Stri
                 
                 # Compute coordinates
                 for k in 1:n_segments+1    
-                    x_points[k] = (k-1)*(segment_length)+cumulative_capacity_init(e)
+                    x_points[k] = (k-1)*(segment_length)+cumulative_external_capacity(e)
                     # Estimate per-unit CAPEX cost for a given cumulative capacity 
-                    cost_point = investment_cost(e)*(x_points[k]/cumulative_capacity_init(e))^(-learning_parameter(e))
+                    cost_point = investment_cost(e)*(x_points[k]/cumulative_external_capacity(e))^(-learning_parameter(e))
                     # Estimate cost from fixed capacity points
-                    y_points[k] = (1/(1-learning_parameter(e)))*(x_points[k]*cost_point-investment_cost(e)*cumulative_capacity_init(e))
+                    y_points[k] = (1/(1-learning_parameter(e)))*(x_points[k]*cost_point-investment_cost(e)*cumulative_external_capacity(e))
                 end
 
                 # Slope computation for piece-wise linear curve
@@ -77,16 +77,16 @@ function add_learning!(system::System, model::Model, learning_techs::Vector{Stri
                 
                 # Determine chosen segment
                 # Ensure strict inequality
-                epsilon_learning = cumulative_capacity_init(e)/1e6
+                epsilon_learning = cumulative_external_capacity(e)/1e6
                 ϵ = ones(length(x_points))*epsilon_learning
                 @constraint(model, [k in 2:n_segments+1], cumulative_experience(e)[k] >= (x_points[k-1] + ϵ[k-1]) * learning_pwl_segment_chosen[learning_type_index, k])
                 @constraint(model, [k in 1:n_segments+1], cumulative_experience(e)[k] <= x_points[k] * learning_pwl_segment_chosen[learning_type_index, k])
 
-                # println(string(e.id," points"))
-                # println(x_points)
-                # println(y_points)
-                # println("All slopes")
-                # println(e.pwl_cost_slopes)
+                println(string(e.id," points"))
+                println(x_points)
+                println(y_points)
+                println("All slopes")
+                println(e.pwl_cost_slopes)
                 
                 # Slope reached after building new capacity
                 e.learning_pwl_slope = @expression(model, sum(learning_pwl_segment_chosen[learning_type_index, k] * pwl_cost_slopes(e)[k] for k in 1:n_segments+1))
