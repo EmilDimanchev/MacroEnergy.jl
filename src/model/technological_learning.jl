@@ -8,7 +8,7 @@ function add_learning!(system::System, model::Model, learning_techs::Vector{Stri
 
     n_learning_techs = length(learning_techs)
 
-    n_segments = 5
+    n_segments = 4
     learning_pwl_segment_chosen = @variable(model, [y in 1:n_learning_techs, k in 1:n_segments+1], binary=true, base_name = "vBINSEG_LEARNINGTYPE_$(period_idx)_$(y)_seg_$k")
     @constraint(model, [y in 1:n_learning_techs], sum(learning_pwl_segment_chosen[y,k] for k in 1:n_segments+1) == 1)
 
@@ -31,7 +31,7 @@ function add_learning!(system::System, model::Model, learning_techs::Vector{Stri
                 learning_type_index = findfirst(x -> x == learning_type(e), learning_techs)
 
                 # Number of segments
-                n_segments = 5
+                # n_segments = 4
 
                 segment_length = (max_cumul_capacity(e)-cumulative_external_capacity(e))/n_segments
                 
@@ -82,11 +82,11 @@ function add_learning!(system::System, model::Model, learning_techs::Vector{Stri
                 @constraint(model, [k in 2:n_segments+1], cumulative_experience(e)[k] >= (x_points[k-1] + ϵ[k-1]) * learning_pwl_segment_chosen[learning_type_index, k])
                 @constraint(model, [k in 1:n_segments+1], cumulative_experience(e)[k] <= x_points[k] * learning_pwl_segment_chosen[learning_type_index, k])
 
-                println(string(e.id," points"))
-                println(x_points)
-                println(y_points)
-                println("All slopes")
-                println(e.pwl_cost_slopes)
+                # println(string(e.id," points"))
+                # println(x_points)
+                # println(y_points)
+                # println("All slopes")
+                # println(e.pwl_cost_slopes)
                 
                 # Slope reached after building new capacity
                 e.learning_pwl_slope = @expression(model, sum(learning_pwl_segment_chosen[learning_type_index, k] * pwl_cost_slopes(e)[k] for k in 1:n_segments+1))

@@ -716,7 +716,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "AZ_landbasedwind_class3_moderate_1",
@@ -771,7 +771,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "AZ_landbasedwind_class3_moderate_2",
@@ -826,7 +826,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "AZ_landbasedwind_class3_moderate_3",
@@ -1046,7 +1046,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "CA_landbasedwind_class3_moderate_1",
@@ -1101,7 +1101,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "CA_landbasedwind_class3_moderate_2",
@@ -1156,7 +1156,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "CA_landbasedwind_class3_moderate_3",
@@ -1541,7 +1541,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "CO_landbasedwind_class3_moderate_1",
@@ -1596,7 +1596,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "CO_landbasedwind_class3_moderate_2",
@@ -1651,7 +1651,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "CO_landbasedwind_class3_moderate_3",
@@ -1871,7 +1871,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "ID_landbasedwind_class3_moderate_1",
@@ -1926,7 +1926,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "ID_landbasedwind_class3_moderate_2",
@@ -1981,7 +1981,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "ID_landbasedwind_class3_moderate_3",
@@ -2201,7 +2201,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "MT_landbasedwind_class3_moderate_1",
@@ -2256,7 +2256,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "MT_landbasedwind_class3_moderate_2",
@@ -2311,7 +2311,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "MT_landbasedwind_class3_moderate_3",
@@ -2531,7 +2531,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "NM_landbasedwind_class3_moderate_1",
@@ -2586,7 +2586,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "NM_landbasedwind_class3_moderate_2",
@@ -2641,7 +2641,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "NM_landbasedwind_class3_moderate_3",
@@ -2861,7 +2861,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "NV_landbasedwind_class3_moderate_1",
@@ -2916,7 +2916,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "NV_landbasedwind_class3_moderate_2",
@@ -2971,7 +2971,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "NV_landbasedwind_class3_moderate_3",
@@ -3191,7 +3191,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "OR_landbasedwind_class3_moderate_1",
@@ -3246,7 +3246,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "OR_landbasedwind_class3_moderate_2",
@@ -3301,7 +3301,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "OR_landbasedwind_class3_moderate_3",
@@ -3356,7 +3356,7 @@
                         "capacity_size": 1,
                         "wacc": 0.05,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "OR_utilitypv_class1_moderate_1",
@@ -3686,7 +3686,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "UT_landbasedwind_class3_moderate_1",
@@ -3741,7 +3741,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "UT_landbasedwind_class3_moderate_2",
@@ -3796,7 +3796,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "UT_landbasedwind_class3_moderate_3",
@@ -4016,7 +4016,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "WA_landbasedwind_class3_moderate_1",
@@ -4071,7 +4071,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "WA_landbasedwind_class3_moderate_2",
@@ -4126,7 +4126,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "WA_landbasedwind_class3_moderate_3",
@@ -4511,7 +4511,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "WY_landbasedwind_class3_moderate_1",
@@ -4566,7 +4566,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "WY_landbasedwind_class3_moderate_2",
@@ -4621,7 +4621,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "WY_landbasedwind_class3_moderate_3",
