@@ -49,7 +49,7 @@
                         "cadr": 0.1,
                         "de_cap_recovery": 5,
                         "cumulative_external_capacity": -1,
-                        "learning_parameter": -1,
+                        "learning_parameter": 0,
                         "existing_capacity": 4682.8805,
                         "af_cost_perc": 0.03
                     }
@@ -92,7 +92,7 @@
                         "cadr": 0.1,
                         "de_cap_recovery": 5,
                         "cumulative_external_capacity": -1,
-                        "learning_parameter": -1,
+                        "learning_parameter": 0,
                         "existing_capacity": 6453.456,
                         "af_cost_perc": 0.03
                     }
@@ -135,7 +135,7 @@
                         "cadr": 0.1,
                         "de_cap_recovery": 5,
                         "cumulative_external_capacity": -1,
-                        "learning_parameter": -1,
+                        "learning_parameter": 0,
                         "existing_capacity": 162.996,
                         "af_cost_perc": 0.03
                     }
@@ -178,7 +178,7 @@
                         "cadr": 0.1,
                         "de_cap_recovery": 5,
                         "cumulative_external_capacity": -1,
-                        "learning_parameter": -1,
+                        "learning_parameter": 0,
                         "existing_capacity": 367.314,
                         "af_cost_perc": 0.03
                     }
@@ -221,7 +221,7 @@
                         "cadr": 0.1,
                         "de_cap_recovery": 5,
                         "cumulative_external_capacity": -1,
-                        "learning_parameter": -1,
+                        "learning_parameter": 0,
                         "existing_capacity": 5260.674,
                         "af_cost_perc": 0.03
                     }
@@ -264,7 +264,7 @@
                         "cadr": 0.1,
                         "de_cap_recovery": 5,
                         "cumulative_external_capacity": -1,
-                        "learning_parameter": -1,
+                        "learning_parameter": 0,
                         "existing_capacity": 1416.9605,
                         "af_cost_perc": 0.03
                     }
@@ -307,7 +307,7 @@
                         "cadr": 0.1,
                         "de_cap_recovery": 5,
                         "cumulative_external_capacity": -1,
-                        "learning_parameter": -1,
+                        "learning_parameter": 0,
                         "existing_capacity": 2387.315,
                         "af_cost_perc": 0.03
                     }
@@ -350,7 +350,7 @@
                         "cadr": 0.1,
                         "de_cap_recovery": 5,
                         "cumulative_external_capacity": -1,
-                        "learning_parameter": -1,
+                        "learning_parameter": 0,
                         "existing_capacity": 4402.074,
                         "af_cost_perc": 0.03
                     }
@@ -393,7 +393,7 @@
                         "cadr": 0.1,
                         "de_cap_recovery": 5,
                         "cumulative_external_capacity": -1,
-                        "learning_parameter": -1,
+                        "learning_parameter": 0,
                         "existing_capacity": 2942.2615,
                         "af_cost_perc": 0.03
                     }
@@ -436,7 +436,7 @@
                         "cadr": 0.1,
                         "de_cap_recovery": 5,
                         "cumulative_external_capacity": -1,
-                        "learning_parameter": -1,
+                        "learning_parameter": 0,
                         "existing_capacity": 500,
                         "af_cost_perc": 0.03
                     }
@@ -479,7 +479,7 @@
                         "cadr": 0.1,
                         "de_cap_recovery": 5,
                         "cumulative_external_capacity": -1,
-                        "learning_parameter": -1,
+                        "learning_parameter": 0,
                         "existing_capacity": 7137.6325,
                         "af_cost_perc": 0.03
                     }
@@ -522,7 +522,7 @@
                         "cadr": 0.1,
                         "de_cap_recovery": 5,
                         "cumulative_external_capacity": -1,
-                        "learning_parameter": -1,
+                        "learning_parameter": 0,
                         "existing_capacity": 1687.1795,
                         "af_cost_perc": 0.03
                     }
@@ -565,7 +565,7 @@
                         "cadr": 0.1,
                         "de_cap_recovery": 5,
                         "cumulative_external_capacity": -1,
-                        "learning_parameter": -1,
+                        "learning_parameter": 0,
                         "existing_capacity": 4162.5205000000005,
                         "af_cost_perc": 0.03
                     }
@@ -608,7 +608,7 @@
                         "cadr": 0.1,
                         "de_cap_recovery": 5,
                         "cumulative_external_capacity": -1,
-                        "learning_parameter": -1,
+                        "learning_parameter": 0,
                         "existing_capacity": 2306.3765,
                         "af_cost_perc": 0.03
                     }
@@ -651,7 +651,7 @@
                         "cadr": 0.1,
                         "de_cap_recovery": 5,
                         "cumulative_external_capacity": -1,
-                        "learning_parameter": -1,
+                        "learning_parameter": 0,
                         "existing_capacity": 1905.3,
                         "af_cost_perc": 0.03
                     }
@@ -694,7 +694,7 @@
                         "cadr": 0.1,
                         "de_cap_recovery": 5,
                         "cumulative_external_capacity": -1,
-                        "learning_parameter": -1,
+                        "learning_parameter": 0,
                         "existing_capacity": 733.1595,
                         "af_cost_perc": 0.03
                     }
@@ -737,7 +737,7 @@
                         "cadr": 0.1,
                         "de_cap_recovery": 5,
                         "cumulative_external_capacity": -1,
-                        "learning_parameter": -1,
+                        "learning_parameter": 0,
                         "existing_capacity": 657.1785,
                         "af_cost_perc": 0.03
                     }
@@ -780,7 +780,7 @@
                         "cadr": 0.1,
                         "de_cap_recovery": 5,
                         "cumulative_external_capacity": -1,
-                        "learning_parameter": -1,
+                        "learning_parameter": 0,
                         "existing_capacity": 698.2615,
                         "af_cost_perc": 0.03
                     }
@@ -823,7 +823,7 @@
                         "cadr": 0.1,
                         "de_cap_recovery": 5,
                         "cumulative_external_capacity": -1,
-                        "learning_parameter": -1,
+                        "learning_parameter": 0,
                         "existing_capacity": 21279.086,
                         "af_cost_perc": 0.03
                     }
@@ -866,7 +866,7 @@
                         "cadr": 0.1,
                         "de_cap_recovery": 5,
                         "cumulative_external_capacity": -1,
-                        "learning_parameter": -1,
+                        "learning_parameter": 0,
                         "existing_capacity": 919.231,
                         "af_cost_perc": 0.03
                     }

@@ -881,7 +881,7 @@
                         "capacity_size": 1,
                         "wacc": 0.042,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "AZ_utilitypv_class1_moderate_1",
@@ -936,7 +936,7 @@
                         "capacity_size": 1,
                         "wacc": 0.042,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "AZ_utilitypv_class1_moderate_2",
@@ -991,7 +991,7 @@
                         "capacity_size": 1,
                         "wacc": 0.042,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "AZ_utilitypv_class1_moderate_3",
@@ -1211,7 +1211,7 @@
                         "capacity_size": 1,
                         "wacc": 0.042,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "CA_utilitypv_class1_moderate_1",
@@ -1266,7 +1266,7 @@
                         "capacity_size": 1,
                         "wacc": 0.042,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "CA_utilitypv_class1_moderate_2",
@@ -1321,7 +1321,7 @@
                         "capacity_size": 1,
                         "wacc": 0.042,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "CA_utilitypv_class1_moderate_3",
@@ -1682,7 +1682,7 @@
                         "capacity_size": 1,
                         "wacc": 0.042,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "CO_utilitypv_class1_moderate_1",
@@ -1737,7 +1737,7 @@
                         "capacity_size": 1,
                         "wacc": 0.042,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "CO_utilitypv_class1_moderate_2",
@@ -1792,7 +1792,7 @@
                         "capacity_size": 1,
                         "wacc": 0.042,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "CO_utilitypv_class1_moderate_3",
@@ -2012,7 +2012,7 @@
                         "capacity_size": 1,
                         "wacc": 0.042,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "ID_utilitypv_class1_moderate_1",
@@ -2067,7 +2067,7 @@
                         "capacity_size": 1,
                         "wacc": 0.042,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "ID_utilitypv_class1_moderate_2",
@@ -2122,7 +2122,7 @@
                         "capacity_size": 1,
                         "wacc": 0.042,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "ID_utilitypv_class1_moderate_3",
@@ -2342,7 +2342,7 @@
                         "capacity_size": 1,
                         "wacc": 0.042,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "MT_utilitypv_class1_moderate_1",
@@ -2397,7 +2397,7 @@
                         "capacity_size": 1,
                         "wacc": 0.042,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "MT_utilitypv_class1_moderate_2",
@@ -2452,7 +2452,7 @@
                         "capacity_size": 1,
                         "wacc": 0.042,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "MT_utilitypv_class1_moderate_3",
@@ -2672,7 +2672,7 @@
                         "capacity_size": 1,
                         "wacc": 0.042,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "NM_utilitypv_class1_moderate_1",
@@ -2727,7 +2727,7 @@
                         "capacity_size": 1,
                         "wacc": 0.042,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "NM_utilitypv_class1_moderate_2",
@@ -2782,7 +2782,7 @@
                         "capacity_size": 1,
                         "wacc": 0.042,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "NM_utilitypv_class1_moderate_3",
@@ -3002,7 +3002,7 @@
                         "capacity_size": 1,
                         "wacc": 0.042,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "NV_utilitypv_class1_moderate_1",
@@ -3057,7 +3057,7 @@
                         "capacity_size": 1,
                         "wacc": 0.042,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "NV_utilitypv_class1_moderate_2",
@@ -3112,7 +3112,7 @@
                         "capacity_size": 1,
                         "wacc": 0.042,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "NV_utilitypv_class1_moderate_3",
@@ -3387,7 +3387,7 @@
                         "capacity_size": 1,
                         "wacc": 0.042,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "OR_utilitypv_class1_moderate_2",
@@ -3442,7 +3442,7 @@
                         "capacity_size": 1,
                         "wacc": 0.042,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "OR_utilitypv_class1_moderate_3",
@@ -3803,7 +3803,7 @@
                         "capacity_size": 1,
                         "wacc": 0.042,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "UT_utilitypv_class1_moderate_1",
@@ -3858,7 +3858,7 @@
                         "capacity_size": 1,
                         "wacc": 0.042,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "UT_utilitypv_class1_moderate_2",
@@ -3913,7 +3913,7 @@
                         "capacity_size": 1,
                         "wacc": 0.042,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "UT_utilitypv_class1_moderate_3",
@@ -4133,7 +4133,7 @@
                         "capacity_size": 1,
                         "wacc": 0.042,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "WA_utilitypv_class1_moderate_1",
@@ -4188,7 +4188,7 @@
                         "capacity_size": 1,
                         "wacc": 0.042,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "WA_utilitypv_class1_moderate_2",
@@ -4243,7 +4243,7 @@
                         "capacity_size": 1,
                         "wacc": 0.042,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "WA_utilitypv_class1_moderate_3",
@@ -4604,7 +4604,7 @@
                         "capacity_size": 1,
                         "wacc": 0.042,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "WY_utilitypv_class1_moderate_1",
@@ -4659,7 +4659,7 @@
                         "capacity_size": 1,
                         "wacc": 0.042,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "WY_utilitypv_class1_moderate_2",
@@ -4714,7 +4714,7 @@
                         "capacity_size": 1,
                         "wacc": 0.042,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0,
                         "availability": {
                             "timeseries": {
                                 "header": "WY_utilitypv_class1_moderate_3",
