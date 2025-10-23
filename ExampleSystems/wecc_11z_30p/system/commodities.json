@@ -4,6 +4,7 @@
         "NaturalGas",
         "CO2",
         "Uranium",
-        "Coal"
+        "Coal",
+        "CO2Captured"
     ]
 }

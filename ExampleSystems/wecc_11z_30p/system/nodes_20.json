@@ -221,6 +221,17 @@
         },
         {
             "global_data": {
+                "time_interval": "CO2Captured"
+            },
+            "instance_data": [
+                {
+                    "id": "co2_sink_injection"
+                }
+            ],
+            "type": "CO2Captured"
+        },
+        {
+            "global_data": {
                 "time_interval": "Electricity"
             },
             "instance_data": [

@@ -12,7 +12,7 @@ function add_model_constraint!(ct::MaxCapacityGrowthConstraint, y::Union{Abstrac
         curr_stage = period_index(y)
         prev_stage = curr_stage - 1
         # Rate of increase
-        CAGR = 0.15
+        CAGR = 0.1
         # Rate of decline
         CADR = 0.1 + CAGR
         
