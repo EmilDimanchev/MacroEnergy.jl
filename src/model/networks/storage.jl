@@ -316,7 +316,7 @@ function define_available_capacity!(g::AbstractStorage, model::Model)
         
         g.retired_capacity = @expression(model, capacity_size(g) * retired_units(g))
         
-        @constraint(model, retired_capacity(g) >= min_retired_capacity(g))
+        # @constraint(model, retired_capacity(g) >= min_retired_capacity(g))
 
         g.new_capacity_track[period_index(g)] = new_capacity(g);
             

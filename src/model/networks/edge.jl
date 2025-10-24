@@ -374,7 +374,7 @@ function define_available_capacity!(e::AbstractEdge, model::Model)
         
         e.retired_capacity = @expression(model, capacity_size(e) * retired_units(e))
 
-        @constraint(model, retired_capacity(e) >= min_retired_capacity(e))
+        # @constraint(model, retired_capacity(e) >= min_retired_capacity(e))
 
         e.new_capacity_track[period_index(e)] = new_capacity(e);
         
