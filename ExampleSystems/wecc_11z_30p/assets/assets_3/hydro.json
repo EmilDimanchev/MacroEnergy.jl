@@ -48,6 +48,7 @@
                 "edges": {
                     "discharge_edge": {
                         "can_retire": false,
+                        "min_retired_capacity": 0,
                         "annualized_investment_cost": 0,
                         "max_capacity": 1000000,
                         "lifetime": 50,
@@ -123,6 +124,7 @@
                 "edges": {
                     "discharge_edge": {
                         "can_retire": false,
+                        "min_retired_capacity": 0,
                         "annualized_investment_cost": 0,
                         "max_capacity": 1000000,
                         "lifetime": 50,
@@ -198,6 +200,7 @@
                 "edges": {
                     "discharge_edge": {
                         "can_retire": false,
+                        "min_retired_capacity": 0,
                         "annualized_investment_cost": 0,
                         "max_capacity": 1000000,
                         "lifetime": 50,
@@ -273,6 +276,7 @@
                 "edges": {
                     "discharge_edge": {
                         "can_retire": false,
+                        "min_retired_capacity": 0,
                         "annualized_investment_cost": 0,
                         "max_capacity": 1000000,
                         "lifetime": 50,
@@ -348,6 +352,7 @@
                 "edges": {
                     "discharge_edge": {
                         "can_retire": false,
+                        "min_retired_capacity": 0,
                         "annualized_investment_cost": 0,
                         "max_capacity": 1000000,
                         "lifetime": 50,
@@ -423,6 +428,7 @@
                 "edges": {
                     "discharge_edge": {
                         "can_retire": false,
+                        "min_retired_capacity": 0,
                         "annualized_investment_cost": 0,
                         "max_capacity": 1000000,
                         "lifetime": 50,
@@ -498,6 +504,7 @@
                 "edges": {
                     "discharge_edge": {
                         "can_retire": false,
+                        "min_retired_capacity": 0,
                         "annualized_investment_cost": 0,
                         "max_capacity": 1000000,
                         "lifetime": 50,
@@ -573,6 +580,7 @@
                 "edges": {
                     "discharge_edge": {
                         "can_retire": false,
+                        "min_retired_capacity": 0,
                         "annualized_investment_cost": 0,
                         "max_capacity": 1000000,
                         "lifetime": 50,
@@ -648,6 +656,7 @@
                 "edges": {
                     "discharge_edge": {
                         "can_retire": false,
+                        "min_retired_capacity": 0,
                         "annualized_investment_cost": 0,
                         "max_capacity": 1000000,
                         "lifetime": 50,
@@ -723,6 +732,7 @@
                 "edges": {
                     "discharge_edge": {
                         "can_retire": false,
+                        "min_retired_capacity": 0,
                         "annualized_investment_cost": 0,
                         "max_capacity": 1000000,
                         "lifetime": 50,

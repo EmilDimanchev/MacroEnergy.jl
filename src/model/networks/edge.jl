@@ -21,6 +21,7 @@ macro AbstractEdgeBaseAttributes()
         integer_decisions::Bool = $edge_defaults[:integer_decisions]
         investment_cost::Float64 = $edge_defaults[:investment_cost]
         lifetime::Int64 = $edge_defaults[:lifetime]
+        min_retired_capacity::Float64 = 0.0
         loss_fraction::Vector{Float64} = $edge_defaults[:loss_fraction]
         max_capacity::Float64 = $edge_defaults[:max_capacity]
         max_new_capacity::Float64 = $edge_defaults[:max_new_capacity]
@@ -250,6 +251,7 @@ id(e::AbstractEdge) = e.id;
 integer_decisions(e::AbstractEdge) = e.integer_decisions;
 investment_cost(e::AbstractEdge) = e.investment_cost;
 lifetime(e::AbstractEdge) = e.lifetime;
+min_retired_capacity(e::AbstractEdge) = e.min_retired_capacity;
 loss_fraction(e::AbstractEdge) = e.loss_fraction;
 function loss_fraction(e::AbstractEdge, t::Int64)
     a = loss_fraction(e)
@@ -371,6 +373,8 @@ function define_available_capacity!(e::AbstractEdge, model::Model)
         e.new_capacity = @expression(model, capacity_size(e) * new_units(e))
         
         e.retired_capacity = @expression(model, capacity_size(e) * retired_units(e))
+
+        @constraint(model, retired_capacity(e) >= min_retired_capacity(e))
 
         e.new_capacity_track[period_index(e)] = new_capacity(e);
         

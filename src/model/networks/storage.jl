@@ -15,6 +15,7 @@ macro AbstractStorageBaseAttributes()
         fixed_om_cost::Float64 = $storage_defaults[:fixed_om_cost]
         investment_cost::Float64 = $storage_defaults[:investment_cost]
         lifetime::Int64 = $storage_defaults[:lifetime]
+        min_retired_capacity::Float64 = 0.0
         long_duration::Bool = $storage_defaults[:long_duration]
         loss_fraction::Vector{Float64} = $storage_defaults[:loss_fraction]
         max_capacity::Float64 = $storage_defaults[:max_capacity]
@@ -194,6 +195,7 @@ fixed_om_cost(g::AbstractStorage) = g.fixed_om_cost;
 has_capacity(g::AbstractStorage) = true;
 investment_cost(g::AbstractStorage) = g.investment_cost;
 lifetime(g::AbstractStorage) = g.lifetime;
+min_retired_capacity(g::AbstractStorage) = g.min_retired_capacity;
 loss_fraction(g::AbstractStorage) = g.loss_fraction;
 function loss_fraction(g::AbstractStorage, t::Int64)
     a = loss_fraction(g)
@@ -314,6 +316,8 @@ function define_available_capacity!(g::AbstractStorage, model::Model)
         
         g.retired_capacity = @expression(model, capacity_size(g) * retired_units(g))
         
+        @constraint(model, retired_capacity(g) >= min_retired_capacity(g))
+
         g.new_capacity_track[period_index(g)] = new_capacity(g);
             
         g.retired_capacity_track[period_index(g)] = retired_capacity(g);
