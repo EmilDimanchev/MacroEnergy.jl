@@ -38,7 +38,7 @@ function generate_case(
         return system
     end
 
-    println("Case settings: $(settings)")
+    @debug("Case settings: $(settings)")
 
     prepare_case!(systems, settings)
 

@@ -16,9 +16,10 @@ using Pkg
 using DistributedArrays
 using Distributed
 using ClusterManagers
-using Gurobi
 using GitHub
 using Markdown
+using Logging
+using LoggingExtras
 
 import MacroEnergyScaling: scale_constraints!
 import JuMP: set_optimizer, set_optimizer_attributes
@@ -44,6 +45,11 @@ abstract type AluminumScrap <: Commodity end ## tonnes
 abstract type Alumina <: Commodity end ## tonnes
 abstract type Graphite <: Commodity end ## tonnes
 abstract type Bauxite <: Commodity end ## tonnes
+abstract type IronOre <: Commodity end ## tonnes
+abstract type SteelScrap <: Commodity end ## tonnes
+abstract type CrudeSteel <: Commodity end ## tonnes
+abstract type Heat <: Commodity end ## MWh
+abstract type Steam <: Commodity end ## MWh
 
 ## Time data types
 abstract type AbstractTimeData{T<:Commodity} end
@@ -90,19 +96,31 @@ const JuMPVariable =
     Union{Array,Containers.DenseAxisArray,Containers.SparseAxisArray,VariableRef}
 
 # Load subcommodities from file when MacroEnergy is loaded
-# Also load the Gurobi environment
-const GRB_ENV = Ref{Gurobi.Env}()
-function __init__()
-    isdir(ME_DEPOT_PATH) && load_subcommodities_from_file(ME_DEPOT_PATH)
+
+# Default optimizer environment
+const OPT_ENV_REGISTRY = Dict{Symbol,Any}(
+    :HiGHS => nothing
+)
+
+function opt_env(optimizer::Symbol)
+    return get(OPT_ENV_REGISTRY, optimizer, nothing)
+end
+
+function opt_env(optimizer::Type{T}) where {T}
     try
-        GRB_ENV[] = Gurobi.Env()
+        module_name = Symbol(parentmodule(optimizer))
+        return get(OPT_ENV_REGISTRY, module_name, nothing)
     catch e
-        if isa(e, ErrorException) && occursin("Gurobi Error", string(e))
-            @debug "Gurobi is not available."
-        else
-            rethrow(e)
-        end
+        return nothing
     end
+end
+
+function set_opt_env!(optimizer::Symbol, env::Any)
+    OPT_ENV_REGISTRY[optimizer] = env
+end
+
+function has_opt_env(optimizer::Symbol)
+    return haskey(OPT_ENV_REGISTRY, optimizer) && !isnothing(opt_env(optimizer))
 end
 
 function include_all_in_folder(folder::AbstractString, root_path::AbstractString=@__DIR__)
@@ -134,6 +152,7 @@ include("model/case.jl")
 include("model/networks/macroobject.jl")
 include("model/generate_model.jl")
 include("model/optimizer.jl")
+include("model/retrofit.jl")
 include("model/scaling.jl")
 include("model/solver.jl")
 include("model/myopic.jl")
@@ -169,6 +188,15 @@ include("model/assets/aluminumrefining.jl")
 include("model/assets/aluminumsmelting.jl")
 include("model/assets/aluminaplant.jl")
 include("model/technological_learning.jl")
+include("model/assets/integratedblastfurnacebasicoxygenfurnace.jl")
+include("model/assets/integratedblastfurnacebasicoxygenfurnaceccs.jl")
+include("model/assets/integrateddirectreductionelectricarcfurnace.jl")
+include("model/assets/integrateddirectreductionelectricarcfurnaceccs.jl")
+include("model/assets/standaloneelectricarcfurnace.jl")
+include("model/assets/thermalheating.jl")
+include("model/assets/electricheating.jl")
+include("model/assets/thermalsteam.jl")
+include("model/assets/electricsteam.jl")
 
 include("config/configure_settings.jl")
 include("config/case_settings.jl")
@@ -191,11 +219,14 @@ export AbstractAsset,
     Biomass,
     Coal,
     Cement,
+    CrudeSteel,
     BECCSElectricity,
     BECCSHydrogen,
     BECCSGasoline,
     BECCSLiquidFuels,
     BECCSNaturalGas,
+    BlastFurnaceBasicOxygenFurnace,
+    BlastFurnaceBasicOxygenFurnaceCCS,
     CO2,
     CO2CapConstraint,
     CO2Captured,
@@ -204,14 +235,21 @@ export AbstractAsset,
     CapacityConstraint,
     collect_results,
     Commodity,
+    DirectReductionElectricArcFurnace,
+    DirectReductionElectricArcFurnaceCCS,
     Edge,
     EdgeWithUC,
     Electricity,
     Electrolyzer,
     ElectricDAC,
+    ElectricArcFurnace,
+    ElectricHeating,
+    ElectricSteam,
     FossilFuelsUpstream,
     FuelCell,
     FuelsEndUse,
+    ThermalHeating,
+    ThermalSteam,
     GasStorage,
     Graphite,
     get_optimal_capacity, 
@@ -222,6 +260,7 @@ export AbstractAsset,
     get_learning_technologies,
     HydroRes,
     Hydrogen,
+    IronOre,
     LongDurationStorage,
     LongDurationStorageImplicitMinMaxConstraint,
     LongDurationStorageChangeConstraint,
@@ -249,6 +288,8 @@ export AbstractAsset,
     PolicyConstraint,
     RampingLimitConstraint,
     run_case,
+    Steam,
+    SteelScrap,
     Storage,
     StorageCapacityConstraint,
     StorageChargeDischargeRatioConstraint,
@@ -269,6 +310,7 @@ export AbstractAsset,
     write_capacity,
     write_costs,
     write_dataframe,
+    write_duals,
     write_flow,
     write_results,
     template_system,
@@ -285,6 +327,8 @@ export AbstractAsset,
     example_contents,
     authenticate_github,
     MaxCapacityGrowthConstraint,
-    DevelopmentConstraint
+    DevelopmentConstraint,
+    mermaid_diagram,
+    save_mermaid_diagram
     
 end # module MacroEnergy

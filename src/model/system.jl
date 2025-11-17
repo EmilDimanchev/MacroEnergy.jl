@@ -5,6 +5,7 @@ mutable struct System <: AbstractSystem
     time_data::Dict{Symbol,TimeData}
     assets::Vector{AbstractAsset}
     locations::Vector{Union{Node, Location}}
+    input_data::Vector{Dict{Symbol,Any}}
 end
 
 """
@@ -104,6 +105,7 @@ function empty_system(data_dirpath::String)
         Dict{Symbol,TimeData}(),
         [],
         [],
+        []
     )
 end
 
@@ -133,6 +135,15 @@ function get_asset_by_id(system::System, id::Symbol)
     for asset in system.assets
         if asset.id == id
             return asset
+        end
+    end
+    return nothing
+end
+
+function get_input_data_by_id(system::System, id::Symbol)
+    for input_data in system.input_data
+        if input_data[:id] == id
+            return input_data
         end
     end
     return nothing
@@ -175,6 +186,24 @@ function find_node(nodes_list::Vector{Union{Node, Location}}, id::Symbol, commod
         if candidate !== nothing
             return candidate
         end
+    end
+    return nothing
+end
+
+function find_node(system::System, id::Symbol, commodity::Union{Missing,DataType}=missing)
+    @debug "Finding node $id of commodity $commodity"
+    candidate = find_node(system.locations, id, commodity)
+    if candidate !== nothing
+        return candidate
+    elseif system.settings.AutoCreateNodes
+        id = Symbol(rand(Int16))
+        @debug "Creating new $commodity node with id: $id"
+        new_node = Node{commodity}(; 
+            id = id,
+            timedata = system.time_data[Symbol(commodity)]
+        )
+        push!(system.locations, new_node)
+        return new_node
     end
     error("Node $id not found")
     return nothing

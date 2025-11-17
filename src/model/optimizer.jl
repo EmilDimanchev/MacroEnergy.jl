@@ -10,7 +10,7 @@ function create_optimizer(optimizer::DataType, optimizer_env::Any, attributes::T
 end
 
 function set_optimizer(model::Model, opt::Optimizer)
-    if !ismissing(opt.optimizer_env)
+    if !isnothing(opt.optimizer_env)
         @debug("Setting optimizer with environment $(opt.optimizer_env)")
         try 
             set_optimizer(model, () -> opt.optimizer(opt.optimizer_env));

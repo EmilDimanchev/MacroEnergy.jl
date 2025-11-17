@@ -91,9 +91,38 @@ write_flow("flows.csv", system, asset_type="ThermalPower*")
 Export all results at once using the [`write_results`](@ref) function:
 
 ```julia
-write_results("results.csv.gz", system, model) # CSV.GZ format
-write_results("results.parquet", system, model) # Parquet format
+write_results(file_path, system, model, settings, ext=".csv.gz") # Creates multiple .csv.gz files
+write_results(file_path, system, model, settings, ext=".parquet") # Creates multiple .parquet files
 ```
+
+!!! note "Multiple Output Files"
+    This function creates multiple files, one for each result type:
+    - `file_path_capacity.ext` - Capacity results
+    - `file_path_flow.ext` - Flow results  
+    - `file_path_non_served_demand.ext` - Non-served demand
+    - `file_path_storage_level.ext` - Storage levels
+    - `file_path_discounted_costs.ext` - Discounted costs
+    - `file_path_undiscounted_costs.ext` - Undiscounted costs
+
+## Writing Case Settings
+
+To export case and system settings to a JSON file, use the [`write_settings`](@ref) function:
+
+```julia
+write_settings(case, "output/settings.json")
+```
+
+This function automatically writes:
+- Case-level settings
+- System-level settings for all systems in the case
+
+The settings file is useful for:
+- Documentation and reproducibility
+- Sharing configuration with other users
+- Debugging and troubleshooting
+
+!!! note "Automatic Settings Writing"
+    The `write_settings` function is automatically called when using the main output writing functions (`write_outputs`) for different solution algorithms (Monolithic, Myopic, Benders).
 
 ## Output Format
 
@@ -115,7 +144,7 @@ Macro supports multiple output formats to suit different needs:
 The output format is determined by the file extension. For example, to export results in Parquet format:
 
 ```julia
-write_results("results.parquet", system, model)
+write_results("results.parquet", system, model, settings)
 ```
 
 ## Output Files Layout

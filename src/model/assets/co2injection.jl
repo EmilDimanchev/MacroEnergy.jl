@@ -15,8 +15,9 @@ end
 
 function full_default_data(::Type{CO2Injection}, id=missing)
     return OrderedDict{Symbol,Any}(
-        id => id,
+        :id => id,
         :transforms => @transform_data(
+            :timedata => "CO2Captured",
             :constraints => Dict{Symbol,Bool}(
                 :BalanceConstraint => true,
             )

@@ -1,5 +1,5 @@
 struct MyopicResults
-    models::Vector{Model}
+    models::Union{Vector{Model}, Nothing}
 end
 
 function run_myopic_iteration!(case::Case, opt::Optimizer)
@@ -9,7 +9,16 @@ function run_myopic_iteration!(case::Case, opt::Optimizer)
     om_fixed_cost = Dict()
     investment_cost = Dict()
     variable_cost = Dict()
-    models = Vector{Model}(undef, num_periods)
+    
+    # Get myopic settings from case
+    myopic_settings = get_settings(case).MyopicSettings
+    return_models = myopic_settings[:ReturnModels]
+    
+    # Output path for writing results during iteration
+    output_path = create_output_path(case.systems[1])
+    
+    # Only allocate models vector if returning models
+    models = return_models ? Vector{Model}(undef, num_periods) : nothing
 
     period_lengths = collect(get_settings(case).PeriodLengths)
 
@@ -85,8 +94,53 @@ function run_myopic_iteration!(case::Case, opt::Optimizer)
             carry_over_capacities!(periods[period_idx+1], system, settings, perfect_foresight=false)
         end
 
-        models[period_idx] = model
+        @info(" -- Writing outputs for period $(period_idx)")
+        write_period_outputs(output_path, case, system, model, period_idx, num_periods)
+
+        # Store or discard the model based on settings
+        if return_models
+            models[period_idx] = model
+        else
+            # Clean up the model to free memory
+            model = nothing
+            GC.gc()
+        end
     end
 
-    return models
+    @info("Writing settings file")
+    write_settings(case, joinpath(output_path, "settings.json"))
+
+    return return_models ? MyopicResults(models) : MyopicResults(nothing)
+end
+
+"""
+Write outputs for a single period during myopic iteration.
+This function is called for every period to write outputs immediately.
+"""
+function write_period_outputs(output_path::AbstractString, case::Case, system::System, model::Model, period_idx::Int, num_periods::Int)
+    # Create results directory to store outputs for this period
+    if num_periods > 1
+        results_dir = joinpath(output_path, "results_period_$period_idx")
+    else
+        results_dir = joinpath(output_path, "results")
+    end
+    mkpath(results_dir)
+    
+    # Set up cost expressions before writing cost outputs
+    create_discounted_cost_expressions!(model, system, get_settings(case))
+    compute_undiscounted_costs!(model, system, get_settings(case))
+    
+    # Write LP file if requested
+    myopic_settings = get_settings(case).MyopicSettings
+    if myopic_settings[:WriteModelLP]
+        @info(" -- Writing LP file for period $(period_idx)")
+        lp_filename = joinpath(results_dir, "model_period_$(period_idx).lp")
+        write_to_file(model, lp_filename)
+    end
+    
+    # Scaling factor for variable cost portion of objective function
+    discount_scaling = compute_variable_cost_discount_scaling(period_idx, get_settings(case))
+
+    # Write all outputs for this period
+    write_outputs(results_dir, system, model, discount_scaling)
 end

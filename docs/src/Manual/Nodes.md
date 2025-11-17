@@ -450,7 +450,7 @@ Sequestration could be modelled using a `Storage{CO2}` component but `Storage` c
 
 Nodes can be added to Assets to allow for the merging or splitting of Commodity flows. This is useful when you want to aggregate multiple sub-commodities into a single commodity flow or distribute a single commodity flow into multiple streams. Nodes are not as commonly used in Assets as the other components. In many instances you will prefer to merge or split flows between Assets.
 
-The [Modellers guide on creating Assets](@ref "Creating a New Asset") provides a detailed overview of how to create Assets and add Nodes to them. Below is a brief example of how to use Nodes within an Asset.
+The [Modellers guide on creating Assets](@ref modeler_create_asset) provides a detailed overview of how to create Assets and add Nodes to them. Below is a brief example of how to use Nodes within an Asset.
 
 #### Natual Gas Power Plant with Station Power
 

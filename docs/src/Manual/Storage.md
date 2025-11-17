@@ -2,7 +2,7 @@
 
 ## Contents
 
-[Overview](@ref "manual-storage-overview") | [Fields](@ref "Storage Fields") | [Types](@ref "manual-storage-types") | [Constructors](@ref "manual-storage-constructors") | [Methods](@ref "manual-storage-methods") | [Examples](@ref "manual-storage-examples")
+[Overview](@ref "manual-storage-overview") | [Fields](@ref "manual-storage-fields") | [Types](@ref "manual-storage-types") | [Constructors](@ref "manual-storage-constructors") | [Methods](@ref "manual-storage-methods") | [Examples](@ref "manual-storage-examples")
 
 ## [Overview](@id manual-storage-overview)
 
@@ -49,7 +49,7 @@ While single period cycles are fine for storage which usually discharge within t
 - **Cyclic Operation**: Storage state loops across modeling periods to ensure conservation of energy and mass
 - **Long Duration Storage**: Storage can be configured to track state of charge across multiple representative periods, enabling seasonal storage within Systems using representative periods
 
-## Storage Fields
+## [Storage Fields](@id manual-storage-fields)
 
 `Storage` components have the following fields. When running a model, the fields are set by the input files. When creating an Asset, the defaults below can be altered using the `@storage_data` macro. The internal fields are used by Macro and are not intended to be set by users in most circumstances.
 
@@ -537,7 +537,7 @@ struct GasStorage{T} <: AbstractAsset
 end
 ```
 
-The following code snippets from the `GasStorage` `make()` function show part of how this Asset is implemented. We recommend reading the [guide on constructing Assets](@ref "Creating a New Asset") for more details on how to create Assets in Macro.
+The following code snippets from the `GasStorage` `make()` function show part of how this Asset is implemented. We recommend reading the [guide on constructing Assets](@ref modeler_create_asset) for more details on how to create Assets in Macro.
 
 ```julia
 function make(asset_type::Type{GasStorage}, data::AbstractDict{Symbol,Any}, system::System)

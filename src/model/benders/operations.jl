@@ -83,11 +83,7 @@ function initialize_dist_subproblems!(system_decomp::Vector,opt::Dict,include_su
         @async @spawnat p begin
             W_local = localindices(subproblems_all)[1];
             system_local = [system_decomp[k] for k in W_local];
-            if opt[:solver] == Gurobi.Optimizer
-                optimizer = create_optimizer(opt[:solver], GRB_ENV[], opt[:attributes])
-            else
-                optimizer = create_optimizer(opt[:solver], missing, opt[:attributes])
-            end
+            optimizer = create_optimizer(opt[:solver], opt_env(opt[:solver]), opt[:attributes])
             initialize_local_subproblems!(system_local,localpart(subproblems_all),W_local,optimizer,include_subproblem_slacks);
         end
     end
@@ -105,7 +101,7 @@ function initialize_dist_subproblems!(system_decomp::Vector,opt::Dict,include_su
 
     ## Record pre-solver time
 	subproblem_generation_time = time() - subproblem_generation_time
-	@info("Distributed operational subproblems generation took $subproblem_generation_time seconds")
+	@info("Distributed operational subproblems generation took $(round(subproblem_generation_time, digits=3)) seconds")
 
     return subproblems_all,linking_variables_sub
 
@@ -116,11 +112,7 @@ function initialize_serial_subproblems!(system_decomp::Vector,opt::Dict,include_
     ##### Initialize a array of JuMP models
 	## Start pre-solve timer
 
-    if opt[:solver] == Gurobi.Optimizer
-        optimizer = create_optimizer(opt[:solver], GRB_ENV[], opt[:attributes])
-    else
-        optimizer = create_optimizer(opt[:solver], missing, opt[:attributes])
-    end
+    optimizer = create_optimizer(opt[:solver], opt_env(opt[:solver]), opt[:attributes])
 
 	subproblem_generation_time = time()
 

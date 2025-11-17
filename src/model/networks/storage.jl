@@ -145,6 +145,18 @@ Base.@kwdef mutable struct Storage{T} <: AbstractStorage{T}
     @AbstractStorageBaseAttributes()
 end
 
+
+commodity_type(::Type{AbstractStorage{T}}) where {T} = T
+function commodity_type(t::Type{AbstractStorage{<:T}}) where {T}
+    ub_type = t.var.ub
+    return commodity_type(AbstractStorage{ub_type})
+end
+commodity_type(::Type{Storage{T}}) where {T} = T
+function commodity_type(t::Type{Storage{<:T}}) where {T}
+    ub_type = t.var.ub
+    return commodity_type(Storage{ub_type})
+end
+
 function make_storage(
     id::Symbol,
     data::Dict{Symbol,Any},
@@ -226,6 +238,7 @@ retired_capacity_track(g::AbstractStorage) = g.retired_capacity_track;
 retired_capacity_track(g::AbstractStorage,s::Int64) =  (haskey(retired_capacity_track(g),s) == false) ? 0.0 : g.retired_capacity_track[s];
 retired_units(g::AbstractStorage) = g.retired_units;
 retirement_period(g::AbstractStorage) = g.retirement_period;
+retrofitted_capacity_track(g::AbstractStorage,s::Int64) = 0.0; ### Note that retrofits are not implemented for storage yet
 spillage_edge(g::AbstractStorage) = g.spillage_edge;
 storage_level(g::AbstractStorage) = g.storage_level;
 storage_level(g::AbstractStorage, t::Int64) = storage_level(g)[t];

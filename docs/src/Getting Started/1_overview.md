@@ -65,7 +65,7 @@ To add a Locations to a System, you must [define the constituent Nodes](@ref "Ad
 
 Assets in Macro represent means of producing, storing, transporting, and consuming one or more Commodities. Assets can be sited at a Location, so your Macro System will intuitively represent real-world systems. For example, an Asset can define a power plant that converts a fuel into electricity, which is then assigned to a Location, linking it to the electricity and fuel Nodes at that Location. Each Asset is characterized by a list of Commodities they take as input and output and technical and a range of economic and techical parameters.
 
-Macro has a rich library of Assets already designed and implemented. [You can also create your own Assets.](@ref "Creating a New Asset") These can be used just for your project or you can [add it to Macro for others to use](@ref "How to contribute guide").
+Macro has a rich library of Assets already designed and implemented. [You can also create your own Assets.](@ref modeler_create_asset) These can be used just for your project or you can [add it to Macro for others to use](@ref how_to_contribute).
 
 Some examples of of assets are:
 

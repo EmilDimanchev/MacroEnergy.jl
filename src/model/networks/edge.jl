@@ -9,6 +9,7 @@ macro AbstractEdgeBaseAttributes()
         availability::Vector{Float64} = Float64[]
         can_expand::Bool = $edge_defaults[:can_expand]
         can_retire::Bool = $edge_defaults[:can_retire]
+        can_retrofit::Bool = $edge_defaults[:can_retrofit]
         capacity::Union{JuMPVariable,AffExpr,Float64} = AffExpr(0.0)
         capacity_size::Float64 = $edge_defaults[:capacity_size]
         capital_recovery_period::Int64 = $edge_defaults[:capital_recovery_period]
@@ -20,6 +21,7 @@ macro AbstractEdgeBaseAttributes()
         has_capacity::Bool = $edge_defaults[:has_capacity]
         integer_decisions::Bool = $edge_defaults[:integer_decisions]
         investment_cost::Float64 = $edge_defaults[:investment_cost]
+        is_retrofit::Bool = $edge_defaults[:is_retrofit]
         lifetime::Int64 = $edge_defaults[:lifetime]
         min_retired_capacity::Float64 = 0.0
         loss_fraction::Vector{Float64} = $edge_defaults[:loss_fraction]
@@ -35,6 +37,11 @@ macro AbstractEdgeBaseAttributes()
         retired_capacity::Union{AffExpr,Float64} = AffExpr(0.0)
         retired_capacity_track::Dict{Int64,AffExpr} = Dict(1 => AffExpr(0.0))
         retired_units::Union{JuMPVariable,Float64} = 0.0
+        retrofit_efficiency::Union{Missing,Float64} = $edge_defaults[:retrofit_efficiency]
+        retrofit_id::Union{Missing, Vector{Symbol}} = $edge_defaults[:retrofit_id]
+        retrofitted_capacity::AffExpr = AffExpr(0.0)
+        retrofitted_capacity_track::Dict{Int64,AffExpr} = Dict(1 => AffExpr(0.0))
+        retrofitted_units::Union{JuMPVariable,Float64} = 0.0
         unidirectional::Bool = $edge_defaults[:unidirectional]
         variable_om_cost::Float64 = $edge_defaults[:variable_om_cost]
         min_down_time::Int64 = $edge_defaults[:min_down_time]
@@ -148,8 +155,20 @@ Base.@kwdef mutable struct Edge{T} <: AbstractEdge{T}
     @AbstractEdgeBaseAttributes()
 end
 
+commodity_type(::Type{AbstractEdge{T}}) where {T} = T
+function commodity_type(t::Type{AbstractEdge{<:T}}) where {T}
+    ub_type = t.var.ub
+    return commodity_type(AbstractEdge{ub_type})
+end
+commodity_type(::Type{Edge{T}}) where {T} = T
+function commodity_type(t::Type{Edge{<:T}}) where {T}
+    ub_type = t.var.ub
+    return commodity_type(Edge{ub_type})
+end
+
 function target_is_valid(commodity::Type{<:Commodity}, target::T) where T<:Union{Node, AbstractStorage}
-    if commodity <: commodity_type(target)
+    target_commodity = commodity_type(target)
+    if (commodity === target_commodity) || (commodity <: target_commodity)
         return true
     end
     return false
@@ -237,6 +256,7 @@ function availability(e::AbstractEdge, t::Int64)
 end
 can_expand(e::AbstractEdge) = e.can_expand;
 can_retire(e::AbstractEdge) = e.can_retire;
+can_retrofit(e::AbstractEdge) = e.can_retrofit;
 capacity(e::AbstractEdge) = e.capacity;
 capacity_size(e::AbstractEdge) = e.capacity_size;
 capital_recovery_period(e::AbstractEdge) = e.capital_recovery_period;
@@ -250,6 +270,7 @@ has_capacity(e::AbstractEdge) = e.has_capacity;
 id(e::AbstractEdge) = e.id;
 integer_decisions(e::AbstractEdge) = e.integer_decisions;
 investment_cost(e::AbstractEdge) = e.investment_cost;
+is_retrofit(e::AbstractEdge) = e.is_retrofit;
 lifetime(e::AbstractEdge) = e.lifetime;
 min_retired_capacity(e::AbstractEdge) = e.min_retired_capacity;
 loss_fraction(e::AbstractEdge) = e.loss_fraction;
@@ -280,6 +301,12 @@ retired_capacity_track(e::AbstractEdge) = e.retired_capacity_track;
 retired_capacity_track(e::AbstractEdge,s::Int64) =  (haskey(retired_capacity_track(e),s) == false) ? 0.0 : e.retired_capacity_track[s];
 retired_units(e::AbstractEdge) = e.retired_units;
 retirement_period(e::AbstractEdge) = e.retirement_period;
+retrofit_efficiency(e::AbstractEdge) = e.retrofit_efficiency;
+retrofit_id(e::AbstractEdge) = e.retrofit_id;
+retrofitted_capacity(e::AbstractEdge) = e.retrofitted_capacity;
+retrofitted_capacity_track(e::AbstractEdge) = e.retrofitted_capacity_track;
+retrofitted_capacity_track(e::AbstractEdge,s::Int64) = (haskey(retrofitted_capacity_track(e),s) == false) ? 0.0 : e.retrofitted_capacity_track[s];
+retrofitted_units(e::AbstractEdge) = e.retrofitted_units;
 start_vertex(e::AbstractEdge)::AbstractVertex = e.start_vertex;
 variable_om_cost(e::AbstractEdge) = e.variable_om_cost;
 wacc(e::AbstractEdge) = e.wacc;
@@ -380,7 +407,19 @@ function define_available_capacity!(e::AbstractEdge, model::Model)
         
         e.retired_capacity_track[period_index(e)] = retired_capacity(e);
 
-        @constraint(model, capacity(e) == new_capacity(e) - retired_capacity(e) + existing_capacity(e))
+        if can_retrofit(e)
+
+            e.retrofitted_units = @variable(model, lower_bound = 0.0, base_name = "vRETROFITUNIT_$(id(e))_period$(period_index(e))")
+            
+            e.retrofitted_capacity = @expression(model, capacity_size(e) * retrofitted_units(e))
+
+            e.retrofitted_capacity_track[period_index(e)] = retrofitted_capacity(e)
+
+            @constraint(model, capacity(e) == new_capacity(e) - retired_capacity(e) - retrofitted_capacity(e) + existing_capacity(e))
+            
+        else
+            @constraint(model, capacity(e) == new_capacity(e) - retired_capacity(e) + existing_capacity(e))
+        end
 
         # e.capacity = @expression(
         #     model,
@@ -438,7 +477,14 @@ function planning_model!(e::AbstractEdge, model::Model, settings::NamedTuple)
             end
         end
 
-        @constraint(model, retired_capacity(e) <= existing_capacity(e))
+        if can_retrofit(e)
+            @constraint(model, retrofitted_capacity(e) + retired_capacity(e) <= existing_capacity(e))
+            if integer_decisions(e)
+                set_integer(retrofitted_units(e))
+            end
+        else
+            @constraint(model, retired_capacity(e) <= existing_capacity(e))
+        end
 
     end
 
@@ -597,6 +643,8 @@ Base.@kwdef mutable struct EdgeWithUC{T} <: AbstractEdge{T}
     ushut::JuMPVariable = Vector{VariableRef}()
     ustart::JuMPVariable = Vector{VariableRef}()
 end
+
+commodity_type(::Type{EdgeWithUC{T}}) where {T} = T
 
 function make_edge_UC(
     id::Symbol,

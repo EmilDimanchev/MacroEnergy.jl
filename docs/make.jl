@@ -44,6 +44,7 @@ const pages = [
             "Energy System Graph-Based Representation" => "Guides/Modeler Guide/modeler_es_graph.md",
             "Creating a New Sector" => "Guides/Modeler Guide/modeler_build_sectors.md",
             "Creating a New Asset" => "Guides/Modeler Guide/modeler_build_asset.md",
+            "Documenting an Asset" => "Guides/Modeler Guide/modeler_add_docs_to_asset.md",
             "Creating a New Example Case" => "Guides/Modeler Guide/modeler_create_example_case.md",
             "Suggested Development Workflow" => "Guides/Modeler Guide/modeler_workflow.md",
             "Debugging and Testing Tips" => "Guides/Modeler Guide/modeler_debugging_testing.md",
@@ -53,6 +54,7 @@ const pages = [
             "Type Hierarchy" => "Guides/Developer Guide/2_type_hierarchy.md",
         ],
     ],
+    "Assets" => "Assets/assets_guide.md",
     "Manual" => [
         "Introduction" => "Manual/manual_introduction.md",
         "Inputs" => "Manual/Inputs.md",
@@ -67,22 +69,28 @@ const pages = [
         "Locations" => "Manual/Locations.md",
         "Constraints" => "Manual/Constraints.md",
         "Commodities" => "Manual/Commodities.md",
-        "Assets" => "Manual/assets/1_introduction.md",
+        "Assets" => "Manual/Assets.md",
         "Asset Library" => [
             "Manual/assets/battery.md",
             "Manual/assets/beccselectricity.md",
             "Manual/assets/beccshydrogen.md",
             "Manual/assets/electricdac.md",
+            "Manual/assets/electricheating.md",
+            "Manual/assets/electricsteam.md",
             "Manual/assets/electrolyzer.md",
             "Manual/assets/fuelcell.md",
+            "Manual/assets/thermalheating.md",
+            "Manual/assets/thermalsteam.md",
             "Manual/assets/gasstorage.md",
-            "Manual/assets/hydrogenline.md",
             "Manual/assets/hydropower.md",
+            "Manual/assets/integratedblastfurnacebasicoxygenfurnace.md",
+            "Manual/assets/integrateddirectreductionelectricarcfurnace.md",
             "Manual/assets/mustrun.md",
             "Manual/assets/natgasdaq.md",
-            "Manual/assets/transmissionlink.md",
+            "Manual/assets/standalonelectricarcfurnace.md",
             "Manual/assets/thermalhydrogen.md",
             "Manual/assets/thermalpower.md",
+            "Manual/assets/transmissionlink.md",
             "Manual/assets/vre.md"
         ],
         "Financial Assumptions" => "Manual/Financial_assumptions.md",
@@ -98,6 +106,9 @@ const pages = [
         "Downloading examples" => "References/ref_download_examples.md",
         # "Asset Library" => "References/2_assets.md", TODO: think if we should include this
     ],
+    "Appendix" => [
+        "TEA" => "Appendix/TEA.md",
+    ]
 ]
 
 # Build documentation.

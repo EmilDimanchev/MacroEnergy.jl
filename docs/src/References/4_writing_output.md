@@ -34,19 +34,48 @@ MacroEnergy.get_optimal_new_capacity
 MacroEnergy.get_optimal_retired_capacity
 ```
 
+## `write_balance_duals`
+```@docs
+MacroEnergy.write_balance_duals
+```
+
 ## `write_capacity`
-```@docs    
+
+```@docs
 MacroEnergy.write_capacity
 ```
 
+## `write_co2_cap_duals`
+```@docs
+MacroEnergy.write_co2_cap_duals
+```
+
 ## `write_costs`
+
 ```@docs
 MacroEnergy.write_costs
 ```
 
+## `write_duals`
+```@docs
+MacroEnergy.write_duals
+```
+
+## `write_duals_benders`
+```@docs
+MacroEnergy.write_duals_benders
+```
+
 ## `write_flow`
+
 ```@docs
 MacroEnergy.write_flow
+```
+
+## `write_settings`
+
+```@docs
+MacroEnergy.write_settings
 ```
 
 ## `write_dataframe`
@@ -55,6 +84,7 @@ MacroEnergy.write_dataframe
 ```
 
 ## `write_results`
+
 ```@docs
 MacroEnergy.write_results
 ```
@@ -62,4 +92,9 @@ MacroEnergy.write_results
 ## `MacroEnergy.write_outputs`
 ```@docs
 MacroEnergy.MacroEnergy.write_outputs
+```
+
+## `MacroEnergy.write_period_outputs`
+```@docs
+MacroEnergy.MacroEnergy.write_period_outputs
 ```

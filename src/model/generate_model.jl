@@ -47,6 +47,11 @@ function generate_model(case::Case)
         end
         planning_model!(system, model, settings)
 
+        if system.settings.Retrofitting
+            @info(" -- Adding retrofit constraints")
+            add_retrofit_constraints!(system, period_idx, model)
+        end
+        
         @info(" -- Including age-based retirements")
         add_age_based_retirements!.(system.assets, model, Ref(settings))
 
@@ -251,6 +256,28 @@ function carry_over_capacities!(y::Union{AbstractEdge,AbstractStorage},y_prev::U
             y.existing_capacity = value(capacity(y_prev))
         end
         
+        for prev_period in keys(new_capacity_track(y_prev))
+            if perfect_foresight
+                y.new_capacity_track[prev_period] = new_capacity_track(y_prev,prev_period)
+                y.retired_capacity_track[prev_period] = retired_capacity_track(y_prev,prev_period)
+
+                if isa(y, AbstractEdge)
+                    y.retrofitted_capacity_track[prev_period] = retrofitted_capacity_track(y_prev,prev_period)
+                else
+                    continue # Storage does not have retrofitted capacity
+                end
+            else
+                y.new_capacity_track[prev_period] = value(new_capacity_track(y_prev,prev_period))
+                y.retired_capacity_track[prev_period] = value(retired_capacity_track(y_prev,prev_period))
+
+                if isa(y, AbstractEdge)
+                    y.retrofitted_capacity_track[prev_period] = value(retrofitted_capacity_track(y_prev,prev_period))
+                else
+                    continue # Storage does not have retrofitted capacity
+                    
+                end
+            end
+        end
         
     end
 

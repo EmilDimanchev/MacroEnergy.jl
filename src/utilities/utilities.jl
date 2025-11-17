@@ -220,7 +220,7 @@ macro start_vertex(name, data, commodity, get_from_tuples)
     return esc(quote
         local vertex = get_from($get_from_tuples, missing, false)
         $data[:start_vertex] = vertex
-        $name = find_node(system.locations, Symbol(vertex), $commodity)
+        $name = find_node(system, Symbol(vertex), $commodity)
     end)
 end
 
@@ -228,6 +228,6 @@ macro end_vertex(name, data, commodity, get_from_tuples)
     return esc(quote
         local vertex = get_from($get_from_tuples, missing, false)
         $data[:end_vertex] = vertex
-        $name = find_node(system.locations, Symbol(vertex), $commodity)
+        $name = find_node(system, Symbol(vertex), $commodity)
     end)
 end

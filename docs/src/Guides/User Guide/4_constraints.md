@@ -1,4 +1,4 @@
-# Macro Constraint Library
+# [Macro Constraint Library](@id macro_constraint_library)
 
 Currently, Macro includes the following constraints:
 
