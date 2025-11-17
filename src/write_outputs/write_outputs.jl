@@ -27,6 +27,12 @@ function write_outputs(case_path::AbstractString, case::Case, model::Model)
         write_outputs(results_dir, period, model, discount_scaling)
     end
     write_settings(case, joinpath(case_path, "settings.json"))
+
+    results_dir = joinpath(case_path, "results_all_periods/")
+    mkpath(results_dir)
+
+    write_capacity_all_periods(results_dir, case)
+
     return nothing
 end
 
@@ -108,6 +114,12 @@ function write_outputs(case_path::AbstractString, case::Case, bd_results::Bender
         end
     end
     write_settings(case, joinpath(case_path, "settings.json"))
+    
+    # Capacity across all periods
+    results_dir = joinpath(case_path, "results_all_periods/")
+    mkpath(results_dir)
+    write_capacity_all_periods(results_dir, case)
+
     return nothing
 end
 

@@ -130,35 +130,35 @@ function prepare_discounted_costs(model::Union{Model,NamedTuple}, scaling::Float
     )
 end
 
-function compute_fixed_costs!(system::System, model::Model)
+function compute_fixed_costs!(system::System, model::Model, settings::NamedTuple)
     for a in system.assets
-        compute_fixed_costs!(a, model)
+        compute_fixed_costs!(a, model, settings)
     end
 end
 
-function compute_fixed_costs!(a::AbstractAsset, model::Model)
+function compute_fixed_costs!(a::AbstractAsset, model::Model, settings::NamedTuple)
     for t in fieldnames(typeof(a))
-        compute_fixed_costs!(getfield(a, t), model)
+        compute_fixed_costs!(getfield(a, t), model, settings)
     end
 end
 
-function compute_fixed_costs!(g::Union{Node,Transformation},model::Model)
+function compute_fixed_costs!(g::Union{Node,Transformation},model::Model, settings::NamedTuple)
     return nothing
 end
 
-function compute_investment_costs!(system::System, model::Model)
+function compute_investment_costs!(system::System, model::Model, settings::NamedTuple)
     for a in system.assets
-        compute_investment_costs!(a, model)
+        compute_investment_costs!(a, model, settings)
     end
 end
 
-function compute_investment_costs!(a::AbstractAsset, model::Model)
+function compute_investment_costs!(a::AbstractAsset, model::Model, settings::NamedTuple)
     for t in fieldnames(typeof(a))
-        compute_investment_costs!(getfield(a, t), model)
+        compute_investment_costs!(getfield(a, t), model, settings)
     end
 end
 
-function compute_investment_costs!(g::Union{Node,Transformation},model::Model)
+function compute_investment_costs!(g::Union{Node,Transformation},model::Model, settings::NamedTuple)
     return nothing
 end
 
@@ -206,7 +206,7 @@ function compute_undiscounted_costs!(model::Model, system::System, settings::Nam
     model[:eFixedCost] = AffExpr(0.0)
     model[:eOMFixedCost] = AffExpr(0.0)
     model[:eInvestmentFixedCost] = AffExpr(0.0)
-    compute_fixed_costs!(system, model)
+    compute_fixed_costs!(system, model, settings)
     model[:eFixedCost] = model[:eInvestmentFixedCost] + model[:eOMFixedCost] 
 
     cum_years = sum(period_lengths[i] for i in 1:period_index-1; init=0);
