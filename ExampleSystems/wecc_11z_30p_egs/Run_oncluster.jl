@@ -4,6 +4,8 @@ import Pkg
 # Pkg.instantiate()
 # println("Activating Package")
 
-Pkg.activate("/home/ed0400/1_Macro")
+model_folder = abspath(joinpath(pwd(), "..", ".."))
 
-include("/home/ed0400/1_Macro/ExampleSystems/wecc_11z_30p/run.jl");
+Pkg.activate(model_folder)
+
+include(string(pwd(),"/run.jl"));
