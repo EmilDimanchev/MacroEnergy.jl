@@ -1,8 +1,9 @@
 {
   "PeriodLengths": [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
   "DiscountRate": 0.045,
-  "SolutionAlgorithm": "Benders",
-  "TechnologyLearning": true,
+  "SolutionAlgorithm": "Monolithic",
+  "TechnologyLearning": false,
   "DeploymentInertia": false,
-  "ProjectDevelopment": false
+  "ProjectDevelopment": false,
+  "CO2Cap": false
 }
