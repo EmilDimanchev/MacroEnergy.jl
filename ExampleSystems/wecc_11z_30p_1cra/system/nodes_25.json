@@ -1,0 +1,245 @@
+{
+    "nodes": [
+        {
+            "global_data": {
+                "constraints": {
+                    "MaxNonServedDemandConstraint": true,
+                    "MaxNonServedDemandPerSegmentConstraint": true,
+                    "BalanceConstraint": true
+                },
+                "max_nsd": [
+                    1,
+                    0.04,
+                    0.024,
+                    0.003
+                ],
+                "time_interval": "Electricity",
+                "price_nsd": [
+                    2000,
+                    1800,
+                    1100,
+                    400
+                ]
+            },
+            "instance_data": [
+                {
+                    "demand": {
+                        "timeseries": {
+                            "header": "elec_demand_AZ",
+                            "path": "system/demand_25.csv"
+                        }
+                    },
+                    "id": "elec_AZ"
+                },
+                {
+                    "demand": {
+                        "timeseries": {
+                            "header": "elec_demand_CA",
+                            "path": "system/demand_25.csv"
+                        }
+                    },
+                    "id": "elec_CA"
+                },
+                {
+                    "demand": {
+                        "timeseries": {
+                            "header": "elec_demand_CO",
+                            "path": "system/demand_25.csv"
+                        }
+                    },
+                    "id": "elec_CO"
+                },
+                {
+                    "demand": {
+                        "timeseries": {
+                            "header": "elec_demand_ID",
+                            "path": "system/demand_25.csv"
+                        }
+                    },
+                    "id": "elec_ID"
+                },
+                {
+                    "demand": {
+                        "timeseries": {
+                            "header": "elec_demand_MT",
+                            "path": "system/demand_25.csv"
+                        }
+                    },
+                    "id": "elec_MT"
+                },
+                {
+                    "demand": {
+                        "timeseries": {
+                            "header": "elec_demand_NM",
+                            "path": "system/demand_25.csv"
+                        }
+                    },
+                    "id": "elec_NM"
+                },
+                {
+                    "demand": {
+                        "timeseries": {
+                            "header": "elec_demand_NV",
+                            "path": "system/demand_25.csv"
+                        }
+                    },
+                    "id": "elec_NV"
+                },
+                {
+                    "demand": {
+                        "timeseries": {
+                            "header": "elec_demand_OR",
+                            "path": "system/demand_25.csv"
+                        }
+                    },
+                    "id": "elec_OR"
+                },
+                {
+                    "demand": {
+                        "timeseries": {
+                            "header": "elec_demand_UT",
+                            "path": "system/demand_25.csv"
+                        }
+                    },
+                    "id": "elec_UT"
+                },
+                {
+                    "demand": {
+                        "timeseries": {
+                            "header": "elec_demand_WA",
+                            "path": "system/demand_25.csv"
+                        }
+                    },
+                    "id": "elec_WA"
+                },
+                {
+                    "demand": {
+                        "timeseries": {
+                            "header": "elec_demand_WY",
+                            "path": "system/demand_25.csv"
+                        }
+                    },
+                    "id": "elec_WY"
+                }
+            ],
+            "type": "Electricity"
+        },
+        {
+            "global_data": {
+                "time_interval": "NaturalGas"
+            },
+            "instance_data": [
+                {
+                    "price": {
+                        "timeseries": {
+                            "header": "mountain_naturalgas",
+                            "path": "system/fuel_prices_25.csv"
+                        }
+                    },
+                    "id": "mountain_naturalgas"
+                },
+                {
+                    "price": {
+                        "timeseries": {
+                            "header": "pacific_naturalgas",
+                            "path": "system/fuel_prices_25.csv"
+                        }
+                    },
+                    "id": "pacific_naturalgas"
+                }
+            ],
+            "type": "NaturalGas"
+        },
+        {
+            "global_data": {
+                "time_interval": "Uranium"
+            },
+            "instance_data": [
+                {
+                    "price": {
+                        "timeseries": {
+                            "header": "mountain_uranium",
+                            "path": "system/fuel_prices_25.csv"
+                        }
+                    },
+                    "id": "mountain_uranium"
+                },
+                {
+                    "price": {
+                        "timeseries": {
+                            "header": "pacific_uranium",
+                            "path": "system/fuel_prices_25.csv"
+                        }
+                    },
+                    "id": "pacific_uranium"
+                }
+            ],
+            "type": "Uranium"
+        },
+        {
+            "global_data": {
+                "time_interval": "Coal"
+            },
+            "instance_data": [
+                {
+                    "price": {
+                        "timeseries": {
+                            "header": "mountain_coal",
+                            "path": "system/fuel_prices_25.csv"
+                        }
+                    },
+                    "id": "mountain_coal"
+                },
+                {
+                    "price": {
+                        "timeseries": {
+                            "header": "pacific_coal",
+                            "path": "system/fuel_prices_25.csv"
+                        }
+                    },
+                    "id": "pacific_coal"
+                }
+            ],
+            "type": "Coal"
+        },
+        {
+            "global_data": {
+                "time_interval": "CO2"
+            },
+            "instance_data": [
+                {
+                    "constraints": {
+                        "CO2CapConstraint": false
+                    },
+                    "rhs_policy": {
+                        "CO2CapConstraint": 0
+                    },
+                    "id": "co2_sink_nothing"
+                }
+            ],
+            "type": "CO2"
+        },
+        {
+            "global_data": {
+                "time_interval": "CO2Captured"
+            },
+            "instance_data": [
+                {
+                    "id": "co2_sink_injection"
+                }
+            ],
+            "type": "CO2Captured"
+        },
+        {
+            "global_data": {
+                "time_interval": "Electricity"
+            },
+            "instance_data": [
+                {
+                    "id": "water_node"
+                }
+            ],
+            "type": "Electricity"
+        }
+    ]
+}
