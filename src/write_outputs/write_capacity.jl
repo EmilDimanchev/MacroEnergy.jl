@@ -1,7 +1,7 @@
 """
 Capacity outputs - everything related to capacity data extraction and output.
 """
-get_optimal_capacity(system::System; scaling::Float64=1.0) = get_optimal_capacity_by_field(system, capacity, scaling)
+
 
 """
     get_optimal_new_capacity(system::System; scaling::Float64=1.0)
@@ -26,7 +26,7 @@ get_optimal_new_capacity(system)
    3 │ Biomass      capacity           bioherb_NE     NE_BECCS_Electricity_Herb          NE_BECCS_Electricity_Herb_biomas…  BECCSElectricity  new_capacity      0.0
 ```
 """
-get_optimal_new_capacity(system::System; scaling::Float64=1.0) = get_optimal_capacity_by_field(system, new_capacity, scaling)
+
 
 """
     get_optimal_retired_capacity(system::System; scaling::Float64=1.0)
@@ -51,6 +51,11 @@ get_optimal_retired_capacity(system)
    3 │ Biomass      capacity           bioherb_NE     NE_BECCS_Electricity_Herb          NE_BECCS_Electricity_Herb_biomas…  BECCSElectricity  retired_capacity  0.0
 ```
 """
+
+get_optimal_capacity(system::System; scaling::Float64=1.0) = get_optimal_capacity_by_field(system, capacity, scaling)
+
+get_optimal_new_capacity(system::System; scaling::Float64=1.0) = get_optimal_capacity_by_field(system, new_capacity, scaling)
+
 get_optimal_retired_capacity(system::System; scaling::Float64=1.0) = get_optimal_capacity_by_field(system, retired_capacity, scaling)
 
 get_existing_capacity(system::System) = get_optimal_capacity_by_field(system, existing_capacity)
@@ -248,4 +253,63 @@ function write_capacity_all_periods(
     end
     
     return nothing
+end
+
+# Utility function to get the optimal capacity by macro object field
+function get_optimal_capacity_by_field(system::System, capacity_func::Function, scaling::Float64=1.0)
+    @debug " -- Getting optimal values for $(Symbol(capacity_func)) for the system."
+    edges, edge_asset_idmap = edges_with_capacity_variables(system, return_ids_map=true)
+    asset_capacity = get_optimal_capacity_by_field(edges, capacity_func, scaling, edge_asset_idmap)
+    asset_capacity[!, (!isa).(eachcol(asset_capacity), Vector{Missing})] # remove missing columns
+end
+
+function get_optimal_capacity_by_field(asset::AbstractAsset, capacity_func::Function, scaling::Float64=1.0)
+    @debug " -- Getting optimal values for $(Symbol(capacity_func)) for the asset $(id(asset))."
+    edges, edge_asset_idmap = edges_with_capacity_variables(asset, return_ids_map=true)
+    asset_capacity = get_optimal_capacity_by_field(edges, capacity_func, scaling, edge_asset_idmap)
+    asset_capacity[!, (!isa).(eachcol(asset_capacity), Vector{Missing})] # remove missing columns
+end
+
+# The following functions are used to extract capacity values after the model has been solved
+# from a list of MacroObjects (e.g., edges, and storage) and a list of fields (e.g., capacity, new_capacity, retired_capacity)
+
+get_optimal_capacity_by_field(objs::Vector{T}, field::Function, scaling::Float64=1.0, obj_asset_map::Dict{Symbol,Base.RefValue{<:AbstractAsset}}=Dict{Symbol,Base.RefValue{<:AbstractAsset}}()) where {T<:Union{AbstractEdge,Storage}} =
+    get_optimal_capacity_by_field(objs, (field,), scaling, obj_asset_map)
+
+function get_optimal_capacity_by_field(
+    objs::Vector{T},
+    field_list::Tuple,
+    scaling::Float64=1.0,
+    obj_asset_map::Dict{Symbol,Base.RefValue{<:AbstractAsset}}=Dict{Symbol,Base.RefValue{<:AbstractAsset}}()
+) where {T<:Union{AbstractEdge,Storage}}
+    # Calculate total number of rows needed
+    total_rows = length(objs) * length(field_list)
+    
+    if isempty(obj_asset_map)
+        return DataFrame(
+            case_name = fill(missing, total_rows),
+            commodity = [get_commodity_name(obj) for obj in objs for f in field_list],
+            commodity_subtype = [get_commodity_subtype(f) for obj in objs for f in field_list],
+            zone = [get_zone_name(obj) for obj in objs for f in field_list],
+            resource_id = [get_component_id(obj) for obj in objs for f in field_list],  # component id is same as resource id
+            component_id = [get_component_id(obj) for obj in objs for f in field_list],
+            type = [get_type(obj) for obj in objs for f in field_list],
+            variable = [Symbol(f) for obj in objs for f in field_list],
+            year = fill(missing, total_rows),
+            value = [Float64(value(f(obj))) * scaling for obj in objs for f in field_list]
+        )
+    else
+        return DataFrame(
+            case_name = fill(missing, total_rows),
+            commodity = [get_commodity_name(obj) for obj in objs for f in field_list],
+            commodity_subtype = [get_commodity_subtype(f) for obj in objs for f in field_list],
+            zone = [get_zone_name(obj) for obj in objs for f in field_list],
+            resource_id = [get_resource_id(obj, obj_asset_map) for obj in objs for f in field_list],
+            component_id = [get_component_id(obj) for obj in objs for f in field_list],
+            type = [get_type(obj_asset_map[id(obj)]) for obj in objs for f in field_list],
+            variable = [Symbol(f) for obj in objs for f in field_list],
+            year = fill(missing, total_rows),
+            value = [Float64(value(f(obj))) * scaling for obj in objs for f in field_list]
+        )
+    end
 end
