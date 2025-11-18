@@ -12,8 +12,8 @@ function run_case(
     optimizer_env::Any=nothing,
     optimizer_attributes::Tuple=("BarConvTol" => 1e-3, "Crossover" => 0, "Method" => 2),
     # Benders
-    planning_optimizer::DataType=Gurobi.Optimizer,
-    subproblem_optimizer::DataType=Gurobi.Optimizer,
+    planning_optimizer::DataType=HiGHS.Optimizer,
+    subproblem_optimizer::DataType=HiGHS.Optimizer,
     planning_optimizer_attributes::Tuple=("BarConvTol" => 1e-3, "Crossover" => 0, "Method" => 2, "BarHomogeneous" => 1),
     subproblem_optimizer_attributes::Tuple=("BarConvTol" => 1e-3, "Crossover" => 0, "Method" => 2)
 )
