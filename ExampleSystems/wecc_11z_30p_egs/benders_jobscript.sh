@@ -15,6 +15,6 @@
 
 module purge
 module load gurobi/12.0.0
-module load julia/1.11.1
+module load julia/1.12.1
 
 julia Run_oncluster.jl

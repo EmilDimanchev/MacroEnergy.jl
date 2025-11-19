@@ -1,6 +1,7 @@
 case = dirname(@__FILE__);
 
 import Pkg
+Pkg.add("Gurobi")
 # Pkg.instantiate()
 # println("Activating Package")
 
