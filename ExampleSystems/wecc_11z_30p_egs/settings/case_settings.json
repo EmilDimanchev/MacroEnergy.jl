@@ -33,7 +33,7 @@
     ],
     "SolutionAlgorithm": "Monolithic",
     "DiscountRate": 0.045,
-    "TechnologyLearning": false,
+    "TechnologyLearning": true,
     "DeploymentInertia": true,
     "ProjectDevelopment": true,
     "CO2Cap": false
