@@ -10,12 +10,12 @@ function run_case(
     # Monolithic or Myopic
     optimizer::DataType=HiGHS.Optimizer,
     optimizer_env::Any=nothing,
-    optimizer_attributes::Tuple=("BarConvTol" => 1e-3, "Crossover" => 0, "Method" => 2),
+    optimizer_attributes::Tuple=(),
     # Benders
     planning_optimizer::DataType=HiGHS.Optimizer,
     subproblem_optimizer::DataType=HiGHS.Optimizer,
-    planning_optimizer_attributes::Tuple=("BarConvTol" => 1e-3, "Crossover" => 0, "Method" => 2, "BarHomogeneous" => 1),
-    subproblem_optimizer_attributes::Tuple=("BarConvTol" => 1e-3, "Crossover" => 0, "Method" => 2)
+    planning_optimizer_attributes::Tuple=(),
+    subproblem_optimizer_attributes::Tuple=()
 )
     # This will run when the Julia process closes. 
     # It may be overfill with the try-catch
