@@ -57,7 +57,7 @@ function generate_planning_problem(case::Case)
 
         @info(" -- Generating planning model")
         if settings[:TechnologyLearning] == true
-            add_learning!(system, model, get_learning_technologies(case), period_idx)
+            add_learning!(system, model, settings[:LearningTechnologies], period_idx)
         end
         planning_model!(system, model, settings)
 
