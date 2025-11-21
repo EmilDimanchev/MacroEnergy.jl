@@ -7,7 +7,7 @@
 #SBATCH --mem=600GB              # total memory
 #SBATCH --output=slurm-%j.out 
 #SBATCH --constraint=amd 
-#SBATCH --time=4:00:00          # total run time limit (HH:MM:SS)
+#SBATCH --time=24:00:00          # total run time limit (HH:MM:SS)
 #SBATCH --mail-type=all          # send email when job ends
 #SBATCH --mail-user=ed0400@princeton.edu
 
