@@ -21,7 +21,7 @@ function add_learning!(system::System, model::Model, learning_techs::Vector{Stri
             nothing  # Skip transmission lines
         else
         
-            if learning_parameter(e) != 0.0
+            if learning_type(e) in learning_techs
 
                 if max_cumul_capacity(e) == Inf || max_cumul_capacity(e) == -1
                     error(string(e.id, " is a learning technology but max cumulative capacity is incorrectly specified"))
@@ -75,6 +75,12 @@ function add_learning!(system::System, model::Model, learning_techs::Vector{Stri
                 # Cumulative_experience combines existing capacity and all new capacity from modeled region and externally
                 @constraint(model, sum(cumulative_experience(e)[k] for k in 1:n_segments+1) == sum(new_capacity_track(e,i) for i=1:curr_period, e in tech_edges) + cumulative_external_capacity(e))
                 
+                println(string(e.id," points"))
+                println(x_points)
+                println(y_points)
+                println("All slopes")
+                println(e.pwl_cost_slopes)
+
                 # Determine chosen segment
                 # Ensure strict inequality
                 epsilon_learning = cumulative_external_capacity(e)/1e6
@@ -82,12 +88,6 @@ function add_learning!(system::System, model::Model, learning_techs::Vector{Stri
                 @constraint(model, [k in 2:n_segments+1], cumulative_experience(e)[k] >= (x_points[k-1] + ϵ[k-1]) * learning_pwl_segment_chosen[learning_type_index, k])
                 @constraint(model, [k in 1:n_segments+1], cumulative_experience(e)[k] <= x_points[k] * learning_pwl_segment_chosen[learning_type_index, k])
 
-                println(string(e.id," points"))
-                println(x_points)
-                println(y_points)
-                println("All slopes")
-                println(e.pwl_cost_slopes)
-                
                 # Slope reached after building new capacity
                 e.learning_pwl_slope = @expression(model, sum(learning_pwl_segment_chosen[learning_type_index, k] * pwl_cost_slopes(e)[k] for k in 1:n_segments+1))
                 e.learning_pwl_track[period_index(e)] = learning_pwl_slope(e)
@@ -143,19 +143,4 @@ function get_edges_of_type(system::System, type::String)
         end
     end
     return tech_edges
-end
-
-function get_learning_technologies(case::Case)
-    learning_techs = case.settings["LearningTechnologies"]
-    # learning_techs = String[]
-    # for system in get_periods(case)
-    #     for e in get_edges(system)
-    #         if learning_type(e) != "" && !occursin("_transmission_edge", string(e.id)) && learning_parameter(e) != 0.0
-    #             if !(learning_type(e) in learning_techs)
-    #                 push!(learning_techs, learning_type(e))
-    #             end
-    #         end
-    #     end
-    # end
-    return learning_techs
 end

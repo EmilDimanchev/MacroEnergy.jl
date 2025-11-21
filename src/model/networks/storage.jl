@@ -553,7 +553,7 @@ function compute_investment_costs!(g::AbstractStorage, model::Model, settings::N
         if can_expand(g)
 
             # Linearized learning
-            if settings[:TechnologyLearning] && learning_parameter(g) != 0.0
+            if settings[:TechnologyLearning] && learning_type(g) in settings[:LearningTechnologies]
                 
                 model[:eInvestmentFixedCost] += g.annualized_investment_cost_with_learning*annuities_mult(g)
                 

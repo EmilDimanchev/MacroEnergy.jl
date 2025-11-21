@@ -39,11 +39,12 @@ function generate_model(case::Case)
 
         @info(" -- Defining available capacity")
         define_available_capacity!(system, model)
-
+        @info("learning techs are")
+        println(settings[:LearningTechnologies])
         @info(" -- Generating planning model")
         if settings[:TechnologyLearning] == true
             @info(" -- Adding technology learning")
-            add_learning!(system, model, get_learning_technologies(case), period_idx)
+            add_learning!(system, model, settings[:LearningTechnologies], period_idx)
         end
         planning_model!(system, model, settings)
 
@@ -286,7 +287,7 @@ function carry_over_capacities!(y::Union{AbstractEdge,AbstractStorage},y_prev::U
             y.new_capacity_track[prev_period] = new_capacity_track(y_prev,prev_period)
             y.retired_capacity_track[prev_period] = retired_capacity_track(y_prev,prev_period)
             # Learning
-            if settings[:TechnologyLearning] && learning_parameter(y) != 0.0 && !occursin("_transmission_edge", string(y.id))
+            if settings[:TechnologyLearning] && learning_type(y) in settings[:LearningTechnologies]
                 
                 y.learning_pwl_track[prev_period] = learning_pwl_track(y_prev, prev_period)
                 

@@ -499,7 +499,7 @@ function compute_investment_costs!(e::AbstractEdge, model::Model, settings::Name
         if can_expand(e)
             
             # Linearized learning
-            if settings[:TechnologyLearning] && learning_parameter(e) != 0.0
+            if settings[:TechnologyLearning] && learning_type(e) in settings[:LearningTechnologies]
                 
                 model[:eInvestmentFixedCost] += e.annualized_investment_cost_with_learning*annuities_mult(e)
                 
