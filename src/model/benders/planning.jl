@@ -7,7 +7,8 @@ function initialize_planning_problem!(case::Case,opt::Dict)
 
     set_optimizer(planning_problem, optimizer)
 
-    set_silent(planning_problem)
+    @info("Setting up planning problem solver with $optimizer")
+    # set_silent(planning_problem)
 
     if case.systems[1].settings.ConstraintScaling
         @info "Scaling constraints and RHS"
