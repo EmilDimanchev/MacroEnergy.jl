@@ -156,6 +156,6 @@ function get_learning_technologies(case::Case)
     #             end
     #         end
     #     end
-    end
+    # end
     return learning_techs
 end
