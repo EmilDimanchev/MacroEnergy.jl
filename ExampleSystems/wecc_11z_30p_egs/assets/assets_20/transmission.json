@@ -18,7 +18,7 @@
                     "transmission_edge": {
                         "can_retire": false,
                         "de_wacc": 0.1,
-                        "annualized_investment_cost": 45771,
+                        "annualized_investment_cost": 45.771,
                         "learning_type": "none",
                         "af_duration": 1,
                         "max_capacity": 9365.8805,
@@ -61,7 +61,7 @@
                     "transmission_edge": {
                         "can_retire": false,
                         "de_wacc": 0.1,
-                        "annualized_investment_cost": 45798,
+                        "annualized_investment_cost": 45.798,
                         "learning_type": "none",
                         "af_duration": 1,
                         "max_capacity": 12906.456,
@@ -104,7 +104,7 @@
                     "transmission_edge": {
                         "can_retire": false,
                         "de_wacc": 0.1,
-                        "annualized_investment_cost": 55378,
+                        "annualized_investment_cost": 55.378,
                         "learning_type": "none",
                         "af_duration": 1,
                         "max_capacity": 562.996,
@@ -147,7 +147,7 @@
                     "transmission_edge": {
                         "can_retire": false,
                         "de_wacc": 0.1,
-                        "annualized_investment_cost": 53745,
+                        "annualized_investment_cost": 53.745,
                         "learning_type": "none",
                         "af_duration": 1,
                         "max_capacity": 767.3140000000001,
@@ -190,7 +190,7 @@
                     "transmission_edge": {
                         "can_retire": false,
                         "de_wacc": 0.1,
-                        "annualized_investment_cost": 56669,
+                        "annualized_investment_cost": 56.669,
                         "learning_type": "none",
                         "af_duration": 1,
                         "max_capacity": 10521.673999999999,
@@ -233,7 +233,7 @@
                     "transmission_edge": {
                         "can_retire": false,
                         "de_wacc": 0.1,
-                        "annualized_investment_cost": 30519,
+                        "annualized_investment_cost": 30.519,
                         "learning_type": "none",
                         "af_duration": 1,
                         "max_capacity": 2833.9605,
@@ -276,7 +276,7 @@
                     "transmission_edge": {
                         "can_retire": false,
                         "de_wacc": 0.1,
-                        "annualized_investment_cost": 35526,
+                        "annualized_investment_cost": 35.526,
                         "learning_type": "none",
                         "af_duration": 1,
                         "max_capacity": 4774.3150000000005,
@@ -319,7 +319,7 @@
                     "transmission_edge": {
                         "can_retire": false,
                         "de_wacc": 0.1,
-                        "annualized_investment_cost": 13641,
+                        "annualized_investment_cost": 13.641,
                         "learning_type": "none",
                         "af_duration": 1,
                         "max_capacity": 8804.074,
@@ -362,7 +362,7 @@
                     "transmission_edge": {
                         "can_retire": false,
                         "de_wacc": 0.1,
-                        "annualized_investment_cost": 36251,
+                        "annualized_investment_cost": 36.251,
                         "learning_type": "none",
                         "af_duration": 1,
                         "max_capacity": 5884.2615000000005,
@@ -405,7 +405,7 @@
                     "transmission_edge": {
                         "can_retire": false,
                         "de_wacc": 0.1,
-                        "annualized_investment_cost": 37969,
+                        "annualized_investment_cost": 37.969,
                         "learning_type": "none",
                         "af_duration": 1,
                         "max_capacity": 1000,
@@ -448,7 +448,7 @@
                     "transmission_edge": {
                         "can_retire": false,
                         "de_wacc": 0.1,
-                        "annualized_investment_cost": 33383,
+                        "annualized_investment_cost": 33.383,
                         "learning_type": "none",
                         "af_duration": 1,
                         "max_capacity": 14275.6325,
@@ -491,7 +491,7 @@
                     "transmission_edge": {
                         "can_retire": false,
                         "de_wacc": 0.1,
-                        "annualized_investment_cost": 27679,
+                        "annualized_investment_cost": 27.679,
                         "learning_type": "none",
                         "af_duration": 1,
                         "max_capacity": 3374.1795,
@@ -534,7 +534,7 @@
                     "transmission_edge": {
                         "can_retire": false,
                         "de_wacc": 0.1,
-                        "annualized_investment_cost": 35116,
+                        "annualized_investment_cost": 35.116,
                         "learning_type": "none",
                         "af_duration": 1,
                         "max_capacity": 8325.5205,
@@ -577,7 +577,7 @@
                     "transmission_edge": {
                         "can_retire": false,
                         "de_wacc": 0.1,
-                        "annualized_investment_cost": 42317,
+                        "annualized_investment_cost": 42.317,
                         "learning_type": "none",
                         "af_duration": 1,
                         "max_capacity": 4612.3765,
@@ -620,7 +620,7 @@
                     "transmission_edge": {
                         "can_retire": false,
                         "de_wacc": 0.1,
-                        "annualized_investment_cost": 58148,
+                        "annualized_investment_cost": 58.148,
                         "learning_type": "none",
                         "af_duration": 1,
                         "max_capacity": 3810.3,
@@ -663,7 +663,7 @@
                     "transmission_edge": {
                         "can_retire": false,
                         "de_wacc": 0.1,
-                        "annualized_investment_cost": 30867,
+                        "annualized_investment_cost": 30.867,
                         "learning_type": "none",
                         "af_duration": 1,
                         "max_capacity": 1466.1595,
@@ -706,7 +706,7 @@
                     "transmission_edge": {
                         "can_retire": false,
                         "de_wacc": 0.1,
-                        "annualized_investment_cost": 37701,
+                        "annualized_investment_cost": 37.701,
                         "learning_type": "none",
                         "af_duration": 1,
                         "max_capacity": 1314.1785,
@@ -749,7 +749,7 @@
                     "transmission_edge": {
                         "can_retire": false,
                         "de_wacc": 0.1,
-                        "annualized_investment_cost": 30671,
+                        "annualized_investment_cost": 30.671,
                         "learning_type": "none",
                         "af_duration": 1,
                         "max_capacity": 1396.2615,
@@ -792,7 +792,7 @@
                     "transmission_edge": {
                         "can_retire": false,
                         "de_wacc": 0.1,
-                        "annualized_investment_cost": 26471,
+                        "annualized_investment_cost": 26.471,
                         "learning_type": "none",
                         "af_duration": 1,
                         "max_capacity": 42558.085999999996,
@@ -835,7 +835,7 @@
                     "transmission_edge": {
                         "can_retire": false,
                         "de_wacc": 0.1,
-                        "annualized_investment_cost": 32854,
+                        "annualized_investment_cost": 32.854,
                         "learning_type": "none",
                         "af_duration": 1,
                         "max_capacity": 1838.231,

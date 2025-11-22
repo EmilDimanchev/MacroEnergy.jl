@@ -59,7 +59,7 @@
                             "CapacityConstraint": true
                         },
                         "min_capacity": 0,
-                        "fixed_om_cost": 47048,
+                        "fixed_om_cost": 47.048,
                         "ramp_up_fraction": 0.5,
                         "end_vertex": "elec_AZ",
                         "variable_om_cost": 0,
@@ -135,7 +135,7 @@
                             "CapacityConstraint": true
                         },
                         "min_capacity": 0,
-                        "fixed_om_cost": 47048,
+                        "fixed_om_cost": 47.048,
                         "ramp_up_fraction": 0.5,
                         "end_vertex": "elec_CA",
                         "variable_om_cost": 0,
@@ -211,7 +211,7 @@
                             "CapacityConstraint": true
                         },
                         "min_capacity": 0,
-                        "fixed_om_cost": 47048,
+                        "fixed_om_cost": 47.048,
                         "ramp_up_fraction": 0.5,
                         "end_vertex": "elec_CO",
                         "variable_om_cost": 0,
@@ -287,7 +287,7 @@
                             "CapacityConstraint": true
                         },
                         "min_capacity": 0,
-                        "fixed_om_cost": 47048,
+                        "fixed_om_cost": 47.048,
                         "ramp_up_fraction": 0.5,
                         "end_vertex": "elec_ID",
                         "variable_om_cost": 0,
@@ -363,7 +363,7 @@
                             "CapacityConstraint": true
                         },
                         "min_capacity": 0,
-                        "fixed_om_cost": 47048,
+                        "fixed_om_cost": 47.048,
                         "ramp_up_fraction": 0.5,
                         "end_vertex": "elec_MT",
                         "variable_om_cost": 0,
@@ -439,7 +439,7 @@
                             "CapacityConstraint": true
                         },
                         "min_capacity": 0,
-                        "fixed_om_cost": 47048,
+                        "fixed_om_cost": 47.048,
                         "ramp_up_fraction": 0.5,
                         "end_vertex": "elec_NV",
                         "variable_om_cost": 0,
@@ -515,7 +515,7 @@
                             "CapacityConstraint": true
                         },
                         "min_capacity": 0,
-                        "fixed_om_cost": 47048,
+                        "fixed_om_cost": 47.048,
                         "ramp_up_fraction": 0.5,
                         "end_vertex": "elec_OR",
                         "variable_om_cost": 0,
@@ -591,7 +591,7 @@
                             "CapacityConstraint": true
                         },
                         "min_capacity": 0,
-                        "fixed_om_cost": 47048,
+                        "fixed_om_cost": 47.048,
                         "ramp_up_fraction": 0.5,
                         "end_vertex": "elec_UT",
                         "variable_om_cost": 0,
@@ -667,7 +667,7 @@
                             "CapacityConstraint": true
                         },
                         "min_capacity": 0,
-                        "fixed_om_cost": 47048,
+                        "fixed_om_cost": 47.048,
                         "ramp_up_fraction": 0.5,
                         "end_vertex": "elec_WA",
                         "variable_om_cost": 0,
@@ -743,7 +743,7 @@
                             "CapacityConstraint": true
                         },
                         "min_capacity": 0,
-                        "fixed_om_cost": 47048,
+                        "fixed_om_cost": 47.048,
                         "ramp_up_fraction": 0.5,
                         "end_vertex": "elec_WY",
                         "variable_om_cost": 0,
