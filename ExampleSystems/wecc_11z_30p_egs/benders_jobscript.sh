@@ -17,4 +17,4 @@ module purge
 module load gurobi/12.0.0
 module load julia/1.12.1
 
-julia Run_oncluster.jl
+julia Run_benders_oncluster.jl
