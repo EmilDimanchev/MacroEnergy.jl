@@ -39,8 +39,7 @@ function generate_model(case::Case)
 
         @info(" -- Defining available capacity")
         define_available_capacity!(system, model)
-        @info("learning techs are")
-        println(settings[:LearningTechnologies])
+        
         @info(" -- Generating planning model")
         if settings[:TechnologyLearning] == true
             @info(" -- Adding technology learning")
@@ -339,7 +338,7 @@ function compute_annualized_costs!(y::Union{AbstractEdge,AbstractStorage},settin
         y.annualized_investment_cost = investment_cost(y)*annualization_factor(y)
     
     else
-        # Check if CAPEX, investment_cost, was provided. If not, estimate it
+        # Check if CAPEX (i.e. investment_cost) was provided. If not, estimate it
         if isnothing(investment_cost(y)) || investment_cost(y) == 0.0
             y.investment_cost = annualized_investment_cost(y)/annualization_factor(y) 
         end

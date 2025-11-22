@@ -25,8 +25,8 @@
             {
                 "transforms": {
                     "timedata": "Coal",
-                    "fuel_consumption": 3.2560195876999996,
-                    "emission_rate": 0.32592776898791137
+                    "fuel_consumption": 3.256,
+                    "emission_rate": 0.326
                 },
                 "id": "AZ_conventional_steam_coal_1",
                 "edges": {
@@ -51,13 +51,13 @@
                         },
                         "min_capacity": 0,
                         "commodity": "Electricity",
-                        "fixed_om_cost": 62888.28247261346,
+                        "fixed_om_cost": 62.888282472613454,
                         "uc": true,
                         "ramp_up_fraction": 0.57,
-                        "startup_cost": 124,
+                        "startup_cost": 0.124,
                         "end_vertex": "elec_AZ",
-                        "variable_om_cost": 1.88,
-                        "startup_fuel_consumption": 4.835672655,
+                        "variable_om_cost": 0.002,
+                        "startup_fuel_consumption": 4.836,
                         "min_down_time": 24,
                         "capacity_size": 335.67,
                         "wacc": 0,
@@ -77,8 +77,8 @@
             {
                 "transforms": {
                     "timedata": "NaturalGas",
-                    "fuel_consumption": 2.3797370883999998,
-                    "emission_rate": 0.181048235160161
+                    "fuel_consumption": 2.38,
+                    "emission_rate": 0.181
                 },
                 "id": "AZ_natural_gas_fired_combined_cycle_1",
                 "edges": {
@@ -103,13 +103,13 @@
                         },
                         "min_capacity": 0,
                         "commodity": "Electricity",
-                        "fixed_om_cost": 10832,
+                        "fixed_om_cost": 10.832,
                         "uc": true,
                         "ramp_up_fraction": 0.64,
-                        "startup_cost": 92,
+                        "startup_cost": 0.092,
                         "end_vertex": "elec_AZ",
-                        "variable_om_cost": 3.62,
-                        "startup_fuel_consumption": 0.58614214,
+                        "variable_om_cost": 0.004,
+                        "startup_fuel_consumption": 0.586,
                         "min_down_time": 6,
                         "capacity_size": 375.26,
                         "wacc": 0,
@@ -129,8 +129,8 @@
             {
                 "transforms": {
                     "timedata": "NaturalGas",
-                    "fuel_consumption": 3.604774161,
-                    "emission_rate": 0.181048235160161
+                    "fuel_consumption": 3.605,
+                    "emission_rate": 0.181
                 },
                 "id": "AZ_natural_gas_fired_combustion_turbine_1",
                 "edges": {
@@ -155,13 +155,13 @@
                         },
                         "min_capacity": 0,
                         "commodity": "Electricity",
-                        "fixed_om_cost": 12469,
+                        "fixed_om_cost": 12.469,
                         "uc": true,
                         "ramp_up_fraction": 3.78,
-                        "startup_cost": 119,
+                        "startup_cost": 0.119,
                         "end_vertex": "elec_AZ",
                         "variable_om_cost": 0,
-                        "startup_fuel_consumption": 1.025748745,
+                        "startup_fuel_consumption": 1.026,
                         "min_down_time": 1,
                         "capacity_size": 50.96,
                         "wacc": 0,
@@ -181,8 +181,8 @@
             {
                 "transforms": {
                     "timedata": "NaturalGas",
-                    "fuel_consumption": 3.1241376062,
-                    "emission_rate": 0.181048235160161
+                    "fuel_consumption": 3.124,
+                    "emission_rate": 0.181
                 },
                 "id": "AZ_natural_gas_steam_turbine_1",
                 "edges": {
@@ -207,13 +207,13 @@
                         },
                         "min_capacity": 0,
                         "commodity": "Electricity",
-                        "fixed_om_cost": 51303,
+                        "fixed_om_cost": 51.303,
                         "uc": true,
                         "ramp_up_fraction": 0.57,
-                        "startup_cost": 87,
+                        "startup_cost": 0.087,
                         "end_vertex": "elec_AZ",
-                        "variable_om_cost": 1.06,
-                        "startup_fuel_consumption": 4.015073659,
+                        "variable_om_cost": 0.001,
+                        "startup_fuel_consumption": 4.015,
                         "min_down_time": 24,
                         "capacity_size": 124.25,
                         "wacc": 0,
@@ -233,7 +233,7 @@
             {
                 "transforms": {
                     "timedata": "Uranium",
-                    "fuel_consumption": 3.0625926814999995,
+                    "fuel_consumption": 3.063,
                     "emission_rate": 0
                 },
                 "id": "AZ_nuclear_1",
@@ -260,10 +260,10 @@
                         },
                         "min_capacity": 0,
                         "commodity": "Electricity",
-                        "fixed_om_cost": 193275,
+                        "fixed_om_cost": 193.275,
                         "uc": true,
                         "ramp_up_fraction": 0.25,
-                        "startup_cost": 248,
+                        "startup_cost": 0.248,
                         "end_vertex": "elec_AZ",
                         "variable_om_cost": 0,
                         "startup_fuel_consumption": 0,
@@ -286,8 +286,8 @@
             {
                 "transforms": {
                     "timedata": "NaturalGas",
-                    "fuel_consumption": 3.1446525811,
-                    "emission_rate": 0.181048235160161
+                    "fuel_consumption": 3.145,
+                    "emission_rate": 0.181
                 },
                 "id": "AZ_other_peaker_1",
                 "edges": {
@@ -315,7 +315,7 @@
                         "fixed_om_cost": 0,
                         "uc": true,
                         "ramp_up_fraction": 3.78,
-                        "startup_cost": 87,
+                        "startup_cost": 0.087,
                         "end_vertex": "elec_AZ",
                         "variable_om_cost": 0,
                         "startup_fuel_consumption": 0,
@@ -338,8 +338,8 @@
             {
                 "transforms": {
                     "timedata": "NaturalGas",
-                    "fuel_consumption": 2.2625086604,
-                    "emission_rate": 0.181048235160161
+                    "fuel_consumption": 2.263,
+                    "emission_rate": 0.181
                 },
                 "id": "CA_natural_gas_fired_combined_cycle_1",
                 "edges": {
@@ -364,13 +364,13 @@
                         },
                         "min_capacity": 0,
                         "commodity": "Electricity",
-                        "fixed_om_cost": 12213,
+                        "fixed_om_cost": 12.213,
                         "uc": true,
                         "ramp_up_fraction": 0.64,
-                        "startup_cost": 92,
+                        "startup_cost": 0.092,
                         "end_vertex": "elec_CA",
-                        "variable_om_cost": 3.9,
-                        "startup_fuel_consumption": 0.58614214,
+                        "variable_om_cost": 0.004,
+                        "startup_fuel_consumption": 0.586,
                         "min_down_time": 6,
                         "capacity_size": 308.29,
                         "wacc": 0,
@@ -390,8 +390,8 @@
             {
                 "transforms": {
                     "timedata": "NaturalGas",
-                    "fuel_consumption": 3.3673865943,
-                    "emission_rate": 0.181048235160161
+                    "fuel_consumption": 3.367,
+                    "emission_rate": 0.181
                 },
                 "id": "CA_natural_gas_fired_combustion_turbine_1",
                 "edges": {
@@ -416,13 +416,13 @@
                         },
                         "min_capacity": 0,
                         "commodity": "Electricity",
-                        "fixed_om_cost": 13794,
+                        "fixed_om_cost": 13.794,
                         "uc": true,
                         "ramp_up_fraction": 3.78,
-                        "startup_cost": 119,
+                        "startup_cost": 0.119,
                         "end_vertex": "elec_CA",
                         "variable_om_cost": 0,
-                        "startup_fuel_consumption": 1.025748745,
+                        "startup_fuel_consumption": 1.026,
                         "min_down_time": 1,
                         "capacity_size": 58.43,
                         "wacc": 0,
@@ -442,8 +442,8 @@
             {
                 "transforms": {
                     "timedata": "NaturalGas",
-                    "fuel_consumption": 2.6991845547,
-                    "emission_rate": 0.181048235160161
+                    "fuel_consumption": 2.699,
+                    "emission_rate": 0.181
                 },
                 "id": "CA_natural_gas_steam_turbine_1",
                 "edges": {
@@ -468,13 +468,13 @@
                         },
                         "min_capacity": 0,
                         "commodity": "Electricity",
-                        "fixed_om_cost": 51303,
+                        "fixed_om_cost": 51.303,
                         "uc": true,
                         "ramp_up_fraction": 0.57,
-                        "startup_cost": 87,
+                        "startup_cost": 0.087,
                         "end_vertex": "elec_CA",
-                        "variable_om_cost": 1.06,
-                        "startup_fuel_consumption": 4.015073659,
+                        "variable_om_cost": 0.001,
+                        "startup_fuel_consumption": 4.015,
                         "min_down_time": 24,
                         "capacity_size": 1,
                         "wacc": 0,
@@ -494,7 +494,7 @@
             {
                 "transforms": {
                     "timedata": "Uranium",
-                    "fuel_consumption": 3.0625926814999995,
+                    "fuel_consumption": 3.063,
                     "emission_rate": 0
                 },
                 "id": "CA_nuclear_1",
@@ -521,10 +521,10 @@
                         },
                         "min_capacity": 0,
                         "commodity": "Electricity",
-                        "fixed_om_cost": 193275,
+                        "fixed_om_cost": 193.275,
                         "uc": true,
                         "ramp_up_fraction": 0.25,
-                        "startup_cost": 248,
+                        "startup_cost": 0.248,
                         "end_vertex": "elec_CA",
                         "variable_om_cost": 0,
                         "startup_fuel_consumption": 0,
@@ -547,8 +547,8 @@
             {
                 "transforms": {
                     "timedata": "NaturalGas",
-                    "fuel_consumption": 3.7747553816,
-                    "emission_rate": 0.181048235160161
+                    "fuel_consumption": 3.775,
+                    "emission_rate": 0.181
                 },
                 "id": "CA_other_peaker_1",
                 "edges": {
@@ -576,7 +576,7 @@
                         "fixed_om_cost": 0,
                         "uc": true,
                         "ramp_up_fraction": 3.78,
-                        "startup_cost": 87,
+                        "startup_cost": 0.087,
                         "end_vertex": "elec_CA",
                         "variable_om_cost": 0,
                         "startup_fuel_consumption": 0,
@@ -599,8 +599,8 @@
             {
                 "transforms": {
                     "timedata": "Coal",
-                    "fuel_consumption": 3.1153454741,
-                    "emission_rate": 0.32592776898791137
+                    "fuel_consumption": 3.115,
+                    "emission_rate": 0.326
                 },
                 "id": "CO_conventional_steam_coal_1",
                 "edges": {
@@ -625,13 +625,13 @@
                         },
                         "min_capacity": 0,
                         "commodity": "Electricity",
-                        "fixed_om_cost": 62857.28261251618,
+                        "fixed_om_cost": 62.85728261251618,
                         "uc": true,
                         "ramp_up_fraction": 0.57,
-                        "startup_cost": 124,
+                        "startup_cost": 0.124,
                         "end_vertex": "elec_CO",
-                        "variable_om_cost": 1.88,
-                        "startup_fuel_consumption": 4.835672655,
+                        "variable_om_cost": 0.002,
+                        "startup_fuel_consumption": 4.836,
                         "min_down_time": 24,
                         "capacity_size": 635.5,
                         "wacc": 0,
@@ -651,8 +651,8 @@
             {
                 "transforms": {
                     "timedata": "NaturalGas",
-                    "fuel_consumption": 2.4090441954,
-                    "emission_rate": 0.181048235160161
+                    "fuel_consumption": 2.409,
+                    "emission_rate": 0.181
                 },
                 "id": "CO_natural_gas_fired_combined_cycle_1",
                 "edges": {
@@ -677,13 +677,13 @@
                         },
                         "min_capacity": 0,
                         "commodity": "Electricity",
-                        "fixed_om_cost": 12695,
+                        "fixed_om_cost": 12.695,
                         "uc": true,
                         "ramp_up_fraction": 0.64,
-                        "startup_cost": 92,
+                        "startup_cost": 0.092,
                         "end_vertex": "elec_CO",
-                        "variable_om_cost": 4.02,
-                        "startup_fuel_consumption": 0.58614214,
+                        "variable_om_cost": 0.004,
+                        "startup_fuel_consumption": 0.586,
                         "min_down_time": 6,
                         "capacity_size": 310.04,
                         "wacc": 0,
@@ -703,8 +703,8 @@
             {
                 "transforms": {
                     "timedata": "NaturalGas",
-                    "fuel_consumption": 3.5490906577,
-                    "emission_rate": 0.181048235160161
+                    "fuel_consumption": 3.549,
+                    "emission_rate": 0.181
                 },
                 "id": "CO_natural_gas_fired_combustion_turbine_1",
                 "edges": {
@@ -729,13 +729,13 @@
                         },
                         "min_capacity": 0,
                         "commodity": "Electricity",
-                        "fixed_om_cost": 12575,
+                        "fixed_om_cost": 12.575,
                         "uc": true,
                         "ramp_up_fraction": 3.78,
-                        "startup_cost": 119,
+                        "startup_cost": 0.119,
                         "end_vertex": "elec_CO",
                         "variable_om_cost": 0,
-                        "startup_fuel_consumption": 1.025748745,
+                        "startup_fuel_consumption": 1.026,
                         "min_down_time": 1,
                         "capacity_size": 75.21,
                         "wacc": 0,
@@ -755,8 +755,8 @@
             {
                 "transforms": {
                     "timedata": "NaturalGas",
-                    "fuel_consumption": 4.6188000632,
-                    "emission_rate": 0.181048235160161
+                    "fuel_consumption": 4.619,
+                    "emission_rate": 0.181
                 },
                 "id": "CO_natural_gas_steam_turbine_1",
                 "edges": {
@@ -781,13 +781,13 @@
                         },
                         "min_capacity": 0,
                         "commodity": "Electricity",
-                        "fixed_om_cost": 51303,
+                        "fixed_om_cost": 51.303,
                         "uc": true,
                         "ramp_up_fraction": 0.57,
-                        "startup_cost": 87,
+                        "startup_cost": 0.087,
                         "end_vertex": "elec_CO",
-                        "variable_om_cost": 1.06,
-                        "startup_fuel_consumption": 4.015073659,
+                        "variable_om_cost": 0.001,
+                        "startup_fuel_consumption": 4.015,
                         "min_down_time": 24,
                         "capacity_size": 18.33,
                         "wacc": 0,
@@ -807,8 +807,8 @@
             {
                 "transforms": {
                     "timedata": "NaturalGas",
-                    "fuel_consumption": 2.9512256749,
-                    "emission_rate": 0.181048235160161
+                    "fuel_consumption": 2.951,
+                    "emission_rate": 0.181
                 },
                 "id": "CO_other_peaker_1",
                 "edges": {
@@ -836,7 +836,7 @@
                         "fixed_om_cost": 0,
                         "uc": true,
                         "ramp_up_fraction": 3.78,
-                        "startup_cost": 87,
+                        "startup_cost": 0.087,
                         "end_vertex": "elec_CO",
                         "variable_om_cost": 0,
                         "startup_fuel_consumption": 0,
@@ -859,8 +859,8 @@
             {
                 "transforms": {
                     "timedata": "NaturalGas",
-                    "fuel_consumption": 2.1013195719,
-                    "emission_rate": 0.181048235160161
+                    "fuel_consumption": 2.101,
+                    "emission_rate": 0.181
                 },
                 "id": "ID_natural_gas_fired_combined_cycle_1",
                 "edges": {
@@ -885,13 +885,13 @@
                         },
                         "min_capacity": 0,
                         "commodity": "Electricity",
-                        "fixed_om_cost": 16492,
+                        "fixed_om_cost": 16.492,
                         "uc": true,
                         "ramp_up_fraction": 0.64,
-                        "startup_cost": 92,
+                        "startup_cost": 0.092,
                         "end_vertex": "elec_ID",
-                        "variable_om_cost": 4.55,
-                        "startup_fuel_consumption": 0.58614214,
+                        "variable_om_cost": 0.005,
+                        "startup_fuel_consumption": 0.586,
                         "min_down_time": 6,
                         "capacity_size": 300.95,
                         "wacc": 0,
@@ -911,8 +911,8 @@
             {
                 "transforms": {
                     "timedata": "NaturalGas",
-                    "fuel_consumption": 3.2530888769999997,
-                    "emission_rate": 0.181048235160161
+                    "fuel_consumption": 3.253,
+                    "emission_rate": 0.181
                 },
                 "id": "ID_natural_gas_fired_combustion_turbine_1",
                 "edges": {
@@ -937,13 +937,13 @@
                         },
                         "min_capacity": 0,
                         "commodity": "Electricity",
-                        "fixed_om_cost": 13314,
+                        "fixed_om_cost": 13.314,
                         "uc": true,
                         "ramp_up_fraction": 3.78,
-                        "startup_cost": 119,
+                        "startup_cost": 0.119,
                         "end_vertex": "elec_ID",
                         "variable_om_cost": 0,
-                        "startup_fuel_consumption": 1.025748745,
+                        "startup_fuel_consumption": 1.026,
                         "min_down_time": 1,
                         "capacity_size": 111.82,
                         "wacc": 0,
@@ -963,8 +963,8 @@
             {
                 "transforms": {
                     "timedata": "NaturalGas",
-                    "fuel_consumption": 2.6991845547,
-                    "emission_rate": 0.181048235160161
+                    "fuel_consumption": 2.699,
+                    "emission_rate": 0.181
                 },
                 "id": "ID_natural_gas_steam_turbine_1",
                 "edges": {
@@ -989,13 +989,13 @@
                         },
                         "min_capacity": 0,
                         "commodity": "Electricity",
-                        "fixed_om_cost": 51303,
+                        "fixed_om_cost": 51.303,
                         "uc": true,
                         "ramp_up_fraction": 0.57,
-                        "startup_cost": 87,
+                        "startup_cost": 0.087,
                         "end_vertex": "elec_ID",
-                        "variable_om_cost": 1.06,
-                        "startup_fuel_consumption": 4.015073659,
+                        "variable_om_cost": 0.001,
+                        "startup_fuel_consumption": 4.015,
                         "min_down_time": 24,
                         "capacity_size": 1,
                         "wacc": 0,
@@ -1015,8 +1015,8 @@
             {
                 "transforms": {
                     "timedata": "NaturalGas",
-                    "fuel_consumption": 2.9922556247000003,
-                    "emission_rate": 0.181048235160161
+                    "fuel_consumption": 2.992,
+                    "emission_rate": 0.181
                 },
                 "id": "ID_other_peaker_1",
                 "edges": {
@@ -1044,7 +1044,7 @@
                         "fixed_om_cost": 0,
                         "uc": true,
                         "ramp_up_fraction": 3.78,
-                        "startup_cost": 87,
+                        "startup_cost": 0.087,
                         "end_vertex": "elec_ID",
                         "variable_om_cost": 0,
                         "startup_fuel_consumption": 0,
@@ -1067,8 +1067,8 @@
             {
                 "transforms": {
                     "timedata": "Coal",
-                    "fuel_consumption": 3.2149896379,
-                    "emission_rate": 0.32592776898791137
+                    "fuel_consumption": 3.215,
+                    "emission_rate": 0.326
                 },
                 "id": "MT_conventional_steam_coal_1",
                 "edges": {
@@ -1093,13 +1093,13 @@
                         },
                         "min_capacity": 0,
                         "commodity": "Electricity",
-                        "fixed_om_cost": 63644.27910315882,
+                        "fixed_om_cost": 63.64427910315882,
                         "uc": true,
                         "ramp_up_fraction": 0.57,
-                        "startup_cost": 124,
+                        "startup_cost": 0.124,
                         "end_vertex": "elec_MT",
-                        "variable_om_cost": 1.88,
-                        "startup_fuel_consumption": 4.835672655,
+                        "variable_om_cost": 0.002,
+                        "startup_fuel_consumption": 4.836,
                         "min_down_time": 24,
                         "capacity_size": 406.88,
                         "wacc": 0,
@@ -1119,8 +1119,8 @@
             {
                 "transforms": {
                     "timedata": "NaturalGas",
-                    "fuel_consumption": 3.9154294951999997,
-                    "emission_rate": 0.181048235160161
+                    "fuel_consumption": 3.915,
+                    "emission_rate": 0.181
                 },
                 "id": "MT_natural_gas_fired_combustion_turbine_1",
                 "edges": {
@@ -1145,13 +1145,13 @@
                         },
                         "min_capacity": 0,
                         "commodity": "Electricity",
-                        "fixed_om_cost": 13314,
+                        "fixed_om_cost": 13.314,
                         "uc": true,
                         "ramp_up_fraction": 3.78,
-                        "startup_cost": 119,
+                        "startup_cost": 0.119,
                         "end_vertex": "elec_MT",
                         "variable_om_cost": 0,
-                        "startup_fuel_consumption": 1.025748745,
+                        "startup_fuel_consumption": 1.026,
                         "min_down_time": 1,
                         "capacity_size": 48.1,
                         "wacc": 0,
@@ -1171,8 +1171,8 @@
             {
                 "transforms": {
                     "timedata": "NaturalGas",
-                    "fuel_consumption": 2.7372837937999996,
-                    "emission_rate": 0.181048235160161
+                    "fuel_consumption": 2.737,
+                    "emission_rate": 0.181
                 },
                 "id": "MT_other_peaker_1",
                 "edges": {
@@ -1200,7 +1200,7 @@
                         "fixed_om_cost": 0,
                         "uc": true,
                         "ramp_up_fraction": 3.78,
-                        "startup_cost": 87,
+                        "startup_cost": 0.087,
                         "end_vertex": "elec_MT",
                         "variable_om_cost": 0,
                         "startup_fuel_consumption": 0,
@@ -1223,8 +1223,8 @@
             {
                 "transforms": {
                     "timedata": "Coal",
-                    "fuel_consumption": 3.0391469958999995,
-                    "emission_rate": 0.32592776898791137
+                    "fuel_consumption": 3.039,
+                    "emission_rate": 0.326
                 },
                 "id": "NM_conventional_steam_coal_1",
                 "edges": {
@@ -1249,13 +1249,13 @@
                         },
                         "min_capacity": 0,
                         "commodity": "Electricity",
-                        "fixed_om_cost": 64405.27579164003,
+                        "fixed_om_cost": 64.40527579164004,
                         "uc": true,
                         "ramp_up_fraction": 0.57,
-                        "startup_cost": 124,
+                        "startup_cost": 0.124,
                         "end_vertex": "elec_NM",
-                        "variable_om_cost": 1.88,
-                        "startup_fuel_consumption": 4.835672655,
+                        "variable_om_cost": 0.002,
+                        "startup_fuel_consumption": 4.836,
                         "min_down_time": 24,
                         "capacity_size": 1,
                         "wacc": 0,
@@ -1275,8 +1275,8 @@
             {
                 "transforms": {
                     "timedata": "NaturalGas",
-                    "fuel_consumption": 2.1570030752,
-                    "emission_rate": 0.181048235160161
+                    "fuel_consumption": 2.157,
+                    "emission_rate": 0.181
                 },
                 "id": "NM_natural_gas_fired_combined_cycle_1",
                 "edges": {
@@ -1301,13 +1301,13 @@
                         },
                         "min_capacity": 0,
                         "commodity": "Electricity",
-                        "fixed_om_cost": 12121,
+                        "fixed_om_cost": 12.121,
                         "uc": true,
                         "ramp_up_fraction": 0.64,
-                        "startup_cost": 92,
+                        "startup_cost": 0.092,
                         "end_vertex": "elec_NM",
-                        "variable_om_cost": 3.94,
-                        "startup_fuel_consumption": 0.58614214,
+                        "variable_om_cost": 0.004,
+                        "startup_fuel_consumption": 0.586,
                         "min_down_time": 6,
                         "capacity_size": 312.47,
                         "wacc": 0,
@@ -1327,8 +1327,8 @@
             {
                 "transforms": {
                     "timedata": "NaturalGas",
-                    "fuel_consumption": 3.2706731412,
-                    "emission_rate": 0.181048235160161
+                    "fuel_consumption": 3.271,
+                    "emission_rate": 0.181
                 },
                 "id": "NM_natural_gas_fired_combustion_turbine_1",
                 "edges": {
@@ -1353,13 +1353,13 @@
                         },
                         "min_capacity": 0,
                         "commodity": "Electricity",
-                        "fixed_om_cost": 14090,
+                        "fixed_om_cost": 14.09,
                         "uc": true,
                         "ramp_up_fraction": 3.78,
-                        "startup_cost": 119,
+                        "startup_cost": 0.119,
                         "end_vertex": "elec_NM",
                         "variable_om_cost": 0,
-                        "startup_fuel_consumption": 1.025748745,
+                        "startup_fuel_consumption": 1.026,
                         "min_down_time": 1,
                         "capacity_size": 70.1,
                         "wacc": 0,
@@ -1379,8 +1379,8 @@
             {
                 "transforms": {
                     "timedata": "NaturalGas",
-                    "fuel_consumption": 4.6568993023,
-                    "emission_rate": 0.181048235160161
+                    "fuel_consumption": 4.657,
+                    "emission_rate": 0.181
                 },
                 "id": "NM_natural_gas_steam_turbine_1",
                 "edges": {
@@ -1405,13 +1405,13 @@
                         },
                         "min_capacity": 0,
                         "commodity": "Electricity",
-                        "fixed_om_cost": 51303,
+                        "fixed_om_cost": 51.303,
                         "uc": true,
                         "ramp_up_fraction": 0.57,
-                        "startup_cost": 87,
+                        "startup_cost": 0.087,
                         "end_vertex": "elec_NM",
-                        "variable_om_cost": 1.06,
-                        "startup_fuel_consumption": 4.015073659,
+                        "variable_om_cost": 0.001,
+                        "startup_fuel_consumption": 4.015,
                         "min_down_time": 24,
                         "capacity_size": 48.67,
                         "wacc": 0,
@@ -1431,8 +1431,8 @@
             {
                 "transforms": {
                     "timedata": "NaturalGas",
-                    "fuel_consumption": 4.0209350804,
-                    "emission_rate": 0.181048235160161
+                    "fuel_consumption": 4.021,
+                    "emission_rate": 0.181
                 },
                 "id": "NM_other_peaker_1",
                 "edges": {
@@ -1460,7 +1460,7 @@
                         "fixed_om_cost": 0,
                         "uc": true,
                         "ramp_up_fraction": 3.78,
-                        "startup_cost": 87,
+                        "startup_cost": 0.087,
                         "end_vertex": "elec_NM",
                         "variable_om_cost": 0,
                         "startup_fuel_consumption": 0,
@@ -1483,8 +1483,8 @@
             {
                 "transforms": {
                     "timedata": "Coal",
-                    "fuel_consumption": 3.4846150223,
-                    "emission_rate": 0.32592776898791137
+                    "fuel_consumption": 3.485,
+                    "emission_rate": 0.326
                 },
                 "id": "NV_conventional_steam_coal_1",
                 "edges": {
@@ -1509,13 +1509,13 @@
                         },
                         "min_capacity": 0,
                         "commodity": "Electricity",
-                        "fixed_om_cost": 70610.25146423292,
+                        "fixed_om_cost": 70.61025146423292,
                         "uc": true,
                         "ramp_up_fraction": 0.57,
-                        "startup_cost": 124,
+                        "startup_cost": 0.124,
                         "end_vertex": "elec_NV",
-                        "variable_om_cost": 1.88,
-                        "startup_fuel_consumption": 4.835672655,
+                        "variable_om_cost": 0.002,
+                        "startup_fuel_consumption": 4.836,
                         "min_down_time": 24,
                         "capacity_size": 247.07,
                         "wacc": 0,
@@ -1535,8 +1535,8 @@
             {
                 "transforms": {
                     "timedata": "NaturalGas",
-                    "fuel_consumption": 2.256647239,
-                    "emission_rate": 0.181048235160161
+                    "fuel_consumption": 2.257,
+                    "emission_rate": 0.181
                 },
                 "id": "NV_natural_gas_fired_combined_cycle_1",
                 "edges": {
@@ -1561,13 +1561,13 @@
                         },
                         "min_capacity": 0,
                         "commodity": "Electricity",
-                        "fixed_om_cost": 10795,
+                        "fixed_om_cost": 10.795,
                         "uc": true,
                         "ramp_up_fraction": 0.64,
-                        "startup_cost": 92,
+                        "startup_cost": 0.092,
                         "end_vertex": "elec_NV",
-                        "variable_om_cost": 3.65,
-                        "startup_fuel_consumption": 0.58614214,
+                        "variable_om_cost": 0.004,
+                        "startup_fuel_consumption": 0.586,
                         "min_down_time": 6,
                         "capacity_size": 383.2,
                         "wacc": 0,
@@ -1587,8 +1587,8 @@
             {
                 "transforms": {
                     "timedata": "NaturalGas",
-                    "fuel_consumption": 3.5256449721,
-                    "emission_rate": 0.181048235160161
+                    "fuel_consumption": 3.526,
+                    "emission_rate": 0.181
                 },
                 "id": "NV_natural_gas_fired_combustion_turbine_1",
                 "edges": {
@@ -1613,13 +1613,13 @@
                         },
                         "min_capacity": 0,
                         "commodity": "Electricity",
-                        "fixed_om_cost": 12275,
+                        "fixed_om_cost": 12.275,
                         "uc": true,
                         "ramp_up_fraction": 3.78,
-                        "startup_cost": 119,
+                        "startup_cost": 0.119,
                         "end_vertex": "elec_NV",
                         "variable_om_cost": 0,
-                        "startup_fuel_consumption": 1.025748745,
+                        "startup_fuel_consumption": 1.026,
                         "min_down_time": 1,
                         "capacity_size": 63.05,
                         "wacc": 0,
@@ -1639,8 +1639,8 @@
             {
                 "transforms": {
                     "timedata": "NaturalGas",
-                    "fuel_consumption": 3.7630325387999997,
-                    "emission_rate": 0.181048235160161
+                    "fuel_consumption": 3.763,
+                    "emission_rate": 0.181
                 },
                 "id": "NV_natural_gas_steam_turbine_1",
                 "edges": {
@@ -1665,13 +1665,13 @@
                         },
                         "min_capacity": 0,
                         "commodity": "Electricity",
-                        "fixed_om_cost": 51303,
+                        "fixed_om_cost": 51.303,
                         "uc": true,
                         "ramp_up_fraction": 0.57,
-                        "startup_cost": 87,
+                        "startup_cost": 0.087,
                         "end_vertex": "elec_NV",
-                        "variable_om_cost": 1.06,
-                        "startup_fuel_consumption": 4.015073659,
+                        "variable_om_cost": 0.001,
+                        "startup_fuel_consumption": 4.015,
                         "min_down_time": 24,
                         "capacity_size": 108,
                         "wacc": 0,
@@ -1691,8 +1691,8 @@
             {
                 "transforms": {
                     "timedata": "NaturalGas",
-                    "fuel_consumption": 2.4471434344999996,
-                    "emission_rate": 0.181048235160161
+                    "fuel_consumption": 2.447,
+                    "emission_rate": 0.181
                 },
                 "id": "NV_other_peaker_1",
                 "edges": {
@@ -1720,7 +1720,7 @@
                         "fixed_om_cost": 0,
                         "uc": true,
                         "ramp_up_fraction": 3.78,
-                        "startup_cost": 87,
+                        "startup_cost": 0.087,
                         "end_vertex": "elec_NV",
                         "variable_om_cost": 0,
                         "startup_fuel_consumption": 0,
@@ -1743,8 +1743,8 @@
             {
                 "transforms": {
                     "timedata": "NaturalGas",
-                    "fuel_consumption": 2.3416378493,
-                    "emission_rate": 0.181048235160161
+                    "fuel_consumption": 2.342,
+                    "emission_rate": 0.181
                 },
                 "id": "OR_natural_gas_fired_combined_cycle_1",
                 "edges": {
@@ -1769,13 +1769,13 @@
                         },
                         "min_capacity": 0,
                         "commodity": "Electricity",
-                        "fixed_om_cost": 13353,
+                        "fixed_om_cost": 13.353,
                         "uc": true,
                         "ramp_up_fraction": 0.64,
-                        "startup_cost": 92,
+                        "startup_cost": 0.092,
                         "end_vertex": "elec_OR",
-                        "variable_om_cost": 4.11,
-                        "startup_fuel_consumption": 0.58614214,
+                        "variable_om_cost": 0.004,
+                        "startup_fuel_consumption": 0.586,
                         "min_down_time": 6,
                         "capacity_size": 408.98,
                         "wacc": 0,
@@ -1795,8 +1795,8 @@
             {
                 "transforms": {
                     "timedata": "NaturalGas",
-                    "fuel_consumption": 3.4934071544,
-                    "emission_rate": 0.181048235160161
+                    "fuel_consumption": 3.493,
+                    "emission_rate": 0.181
                 },
                 "id": "OR_natural_gas_fired_combustion_turbine_1",
                 "edges": {
@@ -1821,13 +1821,13 @@
                         },
                         "min_capacity": 0,
                         "commodity": "Electricity",
-                        "fixed_om_cost": 13741,
+                        "fixed_om_cost": 13.741,
                         "uc": true,
                         "ramp_up_fraction": 3.78,
-                        "startup_cost": 119,
+                        "startup_cost": 0.119,
                         "end_vertex": "elec_OR",
                         "variable_om_cost": 0,
-                        "startup_fuel_consumption": 1.025748745,
+                        "startup_fuel_consumption": 1.026,
                         "min_down_time": 1,
                         "capacity_size": 27.84,
                         "wacc": 0,
@@ -1847,8 +1847,8 @@
             {
                 "transforms": {
                     "timedata": "NaturalGas",
-                    "fuel_consumption": 2.5233419127,
-                    "emission_rate": 0.181048235160161
+                    "fuel_consumption": 2.523,
+                    "emission_rate": 0.181
                 },
                 "id": "OR_other_peaker_1",
                 "edges": {
@@ -1876,7 +1876,7 @@
                         "fixed_om_cost": 0,
                         "uc": true,
                         "ramp_up_fraction": 3.78,
-                        "startup_cost": 87,
+                        "startup_cost": 0.087,
                         "end_vertex": "elec_OR",
                         "variable_om_cost": 0,
                         "startup_fuel_consumption": 0,
@@ -1899,8 +1899,8 @@
             {
                 "transforms": {
                     "timedata": "Coal",
-                    "fuel_consumption": 3.077246235,
-                    "emission_rate": 0.32592776898791137
+                    "fuel_consumption": 3.077,
+                    "emission_rate": 0.326
                 },
                 "id": "UT_conventional_steam_coal_1",
                 "edges": {
@@ -1925,13 +1925,13 @@
                         },
                         "min_capacity": 0,
                         "commodity": "Electricity",
-                        "fixed_om_cost": 67947.26531124869,
+                        "fixed_om_cost": 67.94726531124869,
                         "uc": true,
                         "ramp_up_fraction": 0.57,
-                        "startup_cost": 124,
+                        "startup_cost": 0.124,
                         "end_vertex": "elec_UT",
-                        "variable_om_cost": 1.88,
-                        "startup_fuel_consumption": 4.835672655,
+                        "variable_om_cost": 0.002,
+                        "startup_fuel_consumption": 4.836,
                         "min_down_time": 24,
                         "capacity_size": 397.29,
                         "wacc": 0,
@@ -1951,8 +1951,8 @@
             {
                 "transforms": {
                     "timedata": "NaturalGas",
-                    "fuel_consumption": 2.2009637357,
-                    "emission_rate": 0.181048235160161
+                    "fuel_consumption": 2.201,
+                    "emission_rate": 0.181
                 },
                 "id": "UT_natural_gas_fired_combined_cycle_1",
                 "edges": {
@@ -1977,13 +1977,13 @@
                         },
                         "min_capacity": 0,
                         "commodity": "Electricity",
-                        "fixed_om_cost": 11896,
+                        "fixed_om_cost": 11.896,
                         "uc": true,
                         "ramp_up_fraction": 0.64,
-                        "startup_cost": 92,
+                        "startup_cost": 0.092,
                         "end_vertex": "elec_UT",
-                        "variable_om_cost": 3.65,
-                        "startup_fuel_consumption": 0.58614214,
+                        "variable_om_cost": 0.004,
+                        "startup_fuel_consumption": 0.586,
                         "min_down_time": 6,
                         "capacity_size": 476.35,
                         "wacc": 0,
@@ -2003,8 +2003,8 @@
             {
                 "transforms": {
                     "timedata": "NaturalGas",
-                    "fuel_consumption": 3.2355046128,
-                    "emission_rate": 0.181048235160161
+                    "fuel_consumption": 3.236,
+                    "emission_rate": 0.181
                 },
                 "id": "UT_natural_gas_fired_combustion_turbine_1",
                 "edges": {
@@ -2029,13 +2029,13 @@
                         },
                         "min_capacity": 0,
                         "commodity": "Electricity",
-                        "fixed_om_cost": 14472,
+                        "fixed_om_cost": 14.472,
                         "uc": true,
                         "ramp_up_fraction": 3.78,
-                        "startup_cost": 119,
+                        "startup_cost": 0.119,
                         "end_vertex": "elec_UT",
                         "variable_om_cost": 0,
-                        "startup_fuel_consumption": 1.025748745,
+                        "startup_fuel_consumption": 1.026,
                         "min_down_time": 1,
                         "capacity_size": 22.63,
                         "wacc": 0,
@@ -2055,8 +2055,8 @@
             {
                 "transforms": {
                     "timedata": "NaturalGas",
-                    "fuel_consumption": 4.8034348373,
-                    "emission_rate": 0.181048235160161
+                    "fuel_consumption": 4.803,
+                    "emission_rate": 0.181
                 },
                 "id": "UT_natural_gas_steam_turbine_1",
                 "edges": {
@@ -2081,13 +2081,13 @@
                         },
                         "min_capacity": 0,
                         "commodity": "Electricity",
-                        "fixed_om_cost": 51303,
+                        "fixed_om_cost": 51.303,
                         "uc": true,
                         "ramp_up_fraction": 0.57,
-                        "startup_cost": 87,
+                        "startup_cost": 0.087,
                         "end_vertex": "elec_UT",
-                        "variable_om_cost": 1.06,
-                        "startup_fuel_consumption": 4.015073659,
+                        "variable_om_cost": 0.001,
+                        "startup_fuel_consumption": 4.015,
                         "min_down_time": 24,
                         "capacity_size": 1,
                         "wacc": 0,
@@ -2107,8 +2107,8 @@
             {
                 "transforms": {
                     "timedata": "NaturalGas",
-                    "fuel_consumption": 2.8955421716000003,
-                    "emission_rate": 0.181048235160161
+                    "fuel_consumption": 2.896,
+                    "emission_rate": 0.181
                 },
                 "id": "UT_other_peaker_1",
                 "edges": {
@@ -2136,7 +2136,7 @@
                         "fixed_om_cost": 0,
                         "uc": true,
                         "ramp_up_fraction": 3.78,
-                        "startup_cost": 87,
+                        "startup_cost": 0.087,
                         "end_vertex": "elec_UT",
                         "variable_om_cost": 0,
                         "startup_fuel_consumption": 0,
@@ -2159,8 +2159,8 @@
             {
                 "transforms": {
                     "timedata": "Coal",
-                    "fuel_consumption": 3.3234259338,
-                    "emission_rate": 0.32592776898791137
+                    "fuel_consumption": 3.323,
+                    "emission_rate": 0.326
                 },
                 "id": "WA_conventional_steam_coal_1",
                 "edges": {
@@ -2185,13 +2185,13 @@
                         },
                         "min_capacity": 0,
                         "commodity": "Electricity",
-                        "fixed_om_cost": 69747.25458758509,
+                        "fixed_om_cost": 69.74725458758509,
                         "uc": true,
                         "ramp_up_fraction": 0.57,
-                        "startup_cost": 124,
+                        "startup_cost": 0.124,
                         "end_vertex": "elec_WA",
-                        "variable_om_cost": 1.88,
-                        "startup_fuel_consumption": 4.835672655,
+                        "variable_om_cost": 0.002,
+                        "startup_fuel_consumption": 4.836,
                         "min_down_time": 24,
                         "capacity_size": 1,
                         "wacc": 0,
@@ -2211,8 +2211,8 @@
             {
                 "transforms": {
                     "timedata": "NaturalGas",
-                    "fuel_consumption": 2.256647239,
-                    "emission_rate": 0.181048235160161
+                    "fuel_consumption": 2.257,
+                    "emission_rate": 0.181
                 },
                 "id": "WA_natural_gas_fired_combined_cycle_1",
                 "edges": {
@@ -2237,13 +2237,13 @@
                         },
                         "min_capacity": 0,
                         "commodity": "Electricity",
-                        "fixed_om_cost": 14599,
+                        "fixed_om_cost": 14.599,
                         "uc": true,
                         "ramp_up_fraction": 0.64,
-                        "startup_cost": 92,
+                        "startup_cost": 0.092,
                         "end_vertex": "elec_WA",
-                        "variable_om_cost": 4.28,
-                        "startup_fuel_consumption": 0.58614214,
+                        "variable_om_cost": 0.004,
+                        "startup_fuel_consumption": 0.586,
                         "min_down_time": 6,
                         "capacity_size": 306.42,
                         "wacc": 0,
@@ -2263,8 +2263,8 @@
             {
                 "transforms": {
                     "timedata": "NaturalGas",
-                    "fuel_consumption": 4.3110754397,
-                    "emission_rate": 0.181048235160161
+                    "fuel_consumption": 4.311,
+                    "emission_rate": 0.181
                 },
                 "id": "WA_natural_gas_fired_combustion_turbine_1",
                 "edges": {
@@ -2289,13 +2289,13 @@
                         },
                         "min_capacity": 0,
                         "commodity": "Electricity",
-                        "fixed_om_cost": 12441,
+                        "fixed_om_cost": 12.441,
                         "uc": true,
                         "ramp_up_fraction": 3.78,
-                        "startup_cost": 119,
+                        "startup_cost": 0.119,
                         "end_vertex": "elec_WA",
                         "variable_om_cost": 0,
-                        "startup_fuel_consumption": 1.025748745,
+                        "startup_fuel_consumption": 1.026,
                         "min_down_time": 1,
                         "capacity_size": 75.6,
                         "wacc": 0,
@@ -2315,8 +2315,8 @@
             {
                 "transforms": {
                     "timedata": "NaturalGas",
-                    "fuel_consumption": 2.6991845547,
-                    "emission_rate": 0.181048235160161
+                    "fuel_consumption": 2.699,
+                    "emission_rate": 0.181
                 },
                 "id": "WA_natural_gas_steam_turbine_1",
                 "edges": {
@@ -2341,13 +2341,13 @@
                         },
                         "min_capacity": 0,
                         "commodity": "Electricity",
-                        "fixed_om_cost": 51303,
+                        "fixed_om_cost": 51.303,
                         "uc": true,
                         "ramp_up_fraction": 0.57,
-                        "startup_cost": 87,
+                        "startup_cost": 0.087,
                         "end_vertex": "elec_WA",
-                        "variable_om_cost": 1.06,
-                        "startup_fuel_consumption": 4.015073659,
+                        "variable_om_cost": 0.001,
+                        "startup_fuel_consumption": 4.015,
                         "min_down_time": 24,
                         "capacity_size": 1,
                         "wacc": 0,
@@ -2367,7 +2367,7 @@
             {
                 "transforms": {
                     "timedata": "Uranium",
-                    "fuel_consumption": 3.0625926814999995,
+                    "fuel_consumption": 3.063,
                     "emission_rate": 0
                 },
                 "id": "WA_nuclear_1",
@@ -2394,10 +2394,10 @@
                         },
                         "min_capacity": 0,
                         "commodity": "Electricity",
-                        "fixed_om_cost": 275171,
+                        "fixed_om_cost": 275.171,
                         "uc": true,
                         "ramp_up_fraction": 0.25,
-                        "startup_cost": 248,
+                        "startup_cost": 0.248,
                         "end_vertex": "elec_WA",
                         "variable_om_cost": 0,
                         "startup_fuel_consumption": 0,
@@ -2420,8 +2420,8 @@
             {
                 "transforms": {
                     "timedata": "NaturalGas",
-                    "fuel_consumption": 2.7871058757,
-                    "emission_rate": 0.181048235160161
+                    "fuel_consumption": 2.787,
+                    "emission_rate": 0.181
                 },
                 "id": "WA_other_peaker_1",
                 "edges": {
@@ -2449,7 +2449,7 @@
                         "fixed_om_cost": 0,
                         "uc": true,
                         "ramp_up_fraction": 3.78,
-                        "startup_cost": 87,
+                        "startup_cost": 0.087,
                         "end_vertex": "elec_WA",
                         "variable_om_cost": 0,
                         "startup_fuel_consumption": 0,
@@ -2472,8 +2472,8 @@
             {
                 "transforms": {
                     "timedata": "Coal",
-                    "fuel_consumption": 3.2061975057999996,
-                    "emission_rate": 0.32592776898791137
+                    "fuel_consumption": 3.206,
+                    "emission_rate": 0.326
                 },
                 "id": "WY_conventional_steam_coal_1",
                 "edges": {
@@ -2498,13 +2498,13 @@
                         },
                         "min_capacity": 0,
                         "commodity": "Electricity",
-                        "fixed_om_cost": 69464.2556287754,
+                        "fixed_om_cost": 69.4642556287754,
                         "uc": true,
                         "ramp_up_fraction": 0.57,
-                        "startup_cost": 124,
+                        "startup_cost": 0.124,
                         "end_vertex": "elec_WY",
-                        "variable_om_cost": 1.88,
-                        "startup_fuel_consumption": 4.835672655,
+                        "variable_om_cost": 0.002,
+                        "startup_fuel_consumption": 4.836,
                         "min_down_time": 24,
                         "capacity_size": 322.83,
                         "wacc": 0,
@@ -2524,8 +2524,8 @@
             {
                 "transforms": {
                     "timedata": "NaturalGas",
-                    "fuel_consumption": 2.2419936855,
-                    "emission_rate": 0.181048235160161
+                    "fuel_consumption": 2.242,
+                    "emission_rate": 0.181
                 },
                 "id": "WY_natural_gas_fired_combined_cycle_1",
                 "edges": {
@@ -2550,13 +2550,13 @@
                         },
                         "min_capacity": 0,
                         "commodity": "Electricity",
-                        "fixed_om_cost": 16492,
+                        "fixed_om_cost": 16.492,
                         "uc": true,
                         "ramp_up_fraction": 0.64,
-                        "startup_cost": 92,
+                        "startup_cost": 0.092,
                         "end_vertex": "elec_WY",
-                        "variable_om_cost": 4.55,
-                        "startup_fuel_consumption": 0.58614214,
+                        "variable_om_cost": 0.005,
+                        "startup_fuel_consumption": 0.586,
                         "min_down_time": 6,
                         "capacity_size": 94,
                         "wacc": 0,
@@ -2576,8 +2576,8 @@
             {
                 "transforms": {
                     "timedata": "NaturalGas",
-                    "fuel_consumption": 3.6399426893999998,
-                    "emission_rate": 0.181048235160161
+                    "fuel_consumption": 3.64,
+                    "emission_rate": 0.181
                 },
                 "id": "WY_natural_gas_fired_combustion_turbine_1",
                 "edges": {
@@ -2602,13 +2602,13 @@
                         },
                         "min_capacity": 0,
                         "commodity": "Electricity",
-                        "fixed_om_cost": 15795,
+                        "fixed_om_cost": 15.795,
                         "uc": true,
                         "ramp_up_fraction": 3.78,
-                        "startup_cost": 119,
+                        "startup_cost": 0.119,
                         "end_vertex": "elec_WY",
                         "variable_om_cost": 0,
-                        "startup_fuel_consumption": 1.025748745,
+                        "startup_fuel_consumption": 1.026,
                         "min_down_time": 1,
                         "capacity_size": 14.54,
                         "wacc": 0,
@@ -2628,8 +2628,8 @@
             {
                 "transforms": {
                     "timedata": "NaturalGas",
-                    "fuel_consumption": 3.2677424305,
-                    "emission_rate": 0.181048235160161
+                    "fuel_consumption": 3.268,
+                    "emission_rate": 0.181
                 },
                 "id": "WY_natural_gas_steam_turbine_1",
                 "edges": {
@@ -2654,13 +2654,13 @@
                         },
                         "min_capacity": 0,
                         "commodity": "Electricity",
-                        "fixed_om_cost": 51303,
+                        "fixed_om_cost": 51.303,
                         "uc": true,
                         "ramp_up_fraction": 0.57,
-                        "startup_cost": 87,
+                        "startup_cost": 0.087,
                         "end_vertex": "elec_WY",
-                        "variable_om_cost": 1.06,
-                        "startup_fuel_consumption": 4.015073659,
+                        "variable_om_cost": 0.001,
+                        "startup_fuel_consumption": 4.015,
                         "min_down_time": 24,
                         "capacity_size": 247,
                         "wacc": 0,
@@ -2680,8 +2680,8 @@
             {
                 "transforms": {
                     "timedata": "NaturalGas",
-                    "fuel_consumption": 4.1528170618999996,
-                    "emission_rate": 0.181048235160161
+                    "fuel_consumption": 4.153,
+                    "emission_rate": 0.181
                 },
                 "id": "WY_other_peaker_1",
                 "edges": {
@@ -2709,7 +2709,7 @@
                         "fixed_om_cost": 0,
                         "uc": true,
                         "ramp_up_fraction": 3.78,
-                        "startup_cost": 87,
+                        "startup_cost": 0.087,
                         "end_vertex": "elec_WY",
                         "variable_om_cost": 0,
                         "startup_fuel_consumption": 0,
@@ -2732,8 +2732,8 @@
             {
                 "transforms": {
                     "timedata": "NaturalGas",
-                    "fuel_consumption": 1.8053177912,
-                    "emission_rate": 0.181048235160161
+                    "fuel_consumption": 1.805,
+                    "emission_rate": 0.181
                 },
                 "id": "AZ_naturalgas_2on1_combined_cycle_fframe_moderate_0",
                 "edges": {
@@ -2760,8 +2760,8 @@
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_AZ",
                         "cadr": 1,
-                        "variable_om_cost": 1.570062893081761,
-                        "startup_fuel_consumption": 0.58614214,
+                        "variable_om_cost": 0.002,
+                        "startup_fuel_consumption": 0.586,
                         "min_down_time": 6,
                         "capacity_size": 500,
                         "wacc": 0.054,
@@ -2773,7 +2773,7 @@
                         "af_cost_perc": 0.01,
                         "ramp_down_fraction": 0.64,
                         "de_wacc": 0.078,
-                        "annualized_investment_cost": 68798.08304088561,
+                        "annualized_investment_cost": 68.79808304088561,
                         "learning_type": "none",
                         "min_up_time": 6,
                         "max_capacity": -1,
@@ -2790,7 +2790,7 @@
                             "MinUpTimeConstraint": true
                         },
                         "min_capacity": 0,
-                        "fixed_om_cost": 23349.94111488043,
+                        "fixed_om_cost": 23.34994111488043,
                         "uc": true,
                         "max_cumul_capacity": -1,
                         "ramp_up_fraction": 0.64,
@@ -2809,8 +2809,8 @@
             {
                 "transforms": {
                     "timedata": "NaturalGas",
-                    "fuel_consumption": 2.8486508004,
-                    "emission_rate": 0.181048235160161
+                    "fuel_consumption": 2.849,
+                    "emission_rate": 0.181
                 },
                 "id": "AZ_naturalgas_combustion_turbine_fframe_moderate_0",
                 "edges": {
@@ -2837,8 +2837,8 @@
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_AZ",
                         "cadr": 1,
-                        "variable_om_cost": 6.14,
-                        "startup_fuel_consumption": 1.025748745,
+                        "variable_om_cost": 0.006,
+                        "startup_fuel_consumption": 1.026,
                         "min_down_time": 1,
                         "capacity_size": 100,
                         "wacc": 0.054,
@@ -2850,7 +2850,7 @@
                         "af_cost_perc": 0,
                         "ramp_down_fraction": 3.78,
                         "de_wacc": 0.078,
-                        "annualized_investment_cost": 58337.04726948985,
+                        "annualized_investment_cost": 58.33704726948985,
                         "learning_type": "none",
                         "min_up_time": 1,
                         "max_capacity": -1,
@@ -2867,7 +2867,7 @@
                             "MinUpTimeConstraint": true
                         },
                         "min_capacity": 0,
-                        "fixed_om_cost": 19279.595812958436,
+                        "fixed_om_cost": 19.279595812958437,
                         "uc": true,
                         "max_cumul_capacity": -1,
                         "ramp_up_fraction": 3.78,
@@ -2886,7 +2886,7 @@
             {
                 "transforms": {
                     "timedata": "Uranium",
-                    "fuel_consumption": 3.077246235,
+                    "fuel_consumption": 3.077,
                     "emission_rate": 0
                 },
                 "id": "AZ_nuclear_nuclear__large_moderate_0",
@@ -2914,7 +2914,7 @@
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_AZ",
                         "cadr": 0.1,
-                        "variable_om_cost": 2.48,
+                        "variable_om_cost": 0.002,
                         "startup_fuel_consumption": 0,
                         "min_down_time": 24,
                         "capacity_size": 1000,
@@ -2927,7 +2927,7 @@
                         "af_cost_perc": 0.03,
                         "ramp_down_fraction": 0.25,
                         "de_wacc": 0.078,
-                        "annualized_investment_cost": 361774.6415225041,
+                        "annualized_investment_cost": 361.7746415225041,
                         "learning_type": "nuclear",
                         "min_up_time": 24,
                         "max_capacity": -1,
@@ -2944,11 +2944,11 @@
                             "MinUpTimeConstraint": true
                         },
                         "min_capacity": 0,
-                        "fixed_om_cost": 154762,
+                        "fixed_om_cost": 154.762,
                         "uc": true,
                         "max_cumul_capacity": 20000,
                         "ramp_up_fraction": 0.25,
-                        "startup_cost": 285,
+                        "startup_cost": 0.285,
                         "cc_cap_recovery": 25,
                         "de_cap_recovery": 5,
                         "cumulative_external_capacity": 0,
@@ -2963,8 +2963,8 @@
             {
                 "transforms": {
                     "timedata": "NaturalGas",
-                    "fuel_consumption": 1.8053177912,
-                    "emission_rate": 0.181048235160161
+                    "fuel_consumption": 1.805,
+                    "emission_rate": 0.181
                 },
                 "id": "CA_naturalgas_2on1_combined_cycle_fframe_moderate_0",
                 "edges": {
@@ -2991,8 +2991,8 @@
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_CA",
                         "cadr": 1,
-                        "variable_om_cost": 1.570062893081761,
-                        "startup_fuel_consumption": 0.58614214,
+                        "variable_om_cost": 0.002,
+                        "startup_fuel_consumption": 0.586,
                         "min_down_time": 6,
                         "capacity_size": 500,
                         "wacc": 0.054,
@@ -3004,7 +3004,7 @@
                         "af_cost_perc": 0.01,
                         "ramp_down_fraction": 0.64,
                         "de_wacc": 0.078,
-                        "annualized_investment_cost": 98566.68655527453,
+                        "annualized_investment_cost": 98.56668655527453,
                         "learning_type": "none",
                         "min_up_time": 6,
                         "max_capacity": -1,
@@ -3021,7 +3021,7 @@
                             "MinUpTimeConstraint": true
                         },
                         "min_capacity": 0,
-                        "fixed_om_cost": 23349.94111488043,
+                        "fixed_om_cost": 23.34994111488043,
                         "uc": true,
                         "max_cumul_capacity": -1,
                         "ramp_up_fraction": 0.64,
@@ -3040,8 +3040,8 @@
             {
                 "transforms": {
                     "timedata": "NaturalGas",
-                    "fuel_consumption": 2.8486508004,
-                    "emission_rate": 0.181048235160161
+                    "fuel_consumption": 2.849,
+                    "emission_rate": 0.181
                 },
                 "id": "CA_naturalgas_combustion_turbine_fframe_moderate_0",
                 "edges": {
@@ -3068,8 +3068,8 @@
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_CA",
                         "cadr": 1,
-                        "variable_om_cost": 6.14,
-                        "startup_fuel_consumption": 1.025748745,
+                        "variable_om_cost": 0.006,
+                        "startup_fuel_consumption": 1.026,
                         "min_down_time": 1,
                         "capacity_size": 100,
                         "wacc": 0.054,
@@ -3081,7 +3081,7 @@
                         "af_cost_perc": 0,
                         "ramp_down_fraction": 3.78,
                         "de_wacc": 0.078,
-                        "annualized_investment_cost": 79354.22267776434,
+                        "annualized_investment_cost": 79.35422267776434,
                         "learning_type": "none",
                         "min_up_time": 1,
                         "max_capacity": -1,
@@ -3098,7 +3098,7 @@
                             "MinUpTimeConstraint": true
                         },
                         "min_capacity": 0,
-                        "fixed_om_cost": 19279.595812958436,
+                        "fixed_om_cost": 19.279595812958437,
                         "uc": true,
                         "max_cumul_capacity": -1,
                         "ramp_up_fraction": 3.78,
@@ -3117,7 +3117,7 @@
             {
                 "transforms": {
                     "timedata": "Uranium",
-                    "fuel_consumption": 3.077246235,
+                    "fuel_consumption": 3.077,
                     "emission_rate": 0
                 },
                 "id": "CA_nuclear_nuclear__large_moderate_0",
@@ -3145,7 +3145,7 @@
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_CA",
                         "cadr": 0.1,
-                        "variable_om_cost": 2.48,
+                        "variable_om_cost": 0.002,
                         "startup_fuel_consumption": 0,
                         "min_down_time": 24,
                         "capacity_size": 1000,
@@ -3158,7 +3158,7 @@
                         "af_cost_perc": 0.03,
                         "ramp_down_fraction": 0.25,
                         "de_wacc": 0.078,
-                        "annualized_investment_cost": 428580.3912349168,
+                        "annualized_investment_cost": 428.5803912349168,
                         "learning_type": "nuclear",
                         "min_up_time": 24,
                         "max_capacity": -1,
@@ -3175,11 +3175,11 @@
                             "MinUpTimeConstraint": true
                         },
                         "min_capacity": 0,
-                        "fixed_om_cost": 154762,
+                        "fixed_om_cost": 154.762,
                         "uc": true,
                         "max_cumul_capacity": 20000,
                         "ramp_up_fraction": 0.25,
-                        "startup_cost": 285,
+                        "startup_cost": 0.285,
                         "cc_cap_recovery": 25,
                         "de_cap_recovery": 5,
                         "cumulative_external_capacity": 0,
@@ -3194,8 +3194,8 @@
             {
                 "transforms": {
                     "timedata": "NaturalGas",
-                    "fuel_consumption": 1.8053177912,
-                    "emission_rate": 0.181048235160161
+                    "fuel_consumption": 1.805,
+                    "emission_rate": 0.181
                 },
                 "id": "CO_naturalgas_2on1_combined_cycle_fframe_moderate_0",
                 "edges": {
@@ -3222,8 +3222,8 @@
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_CO",
                         "cadr": 1,
-                        "variable_om_cost": 1.570062893081761,
-                        "startup_fuel_consumption": 0.58614214,
+                        "variable_om_cost": 0.002,
+                        "startup_fuel_consumption": 0.586,
                         "min_down_time": 6,
                         "capacity_size": 500,
                         "wacc": 0.054,
@@ -3235,7 +3235,7 @@
                         "af_cost_perc": 0.01,
                         "ramp_down_fraction": 0.64,
                         "de_wacc": 0.078,
-                        "annualized_investment_cost": 64779.73033452518,
+                        "annualized_investment_cost": 64.77973033452518,
                         "learning_type": "none",
                         "min_up_time": 6,
                         "max_capacity": -1,
@@ -3252,7 +3252,7 @@
                             "MinUpTimeConstraint": true
                         },
                         "min_capacity": 0,
-                        "fixed_om_cost": 23349.94111488043,
+                        "fixed_om_cost": 23.34994111488043,
                         "uc": true,
                         "max_cumul_capacity": -1,
                         "ramp_up_fraction": 0.64,
@@ -3271,8 +3271,8 @@
             {
                 "transforms": {
                     "timedata": "NaturalGas",
-                    "fuel_consumption": 2.8486508004,
-                    "emission_rate": 0.181048235160161
+                    "fuel_consumption": 2.849,
+                    "emission_rate": 0.181
                 },
                 "id": "CO_naturalgas_combustion_turbine_fframe_moderate_0",
                 "edges": {
@@ -3299,8 +3299,8 @@
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_CO",
                         "cadr": 1,
-                        "variable_om_cost": 6.14,
-                        "startup_fuel_consumption": 1.025748745,
+                        "variable_om_cost": 0.006,
+                        "startup_fuel_consumption": 1.026,
                         "min_down_time": 1,
                         "capacity_size": 100,
                         "wacc": 0.054,
@@ -3312,7 +3312,7 @@
                         "af_cost_perc": 0,
                         "ramp_down_fraction": 3.78,
                         "de_wacc": 0.078,
-                        "annualized_investment_cost": 56470.85768823642,
+                        "annualized_investment_cost": 56.47085768823642,
                         "learning_type": "none",
                         "min_up_time": 1,
                         "max_capacity": -1,
@@ -3329,7 +3329,7 @@
                             "MinUpTimeConstraint": true
                         },
                         "min_capacity": 0,
-                        "fixed_om_cost": 19279.595812958436,
+                        "fixed_om_cost": 19.279595812958437,
                         "uc": true,
                         "max_cumul_capacity": -1,
                         "ramp_up_fraction": 3.78,
@@ -3348,7 +3348,7 @@
             {
                 "transforms": {
                     "timedata": "Uranium",
-                    "fuel_consumption": 3.077246235,
+                    "fuel_consumption": 3.077,
                     "emission_rate": 0
                 },
                 "id": "CO_nuclear_nuclear__large_moderate_0",
@@ -3376,7 +3376,7 @@
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_CO",
                         "cadr": 0.1,
-                        "variable_om_cost": 2.48,
+                        "variable_om_cost": 0.002,
                         "startup_fuel_consumption": 0,
                         "min_down_time": 24,
                         "capacity_size": 1000,
@@ -3389,7 +3389,7 @@
                         "af_cost_perc": 0.03,
                         "ramp_down_fraction": 0.25,
                         "de_wacc": 0.078,
-                        "annualized_investment_cost": 350440.6979063676,
+                        "annualized_investment_cost": 350.4406979063676,
                         "learning_type": "nuclear",
                         "min_up_time": 24,
                         "max_capacity": -1,
@@ -3406,11 +3406,11 @@
                             "MinUpTimeConstraint": true
                         },
                         "min_capacity": 0,
-                        "fixed_om_cost": 154762,
+                        "fixed_om_cost": 154.762,
                         "uc": true,
                         "max_cumul_capacity": 20000,
                         "ramp_up_fraction": 0.25,
-                        "startup_cost": 285,
+                        "startup_cost": 0.285,
                         "cc_cap_recovery": 25,
                         "de_cap_recovery": 5,
                         "cumulative_external_capacity": 0,
@@ -3425,8 +3425,8 @@
             {
                 "transforms": {
                     "timedata": "NaturalGas",
-                    "fuel_consumption": 1.8053177912,
-                    "emission_rate": 0.181048235160161
+                    "fuel_consumption": 1.805,
+                    "emission_rate": 0.181
                 },
                 "id": "ID_naturalgas_2on1_combined_cycle_fframe_moderate_0",
                 "edges": {
@@ -3453,8 +3453,8 @@
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_ID",
                         "cadr": 1,
-                        "variable_om_cost": 1.570062893081761,
-                        "startup_fuel_consumption": 0.58614214,
+                        "variable_om_cost": 0.002,
+                        "startup_fuel_consumption": 0.586,
                         "min_down_time": 6,
                         "capacity_size": 500,
                         "wacc": 0.054,
@@ -3466,7 +3466,7 @@
                         "af_cost_perc": 0.01,
                         "ramp_down_fraction": 0.64,
                         "de_wacc": 0.078,
-                        "annualized_investment_cost": 72734.4244076213,
+                        "annualized_investment_cost": 72.7344244076213,
                         "learning_type": "none",
                         "min_up_time": 6,
                         "max_capacity": -1,
@@ -3483,7 +3483,7 @@
                             "MinUpTimeConstraint": true
                         },
                         "min_capacity": 0,
-                        "fixed_om_cost": 23349.94111488043,
+                        "fixed_om_cost": 23.34994111488043,
                         "uc": true,
                         "max_cumul_capacity": -1,
                         "ramp_up_fraction": 0.64,
@@ -3502,8 +3502,8 @@
             {
                 "transforms": {
                     "timedata": "NaturalGas",
-                    "fuel_consumption": 2.8486508004,
-                    "emission_rate": 0.181048235160161
+                    "fuel_consumption": 2.849,
+                    "emission_rate": 0.181
                 },
                 "id": "ID_naturalgas_combustion_turbine_fframe_moderate_0",
                 "edges": {
@@ -3530,8 +3530,8 @@
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_ID",
                         "cadr": 1,
-                        "variable_om_cost": 6.14,
-                        "startup_fuel_consumption": 1.025748745,
+                        "variable_om_cost": 0.006,
+                        "startup_fuel_consumption": 1.026,
                         "min_down_time": 1,
                         "capacity_size": 100,
                         "wacc": 0.054,
@@ -3543,7 +3543,7 @@
                         "af_cost_perc": 0,
                         "ramp_down_fraction": 3.78,
                         "de_wacc": 0.078,
-                        "annualized_investment_cost": 64621.70596709379,
+                        "annualized_investment_cost": 64.62170596709379,
                         "learning_type": "none",
                         "min_up_time": 1,
                         "max_capacity": -1,
@@ -3560,7 +3560,7 @@
                             "MinUpTimeConstraint": true
                         },
                         "min_capacity": 0,
-                        "fixed_om_cost": 19279.595812958436,
+                        "fixed_om_cost": 19.279595812958437,
                         "uc": true,
                         "max_cumul_capacity": -1,
                         "ramp_up_fraction": 3.78,
@@ -3579,7 +3579,7 @@
             {
                 "transforms": {
                     "timedata": "Uranium",
-                    "fuel_consumption": 3.077246235,
+                    "fuel_consumption": 3.077,
                     "emission_rate": 0
                 },
                 "id": "ID_nuclear_nuclear__large_moderate_0",
@@ -3607,7 +3607,7 @@
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_ID",
                         "cadr": 0.1,
-                        "variable_om_cost": 2.48,
+                        "variable_om_cost": 0.002,
                         "startup_fuel_consumption": 0,
                         "min_down_time": 24,
                         "capacity_size": 1000,
@@ -3620,7 +3620,7 @@
                         "af_cost_perc": 0.03,
                         "ramp_down_fraction": 0.25,
                         "de_wacc": 0.078,
-                        "annualized_investment_cost": 391711.84701243875,
+                        "annualized_investment_cost": 391.71184701243874,
                         "learning_type": "nuclear",
                         "min_up_time": 24,
                         "max_capacity": -1,
@@ -3637,11 +3637,11 @@
                             "MinUpTimeConstraint": true
                         },
                         "min_capacity": 0,
-                        "fixed_om_cost": 154762,
+                        "fixed_om_cost": 154.762,
                         "uc": true,
                         "max_cumul_capacity": 20000,
                         "ramp_up_fraction": 0.25,
-                        "startup_cost": 285,
+                        "startup_cost": 0.285,
                         "cc_cap_recovery": 25,
                         "de_cap_recovery": 5,
                         "cumulative_external_capacity": 0,
@@ -3656,8 +3656,8 @@
             {
                 "transforms": {
                     "timedata": "NaturalGas",
-                    "fuel_consumption": 1.8053177912,
-                    "emission_rate": 0.181048235160161
+                    "fuel_consumption": 1.805,
+                    "emission_rate": 0.181
                 },
                 "id": "MT_naturalgas_2on1_combined_cycle_fframe_moderate_0",
                 "edges": {
@@ -3684,8 +3684,8 @@
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_MT",
                         "cadr": 1,
-                        "variable_om_cost": 1.570062893081761,
-                        "startup_fuel_consumption": 0.58614214,
+                        "variable_om_cost": 0.002,
+                        "startup_fuel_consumption": 0.586,
                         "min_down_time": 6,
                         "capacity_size": 500,
                         "wacc": 0.054,
@@ -3697,7 +3697,7 @@
                         "af_cost_perc": 0.01,
                         "ramp_down_fraction": 0.64,
                         "de_wacc": 0.078,
-                        "annualized_investment_cost": 80771.12982404977,
+                        "annualized_investment_cost": 80.77112982404977,
                         "learning_type": "none",
                         "min_up_time": 6,
                         "max_capacity": -1,
@@ -3714,7 +3714,7 @@
                             "MinUpTimeConstraint": true
                         },
                         "min_capacity": 0,
-                        "fixed_om_cost": 23349.94111488043,
+                        "fixed_om_cost": 23.34994111488043,
                         "uc": true,
                         "max_cumul_capacity": -1,
                         "ramp_up_fraction": 0.64,
@@ -3733,8 +3733,8 @@
             {
                 "transforms": {
                     "timedata": "NaturalGas",
-                    "fuel_consumption": 2.8486508004,
-                    "emission_rate": 0.181048235160161
+                    "fuel_consumption": 2.849,
+                    "emission_rate": 0.181
                 },
                 "id": "MT_naturalgas_combustion_turbine_fframe_moderate_0",
                 "edges": {
@@ -3761,8 +3761,8 @@
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_MT",
                         "cadr": 1,
-                        "variable_om_cost": 6.14,
-                        "startup_fuel_consumption": 1.025748745,
+                        "variable_om_cost": 0.006,
+                        "startup_fuel_consumption": 1.026,
                         "min_down_time": 1,
                         "capacity_size": 100,
                         "wacc": 0.054,
@@ -3774,7 +3774,7 @@
                         "af_cost_perc": 0,
                         "ramp_down_fraction": 3.78,
                         "de_wacc": 0.078,
-                        "annualized_investment_cost": 72381.49419187133,
+                        "annualized_investment_cost": 72.38149419187133,
                         "learning_type": "none",
                         "min_up_time": 1,
                         "max_capacity": -1,
@@ -3791,7 +3791,7 @@
                             "MinUpTimeConstraint": true
                         },
                         "min_capacity": 0,
-                        "fixed_om_cost": 19279.595812958436,
+                        "fixed_om_cost": 19.279595812958437,
                         "uc": true,
                         "max_cumul_capacity": -1,
                         "ramp_up_fraction": 3.78,
@@ -3810,7 +3810,7 @@
             {
                 "transforms": {
                     "timedata": "Uranium",
-                    "fuel_consumption": 3.077246235,
+                    "fuel_consumption": 3.077,
                     "emission_rate": 0
                 },
                 "id": "MT_nuclear_nuclear__large_moderate_0",
@@ -3838,7 +3838,7 @@
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_MT",
                         "cadr": 0.1,
-                        "variable_om_cost": 2.48,
+                        "variable_om_cost": 0.002,
                         "startup_fuel_consumption": 0,
                         "min_down_time": 24,
                         "capacity_size": 1000,
@@ -3851,7 +3851,7 @@
                         "af_cost_perc": 0.03,
                         "ramp_down_fraction": 0.25,
                         "de_wacc": 0.078,
-                        "annualized_investment_cost": 391109.7440873315,
+                        "annualized_investment_cost": 391.10974408733153,
                         "learning_type": "nuclear",
                         "min_up_time": 24,
                         "max_capacity": -1,
@@ -3868,11 +3868,11 @@
                             "MinUpTimeConstraint": true
                         },
                         "min_capacity": 0,
-                        "fixed_om_cost": 154762,
+                        "fixed_om_cost": 154.762,
                         "uc": true,
                         "max_cumul_capacity": 20000,
                         "ramp_up_fraction": 0.25,
-                        "startup_cost": 285,
+                        "startup_cost": 0.285,
                         "cc_cap_recovery": 25,
                         "de_cap_recovery": 5,
                         "cumulative_external_capacity": 0,
@@ -3887,8 +3887,8 @@
             {
                 "transforms": {
                     "timedata": "NaturalGas",
-                    "fuel_consumption": 1.8053177912,
-                    "emission_rate": 0.181048235160161
+                    "fuel_consumption": 1.805,
+                    "emission_rate": 0.181
                 },
                 "id": "NM_naturalgas_2on1_combined_cycle_fframe_moderate_0",
                 "edges": {
@@ -3915,8 +3915,8 @@
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_NM",
                         "cadr": 1,
-                        "variable_om_cost": 1.570062893081761,
-                        "startup_fuel_consumption": 0.58614214,
+                        "variable_om_cost": 0.002,
+                        "startup_fuel_consumption": 0.586,
                         "min_down_time": 6,
                         "capacity_size": 500,
                         "wacc": 0.054,
@@ -3928,7 +3928,7 @@
                         "af_cost_perc": 0.01,
                         "ramp_down_fraction": 0.64,
                         "de_wacc": 0.078,
-                        "annualized_investment_cost": 68798.08304088561,
+                        "annualized_investment_cost": 68.79808304088561,
                         "learning_type": "none",
                         "min_up_time": 6,
                         "max_capacity": -1,
@@ -3945,7 +3945,7 @@
                             "MinUpTimeConstraint": true
                         },
                         "min_capacity": 0,
-                        "fixed_om_cost": 23349.94111488043,
+                        "fixed_om_cost": 23.34994111488043,
                         "uc": true,
                         "max_cumul_capacity": -1,
                         "ramp_up_fraction": 0.64,
@@ -3964,8 +3964,8 @@
             {
                 "transforms": {
                     "timedata": "NaturalGas",
-                    "fuel_consumption": 2.8486508004,
-                    "emission_rate": 0.181048235160161
+                    "fuel_consumption": 2.849,
+                    "emission_rate": 0.181
                 },
                 "id": "NM_naturalgas_combustion_turbine_fframe_moderate_0",
                 "edges": {
@@ -3992,8 +3992,8 @@
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_NM",
                         "cadr": 1,
-                        "variable_om_cost": 6.14,
-                        "startup_fuel_consumption": 1.025748745,
+                        "variable_om_cost": 0.006,
+                        "startup_fuel_consumption": 1.026,
                         "min_down_time": 1,
                         "capacity_size": 100,
                         "wacc": 0.054,
@@ -4005,7 +4005,7 @@
                         "af_cost_perc": 0,
                         "ramp_down_fraction": 3.78,
                         "de_wacc": 0.078,
-                        "annualized_investment_cost": 58337.04726948985,
+                        "annualized_investment_cost": 58.33704726948985,
                         "learning_type": "none",
                         "min_up_time": 1,
                         "max_capacity": -1,
@@ -4022,7 +4022,7 @@
                             "MinUpTimeConstraint": true
                         },
                         "min_capacity": 0,
-                        "fixed_om_cost": 19279.595812958436,
+                        "fixed_om_cost": 19.279595812958437,
                         "uc": true,
                         "max_cumul_capacity": -1,
                         "ramp_up_fraction": 3.78,
@@ -4041,7 +4041,7 @@
             {
                 "transforms": {
                     "timedata": "Uranium",
-                    "fuel_consumption": 3.077246235,
+                    "fuel_consumption": 3.077,
                     "emission_rate": 0
                 },
                 "id": "NM_nuclear_nuclear__large_moderate_0",
@@ -4069,7 +4069,7 @@
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_NM",
                         "cadr": 0.1,
-                        "variable_om_cost": 2.48,
+                        "variable_om_cost": 0.002,
                         "startup_fuel_consumption": 0,
                         "min_down_time": 24,
                         "capacity_size": 1000,
@@ -4082,7 +4082,7 @@
                         "af_cost_perc": 0.03,
                         "ramp_down_fraction": 0.25,
                         "de_wacc": 0.078,
-                        "annualized_investment_cost": 361700.690393271,
+                        "annualized_investment_cost": 361.700690393271,
                         "learning_type": "nuclear",
                         "min_up_time": 24,
                         "max_capacity": -1,
@@ -4099,11 +4099,11 @@
                             "MinUpTimeConstraint": true
                         },
                         "min_capacity": 0,
-                        "fixed_om_cost": 154762,
+                        "fixed_om_cost": 154.762,
                         "uc": true,
                         "max_cumul_capacity": 20000,
                         "ramp_up_fraction": 0.25,
-                        "startup_cost": 285,
+                        "startup_cost": 0.285,
                         "cc_cap_recovery": 25,
                         "de_cap_recovery": 5,
                         "cumulative_external_capacity": 0,
@@ -4118,8 +4118,8 @@
             {
                 "transforms": {
                     "timedata": "NaturalGas",
-                    "fuel_consumption": 1.8053177912,
-                    "emission_rate": 0.181048235160161
+                    "fuel_consumption": 1.805,
+                    "emission_rate": 0.181
                 },
                 "id": "NV_naturalgas_2on1_combined_cycle_fframe_moderate_0",
                 "edges": {
@@ -4146,8 +4146,8 @@
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_NV",
                         "cadr": 1,
-                        "variable_om_cost": 1.570062893081761,
-                        "startup_fuel_consumption": 0.58614214,
+                        "variable_om_cost": 0.002,
+                        "startup_fuel_consumption": 0.586,
                         "min_down_time": 6,
                         "capacity_size": 500,
                         "wacc": 0.054,
@@ -4159,7 +4159,7 @@
                         "af_cost_perc": 0.01,
                         "ramp_down_fraction": 0.64,
                         "de_wacc": 0.078,
-                        "annualized_investment_cost": 72734.4244076213,
+                        "annualized_investment_cost": 72.7344244076213,
                         "learning_type": "none",
                         "min_up_time": 6,
                         "max_capacity": -1,
@@ -4176,7 +4176,7 @@
                             "MinUpTimeConstraint": true
                         },
                         "min_capacity": 0,
-                        "fixed_om_cost": 23349.94111488043,
+                        "fixed_om_cost": 23.34994111488043,
                         "uc": true,
                         "max_cumul_capacity": -1,
                         "ramp_up_fraction": 0.64,
@@ -4195,8 +4195,8 @@
             {
                 "transforms": {
                     "timedata": "NaturalGas",
-                    "fuel_consumption": 2.8486508004,
-                    "emission_rate": 0.181048235160161
+                    "fuel_consumption": 2.849,
+                    "emission_rate": 0.181
                 },
                 "id": "NV_naturalgas_combustion_turbine_fframe_moderate_0",
                 "edges": {
@@ -4223,8 +4223,8 @@
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_NV",
                         "cadr": 1,
-                        "variable_om_cost": 6.14,
-                        "startup_fuel_consumption": 1.025748745,
+                        "variable_om_cost": 0.006,
+                        "startup_fuel_consumption": 1.026,
                         "min_down_time": 1,
                         "capacity_size": 100,
                         "wacc": 0.054,
@@ -4236,7 +4236,7 @@
                         "af_cost_perc": 0,
                         "ramp_down_fraction": 3.78,
                         "de_wacc": 0.078,
-                        "annualized_investment_cost": 64621.70596709379,
+                        "annualized_investment_cost": 64.62170596709379,
                         "learning_type": "none",
                         "min_up_time": 1,
                         "max_capacity": -1,
@@ -4253,7 +4253,7 @@
                             "MinUpTimeConstraint": true
                         },
                         "min_capacity": 0,
-                        "fixed_om_cost": 19279.595812958436,
+                        "fixed_om_cost": 19.279595812958437,
                         "uc": true,
                         "max_cumul_capacity": -1,
                         "ramp_up_fraction": 3.78,
@@ -4272,7 +4272,7 @@
             {
                 "transforms": {
                     "timedata": "Uranium",
-                    "fuel_consumption": 3.077246235,
+                    "fuel_consumption": 3.077,
                     "emission_rate": 0
                 },
                 "id": "NV_nuclear_nuclear__large_moderate_0",
@@ -4300,7 +4300,7 @@
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_NV",
                         "cadr": 0.1,
-                        "variable_om_cost": 2.48,
+                        "variable_om_cost": 0.002,
                         "startup_fuel_consumption": 0,
                         "min_down_time": 24,
                         "capacity_size": 1000,
@@ -4313,7 +4313,7 @@
                         "af_cost_perc": 0.03,
                         "ramp_down_fraction": 0.25,
                         "de_wacc": 0.078,
-                        "annualized_investment_cost": 391787.7967713096,
+                        "annualized_investment_cost": 391.78779677130956,
                         "learning_type": "nuclear",
                         "min_up_time": 24,
                         "max_capacity": -1,
@@ -4330,11 +4330,11 @@
                             "MinUpTimeConstraint": true
                         },
                         "min_capacity": 0,
-                        "fixed_om_cost": 154762,
+                        "fixed_om_cost": 154.762,
                         "uc": true,
                         "max_cumul_capacity": 20000,
                         "ramp_up_fraction": 0.25,
-                        "startup_cost": 285,
+                        "startup_cost": 0.285,
                         "cc_cap_recovery": 25,
                         "de_cap_recovery": 5,
                         "cumulative_external_capacity": 0,
@@ -4349,8 +4349,8 @@
             {
                 "transforms": {
                     "timedata": "NaturalGas",
-                    "fuel_consumption": 1.8053177912,
-                    "emission_rate": 0.181048235160161
+                    "fuel_consumption": 1.805,
+                    "emission_rate": 0.181
                 },
                 "id": "OR_naturalgas_2on1_combined_cycle_fframe_moderate_0",
                 "edges": {
@@ -4377,8 +4377,8 @@
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_OR",
                         "cadr": 1,
-                        "variable_om_cost": 1.570062893081761,
-                        "startup_fuel_consumption": 0.58614214,
+                        "variable_om_cost": 0.002,
+                        "startup_fuel_consumption": 0.586,
                         "min_down_time": 6,
                         "capacity_size": 500,
                         "wacc": 0.054,
@@ -4390,7 +4390,7 @@
                         "af_cost_perc": 0.01,
                         "ramp_down_fraction": 0.64,
                         "de_wacc": 0.078,
-                        "annualized_investment_cost": 80771.12982404977,
+                        "annualized_investment_cost": 80.77112982404977,
                         "learning_type": "none",
                         "min_up_time": 6,
                         "max_capacity": -1,
@@ -4407,7 +4407,7 @@
                             "MinUpTimeConstraint": true
                         },
                         "min_capacity": 0,
-                        "fixed_om_cost": 23349.94111488043,
+                        "fixed_om_cost": 23.34994111488043,
                         "uc": true,
                         "max_cumul_capacity": -1,
                         "ramp_up_fraction": 0.64,
@@ -4426,8 +4426,8 @@
             {
                 "transforms": {
                     "timedata": "NaturalGas",
-                    "fuel_consumption": 2.8486508004,
-                    "emission_rate": 0.181048235160161
+                    "fuel_consumption": 2.849,
+                    "emission_rate": 0.181
                 },
                 "id": "OR_naturalgas_combustion_turbine_fframe_moderate_0",
                 "edges": {
@@ -4454,8 +4454,8 @@
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_OR",
                         "cadr": 1,
-                        "variable_om_cost": 6.14,
-                        "startup_fuel_consumption": 1.025748745,
+                        "variable_om_cost": 0.006,
+                        "startup_fuel_consumption": 1.026,
                         "min_down_time": 1,
                         "capacity_size": 100,
                         "wacc": 0.054,
@@ -4467,7 +4467,7 @@
                         "af_cost_perc": 0,
                         "ramp_down_fraction": 3.78,
                         "de_wacc": 0.078,
-                        "annualized_investment_cost": 72381.49419187133,
+                        "annualized_investment_cost": 72.38149419187133,
                         "learning_type": "none",
                         "min_up_time": 1,
                         "max_capacity": -1,
@@ -4484,7 +4484,7 @@
                             "MinUpTimeConstraint": true
                         },
                         "min_capacity": 0,
-                        "fixed_om_cost": 19279.595812958436,
+                        "fixed_om_cost": 19.279595812958437,
                         "uc": true,
                         "max_cumul_capacity": -1,
                         "ramp_up_fraction": 3.78,
@@ -4503,7 +4503,7 @@
             {
                 "transforms": {
                     "timedata": "Uranium",
-                    "fuel_consumption": 3.077246235,
+                    "fuel_consumption": 3.077,
                     "emission_rate": 0
                 },
                 "id": "OR_nuclear_nuclear__large_moderate_0",
@@ -4531,7 +4531,7 @@
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_OR",
                         "cadr": 0.1,
-                        "variable_om_cost": 2.48,
+                        "variable_om_cost": 0.002,
                         "startup_fuel_consumption": 0,
                         "min_down_time": 24,
                         "capacity_size": 1000,
@@ -4544,7 +4544,7 @@
                         "af_cost_perc": 0.03,
                         "ramp_down_fraction": 0.25,
                         "de_wacc": 0.078,
-                        "annualized_investment_cost": 391371.57076989865,
+                        "annualized_investment_cost": 391.37157076989865,
                         "learning_type": "nuclear",
                         "min_up_time": 24,
                         "max_capacity": -1,
@@ -4561,11 +4561,11 @@
                             "MinUpTimeConstraint": true
                         },
                         "min_capacity": 0,
-                        "fixed_om_cost": 154762,
+                        "fixed_om_cost": 154.762,
                         "uc": true,
                         "max_cumul_capacity": 20000,
                         "ramp_up_fraction": 0.25,
-                        "startup_cost": 285,
+                        "startup_cost": 0.285,
                         "cc_cap_recovery": 25,
                         "de_cap_recovery": 5,
                         "cumulative_external_capacity": 0,
@@ -4580,8 +4580,8 @@
             {
                 "transforms": {
                     "timedata": "NaturalGas",
-                    "fuel_consumption": 1.8053177912,
-                    "emission_rate": 0.181048235160161
+                    "fuel_consumption": 1.805,
+                    "emission_rate": 0.181
                 },
                 "id": "UT_naturalgas_2on1_combined_cycle_fframe_moderate_0",
                 "edges": {
@@ -4608,8 +4608,8 @@
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_UT",
                         "cadr": 1,
-                        "variable_om_cost": 1.570062893081761,
-                        "startup_fuel_consumption": 0.58614214,
+                        "variable_om_cost": 0.002,
+                        "startup_fuel_consumption": 0.586,
                         "min_down_time": 6,
                         "capacity_size": 500,
                         "wacc": 0.054,
@@ -4621,7 +4621,7 @@
                         "af_cost_perc": 0.01,
                         "ramp_down_fraction": 0.64,
                         "de_wacc": 0.078,
-                        "annualized_investment_cost": 72734.4244076213,
+                        "annualized_investment_cost": 72.7344244076213,
                         "learning_type": "none",
                         "min_up_time": 6,
                         "max_capacity": -1,
@@ -4638,7 +4638,7 @@
                             "MinUpTimeConstraint": true
                         },
                         "min_capacity": 0,
-                        "fixed_om_cost": 23349.94111488043,
+                        "fixed_om_cost": 23.34994111488043,
                         "uc": true,
                         "max_cumul_capacity": -1,
                         "ramp_up_fraction": 0.64,
@@ -4657,8 +4657,8 @@
             {
                 "transforms": {
                     "timedata": "NaturalGas",
-                    "fuel_consumption": 2.8486508004,
-                    "emission_rate": 0.181048235160161
+                    "fuel_consumption": 2.849,
+                    "emission_rate": 0.181
                 },
                 "id": "UT_naturalgas_combustion_turbine_fframe_moderate_0",
                 "edges": {
@@ -4685,8 +4685,8 @@
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_UT",
                         "cadr": 1,
-                        "variable_om_cost": 6.14,
-                        "startup_fuel_consumption": 1.025748745,
+                        "variable_om_cost": 0.006,
+                        "startup_fuel_consumption": 1.026,
                         "min_down_time": 1,
                         "capacity_size": 100,
                         "wacc": 0.054,
@@ -4698,7 +4698,7 @@
                         "af_cost_perc": 0,
                         "ramp_down_fraction": 3.78,
                         "de_wacc": 0.078,
-                        "annualized_investment_cost": 64621.70596709379,
+                        "annualized_investment_cost": 64.62170596709379,
                         "learning_type": "none",
                         "min_up_time": 1,
                         "max_capacity": -1,
@@ -4715,7 +4715,7 @@
                             "MinUpTimeConstraint": true
                         },
                         "min_capacity": 0,
-                        "fixed_om_cost": 19279.595812958436,
+                        "fixed_om_cost": 19.279595812958437,
                         "uc": true,
                         "max_cumul_capacity": -1,
                         "ramp_up_fraction": 3.78,
@@ -4734,7 +4734,7 @@
             {
                 "transforms": {
                     "timedata": "Uranium",
-                    "fuel_consumption": 3.077246235,
+                    "fuel_consumption": 3.077,
                     "emission_rate": 0
                 },
                 "id": "UT_nuclear_nuclear__large_moderate_0",
@@ -4762,7 +4762,7 @@
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_UT",
                         "cadr": 0.1,
-                        "variable_om_cost": 2.48,
+                        "variable_om_cost": 0.002,
                         "startup_fuel_consumption": 0,
                         "min_down_time": 24,
                         "capacity_size": 1000,
@@ -4775,7 +4775,7 @@
                         "af_cost_perc": 0.03,
                         "ramp_down_fraction": 0.25,
                         "de_wacc": 0.078,
-                        "annualized_investment_cost": 391697.8562694022,
+                        "annualized_investment_cost": 391.6978562694022,
                         "learning_type": "nuclear",
                         "min_up_time": 24,
                         "max_capacity": -1,
@@ -4792,11 +4792,11 @@
                             "MinUpTimeConstraint": true
                         },
                         "min_capacity": 0,
-                        "fixed_om_cost": 154762,
+                        "fixed_om_cost": 154.762,
                         "uc": true,
                         "max_cumul_capacity": 20000,
                         "ramp_up_fraction": 0.25,
-                        "startup_cost": 285,
+                        "startup_cost": 0.285,
                         "cc_cap_recovery": 25,
                         "de_cap_recovery": 5,
                         "cumulative_external_capacity": 0,
@@ -4811,8 +4811,8 @@
             {
                 "transforms": {
                     "timedata": "NaturalGas",
-                    "fuel_consumption": 1.8053177912,
-                    "emission_rate": 0.181048235160161
+                    "fuel_consumption": 1.805,
+                    "emission_rate": 0.181
                 },
                 "id": "WA_naturalgas_2on1_combined_cycle_fframe_moderate_0",
                 "edges": {
@@ -4839,8 +4839,8 @@
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_WA",
                         "cadr": 1,
-                        "variable_om_cost": 1.570062893081761,
-                        "startup_fuel_consumption": 0.58614214,
+                        "variable_om_cost": 0.002,
+                        "startup_fuel_consumption": 0.586,
                         "min_down_time": 6,
                         "capacity_size": 500,
                         "wacc": 0.054,
@@ -4852,7 +4852,7 @@
                         "af_cost_perc": 0.01,
                         "ramp_down_fraction": 0.64,
                         "de_wacc": 0.078,
-                        "annualized_investment_cost": 80771.12982404977,
+                        "annualized_investment_cost": 80.77112982404977,
                         "learning_type": "none",
                         "min_up_time": 6,
                         "max_capacity": -1,
@@ -4869,7 +4869,7 @@
                             "MinUpTimeConstraint": true
                         },
                         "min_capacity": 0,
-                        "fixed_om_cost": 23349.94111488043,
+                        "fixed_om_cost": 23.34994111488043,
                         "uc": true,
                         "max_cumul_capacity": -1,
                         "ramp_up_fraction": 0.64,
@@ -4888,8 +4888,8 @@
             {
                 "transforms": {
                     "timedata": "NaturalGas",
-                    "fuel_consumption": 2.8486508004,
-                    "emission_rate": 0.181048235160161
+                    "fuel_consumption": 2.849,
+                    "emission_rate": 0.181
                 },
                 "id": "WA_naturalgas_combustion_turbine_fframe_moderate_0",
                 "edges": {
@@ -4916,8 +4916,8 @@
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_WA",
                         "cadr": 1,
-                        "variable_om_cost": 6.14,
-                        "startup_fuel_consumption": 1.025748745,
+                        "variable_om_cost": 0.006,
+                        "startup_fuel_consumption": 1.026,
                         "min_down_time": 1,
                         "capacity_size": 100,
                         "wacc": 0.054,
@@ -4929,7 +4929,7 @@
                         "af_cost_perc": 0,
                         "ramp_down_fraction": 3.78,
                         "de_wacc": 0.078,
-                        "annualized_investment_cost": 72381.49419187133,
+                        "annualized_investment_cost": 72.38149419187133,
                         "learning_type": "none",
                         "min_up_time": 1,
                         "max_capacity": -1,
@@ -4946,7 +4946,7 @@
                             "MinUpTimeConstraint": true
                         },
                         "min_capacity": 0,
-                        "fixed_om_cost": 19279.595812958436,
+                        "fixed_om_cost": 19.279595812958437,
                         "uc": true,
                         "max_cumul_capacity": -1,
                         "ramp_up_fraction": 3.78,
@@ -4965,7 +4965,7 @@
             {
                 "transforms": {
                     "timedata": "Uranium",
-                    "fuel_consumption": 3.077246235,
+                    "fuel_consumption": 3.077,
                     "emission_rate": 0
                 },
                 "id": "WA_nuclear_nuclear__large_moderate_0",
@@ -4993,7 +4993,7 @@
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_WA",
                         "cadr": 0.1,
-                        "variable_om_cost": 2.48,
+                        "variable_om_cost": 0.002,
                         "startup_fuel_consumption": 0,
                         "min_down_time": 24,
                         "capacity_size": 1000,
@@ -5006,7 +5006,7 @@
                         "af_cost_perc": 0.03,
                         "ramp_down_fraction": 0.25,
                         "de_wacc": 0.078,
-                        "annualized_investment_cost": 391371.57076989865,
+                        "annualized_investment_cost": 391.37157076989865,
                         "learning_type": "nuclear",
                         "min_up_time": 24,
                         "max_capacity": -1,
@@ -5023,11 +5023,11 @@
                             "MinUpTimeConstraint": true
                         },
                         "min_capacity": 0,
-                        "fixed_om_cost": 154762,
+                        "fixed_om_cost": 154.762,
                         "uc": true,
                         "max_cumul_capacity": 20000,
                         "ramp_up_fraction": 0.25,
-                        "startup_cost": 285,
+                        "startup_cost": 0.285,
                         "cc_cap_recovery": 25,
                         "de_cap_recovery": 5,
                         "cumulative_external_capacity": 0,
@@ -5042,8 +5042,8 @@
             {
                 "transforms": {
                     "timedata": "NaturalGas",
-                    "fuel_consumption": 1.8053177912,
-                    "emission_rate": 0.181048235160161
+                    "fuel_consumption": 1.805,
+                    "emission_rate": 0.181
                 },
                 "id": "WY_naturalgas_2on1_combined_cycle_fframe_moderate_0",
                 "edges": {
@@ -5070,8 +5070,8 @@
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_WY",
                         "cadr": 1,
-                        "variable_om_cost": 1.570062893081761,
-                        "startup_fuel_consumption": 0.58614214,
+                        "variable_om_cost": 0.002,
+                        "startup_fuel_consumption": 0.586,
                         "min_down_time": 6,
                         "capacity_size": 500,
                         "wacc": 0.054,
@@ -5083,7 +5083,7 @@
                         "af_cost_perc": 0.01,
                         "ramp_down_fraction": 0.64,
                         "de_wacc": 0.078,
-                        "annualized_investment_cost": 72734.4244076213,
+                        "annualized_investment_cost": 72.7344244076213,
                         "learning_type": "none",
                         "min_up_time": 6,
                         "max_capacity": -1,
@@ -5100,7 +5100,7 @@
                             "MinUpTimeConstraint": true
                         },
                         "min_capacity": 0,
-                        "fixed_om_cost": 23349.94111488043,
+                        "fixed_om_cost": 23.34994111488043,
                         "uc": true,
                         "max_cumul_capacity": -1,
                         "ramp_up_fraction": 0.64,
@@ -5119,8 +5119,8 @@
             {
                 "transforms": {
                     "timedata": "NaturalGas",
-                    "fuel_consumption": 2.8486508004,
-                    "emission_rate": 0.181048235160161
+                    "fuel_consumption": 2.849,
+                    "emission_rate": 0.181
                 },
                 "id": "WY_naturalgas_combustion_turbine_fframe_moderate_0",
                 "edges": {
@@ -5147,8 +5147,8 @@
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_WY",
                         "cadr": 1,
-                        "variable_om_cost": 6.14,
-                        "startup_fuel_consumption": 1.025748745,
+                        "variable_om_cost": 0.006,
+                        "startup_fuel_consumption": 1.026,
                         "min_down_time": 1,
                         "capacity_size": 100,
                         "wacc": 0.054,
@@ -5160,7 +5160,7 @@
                         "af_cost_perc": 0,
                         "ramp_down_fraction": 3.78,
                         "de_wacc": 0.078,
-                        "annualized_investment_cost": 64621.70596709379,
+                        "annualized_investment_cost": 64.62170596709379,
                         "learning_type": "none",
                         "min_up_time": 1,
                         "max_capacity": -1,
@@ -5177,7 +5177,7 @@
                             "MinUpTimeConstraint": true
                         },
                         "min_capacity": 0,
-                        "fixed_om_cost": 19279.595812958436,
+                        "fixed_om_cost": 19.279595812958437,
                         "uc": true,
                         "max_cumul_capacity": -1,
                         "ramp_up_fraction": 3.78,
@@ -5196,7 +5196,7 @@
             {
                 "transforms": {
                     "timedata": "Uranium",
-                    "fuel_consumption": 3.077246235,
+                    "fuel_consumption": 3.077,
                     "emission_rate": 0
                 },
                 "id": "WY_nuclear_nuclear__large_moderate_0",
@@ -5224,7 +5224,7 @@
                         "n_learning_pwl_segments": 5,
                         "end_vertex": "elec_WY",
                         "cadr": 0.1,
-                        "variable_om_cost": 2.48,
+                        "variable_om_cost": 0.002,
                         "startup_fuel_consumption": 0,
                         "min_down_time": 24,
                         "capacity_size": 1000,
@@ -5237,7 +5237,7 @@
                         "af_cost_perc": 0.03,
                         "ramp_down_fraction": 0.25,
                         "de_wacc": 0.078,
-                        "annualized_investment_cost": 391542.95879920095,
+                        "annualized_investment_cost": 391.54295879920096,
                         "learning_type": "nuclear",
                         "min_up_time": 24,
                         "max_capacity": -1,
@@ -5254,11 +5254,11 @@
                             "MinUpTimeConstraint": true
                         },
                         "min_capacity": 0,
-                        "fixed_om_cost": 154762,
+                        "fixed_om_cost": 154.762,
                         "uc": true,
                         "max_cumul_capacity": 20000,
                         "ramp_up_fraction": 0.25,
-                        "startup_cost": 285,
+                        "startup_cost": 0.285,
                         "cc_cap_recovery": 25,
                         "de_cap_recovery": 5,
                         "cumulative_external_capacity": 0,
