@@ -65,7 +65,7 @@ CO2 cap constraint duals come from the planning problem which is discounted (so 
 """
 function write_duals_benders(
     results_dir::AbstractString,
-    system::System,
+    system::System, model::Model,
     scaling::Float64=1.0
 )
     @info "Writing constraint dual values to $results_dir"
@@ -74,7 +74,11 @@ function write_duals_benders(
     # as the objective function for the operational subproblems is already undiscounted
     write_balance_duals(results_dir, system)
     # Duals for CO2 cap constraints comes from the planning problem which is discounted
-    write_co2_cap_duals(results_dir, system, scaling)
+    if has_duals(model)
+        write_co2_cap_duals(results_dir, system, scaling)
+    else
+        @warn "Model does not have dual values available to export CO2 cap constraint duals"
+    end
     
     return nothing
 end
