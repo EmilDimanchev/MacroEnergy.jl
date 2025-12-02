@@ -209,7 +209,6 @@ fixed_om_cost(g::AbstractStorage) = g.fixed_om_cost;
 has_capacity(g::AbstractStorage) = true;
 investment_cost(g::AbstractStorage) = g.investment_cost;
 lifetime(g::AbstractStorage) = g.lifetime;
-min_retired_capacity(g::AbstractStorage) = g.min_retired_capacity;
 loss_fraction(g::AbstractStorage) = g.loss_fraction;
 function loss_fraction(g::AbstractStorage, t::Int64)
     a = loss_fraction(g)
