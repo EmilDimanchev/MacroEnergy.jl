@@ -38,5 +38,5 @@
     "DeploymentInertia": true,
     "ProjectDevelopment": true,
     "CO2Cap": true,
-    "retirement": false
+    "retirement": true
 }
