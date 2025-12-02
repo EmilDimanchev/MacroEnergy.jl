@@ -283,8 +283,7 @@ function carry_over_capacities!(y::Union{AbstractEdge,AbstractStorage},y_prev::U
 
     for prev_period in keys(new_capacity_track(y_prev))
         if perfect_foresight
-            y.new_capacity_track[prev_period] = new_capacity_track(y_prev,prev_period)
-            y.retired_capacity_track[prev_period] = retired_capacity_track(y_prev,prev_period)
+            
             # Learning
             if settings[:TechnologyLearning] && learning_type(y) in settings[:LearningTechnologies]
                 
@@ -300,8 +299,8 @@ function carry_over_capacities!(y::Union{AbstractEdge,AbstractStorage},y_prev::U
             y.af_capacity_track[prev_period] = af_capacity_track(y_prev,prev_period)
             y.cc_capacity_track[prev_period] = cc_capacity_track(y_prev,prev_period)
         else
-            y.new_capacity_track[prev_period] = value(new_capacity_track(y_prev,prev_period))
-            y.retired_capacity_track[prev_period] = value(retired_capacity_track(y_prev,prev_period))
+            # Speed limits not implemented for myopic yet
+            
         end
     end
 
