@@ -15,7 +15,6 @@ macro AbstractStorageBaseAttributes()
         fixed_om_cost::Float64 = $storage_defaults[:fixed_om_cost]
         investment_cost::Float64 = $storage_defaults[:investment_cost]
         lifetime::Int64 = $storage_defaults[:lifetime]
-        min_retired_capacity::Float64 = 0.0
         long_duration::Bool = $storage_defaults[:long_duration]
         loss_fraction::Vector{Float64} = $storage_defaults[:loss_fraction]
         max_capacity::Float64 = $storage_defaults[:max_capacity]

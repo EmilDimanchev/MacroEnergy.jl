@@ -23,7 +23,6 @@ macro AbstractEdgeBaseAttributes()
         investment_cost::Float64 = $edge_defaults[:investment_cost]
         is_retrofit::Bool = $edge_defaults[:is_retrofit]
         lifetime::Int64 = $edge_defaults[:lifetime]
-        min_retired_capacity::Float64 = 0.0
         loss_fraction::Vector{Float64} = $edge_defaults[:loss_fraction]
         max_capacity::Float64 = $edge_defaults[:max_capacity]
         max_new_capacity::Float64 = $edge_defaults[:max_new_capacity]
