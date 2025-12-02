@@ -49,4 +49,5 @@ output.log
 **/tmp/
 
 *.log
+/examples
 *.out

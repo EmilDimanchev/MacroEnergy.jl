@@ -50,6 +50,14 @@ function run_myopic_iteration!(case::Case, opt::Optimizer)
         @info(" -- Generating planning model")
         planning_model!(system, model)
 
+        if system.settings.Retrofitting
+            @info(" -- Adding retrofit constraints")
+            add_retrofit_constraints!(system, period_idx, model)
+        end
+
+        @info(" -- Including age-based retirements")
+        add_age_based_retirements!.(system.assets, model)
+
         @info(" -- Generating operational model")
         operation_model!(system, model, settings)
 
