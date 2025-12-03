@@ -75,11 +75,11 @@ function add_learning!(system::System, model::Model, learning_techs::Vector{Stri
                 # Cumulative_experience combines existing capacity and all new capacity from modeled region and externally
                 @constraint(model, sum(cumulative_experience(e)[k] for k in 1:n_segments+1) == sum(new_capacity_track(e,i) for i=1:curr_period, e in tech_edges) + cumulative_external_capacity(e))
                 
-                # println(string(e.id," points"))
-                # println(x_points)
-                # println(y_points)
-                # println("All slopes")
-                # println(e.pwl_cost_slopes)
+                println(string(e.id," points"))
+                println(x_points)
+                println(y_points)
+                println("All slopes")
+                println(e.pwl_cost_slopes)
 
                 # Determine chosen segment
                 # Ensure strict inequality
