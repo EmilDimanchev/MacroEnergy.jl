@@ -502,7 +502,14 @@ function compute_investment_costs!(e::AbstractEdge, model::Model, settings::Name
             # Linearized learning
             if settings[:TechnologyLearning] && learning_type(e) in settings[:LearningTechnologies]
                 
-                model[:eInvestmentFixedCost] += e.annualized_investment_cost_with_learning*annuities_mult(e)
+                # Apply OBBB subsidy to EGS technologies
+                if period_index(e) < 10 && (occursin("Deep", id(e)) || occursin("NearField", id(e)))
+                    @info "Applying OBBB subsidy to EGS technology $(id(e)) in period $(period_index(e))"
+                    egs_subsidy = 0.4
+                    model[:eInvestmentFixedCost] += e.annualized_investment_cost_with_learning*(1-egs_subsidy)*annuities_mult(e)    
+                else
+                    model[:eInvestmentFixedCost] += e.annualized_investment_cost_with_learning*annuities_mult(e)
+                end
                 
             else
                 # No learning
