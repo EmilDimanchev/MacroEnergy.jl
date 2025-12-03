@@ -413,9 +413,9 @@ function discount_fixed_costs!(y::Union{AbstractEdge,AbstractStorage},settings::
 
     y.annuities_mult = sum(1 / (1 + settings.DiscountRate)^s for s in 1:payment_years_remaining; init=0);
     if settings[:ProjectDevelopment] 
-        y.de_annuities_mult = min(de_cap_recovery(y), model_years_remaining);
-        y.af_annuities_mult = min(af_cap_recovery(y), model_years_remaining);
-        y.cc_annuities_mult = min(cc_cap_recovery(y), model_years_remaining);
+        y.de_annuities_mult = sum(1 / (1 + settings.DiscountRate)^s for s in 1:de_payment_years_remaining; init=0);
+        y.af_annuities_mult = sum(1 / (1 + settings.DiscountRate)^s for s in 1:af_payment_years_remaining; init=0);
+        y.cc_annuities_mult = sum(1 / (1 + settings.DiscountRate)^s for s in 1:cc_payment_years_remaining; init=0);
     end
     
     opexmult = sum([1 / (1 + settings.DiscountRate)^(i) for i in 1:settings.PeriodLengths[period_index(y)]])
