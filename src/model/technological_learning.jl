@@ -1,4 +1,4 @@
-function add_learning!(system::System, model::Model, learning_techs::Vector{String}, period_idx::Int)
+function add_learning!(system::System, model::Model, period_idx::Int, settings::NamedTuple)
     ```
     Builds endogenous technological learning formulation. The main purpose is to formulate the endogenous investment cost, called "annualized_investment_cost_with_learning", which is used in edge.jl for any learning technologies
 
@@ -6,6 +6,7 @@ function add_learning!(system::System, model::Model, learning_techs::Vector{Stri
     Takes a system input because we need to combine new_capacity across edges of the same "learning_type" attribute to determine the amount of learning for a given technology. e.g., solar costs depend on total capacity expansion across all solar edges.
     ```
 
+    learning_techs = settings[:LearningTechnologies]
     n_learning_techs = length(learning_techs)
 
     n_segments = 4
@@ -97,6 +98,14 @@ function add_learning!(system::System, model::Model, learning_techs::Vector{Stri
                 # Depends on learning lag
                 if curr_period <= cc_duration(e)
                     e.annualized_investment_cost_with_learning = annualized_investment_cost(e)*new_capacity(e)
+                    
+                    if settings[:ProjectDevelopment]
+                    # Shadow 
+                        e.annualized_investment_cost_with_learning_de = de_annualized_cost(e)*new_de_capacity(e)
+                        e.annualized_investment_cost_with_learning_af = af_annualized_cost(e)*new_af_capacity(e)
+                        e.annualized_investment_cost_with_learning_cc = cc_annualized_cost(e)*new_cc_capacity(e)
+                    end
+
                     e.segments_sos1_prev = segments_sos1_track(e, curr_period)
                     # For reporting purposes
                     e.endog_annualized_cost = annualized_investment_cost(e)
@@ -106,14 +115,41 @@ function add_learning!(system::System, model::Model, learning_techs::Vector{Stri
                     e.segments_sos1_prev = segments_sos1_track(e, cost_period)
                     # Linearize 
                     e.aux_new_capacity = @variable(model, [k in 1:n_segments+1], lower_bound = 0.0, base_name = "vAUXNEWCAP_$(id(e))_stage$(period_index(e))_seg_$k")
+
                     # Upper bound on new capacity in a given period
-                    big_M_capacity = 10000 #max_new_capacity(e)
+                    big_M_capacity = 10000
 
                     @constraint(model, [k in 1:n_segments+1], e.new_capacity - e.aux_new_capacity[k] >= 0)
                     # Big M constraints
                     @constraint(model, [k in 1:n_segments+1], e.new_capacity - e.aux_new_capacity[k] <= big_M_capacity*(1-segments_sos1_prev(e)[k]))
                     @constraint(model, [k in 1:n_segments+1], e.aux_new_capacity[k] <= big_M_capacity*e.segments_sos1_prev[k])
                     e.annualized_investment_cost_with_learning = @expression(model, sum(e.pwl_cost_slopes[k]*e.aux_new_capacity[k]*annualization_factor(e) for k in 1:n_segments+1))
+
+                    if settings[:ProjectDevelopment]
+                        # Shadow capacity DE
+                        e.aux_new_capacity_de = @variable(model, [k in 1:n_segments+1], lower_bound = 0.0, base_name = "vAUXNEWCAPDE_$(id(e))_stage$(period_index(e))_seg_$k")
+                        @constraint(model, [k in 1:n_segments+1], e.new_de_capacity - e.aux_new_capacity_de[k] >= 0)
+                        # Big M constraints
+                        @constraint(model, [k in 1:n_segments+1], e.new_de_capacity - e.aux_new_capacity_de[k] <= big_M_capacity*(1-segments_sos1_prev(e)[k]))
+                        @constraint(model, [k in 1:n_segments+1], e.aux_new_capacity_de[k] <= big_M_capacity*e.segments_sos1_prev[k])
+                        e.annualized_investment_cost_with_learning_de = @expression(model, sum(e.pwl_cost_slopes[k]*e.aux_new_capacity_de[k]*de_annualization_factor(e)*de_cost_perc(e) for k in 1:n_segments+1))
+
+                        # Shadow capacity AF
+                        e.aux_new_capacity_af = @variable(model, [k in 1:n_segments+1], lower_bound = 0.0, base_name = "vAUXNEWCAPAF_$(id(e))_stage$(period_index(e))_seg_$k")
+                        @constraint(model, [k in 1:n_segments+1], e.new_af_capacity - e.aux_new_capacity_af[k] >= 0)
+                        # Big M constraints
+                        @constraint(model, [k in 1:n_segments+1], e.new_af_capacity - e.aux_new_capacity_af[k] <= big_M_capacity*(1-segments_sos1_prev(e)[k]))
+                        @constraint(model, [k in 1:n_segments+1], e.aux_new_capacity_af[k] <= big_M_capacity*e.segments_sos1_prev[k])
+                        e.annualized_investment_cost_with_learning_af = @expression(model, sum(e.pwl_cost_slopes[k]*e.aux_new_capacity_af[k]*de_annualization_factor(e)*de_cost_perc(e) for k in 1:n_segments+1))
+
+                        # Shadow capacity CC
+                        e.aux_new_capacity_cc = @variable(model, [k in 1:n_segments+1], lower_bound = 0.0, base_name = "vAUXNEWCAPCC_$(id(e))_stage$(period_index(e))_seg_$k")
+                        @constraint(model, [k in 1:n_segments+1], e.new_cc_capacity - e.aux_new_capacity_cc[k] >= 0)
+                        # Big M constraints
+                        @constraint(model, [k in 1:n_segments+1], e.new_cc_capacity - e.aux_new_capacity_cc[k] <= big_M_capacity*(1-segments_sos1_prev(e)[k]))
+                        @constraint(model, [k in 1:n_segments+1], e.aux_new_capacity_cc[k] <= big_M_capacity*e.segments_sos1_prev[k])
+                        e.annualized_investment_cost_with_learning_cc = @expression(model, sum(e.pwl_cost_slopes[k]*e.aux_new_capacity_cc[k]*de_annualization_factor(e)*de_cost_perc(e) for k in 1:n_segments+1))
+                    end
                     ### Enf of linearization
                     # # For reporting purposes
                     e.endog_annualized_cost = @expression(model, sum(e.pwl_cost_slopes[k]*e.segments_sos1_prev[k]*annualization_factor(e) for k in 1:n_segments+1))

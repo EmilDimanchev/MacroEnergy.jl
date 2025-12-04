@@ -43,8 +43,8 @@ function generate_model(case::Case)
         @info(" -- Generating planning model")
         if settings[:TechnologyLearning] == true
             @info(" -- Adding technology learning")
-            add_learning!(system, model, settings[:LearningTechnologies], period_idx)
-        end
+            add_learning!(system, model, period_idx, settings)
+    end
         planning_model!(system, model, settings)
 
         if system.settings.Retrofitting
@@ -352,16 +352,16 @@ function compute_annualized_costs!(y::Union{AbstractEdge,AbstractStorage},settin
         y.annualized_investment_cost = annualized_investment_cost(y)*deployment_cost_perc
 
         # Development annualized costs
-        de_annualization_factor = de_wacc(y)>0 && de_cap_recovery(y) > 0 ? de_wacc(y) / (1 - (1 + de_wacc(y))^-de_cap_recovery(y))  : 1.0
-        af_annualization_factor = af_wacc(y)>0 && af_cap_recovery(y) > 0 ? af_wacc(y) / (1 - (1 + af_wacc(y))^-af_cap_recovery(y))  : 1.0
+        y.de_annualization_factor = de_wacc(y)>0 && de_cap_recovery(y) > 0 ? de_wacc(y) / (1 - (1 + de_wacc(y))^-de_cap_recovery(y))  : 1.0
+        y.af_annualization_factor = af_wacc(y)>0 && af_cap_recovery(y) > 0 ? af_wacc(y) / (1 - (1 + af_wacc(y))^-af_cap_recovery(y))  : 1.0
+        y.cc_annualization_factor = cc_wacc(y)>0 && cc_cap_recovery(y) > 0 ? cc_wacc(y) / (1 - (1 + cc_wacc(y))^-cc_cap_recovery(y))  : 1.0
 
         # Overwrite CC wacc if general wacc is provided
         y.cc_wacc = wacc(y) > 0 ? wacc(y) : cc_wacc(y)
-
-        cc_annualization_factor = cc_wacc(y)>0 && cc_cap_recovery(y) > 0 ? cc_wacc(y) / (1 - (1 + cc_wacc(y))^-cc_cap_recovery(y))  : 1.0
-        y.de_annualized_cost = investment_cost(y)*de_annualization_factor*de_cost_perc(y)
-        y.af_annualized_cost = investment_cost(y)*af_annualization_factor*af_cost_perc(y)
-        y.cc_annualized_cost = investment_cost(y)*cc_annualization_factor*cc_cost_perc(y)
+        
+        y.de_annualized_cost = investment_cost(y)*de_annualization_factor(y)*de_cost_perc(y)
+        y.af_annualized_cost = investment_cost(y)*af_annualization_factor(y)*af_cost_perc(y)
+        y.cc_annualized_cost = investment_cost(y)*cc_annualization_factor(y)*cc_cost_perc(y)
 
     else
         y.de_annualized_cost = 0.0

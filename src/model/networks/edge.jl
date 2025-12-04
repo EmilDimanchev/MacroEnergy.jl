@@ -39,7 +39,7 @@ macro AbstractEdgeBaseAttributes()
         retired_capacity_track::Dict{Int64,AffExpr} = Dict(1 => AffExpr(0.0))
         retired_units::Union{JuMPVariable,Float64} = 0.0
         retrofit_efficiency::Union{Missing,Float64} = $edge_defaults[:retrofit_efficiency]
-        retrofit_id::Union{Missing, Vector{Symbol}} = $edge_defaults[:retrofit_id]
+        retrofit_id::Union{Missing,Vector{Symbol}} = $edge_defaults[:retrofit_id]
         retrofitted_capacity::AffExpr = AffExpr(0.0)
         retrofitted_capacity_track::Dict{Int64,AffExpr} = Dict(1 => AffExpr(0.0))
         retrofitted_units::Union{JuMPVariable,Float64} = 0.0
@@ -63,7 +63,7 @@ macro AbstractEdgeBaseAttributes()
         aux_new_capacity::Union{JuMPVariable,Float64} = 0.0
         cumulative_experience::Union{JuMPVariable,Float64} = 0.0
         learning_pwl_slope::AffExpr = AffExpr(0.0)
-        learning_pwl_track::Dict{Int64,AffExpr} = Dict(1=>AffExpr(0.0))
+        learning_pwl_track::Dict{Int64,AffExpr} = Dict(1 => AffExpr(0.0))
         pwl_cost_slopes::Vector{Float64} = Float64[]
         annualized_investment_cost_with_learning::AffExpr = AffExpr(0.0)
         annuities_mult::Float64 = 0.0
@@ -79,36 +79,45 @@ macro AbstractEdgeBaseAttributes()
         # Definition and evaluation (DE)
         de_cost_perc::Float64 = 0.0
         de_wacc::Float64 = 0.1
+        de_annualization_factor::Float64 = 0.0
         de_cap_recovery::Int64 = 1
         de_annuities_mult::Float64 = 0.0
         de_annualized_cost::Float64 = 0.0
         new_de_capacity::AffExpr = AffExpr(0.0)
-        new_de_capacity_track::Dict{Int64,AffExpr} = Dict(1=>AffExpr(0.0))
+        new_de_capacity_track::Dict{Int64,AffExpr} = Dict(1 => AffExpr(0.0))
         de_capacity::Union{JuMPVariable,AffExpr,Float64} = AffExpr(0.0)
-        de_capacity_track::Dict{Int64,AffExpr} = Dict(1=>AffExpr(0.0))
+        de_capacity_track::Dict{Int64,AffExpr} = Dict(1 => AffExpr(0.0))
         new_de_units::Union{JuMPVariable,Float64} = 0.0
+        annualized_investment_cost_with_learning_de::AffExpr = AffExpr(0.0)
+        aux_new_capacity_de::Union{JuMPVariable,Float64} = 0.0
         # Approvals and funding (AF)
         af_cost_perc::Float64 = 0.0
         af_wacc::Float64 = 0.1
+        af_annualization_factor::Float64 = 0.0
         af_cap_recovery::Int64 = 1
         af_annuities_mult::Float64 = 0.0
         af_annualized_cost::Float64 = 0.0
         new_af_capacity::AffExpr = AffExpr(0.0)
-        new_af_capacity_track::Dict{Int64,AffExpr} = Dict(1=>AffExpr(0.0))
+        new_af_capacity_track::Dict{Int64,AffExpr} = Dict(1 => AffExpr(0.0))
         af_capacity::Union{JuMPVariable,AffExpr,Float64} = AffExpr(0.0)
-        af_capacity_track::Dict{Int64,AffExpr} = Dict(1=>AffExpr(0.0))
+        af_capacity_track::Dict{Int64,AffExpr} = Dict(1 => AffExpr(0.0))
         new_af_units::Union{JuMPVariable,Float64} = 0.0
+        annualized_investment_cost_with_learning_af::AffExpr = AffExpr(0.0)
+        aux_new_capacity_af::Union{JuMPVariable,Float64} = 0.0
         # Construction and Commissioning (CC)
         cc_cost_perc::Float64 = 0.0
         cc_wacc::Float64 = 0.05
+        cc_annualization_factor::Float64 = 0.0
         cc_cap_recovery::Int64 = 1
         cc_annuities_mult::Float64 = 0.0
         cc_annualized_cost::Float64 = 0.0
         new_cc_capacity::AffExpr = AffExpr(0.0)
-        new_cc_capacity_track::Dict{Int64,AffExpr} = Dict(1=>AffExpr(0.0))
+        new_cc_capacity_track::Dict{Int64,AffExpr} = Dict(1 => AffExpr(0.0))
         cc_capacity::Union{JuMPVariable,AffExpr,Float64} = AffExpr(0.0)
-        cc_capacity_track::Dict{Int64,AffExpr} = Dict(1=>AffExpr(0.0))
+        cc_capacity_track::Dict{Int64,AffExpr} = Dict(1 => AffExpr(0.0))
         new_cc_units::Union{JuMPVariable,Float64} = 0.0
+        annualized_investment_cost_with_learning_cc::AffExpr = AffExpr(0.0)
+        aux_new_capacity_cc::Union{JuMPVariable,Float64} = 0.0
         # Max growth formulation
         max_new_capacity_init::Float64 = 0.0
     end)
@@ -168,7 +177,7 @@ function commodity_type(t::Type{Edge{<:T}}) where {T}
     return commodity_type(Edge{ub_type})
 end
 
-function target_is_valid(commodity::Type{<:Commodity}, target::T) where T<:Union{Node, AbstractStorage}
+function target_is_valid(commodity::Type{<:Commodity}, target::T) where T<:Union{Node,AbstractStorage}
     target_commodity = commodity_type(target)
     if (commodity === target_commodity) || (commodity <: target_commodity)
         return true
@@ -200,8 +209,8 @@ function make_edge(
     end
 
     edge_kwargs = Base.fieldnames(Edge)
-    filtered_data = Dict{Symbol, Any}(
-        k => v for (k,v) in data if k in edge_kwargs
+    filtered_data = Dict{Symbol,Any}(
+        k => v for (k, v) in data if k in edge_kwargs
     )
     remove_keys = [:id, :start_vertex, :end_vertex, :timedata]
     for key in remove_keys
@@ -209,17 +218,17 @@ function make_edge(
             delete!(filtered_data, key)
         end
     end
-    if haskey(filtered_data,:loss_fraction) && !isa(filtered_data[:loss_fraction], Vector{Float64})
-        filtered_data[:loss_fraction] = [filtered_data[:loss_fraction]];
-    end    
+    if haskey(filtered_data, :loss_fraction) && !isa(filtered_data[:loss_fraction], Vector{Float64})
+        filtered_data[:loss_fraction] = [filtered_data[:loss_fraction]]
+    end
     _edge = Edge{commodity}(;
-        id = id,
-        timedata = time_data,
-        start_vertex = start_vertex,
-        end_vertex = end_vertex,
+        id=id,
+        timedata=time_data,
+        start_vertex=start_vertex,
+        end_vertex=end_vertex,
         filtered_data...
     )
-    
+
     return _edge
 end
 Edge(
@@ -294,21 +303,21 @@ min_flow_fraction(e::AbstractEdge) = e.min_flow_fraction;
 new_capacity(e::AbstractEdge) = e.new_capacity;
 new_capacity_track(e::AbstractEdge) = e.new_capacity_track;
 #### Note that edge "e" may not be present in the inputs for all case
-new_capacity_track(e::AbstractEdge,s::Int64) =  (haskey(new_capacity_track(e),s) == false) ? 0.0 : e.new_capacity_track[s];
+new_capacity_track(e::AbstractEdge, s::Int64) = (haskey(new_capacity_track(e), s) == false) ? 0.0 : e.new_capacity_track[s];
 new_units(e::AbstractEdge) = e.new_units;
 ramp_down_fraction(e::AbstractEdge) = e.ramp_down_fraction;
 ramp_up_fraction(e::AbstractEdge) = e.ramp_up_fraction;
 retired_capacity(e::AbstractEdge) = e.retired_capacity;
 retired_capacity_track(e::AbstractEdge) = e.retired_capacity_track;
 #### Note that edge "e" may not be present in the inputs for all case
-retired_capacity_track(e::AbstractEdge,s::Int64) =  (haskey(retired_capacity_track(e),s) == false) ? 0.0 : e.retired_capacity_track[s];
+retired_capacity_track(e::AbstractEdge, s::Int64) = (haskey(retired_capacity_track(e), s) == false) ? 0.0 : e.retired_capacity_track[s];
 retired_units(e::AbstractEdge) = e.retired_units;
 retirement_period(e::AbstractEdge) = e.retirement_period;
 retrofit_efficiency(e::AbstractEdge) = e.retrofit_efficiency;
 retrofit_id(e::AbstractEdge) = e.retrofit_id;
 retrofitted_capacity(e::AbstractEdge) = e.retrofitted_capacity;
 retrofitted_capacity_track(e::AbstractEdge) = e.retrofitted_capacity_track;
-retrofitted_capacity_track(e::AbstractEdge,s::Int64) = (haskey(retrofitted_capacity_track(e),s) == false) ? 0.0 : e.retrofitted_capacity_track[s];
+retrofitted_capacity_track(e::AbstractEdge, s::Int64) = (haskey(retrofitted_capacity_track(e), s) == false) ? 0.0 : e.retrofitted_capacity_track[s];
 retrofitted_units(e::AbstractEdge) = e.retrofitted_units;
 start_vertex(e::AbstractEdge)::AbstractVertex = e.start_vertex;
 variable_om_cost(e::AbstractEdge) = e.variable_om_cost;
@@ -324,9 +333,9 @@ segments_sos1_prev(e::AbstractEdge) = e.segments_sos1_prev;
 cumulative_experience(e::AbstractEdge) = e.cumulative_experience;
 learning_pwl_slope(e::AbstractEdge) = e.learning_pwl_slope;
 learning_pwl_track(e::AbstractEdge) = e.learning_pwl_track;
-learning_pwl_track(e::AbstractEdge,s::Int64) =  (haskey(learning_pwl_track(e),s) == false) ? 0.0 : e.learning_pwl_track[s];
+learning_pwl_track(e::AbstractEdge, s::Int64) = (haskey(learning_pwl_track(e), s) == false) ? 0.0 : e.learning_pwl_track[s];
 segments_sos1_track(e::AbstractEdge) = e.segments_sos1_track;
-segments_sos1_track(e::AbstractEdge,s::Int64) =  (haskey(segments_sos1_track(e),s) == false) ? 0.0 : e.segments_sos1_track[s];
+segments_sos1_track(e::AbstractEdge, s::Int64) = (haskey(segments_sos1_track(e), s) == false) ? 0.0 : e.segments_sos1_track[s];
 pwl_cost_slopes(e::AbstractEdge) = e.pwl_cost_slopes;
 aux_new_capacity(e::AbstractEdge) = e.aux_new_capacity;
 annualized_investment_cost_with_learning(e::AbstractEdge) = e.annualized_investment_cost_with_learning;
@@ -345,6 +354,9 @@ cc_cost_perc(e::AbstractEdge) = e.cc_cost_perc;
 de_wacc(e::AbstractEdge) = e.de_wacc;
 af_wacc(e::AbstractEdge) = e.af_wacc;
 cc_wacc(e::AbstractEdge) = e.cc_wacc;
+de_annualization_factor(e::AbstractEdge) = e.de_annualization_factor;
+af_annualization_factor(e::AbstractEdge) = e.af_annualization_factor;
+cc_annualization_factor(e::AbstractEdge) = e.cc_annualization_factor;
 de_cap_recovery(e::AbstractEdge) = e.de_cap_recovery;
 af_cap_recovery(e::AbstractEdge) = e.af_cap_recovery;
 cc_cap_recovery(e::AbstractEdge) = e.cc_cap_recovery;
@@ -358,26 +370,32 @@ cc_annuities_mult(e::AbstractEdge) = e.cc_annuities_mult;
 new_de_capacity(e::AbstractEdge) = e.new_de_capacity;
 de_capacity(e::AbstractEdge) = e.de_capacity;
 new_de_capacity_track(e::AbstractEdge) = e.new_de_capacity_track;
-new_de_capacity_track(e::AbstractEdge,s::Int64) = (haskey(new_de_capacity_track(e),s) == false) ? 0.0 : e.new_de_capacity_track[s];
+new_de_capacity_track(e::AbstractEdge, s::Int64) = (haskey(new_de_capacity_track(e), s) == false) ? 0.0 : e.new_de_capacity_track[s];
 de_capacity_track(e::AbstractEdge) = e.de_capacity_track;
-de_capacity_track(e::AbstractEdge,s::Int64) = (haskey(de_capacity_track(e),s) == false) ? 0.0 : e.de_capacity_track[s];
+de_capacity_track(e::AbstractEdge, s::Int64) = (haskey(de_capacity_track(e), s) == false) ? 0.0 : e.de_capacity_track[s];
 new_de_units(e::AbstractEdge) = e.new_de_units;
+aux_new_capacity_de(e::AbstractEdge) = e.aux_new_capacity_de;
+annualized_investment_cost_with_learning_de(e::AbstractEdge) = e.annualized_investment_cost_with_learning_de;
 # Approvals and funding (AF)
 new_af_capacity(e::AbstractEdge) = e.new_af_capacity;
 af_capacity(e::AbstractEdge) = e.af_capacity;
 new_af_capacity_track(e::AbstractEdge) = e.new_af_capacity_track;
-new_af_capacity_track(e::AbstractEdge,s::Int64) = (haskey(new_af_capacity_track(e),s) == false) ? 0.0 : e.new_af_capacity_track[s];
+new_af_capacity_track(e::AbstractEdge, s::Int64) = (haskey(new_af_capacity_track(e), s) == false) ? 0.0 : e.new_af_capacity_track[s];
 af_capacity_track(e::AbstractEdge) = e.af_capacity_track;
-af_capacity_track(e::AbstractEdge,s::Int64) = (haskey(af_capacity_track(e),s) == false) ? 0.0 : e.af_capacity_track[s];
+af_capacity_track(e::AbstractEdge, s::Int64) = (haskey(af_capacity_track(e), s) == false) ? 0.0 : e.af_capacity_track[s];
 new_af_units(e::AbstractEdge) = e.new_af_units;
+aux_new_capacity_af(e::AbstractEdge) = e.aux_new_capacity_af;
+annualized_investment_cost_with_learning_af(e::AbstractEdge) = e.annualized_investment_cost_with_learning_af;
 # Construction and commissioning (CC)
 new_cc_capacity(e::AbstractEdge) = e.new_cc_capacity;
 cc_capacity(e::AbstractEdge) = e.cc_capacity;
 new_cc_capacity_track(e::AbstractEdge) = e.new_cc_capacity_track;
-new_cc_capacity_track(e::AbstractEdge,s::Int64) = (haskey(new_cc_capacity_track(e),s) == false) ? 0.0 : e.new_cc_capacity_track[s];
+new_cc_capacity_track(e::AbstractEdge, s::Int64) = (haskey(new_cc_capacity_track(e), s) == false) ? 0.0 : e.new_cc_capacity_track[s];
 cc_capacity_track(e::AbstractEdge) = e.cc_capacity_track;
-cc_capacity_track(e::AbstractEdge,s::Int64) = (haskey(cc_capacity_track(e),s) == false) ? 0.0 : e.cc_capacity_track[s];
+cc_capacity_track(e::AbstractEdge, s::Int64) = (haskey(cc_capacity_track(e), s) == false) ? 0.0 : e.cc_capacity_track[s];
 new_cc_units(e::AbstractEdge) = e.new_cc_units;
+aux_new_capacity_cc(e::AbstractEdge) = e.aux_new_capacity_cc;
+annualized_investment_cost_with_learning_cc(e::AbstractEdge) = e.annualized_investment_cost_with_learning_cc;
 # Max growth formulation
 max_new_capacity_init(e::AbstractEdge) = e.max_new_capacity_init;
 ##### End of Edge interface #####
@@ -395,29 +413,29 @@ end
 function define_available_capacity!(e::AbstractEdge, model::Model)
 
     if has_capacity(e)
-        
+
         e.new_units = @variable(model, lower_bound = 0.0, base_name = "vNEWUNIT_$(id(e))_period$(period_index(e))")
 
         e.retired_units = @variable(model, lower_bound = 0.0, base_name = "vRETUNIT_$(id(e))_period$(period_index(e))")
 
         e.new_capacity = @expression(model, capacity_size(e) * new_units(e))
-        
+
         e.retired_capacity = @expression(model, capacity_size(e) * retired_units(e))
 
-        e.new_capacity_track[period_index(e)] = new_capacity(e);
-        
-        e.retired_capacity_track[period_index(e)] = retired_capacity(e);
+        e.new_capacity_track[period_index(e)] = new_capacity(e)
+
+        e.retired_capacity_track[period_index(e)] = retired_capacity(e)
 
         if can_retrofit(e)
 
             e.retrofitted_units = @variable(model, lower_bound = 0.0, base_name = "vRETROFITUNIT_$(id(e))_period$(period_index(e))")
-            
+
             e.retrofitted_capacity = @expression(model, capacity_size(e) * retrofitted_units(e))
 
             e.retrofitted_capacity_track[period_index(e)] = retrofitted_capacity(e)
 
             @constraint(model, capacity(e) == new_capacity(e) - retired_capacity(e) - retrofitted_capacity(e) + existing_capacity(e))
-            
+
         else
             @constraint(model, capacity(e) == new_capacity(e) - retired_capacity(e) + existing_capacity(e))
         end
@@ -457,13 +475,13 @@ function planning_model!(e::AbstractEdge, model::Model, settings::NamedTuple)
     if has_capacity(e)
 
         if !can_expand(e)
-            fix(new_units(e), 0.0; force = true)
-            fix(new_de_units(e), 0.0; force = true)
-            fix(new_af_units(e), 0.0; force = true)
-            fix(new_cc_units(e), 0.0; force = true)
-            fix(de_capacity(e), 0.0; force = true)
-            fix(af_capacity(e), 0.0; force = true)
-            fix(cc_capacity(e), 0.0; force = true)
+            fix(new_units(e), 0.0; force=true)
+            fix(new_de_units(e), 0.0; force=true)
+            fix(new_af_units(e), 0.0; force=true)
+            fix(new_cc_units(e), 0.0; force=true)
+            fix(de_capacity(e), 0.0; force=true)
+            fix(af_capacity(e), 0.0; force=true)
+            fix(cc_capacity(e), 0.0; force=true)
         else
             if integer_decisions(e)
                 set_integer(new_units(e))
@@ -471,7 +489,7 @@ function planning_model!(e::AbstractEdge, model::Model, settings::NamedTuple)
         end
 
         if !can_retire(e)
-            fix(retired_units(e), 0.0; force = true)
+            fix(retired_units(e), 0.0; force=true)
         else
             if integer_decisions(e)
                 set_integer(retired_units(e))
@@ -498,46 +516,54 @@ end
 function compute_investment_costs!(e::AbstractEdge, model::Model, settings::NamedTuple)
     if has_capacity(e)
         if can_expand(e)
-            
+
+            # Apply OBBB subsidy to EGS technologies
+            if period_index(e) < 11 && (occursin("Deep", string(id(e))) || occursin("NearField", string(id(e))))
+                subsidy = 0.4
+            else
+                subsidy = 0.0
+            end
+
             # Linearized learning
             if settings[:TechnologyLearning] && learning_type(e) in settings[:LearningTechnologies]
+
+                model[:eInvestmentFixedCost] += e.annualized_investment_cost_with_learning * (1 - subsidy) * annuities_mult(e)
+
                 
-                # Apply OBBB subsidy to EGS technologies
-                if period_index(e) < 11 && (occursin("Deep", string(id(e))) || occursin("NearField", string(id(e))))
-                    @info "Applying OBBB subsidy to EGS technology $(id(e)) in period $(period_index(e))"
-                    egs_subsidy = 0.4
-                    model[:eInvestmentFixedCost] += e.annualized_investment_cost_with_learning*(1-egs_subsidy)*annuities_mult(e)    
-                else
-                    model[:eInvestmentFixedCost] += e.annualized_investment_cost_with_learning*annuities_mult(e)
-                end
-                
+                model[:eInvestmentFixedCost] +=
+                    e.annualized_investment_cost_with_learning_de * (1 - subsidy) * de_annuities_mult(e)
+                model[:eInvestmentFixedCost] +=
+                    e.annualized_investment_cost_with_learning_af * (1 - subsidy) * af_annuities_mult(e)
+                model[:eInvestmentFixedCost] +=
+                    e.annualized_investment_cost_with_learning_cc * (1 - subsidy) * cc_annuities_mult(e)
+            
+
             else
                 # No learning
                 add_to_expression!(
-                model[:eInvestmentFixedCost],
-                annualized_investment_cost(e)*annuities_mult(e),
-                new_capacity(e),
-            )
-            end
-            # Nonlinear version for benchmarking
-            # model[:eInvestmentFixedCost] += endog_investment_cost(e)*annuities_mult(e)*new_capacity(e)
+                    model[:eInvestmentFixedCost],
+                    annualized_investment_cost(e) * (1 - subsidy) * annuities_mult(e),
+                    new_capacity(e),
+                )
 
-            # Shadow capacity for project development constraints
-            add_to_expression!(
-                model[:eInvestmentFixedCost],
-                de_annualized_cost(e)*de_annuities_mult(e),
-                new_de_capacity(e),
-            )
-            add_to_expression!(
-                model[:eInvestmentFixedCost],
-                af_annualized_cost(e)*af_annuities_mult(e),
-                new_af_capacity(e),
-            )
-            add_to_expression!(
-                model[:eInvestmentFixedCost],
-                cc_annualized_cost(e)*cc_annuities_mult(e),
-                new_cc_capacity(e),
-            )
+                # Shadow capacity for project development constraints
+                add_to_expression!(
+                    model[:eInvestmentFixedCost],
+                    de_annualized_cost(e) * (1 - subsidy) * de_annuities_mult(e),
+                    new_de_capacity(e),
+                )
+                add_to_expression!(
+                    model[:eInvestmentFixedCost],
+                    af_annualized_cost(e) * (1 - subsidy) * af_annuities_mult(e),
+                    new_af_capacity(e),
+                )
+                add_to_expression!(
+                    model[:eInvestmentFixedCost],
+                    cc_annualized_cost(e) * (1 - subsidy) * cc_annuities_mult(e),
+                    new_cc_capacity(e),
+                )
+
+            end
         end
     end
 end
@@ -575,7 +601,7 @@ function operation_model!(e::Edge, model::Model, settings::NamedTuple)
     update_balances!(e, model)
 
     for t in time_interval(e)
-        w = current_subperiod(e,t)
+        w = current_subperiod(e, t)
         if variable_om_cost(e) > 0
             add_to_expression!(
                 model[:eVariableCost],
@@ -682,10 +708,10 @@ function make_edge_UC(
     end
 
     _edge = EdgeWithUC{commodity}(;
-        id = id,
-        timedata = time_data,
-        start_vertex = start_vertex,
-        end_vertex = end_vertex,
+        id=id,
+        timedata=time_data,
+        start_vertex=start_vertex,
+        end_vertex=end_vertex,
         filtered_data...,
     )
 
@@ -694,7 +720,7 @@ function make_edge_UC(
     else
         _edge.is_learning_edge = true
     end
-    
+
     return _edge
 end
 EdgeWithUC(
@@ -764,7 +790,7 @@ function operation_model!(e::EdgeWithUC, model::Model, settings::NamedTuple)
 
     for t in time_interval(e)
 
-        w = current_subperiod(e,t)
+        w = current_subperiod(e, t)
         if variable_om_cost(e) > 0
             add_to_expression!(
                 model[:eVariableCost],
@@ -851,7 +877,7 @@ function update_startup_fuel_balance!(e::EdgeWithUC)
 
     # The startup fuel will not contribute to the end vertex balance as it is not consumed there.
 
-    v = start_vertex(e);
+    v = start_vertex(e)
 
     i = startup_fuel_balance_id(e)
 
@@ -883,13 +909,13 @@ function update_balance_start!(e::AbstractEdge, model::Model)
             @constraint(model, [t in time_interval(e)], flow_pos[t] + flow_neg[t] <= availability(e, t) * capacity(e))
         end
 
-        effective_flow = @expression(model, [t in time_interval(e)], flow_pos[t] - (1 - loss_fraction(e,t)) * flow_neg[t])
+        effective_flow = @expression(model, [t in time_interval(e)], flow_pos[t] - (1 - loss_fraction(e, t)) * flow_neg[t])
     end
 
     for i in balance_ids(v)
-        add_to_expression!.(get_balance(v, i),  -1 * balance_data(e, v, i) * effective_flow)
+        add_to_expression!.(get_balance(v, i), -1 * balance_data(e, v, i) * effective_flow)
     end
-    
+
 
 end
 
@@ -898,9 +924,9 @@ function update_balance_end!(e::AbstractEdge, model::Model)
     v = end_vertex(e)
 
     if e.unidirectional == true
-        effective_flow = @expression(model, [t in time_interval(e)], (1-loss_fraction(e,t)) * flow(e, t))
+        effective_flow = @expression(model, [t in time_interval(e)], (1 - loss_fraction(e, t)) * flow(e, t))
     else
-    
+
         flow_pos = @variable(model, [t in time_interval(e)], lower_bound = 0.0, base_name = "vFLOWPOS_$(id(e))_period$(period_index(e))")
         flow_neg = @variable(model, [t in time_interval(e)], lower_bound = 0.0, base_name = "vFLOWNEG_$(id(e))_period$(period_index(e))")
 
@@ -912,21 +938,21 @@ function update_balance_end!(e::AbstractEdge, model::Model)
             @constraint(model, [t in time_interval(e)], flow_pos[t] + flow_neg[t] <= availability(e, t) * capacity(e))
         end
 
-        effective_flow = @expression(model, [t in time_interval(e)], (1 - loss_fraction(e,t)) * flow_pos[t] - flow_neg[t])
+        effective_flow = @expression(model, [t in time_interval(e)], (1 - loss_fraction(e, t)) * flow_pos[t] - flow_neg[t])
 
     end
 
     for i in balance_ids(v)
-        add_to_expression!.(get_balance(v, i),  balance_data(e, v, i) * effective_flow)
+        add_to_expression!.(get_balance(v, i), balance_data(e, v, i) * effective_flow)
     end
-    
+
 end
 
 ###### Templates ######
 
 macro edge_template_args()
-    quote 
-        [ 
+    quote
+        [
             :id,
             :timedata,
             :start_vertex,

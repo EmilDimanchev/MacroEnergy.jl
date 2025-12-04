@@ -31,7 +31,7 @@
         1,
         1
     ],
-    "SolutionAlgorithm": "Benders",
+    "SolutionAlgorithm": "Monolithic",
     "DiscountRate": 0.045,
     "TechnologyLearning": true,
     "LearningTechnologies": ["egs"],

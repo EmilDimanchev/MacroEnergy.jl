@@ -63,6 +63,7 @@ macro AbstractStorageBaseAttributes()
         # Definition and evaluation (DE)
         de_cost_perc::Float64 = 0.0
         de_wacc::Float64 = 0.1
+        de_annualization_factor::Float64 = 0.0
         de_cap_recovery::Int64 = 1
         de_annuities_mult::Float64 = 0.0
         de_annualized_cost::Float64 = 0.0
@@ -74,6 +75,7 @@ macro AbstractStorageBaseAttributes()
         # Approvals and funding (AF)
         af_cost_perc::Float64 = 0.0
         af_wacc::Float64 = 0.1
+        af_annualization_factor::Float64 = 0.0
         af_cap_recovery::Int64 = 1
         af_annuities_mult::Float64 = 0.0
         af_annualized_cost::Float64 = 0.0
@@ -85,6 +87,7 @@ macro AbstractStorageBaseAttributes()
         # Construction and Commissioning (CC)
         cc_cost_perc::Float64 = 0.0
         cc_wacc::Float64 = 0.05
+        cc_annualization_factor::Float64 = 0.0
         cc_cap_recovery::Int64 = 1
         cc_annuities_mult::Float64 = 0.0
         cc_annualized_cost::Float64 = 0.0
@@ -279,6 +282,9 @@ cc_cost_perc(g::AbstractStorage) = g.cc_cost_perc;
 de_wacc(g::AbstractStorage) = g.de_wacc;
 af_wacc(g::AbstractStorage) = g.af_wacc;
 cc_wacc(g::AbstractStorage) = g.cc_wacc;
+de_annualization_factor(g::AbstractStorage) = g.de_annualization_factor;
+af_annualization_factor(g::AbstractStorage) = g.af_annualization_factor;
+cc_annualization_factor(g::AbstractStorage) = g.cc_annualization_factor;
 de_cap_recovery(g::AbstractStorage) = g.de_cap_recovery;
 af_cap_recovery(g::AbstractStorage) = g.af_cap_recovery;
 cc_cap_recovery(g::AbstractStorage) = g.cc_cap_recovery;
