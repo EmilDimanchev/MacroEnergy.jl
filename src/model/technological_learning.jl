@@ -76,11 +76,11 @@ function add_learning!(system::System, model::Model, period_idx::Int, settings::
                 # Cumulative_experience combines existing capacity and all new capacity from modeled region and externally
                 @constraint(model, sum(cumulative_experience(e)[k] for k in 1:n_segments+1) == sum(new_capacity_track(e,i) for i=1:curr_period, e in tech_edges) + cumulative_external_capacity(e))
                 
-                # println(string(e.id," points"))
-                # println(x_points)
-                # println(y_points)
-                # println("All slopes")
-                # println(e.pwl_cost_slopes)
+                println(string(e.id," points"))
+                println(x_points)
+                println(y_points)
+                println("All slopes")
+                println(e.pwl_cost_slopes)
 
                 # Determine chosen segment
                 # Ensure strict inequality
@@ -117,7 +117,7 @@ function add_learning!(system::System, model::Model, period_idx::Int, settings::
                     e.aux_new_capacity = @variable(model, [k in 1:n_segments+1], lower_bound = 0.0, base_name = "vAUXNEWCAP_$(id(e))_stage$(period_index(e))_seg_$k")
 
                     # Upper bound on new capacity in a given period
-                    big_M_capacity = 10000
+                    big_M_capacity = 1e5
 
                     @constraint(model, [k in 1:n_segments+1], e.new_capacity - e.aux_new_capacity[k] >= 0)
                     # Big M constraints

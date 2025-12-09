@@ -36,7 +36,7 @@ function initialize_subproblem(system::Any,optimizer::Optimizer,include_subprobl
 
     set_optimizer(subproblem, optimizer)
 
-    # set_silent(subproblem)
+    set_silent(subproblem)
 
     if system.settings.ConstraintScaling
         @info "Scaling constraints and RHS"
