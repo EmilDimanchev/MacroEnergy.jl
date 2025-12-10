@@ -1,4 +1,6 @@
 {
-    "ConstraintScaling": true,
-    "OutputLayout": "long"
+    "ConstraintScaling": false,
+    "OutputLayout": "long",
+    "DualExportsEnabled": false,
+    "OutputDir": "mo_el_bigm"
 }

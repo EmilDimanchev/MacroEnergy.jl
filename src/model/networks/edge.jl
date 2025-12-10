@@ -5,7 +5,6 @@ macro AbstractEdgeBaseAttributes()
         timedata::TimeData{T}
         start_vertex::AbstractVertex
         end_vertex::AbstractVertex
-        is_learning_edge::Bool = false
         availability::Vector{Float64} = Float64[]
         can_expand::Bool = $edge_defaults[:can_expand]
         can_retire::Bool = $edge_defaults[:can_retire]
@@ -69,7 +68,7 @@ macro AbstractEdgeBaseAttributes()
         annuities_mult::Float64 = 0.0
         annualization_factor::Float64 = 0.0
         endog_annualized_cost::AffExpr = AffExpr(0.0)
-        cumulative_external_capacity::Float64 = 0.0
+        init_cumul_capacity::Float64 = 0.0
         endog_investment_cost::AffExpr = 0.0
         max_cumul_capacity::Float64 = 0.0
         # Shadow
@@ -342,7 +341,7 @@ annualized_investment_cost_with_learning(e::AbstractEdge) = e.annualized_investm
 annuities_mult(e::AbstractEdge) = e.annuities_mult;
 annualization_factor(e::AbstractEdge) = e.annualization_factor;
 endog_annualized_cost(e::AbstractEdge) = e.endog_annualized_cost;
-cumulative_external_capacity(e::AbstractEdge) = e.cumulative_external_capacity;
+init_cumul_capacity(e::AbstractEdge) = e.init_cumul_capacity;
 max_cumul_capacity(e::AbstractEdge) = e.max_cumul_capacity;
 # Shadow
 de_duration(e::AbstractEdge) = e.de_duration;
@@ -527,10 +526,10 @@ function compute_investment_costs!(e::AbstractEdge, model::Model, settings::Name
             # Linearized learning
             if settings[:TechnologyLearning] && learning_type(e) in settings[:LearningTechnologies]
 
-                # model[:eInvestmentFixedCost] += e.annualized_investment_cost_with_learning * (1 - subsidy) * annuities_mult(e)
+                model[:eInvestmentFixedCost] += e.annualized_investment_cost_with_learning * (1 - subsidy) * annuities_mult(e)
 
                 # Nonlinear version for benchmarking
-                model[:eInvestmentFixedCost] += (1 - subsidy)*endog_investment_cost(e)*annuities_mult(e)*new_capacity(e)
+                # model[:eInvestmentFixedCost] += (1 - subsidy)*endog_investment_cost(e)*annuities_mult(e)*new_capacity(e)
                 
                 # Shadow capacity for project development constraints
                 model[:eInvestmentFixedCost] +=
@@ -718,12 +717,6 @@ function make_edge_UC(
         end_vertex=end_vertex,
         filtered_data...,
     )
-
-    if settings[:TechnologyLearning] == false
-        _edge.is_learning_edge = false
-    else
-        _edge.is_learning_edge = true
-    end
 
     return _edge
 end

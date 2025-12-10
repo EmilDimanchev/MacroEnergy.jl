@@ -7,7 +7,6 @@ function default_settings()
         OutputLayout = "long",
         AutoCreateNodes = false,
         AutoCreateLocations = true,
-        TechnologyLearning = false,
         Retrofitting = false,
         DualExportsEnabled = true
     )

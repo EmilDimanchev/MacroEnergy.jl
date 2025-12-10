@@ -2797,7 +2797,7 @@
                         "startup_cost": 0,
                         "cc_cap_recovery": 23,
                         "de_cap_recovery": 1,
-                        "cumulative_external_capacity": -1,
+                        "init_cumul_capacity": -1,
                         "existing_capacity": 0
                     },
                     "fuel_edge": {
@@ -2874,7 +2874,7 @@
                         "startup_cost": 0,
                         "cc_cap_recovery": 23,
                         "de_cap_recovery": 1,
-                        "cumulative_external_capacity": -1,
+                        "init_cumul_capacity": -1,
                         "existing_capacity": 0
                     },
                     "fuel_edge": {
@@ -2951,7 +2951,7 @@
                         "startup_cost": 285,
                         "cc_cap_recovery": 25,
                         "de_cap_recovery": 5,
-                        "cumulative_external_capacity": 0,
+                        "init_cumul_capacity": 0,
                         "existing_capacity": 0
                     },
                     "fuel_edge": {
@@ -3028,7 +3028,7 @@
                         "startup_cost": 0,
                         "cc_cap_recovery": 23,
                         "de_cap_recovery": 1,
-                        "cumulative_external_capacity": -1,
+                        "init_cumul_capacity": -1,
                         "existing_capacity": 0
                     },
                     "fuel_edge": {
@@ -3105,7 +3105,7 @@
                         "startup_cost": 0,
                         "cc_cap_recovery": 23,
                         "de_cap_recovery": 1,
-                        "cumulative_external_capacity": -1,
+                        "init_cumul_capacity": -1,
                         "existing_capacity": 0
                     },
                     "fuel_edge": {
@@ -3182,7 +3182,7 @@
                         "startup_cost": 285,
                         "cc_cap_recovery": 25,
                         "de_cap_recovery": 5,
-                        "cumulative_external_capacity": 0,
+                        "init_cumul_capacity": 0,
                         "existing_capacity": 0
                     },
                     "fuel_edge": {
@@ -3259,7 +3259,7 @@
                         "startup_cost": 0,
                         "cc_cap_recovery": 23,
                         "de_cap_recovery": 1,
-                        "cumulative_external_capacity": -1,
+                        "init_cumul_capacity": -1,
                         "existing_capacity": 0
                     },
                     "fuel_edge": {
@@ -3336,7 +3336,7 @@
                         "startup_cost": 0,
                         "cc_cap_recovery": 23,
                         "de_cap_recovery": 1,
-                        "cumulative_external_capacity": -1,
+                        "init_cumul_capacity": -1,
                         "existing_capacity": 0
                     },
                     "fuel_edge": {
@@ -3413,7 +3413,7 @@
                         "startup_cost": 285,
                         "cc_cap_recovery": 25,
                         "de_cap_recovery": 5,
-                        "cumulative_external_capacity": 0,
+                        "init_cumul_capacity": 0,
                         "existing_capacity": 0
                     },
                     "fuel_edge": {
@@ -3490,7 +3490,7 @@
                         "startup_cost": 0,
                         "cc_cap_recovery": 23,
                         "de_cap_recovery": 1,
-                        "cumulative_external_capacity": -1,
+                        "init_cumul_capacity": -1,
                         "existing_capacity": 0
                     },
                     "fuel_edge": {
@@ -3567,7 +3567,7 @@
                         "startup_cost": 0,
                         "cc_cap_recovery": 23,
                         "de_cap_recovery": 1,
-                        "cumulative_external_capacity": -1,
+                        "init_cumul_capacity": -1,
                         "existing_capacity": 0
                     },
                     "fuel_edge": {
@@ -3644,7 +3644,7 @@
                         "startup_cost": 285,
                         "cc_cap_recovery": 25,
                         "de_cap_recovery": 5,
-                        "cumulative_external_capacity": 0,
+                        "init_cumul_capacity": 0,
                         "existing_capacity": 0
                     },
                     "fuel_edge": {
@@ -3721,7 +3721,7 @@
                         "startup_cost": 0,
                         "cc_cap_recovery": 23,
                         "de_cap_recovery": 1,
-                        "cumulative_external_capacity": -1,
+                        "init_cumul_capacity": -1,
                         "existing_capacity": 0
                     },
                     "fuel_edge": {
@@ -3798,7 +3798,7 @@
                         "startup_cost": 0,
                         "cc_cap_recovery": 23,
                         "de_cap_recovery": 1,
-                        "cumulative_external_capacity": -1,
+                        "init_cumul_capacity": -1,
                         "existing_capacity": 0
                     },
                     "fuel_edge": {
@@ -3875,7 +3875,7 @@
                         "startup_cost": 285,
                         "cc_cap_recovery": 25,
                         "de_cap_recovery": 5,
-                        "cumulative_external_capacity": 0,
+                        "init_cumul_capacity": 0,
                         "existing_capacity": 0
                     },
                     "fuel_edge": {
@@ -3952,7 +3952,7 @@
                         "startup_cost": 0,
                         "cc_cap_recovery": 23,
                         "de_cap_recovery": 1,
-                        "cumulative_external_capacity": -1,
+                        "init_cumul_capacity": -1,
                         "existing_capacity": 0
                     },
                     "fuel_edge": {
@@ -4029,7 +4029,7 @@
                         "startup_cost": 0,
                         "cc_cap_recovery": 23,
                         "de_cap_recovery": 1,
-                        "cumulative_external_capacity": -1,
+                        "init_cumul_capacity": -1,
                         "existing_capacity": 0
                     },
                     "fuel_edge": {
@@ -4106,7 +4106,7 @@
                         "startup_cost": 285,
                         "cc_cap_recovery": 25,
                         "de_cap_recovery": 5,
-                        "cumulative_external_capacity": 0,
+                        "init_cumul_capacity": 0,
                         "existing_capacity": 0
                     },
                     "fuel_edge": {
@@ -4183,7 +4183,7 @@
                         "startup_cost": 0,
                         "cc_cap_recovery": 23,
                         "de_cap_recovery": 1,
-                        "cumulative_external_capacity": -1,
+                        "init_cumul_capacity": -1,
                         "existing_capacity": 0
                     },
                     "fuel_edge": {
@@ -4260,7 +4260,7 @@
                         "startup_cost": 0,
                         "cc_cap_recovery": 23,
                         "de_cap_recovery": 1,
-                        "cumulative_external_capacity": -1,
+                        "init_cumul_capacity": -1,
                         "existing_capacity": 0
                     },
                     "fuel_edge": {
@@ -4337,7 +4337,7 @@
                         "startup_cost": 285,
                         "cc_cap_recovery": 25,
                         "de_cap_recovery": 5,
-                        "cumulative_external_capacity": 0,
+                        "init_cumul_capacity": 0,
                         "existing_capacity": 0
                     },
                     "fuel_edge": {
@@ -4414,7 +4414,7 @@
                         "startup_cost": 0,
                         "cc_cap_recovery": 23,
                         "de_cap_recovery": 1,
-                        "cumulative_external_capacity": -1,
+                        "init_cumul_capacity": -1,
                         "existing_capacity": 0
                     },
                     "fuel_edge": {
@@ -4491,7 +4491,7 @@
                         "startup_cost": 0,
                         "cc_cap_recovery": 23,
                         "de_cap_recovery": 1,
-                        "cumulative_external_capacity": -1,
+                        "init_cumul_capacity": -1,
                         "existing_capacity": 0
                     },
                     "fuel_edge": {
@@ -4568,7 +4568,7 @@
                         "startup_cost": 285,
                         "cc_cap_recovery": 25,
                         "de_cap_recovery": 5,
-                        "cumulative_external_capacity": 0,
+                        "init_cumul_capacity": 0,
                         "existing_capacity": 0
                     },
                     "fuel_edge": {
@@ -4645,7 +4645,7 @@
                         "startup_cost": 0,
                         "cc_cap_recovery": 23,
                         "de_cap_recovery": 1,
-                        "cumulative_external_capacity": -1,
+                        "init_cumul_capacity": -1,
                         "existing_capacity": 0
                     },
                     "fuel_edge": {
@@ -4722,7 +4722,7 @@
                         "startup_cost": 0,
                         "cc_cap_recovery": 23,
                         "de_cap_recovery": 1,
-                        "cumulative_external_capacity": -1,
+                        "init_cumul_capacity": -1,
                         "existing_capacity": 0
                     },
                     "fuel_edge": {
@@ -4799,7 +4799,7 @@
                         "startup_cost": 285,
                         "cc_cap_recovery": 25,
                         "de_cap_recovery": 5,
-                        "cumulative_external_capacity": 0,
+                        "init_cumul_capacity": 0,
                         "existing_capacity": 0
                     },
                     "fuel_edge": {
@@ -4876,7 +4876,7 @@
                         "startup_cost": 0,
                         "cc_cap_recovery": 23,
                         "de_cap_recovery": 1,
-                        "cumulative_external_capacity": -1,
+                        "init_cumul_capacity": -1,
                         "existing_capacity": 0
                     },
                     "fuel_edge": {
@@ -4953,7 +4953,7 @@
                         "startup_cost": 0,
                         "cc_cap_recovery": 23,
                         "de_cap_recovery": 1,
-                        "cumulative_external_capacity": -1,
+                        "init_cumul_capacity": -1,
                         "existing_capacity": 0
                     },
                     "fuel_edge": {
@@ -5030,7 +5030,7 @@
                         "startup_cost": 285,
                         "cc_cap_recovery": 25,
                         "de_cap_recovery": 5,
-                        "cumulative_external_capacity": 0,
+                        "init_cumul_capacity": 0,
                         "existing_capacity": 0
                     },
                     "fuel_edge": {
@@ -5107,7 +5107,7 @@
                         "startup_cost": 0,
                         "cc_cap_recovery": 23,
                         "de_cap_recovery": 1,
-                        "cumulative_external_capacity": -1,
+                        "init_cumul_capacity": -1,
                         "existing_capacity": 0
                     },
                     "fuel_edge": {
@@ -5184,7 +5184,7 @@
                         "startup_cost": 0,
                         "cc_cap_recovery": 23,
                         "de_cap_recovery": 1,
-                        "cumulative_external_capacity": -1,
+                        "init_cumul_capacity": -1,
                         "existing_capacity": 0
                     },
                     "fuel_edge": {
@@ -5261,7 +5261,7 @@
                         "startup_cost": 285,
                         "cc_cap_recovery": 25,
                         "de_cap_recovery": 5,
-                        "cumulative_external_capacity": 0,
+                        "init_cumul_capacity": 0,
                         "existing_capacity": 0
                     },
                     "fuel_edge": {

@@ -6,7 +6,6 @@ macro AbstractStorageBaseAttributes()
         spillage_edge::Union{Nothing, AbstractEdge} = nothing
         can_expand::Bool = $storage_defaults[:can_expand]
         can_retire::Bool = $storage_defaults[:can_retire]
-        is_learning_edge::Bool = false
         capacity::Union{JuMPVariable,AffExpr,Float64} = AffExpr(0.0)
         capacity_size::Float64 = $storage_defaults[:capacity_size]
         capital_recovery_period::Int64 = $storage_defaults[:capital_recovery_period]
@@ -53,7 +52,7 @@ macro AbstractStorageBaseAttributes()
         annuities_mult::Float64 = 0.0
         annualization_factor::Float64 = 0.0
         endog_annualized_cost::AffExpr = AffExpr(0.0)
-        cumulative_external_capacity::Float64 = 0.0
+        init_cumul_capacity::Float64 = 0.0
         endog_investment_cost::AffExpr = 0.0
         max_cumul_capacity::Float64 = 0.0
         # Shadow
@@ -270,7 +269,7 @@ annualized_investment_cost_with_learning(g::AbstractStorage) = g.annualized_inve
 annuities_mult(g::AbstractStorage) = g.annuities_mult;
 annualization_factor(g::AbstractStorage) = g.annualization_factor;
 endog_annualized_cost(g::AbstractStorage) = g.endog_annualized_cost;
-cumulative_external_capacity(g::AbstractStorage) = g.cumulative_external_capacity;
+init_cumul_capacity(g::AbstractStorage) = g.init_cumul_capacity;
 max_cumul_capacity(g::AbstractStorage) = g.max_cumul_capacity;
 # Shadow
 de_duration(g::AbstractStorage) = g.de_duration;
