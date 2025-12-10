@@ -124,8 +124,9 @@ function add_learning!(system::System, model::Model, period_idx::Int, settings::
                     e.annualized_investment_cost_with_learning_cc = @expression(model, sum(e.pwl_cost_slopes[k]*e.aux_new_capacity_cc[k]*de_annualization_factor(e)*de_cost_perc(e) for k in 1:n_segments+1))
                 end
                 ### Enf of linearization
-                # # For reporting purposes
-                e.endog_annualized_cost = @expression(model, endog_investment_cost(e))
+                
+                # For reporting purposes
+                e.endog_annualized_cost = @expression(model, sum(e.pwl_cost_slopes[k]*e.segments_sos1_prev[k]*annualization_factor(e) for k in 1:n_segments+1))
                 
             end
         end
