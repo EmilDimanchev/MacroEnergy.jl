@@ -97,7 +97,7 @@ function generate_planning_problem(case::Case)
     discount_factor = 1 ./ ( (1 + discount_rate) .^ cum_years)
 
     @expression(model, eFixedCostByPeriod[s in 1:number_of_periods], discount_factor[s] * fixed_cost[s])
-    @expression(model, eFixedCost, sum(eFixedCostByPeriod[s] for s in 1:number_of_periods))
+    @expression(model, eFixedCost, 1e-6*sum(eFixedCostByPeriod[s] for s in 1:number_of_periods))
 
     @expression(model, eInvestmentFixedCostByPeriod[s in 1:number_of_periods], discount_factor[s] * investment_cost[s])
 

@@ -527,9 +527,12 @@ function compute_investment_costs!(e::AbstractEdge, model::Model, settings::Name
             # Linearized learning
             if settings[:TechnologyLearning] && learning_type(e) in settings[:LearningTechnologies]
 
-                model[:eInvestmentFixedCost] += e.annualized_investment_cost_with_learning * (1 - subsidy) * annuities_mult(e)
+                # model[:eInvestmentFixedCost] += e.annualized_investment_cost_with_learning * (1 - subsidy) * annuities_mult(e)
 
+                # Nonlinear version for benchmarking
+                model[:eInvestmentFixedCost] += (1 - subsidy)*endog_investment_cost(e)*annuities_mult(e)*new_capacity(e)
                 
+                # Shadow capacity for project development constraints
                 model[:eInvestmentFixedCost] +=
                     e.annualized_investment_cost_with_learning_de * (1 - subsidy) * de_annuities_mult(e)
                 model[:eInvestmentFixedCost] +=
@@ -537,6 +540,7 @@ function compute_investment_costs!(e::AbstractEdge, model::Model, settings::Name
                 model[:eInvestmentFixedCost] +=
                     e.annualized_investment_cost_with_learning_cc * (1 - subsidy) * cc_annuities_mult(e)
             
+                
 
             else
                 # No learning

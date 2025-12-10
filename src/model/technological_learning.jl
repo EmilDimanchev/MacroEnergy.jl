@@ -30,20 +30,23 @@ function add_learning!(system::System, model::Model, period_idx::Int, settings::
         
                 # Find position in learning techs list
                 learning_type_index = findfirst(x -> x == learning_type(e), learning_techs)
-
-                # Number of segments
-                # n_segments = 4
-
-                segment_length = (max_cumul_capacity(e)-cumulative_external_capacity(e))/n_segments
                 
                 # Define (x,y) coordinates for piece-wise linear curve (cumulative cost as a function of cumulative capacity added)
                 x_points = zeros(n_segments+1)
                 y_points = zeros(n_segments+1)
                 
-                # Compute coordinates
-                for k in 1:n_segments+1    
-                    x_points[k] = (k-1)*(segment_length)+cumulative_external_capacity(e)
-                    # Estimate per-unit CAPEX cost for a given cumulative capacity 
+                # Define end points
+                x_points[1] = cumulative_external_capacity(e)
+                x_points[end] = max_cumul_capacity(e)
+                
+                # X coordinates for piece-wise linear curve
+                # X points are spaced exponentially
+                for k in 2:n_segments
+                    x_points[k] = max_cumul_capacity(e)/(2^(n_segments - k +1))
+                end
+
+                # Compute Y coordinates
+                for k in 1:n_segments+1        
                     cost_point = investment_cost(e)*(x_points[k]/cumulative_external_capacity(e))^(-learning_parameter(e))
                     # Estimate cost from fixed capacity points
                     y_points[k] = (1/(1-learning_parameter(e)))*(x_points[k]*cost_point-investment_cost(e)*cumulative_external_capacity(e))
@@ -114,16 +117,19 @@ function add_learning!(system::System, model::Model, period_idx::Int, settings::
                 else
                     e.segments_sos1_prev = segments_sos1_track(e, cost_period)
                     # Linearize 
-                    e.aux_new_capacity = @variable(model, [k in 1:n_segments+1], lower_bound = 0.0, base_name = "vAUXNEWCAP_$(id(e))_stage$(period_index(e))_seg_$k")
+                    # e.aux_new_capacity = @variable(model, [k in 1:n_segments+1], lower_bound = 0.0, base_name = "vAUXNEWCAP_$(id(e))_stage$(period_index(e))_seg_$k")
 
-                    # Upper bound on new capacity in a given period
-                    big_M_capacity = 1e5
+                    # # Upper bound on new capacity in a given period
+                    # big_M_capacity = 1e5
 
-                    @constraint(model, [k in 1:n_segments+1], e.new_capacity - e.aux_new_capacity[k] >= 0)
-                    # Big M constraints
-                    @constraint(model, [k in 1:n_segments+1], e.new_capacity - e.aux_new_capacity[k] <= big_M_capacity*(1-segments_sos1_prev(e)[k]))
-                    @constraint(model, [k in 1:n_segments+1], e.aux_new_capacity[k] <= big_M_capacity*e.segments_sos1_prev[k])
-                    e.annualized_investment_cost_with_learning = @expression(model, sum(e.pwl_cost_slopes[k]*e.aux_new_capacity[k]*annualization_factor(e) for k in 1:n_segments+1))
+                    # @constraint(model, [k in 1:n_segments+1], e.new_capacity - e.aux_new_capacity[k] >= 0)
+                    # # Big M constraints
+                    # @constraint(model, [k in 1:n_segments+1], e.new_capacity - e.aux_new_capacity[k] <= big_M_capacity*(1-segments_sos1_prev(e)[k]))
+                    # @constraint(model, [k in 1:n_segments+1], e.aux_new_capacity[k] <= big_M_capacity*e.segments_sos1_prev[k])
+                    # e.annualized_investment_cost_with_learning = @expression(model, sum(e.pwl_cost_slopes[k]*e.aux_new_capacity[k]*annualization_factor(e) for k in 1:n_segments+1))
+
+                    # Nonlinear version for benchmarking
+                    e.endog_investment_cost = learning_pwl_track(e, cost_period)*annualization_factor(e)
 
                     if settings[:ProjectDevelopment]
                         # Shadow capacity DE
@@ -152,15 +158,14 @@ function add_learning!(system::System, model::Model, period_idx::Int, settings::
                     end
                     ### Enf of linearization
                     # # For reporting purposes
-                    e.endog_annualized_cost = @expression(model, sum(e.pwl_cost_slopes[k]*e.segments_sos1_prev[k]*annualization_factor(e) for k in 1:n_segments+1))
-                    # Nonlinear version for benchmarking
-                    # e.endog_investment_cost = learning_pwl_track(e, cost_period)*annualization_factor(e)
+                    # e.endog_annualized_cost = @expression(model, sum(e.pwl_cost_slopes[k]*e.segments_sos1_prev[k]*annualization_factor(e) for k in 1:n_segments+1))
+                    e.endog_annualized_cost = @expression(model, endog_investment_cost(e))
+                    
                 end
             else
                 # For reporting purposes
                 e.endog_annualized_cost = annualized_investment_cost(e)
-                # Nonlinear version for benchmarking
-                # e.endog_investment_cost = annualized_investment_cost(e)
+                
             end
         end
     end

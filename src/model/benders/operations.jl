@@ -23,7 +23,7 @@ function generate_operation_subproblem(system::System,include_subproblem_slacks:
         add_slack_variables!(model,slack_penalty,eq_cons_to_be_relaxed,less_ineq_cons_to_be_relaxed,greater_ineq_cons_to_be_relaxed)
     end
 
-    @objective(model, Min, model[:eVariableCost])
+    @objective(model, Min, 1e-6*model[:eVariableCost])
 
     return model, linking_variables
 
