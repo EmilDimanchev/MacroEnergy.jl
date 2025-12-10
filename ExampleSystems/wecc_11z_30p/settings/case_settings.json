@@ -31,11 +31,11 @@
         1,
         1
     ],
-    "SolutionAlgorithm": "Monolithic",
+    "SolutionAlgorithm": "Benders",
     "DiscountRate": 0.045,
     "TechnologyLearning": true,
     "LearningTechnologies": ["egs"],
-    "DeploymentInertia": true,
-    "ProjectDevelopment": true,
+    "DeploymentInertia": false,
+    "ProjectDevelopment": false,
     "CO2Cap": true
 }

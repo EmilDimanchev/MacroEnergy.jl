@@ -1,9 +1,12 @@
 case = dirname(@__FILE__);
 
 import Pkg
+# Pkg.add("Gurobi")
 # Pkg.instantiate()
 # println("Activating Package")
 
-Pkg.activate("/home/ed0400/1_Macro")
+model_folder = abspath(joinpath(pwd(), "..", ".."))
 
-include("/home/ed0400/1_Macro/ExampleSystems/thirtyperiods_electricity_only_new_england_multistage/run.jl");
+Pkg.activate(model_folder)
+
+include(string(pwd(),"/run_benders.jl"));
