@@ -94,7 +94,7 @@
                         "startup_cost": 0,
                         "cc_cap_recovery": 24,
                         "de_cap_recovery": 2,
-                        "init_cumul_capacity": 1000,
+                        "init_cumul_capacity": 10000,
                         "existing_capacity": 0
                     },
                     "fuel_edge": {
@@ -167,7 +167,7 @@
                         "startup_cost": 0,
                         "cc_cap_recovery": 24,
                         "de_cap_recovery": 2,
-                        "init_cumul_capacity": 1000,
+                        "init_cumul_capacity": 10000,
                         "existing_capacity": 0
                     },
                     "fuel_edge": {
@@ -240,7 +240,7 @@
                         "startup_cost": 0,
                         "cc_cap_recovery": 24,
                         "de_cap_recovery": 2,
-                        "init_cumul_capacity": 1000,
+                        "init_cumul_capacity": 10000,
                         "existing_capacity": 0
                     },
                     "fuel_edge": {
@@ -313,7 +313,7 @@
                         "startup_cost": 0,
                         "cc_cap_recovery": 24,
                         "de_cap_recovery": 2,
-                        "init_cumul_capacity": 1000,
+                        "init_cumul_capacity": 10000,
                         "existing_capacity": 0
                     },
                     "fuel_edge": {
@@ -386,7 +386,7 @@
                         "startup_cost": 0,
                         "cc_cap_recovery": 24,
                         "de_cap_recovery": 2,
-                        "init_cumul_capacity": 1000,
+                        "init_cumul_capacity": 10000,
                         "existing_capacity": 0
                     },
                     "fuel_edge": {
@@ -459,7 +459,7 @@
                         "startup_cost": 0,
                         "cc_cap_recovery": 24,
                         "de_cap_recovery": 2,
-                        "init_cumul_capacity": 1000,
+                        "init_cumul_capacity": 10000,
                         "existing_capacity": 0
                     },
                     "fuel_edge": {
@@ -532,7 +532,7 @@
                         "startup_cost": 0,
                         "cc_cap_recovery": 24,
                         "de_cap_recovery": 2,
-                        "init_cumul_capacity": 1000,
+                        "init_cumul_capacity": 10000,
                         "existing_capacity": 0
                     },
                     "fuel_edge": {
@@ -605,7 +605,7 @@
                         "startup_cost": 0,
                         "cc_cap_recovery": 24,
                         "de_cap_recovery": 2,
-                        "init_cumul_capacity": 1000,
+                        "init_cumul_capacity": 10000,
                         "existing_capacity": 0
                     },
                     "fuel_edge": {
@@ -678,7 +678,7 @@
                         "startup_cost": 0,
                         "cc_cap_recovery": 24,
                         "de_cap_recovery": 2,
-                        "init_cumul_capacity": 1000,
+                        "init_cumul_capacity": 10000,
                         "existing_capacity": 0
                     },
                     "fuel_edge": {
@@ -751,7 +751,7 @@
                         "startup_cost": 0,
                         "cc_cap_recovery": 24,
                         "de_cap_recovery": 2,
-                        "init_cumul_capacity": 1000,
+                        "init_cumul_capacity": 10000,
                         "existing_capacity": 0
                     },
                     "fuel_edge": {
@@ -824,7 +824,7 @@
                         "startup_cost": 0,
                         "cc_cap_recovery": 24,
                         "de_cap_recovery": 2,
-                        "init_cumul_capacity": 1000,
+                        "init_cumul_capacity": 10000,
                         "existing_capacity": 0
                     },
                     "fuel_edge": {
