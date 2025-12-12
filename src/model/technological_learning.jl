@@ -47,11 +47,11 @@ function add_learning!(system::System, model::Model, period_idx::Int, settings::
             # Cumulative_experience combines existing capacity and all new capacity from modeled region
             @constraint(model, sum(cumulative_experience(e)[k] for k in 1:n_segments+1) == sum(new_capacity_track(e,i) for i=1:curr_period, e in learning_tech_edges) + init_cumul_capacity(e))
             
-            println(string(e.id," points"))
-            println(x_points)
-            println(y_points)
-            println("All slopes")
-            println(e.pwl_cost_slopes)
+            # println(string(e.id," points"))
+            # println(x_points)
+            # println(y_points)
+            # println("All slopes")
+            # println(e.pwl_cost_slopes)
 
             # Determine chosen segment
             epsilon_learning = init_cumul_capacity(e)/1e6
@@ -89,8 +89,9 @@ function add_learning!(system::System, model::Model, period_idx::Int, settings::
 
                 # @constraint(model, [k in 1:n_segments+1], e.new_capacity - e.aux_new_capacity[k] >= 0)
                 # # Big M constraints
-                # @constraint(model, [k in 1:n_segments+1], e.new_capacity - e.aux_new_capacity[k] <= max_new_capacity(e)*(1-segments_sos1_prev(e)[k]))
-                # @constraint(model, [k in 1:n_segments+1], e.aux_new_capacity[k] <= max_new_capacity(e)*e.segments_sos1_prev[k])
+                # big_M_capacity = max_new_capacity(e)+10e3
+                # @constraint(model, [k in 1:n_segments+1], e.new_capacity - e.aux_new_capacity[k] <= big_M_capacity*(1-segments_sos1_prev(e)[k]))
+                # @constraint(model, [k in 1:n_segments+1], e.aux_new_capacity[k] <= big_M_capacity*e.segments_sos1_prev[k])
                 # e.annualized_investment_cost_with_learning = @expression(model, sum(e.pwl_cost_slopes[k]*e.aux_new_capacity[k]*annualization_factor(e) for k in 1:n_segments+1))
 
                 # Nonlinear version for benchmarking

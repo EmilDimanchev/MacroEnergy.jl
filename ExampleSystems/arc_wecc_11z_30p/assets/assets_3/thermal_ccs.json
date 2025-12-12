@@ -63,7 +63,7 @@
                         "capacity_size": 500,
                         "wacc": 0.054,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0.33,
                         "availability": [
                             1
                         ],
@@ -136,7 +136,7 @@
                         "capacity_size": 500,
                         "wacc": 0.054,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0.33,
                         "availability": [
                             1
                         ],
@@ -209,7 +209,7 @@
                         "capacity_size": 500,
                         "wacc": 0.054,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0.33,
                         "availability": [
                             1
                         ],
@@ -282,7 +282,7 @@
                         "capacity_size": 500,
                         "wacc": 0.054,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0.33,
                         "availability": [
                             1
                         ],
@@ -355,7 +355,7 @@
                         "capacity_size": 500,
                         "wacc": 0.054,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0.33,
                         "availability": [
                             1
                         ],
@@ -428,7 +428,7 @@
                         "capacity_size": 500,
                         "wacc": 0.054,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0.33,
                         "availability": [
                             1
                         ],
@@ -501,7 +501,7 @@
                         "capacity_size": 500,
                         "wacc": 0.054,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0.33,
                         "availability": [
                             1
                         ],
@@ -574,7 +574,7 @@
                         "capacity_size": 500,
                         "wacc": 0.054,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0.33,
                         "availability": [
                             1
                         ],
@@ -647,7 +647,7 @@
                         "capacity_size": 500,
                         "wacc": 0.054,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0.33,
                         "availability": [
                             1
                         ],
@@ -720,7 +720,7 @@
                         "capacity_size": 500,
                         "wacc": 0.054,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0.33,
                         "availability": [
                             1
                         ],
@@ -793,7 +793,7 @@
                         "capacity_size": 500,
                         "wacc": 0.054,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.2,
+                        "learning_parameter": 0.33,
                         "availability": [
                             1
                         ],
