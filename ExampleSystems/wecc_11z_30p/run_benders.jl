@@ -4,5 +4,5 @@ using Gurobi
 (system, results) = run_case(@__DIR__;
     planning_optimizer=Gurobi.Optimizer,
     subproblem_optimizer=Gurobi.Optimizer,
-    planning_optimizer_attributes=("Method" => 2, "Crossover" => 0, "BarConvTol" => 1e-3, "BarHomogeneous" => 1),
+    planning_optimizer_attributes=("NumericFocus" => 3, "MIPFocus" => 3),
     subproblem_optimizer_attributes=("Method" => 2, "Crossover" => 1, "BarConvTol" => 1e-3));
