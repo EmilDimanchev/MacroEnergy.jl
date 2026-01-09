@@ -32,5 +32,10 @@
         1
     ],
     "SolutionAlgorithm": "Monolithic",
-    "DiscountRate": 0.045
+    "DiscountRate": 0.045,
+    "TechnologyLearning": true,
+    "LearningTechnologies": ["egs"],
+    "DeploymentInertia": false,
+    "ProjectDevelopment": false,
+    "CO2Cap": true
 }

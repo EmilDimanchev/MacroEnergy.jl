@@ -2472,7 +2472,7 @@
                         "annualized_investment_cost": 391,
                         "learning_type": "egs",
                         "af_duration": 1,
-                        "max_capacity": 6431.72,
+                        "max_capacity": 10000,
                         "lifetime": 20,
                         "can_expand": true,
                         "de_duration": 2,
