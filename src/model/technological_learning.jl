@@ -47,11 +47,11 @@ function add_learning!(system::System, model::Model, period_idx::Int, settings::
             # Cumulative_experience combines existing capacity and all new capacity from modeled region
             @constraint(model, sum(cumulative_experience(e)[k] for k in 1:n_segments+1) == sum(new_capacity_track(e,i) for i=1:curr_period, e in learning_tech_edges) + init_cumul_capacity(e))
             
-            # println(string(e.id," points"))
-            # println(x_points)
-            # println(y_points)
-            # println("All slopes")
-            # println(e.pwl_cost_slopes)
+            println(string(e.id," points"))
+            println(x_points)
+            println(y_points)
+            println("All slopes")
+            println(e.pwl_cost_slopes)
 
             # Determine chosen segment
             epsilon_learning = init_cumul_capacity(e)/1e6
