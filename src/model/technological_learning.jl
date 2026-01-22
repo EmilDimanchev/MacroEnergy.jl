@@ -68,6 +68,8 @@ function add_learning!(system::System, model::Model, period_idx::Int, settings::
             # Determine investment cost
             # Depends on learning lag
             if curr_period <= cc_duration(e)
+                e.endog_investment_cost = annualized_investment_cost(e)
+
                 e.annualized_investment_cost_with_learning = annualized_investment_cost(e)*new_capacity(e)
                 
                 if settings[:ProjectDevelopment]
@@ -80,22 +82,25 @@ function add_learning!(system::System, model::Model, period_idx::Int, settings::
                 e.segments_sos1_prev = segments_sos1_track(e, curr_period)
                 # For reporting purposes
                 e.endog_annualized_cost = annualized_investment_cost(e)
+
+                
+
             else
                 e.segments_sos1_prev = segments_sos1_track(e, cost_period)
                 # Linearize 
-                # e.aux_new_capacity = @variable(model, [k in 1:n_segments+1], lower_bound = 0.0, base_name = "vAUXNEWCAP_$(id(e))_stage$(period_index(e))_seg_$k")
+                e.aux_new_capacity = @variable(model, [k in 1:n_segments+1], lower_bound = 0.0, base_name = "vAUXNEWCAP_$(id(e))_stage$(period_index(e))_seg_$k")
 
-                # # Upper bound on new capacity in a given period
+                # Upper bound on new capacity in a given period
 
-                # @constraint(model, [k in 1:n_segments+1], e.new_capacity - e.aux_new_capacity[k] >= 0)
-                # # Big M constraints
-                # big_M_capacity = max_new_capacity(e)+10e3
-                # @constraint(model, [k in 1:n_segments+1], e.new_capacity - e.aux_new_capacity[k] <= big_M_capacity*(1-segments_sos1_prev(e)[k]))
-                # @constraint(model, [k in 1:n_segments+1], e.aux_new_capacity[k] <= big_M_capacity*e.segments_sos1_prev[k])
-                # e.annualized_investment_cost_with_learning = @expression(model, sum(e.pwl_cost_slopes[k]*e.aux_new_capacity[k]*annualization_factor(e) for k in 1:n_segments+1))
+                @constraint(model, [k in 1:n_segments+1], e.new_capacity - e.aux_new_capacity[k] >= 0)
+                # Big M constraints
+                big_M_capacity = max_new_capacity(e)
+                @constraint(model, [k in 1:n_segments+1], e.new_capacity - e.aux_new_capacity[k] <= big_M_capacity*(1-segments_sos1_prev(e)[k]))
+                @constraint(model, [k in 1:n_segments+1], e.aux_new_capacity[k] <= big_M_capacity*e.segments_sos1_prev[k])
+                e.annualized_investment_cost_with_learning = @expression(model, sum(e.pwl_cost_slopes[k]*e.aux_new_capacity[k]*annualization_factor(e) for k in 1:n_segments+1))
 
                 # Nonlinear version for benchmarking
-                e.endog_investment_cost = learning_pwl_track(e, cost_period)*annualization_factor(e)
+                # e.endog_investment_cost = learning_pwl_track(e, cost_period)*annualization_factor(e)
 
                 if settings[:ProjectDevelopment]
                     # Shadow capacity DE
