@@ -15,7 +15,7 @@ using MacroEnergySolvers
 using Pkg
 using DistributedArrays
 using Distributed
-using ClusterManagers
+using SlurmClusterManager
 using GitHub
 using Markdown
 using Logging
