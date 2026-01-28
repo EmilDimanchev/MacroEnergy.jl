@@ -557,22 +557,12 @@ end
 function compute_investment_costs!(g::AbstractStorage, model::Model, settings::NamedTuple)
     if has_capacity(g)
         if can_expand(g)
-
-            # Linearized learning
-            if settings[:TechnologyLearning] && learning_type(g) in settings[:LearningTechnologies]
-                
-                model[:eInvestmentFixedCost] += g.annualized_investment_cost_with_learning*annuities_mult(g)
-                
-            else
-                # No learning
-                add_to_expression!(
-                model[:eInvestmentFixedCost],
-                annualized_investment_cost(g)*annuities_mult(g),
-                new_capacity(g),
+            
+            add_to_expression!(
+            model[:eInvestmentFixedCost],
+            annualized_investment_cost(g)*annuities_mult(g),
+            new_capacity(g),
             )
-            end
-            # Nonlinear version for benchmarking
-            # model[:eInvestmentFixedCost] += endog_investment_cost(g)*annuities_mult(g)*new_capacity(g)
 
             # Shadow capacity for project development constraints
             add_to_expression!(
