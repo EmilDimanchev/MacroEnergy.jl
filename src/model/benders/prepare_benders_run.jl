@@ -58,7 +58,7 @@ function start_distributed_processes!(number_of_processes::Int64,case_path::Abst
     if haskey(ENV,"SLURM_NTASKS")
         ntasks = min(number_of_processes,parse(Int, ENV["SLURM_NTASKS"]));
         cpus_per_task = parse(Int, ENV["SLURM_CPUS_PER_TASK"]);
-        addprocs(ClusterManagers.SlurmManager(ntasks);exeflags=["-t $cpus_per_task"])
+        addprocs(SlurmClusterManager.SlurmManager(); exeflags=["-t $cpus_per_task"])
     else
         ntasks = min(number_of_processes,Sys.CPU_THREADS)
         cpus_per_task = 1;
