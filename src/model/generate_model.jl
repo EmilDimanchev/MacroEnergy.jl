@@ -287,9 +287,9 @@ function carry_over_capacities!(y::Union{AbstractEdge,AbstractStorage},y_prev::U
             # Learning
             if settings[:TechnologyLearning] && learning_type(y) in settings[:LearningTechnologies]
                 
-                y.learning_pwl_track[prev_period] = learning_pwl_track(y_prev, prev_period)
+                y.endogenous_capex_track[prev_period] = endogenous_capex_track(y_prev, prev_period)
                 
-                y.segments_sos1_track[prev_period] = segments_sos1_track(y_prev,prev_period)
+                y.endogenous_capex_segment_chosen_track[prev_period] = endogenous_capex_segment_chosen_track(y_prev,prev_period)
             end
             # Shadow capacity for project development 
             y.new_de_capacity_track[prev_period] = new_de_capacity_track(y_prev,prev_period)

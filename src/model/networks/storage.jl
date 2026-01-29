@@ -41,19 +41,19 @@ macro AbstractStorageBaseAttributes()
         learning_type::String = ""
         learning_parameter::Float64 = 0.0
         cumulative_capacity_init::Float64 = 0.0
-        segments_sos1_track::Dict{Int64,Union{JuMPVariable}} = Dict(1 => Vector{VariableRef}())
-        segments_sos1_prev::Union{JuMPVariable,Float64} = Vector{VariableRef}()
+        endogenous_capex_segment_chosen_track::Dict{Int64,Union{JuMPVariable}} = Dict(1 => Vector{VariableRef}())
+        endogenous_capex_segment_chosen_from_relevant_period::Union{JuMPVariable,Float64} = Vector{VariableRef}()
         aux_new_capacity::Union{JuMPVariable,Float64} = 0.0
         cumulative_experience::Union{JuMPVariable,Float64} = 0.0
-        learning_pwl_slope::AffExpr = AffExpr(0.0)
-        learning_pwl_track::Dict{Int64,AffExpr} = Dict(1=>AffExpr(0.0))
-        pwl_cost_slopes::Vector{Float64} = Float64[]
+        endogenous_capex::AffExpr = AffExpr(0.0)
+        endogenous_capex_track::Dict{Int64,AffExpr} = Dict(1=>AffExpr(0.0))
+        pwl_capex_slopes::Vector{Float64} = Float64[]
         annualized_investment_cost_with_learning::AffExpr = AffExpr(0.0)
         annuities_mult::Float64 = 0.0
         annualization_factor::Float64 = 0.0
         endog_annualized_cost::AffExpr = AffExpr(0.0)
         init_cumul_capacity::Float64 = 0.0
-        endog_investment_cost::AffExpr = 0.0
+        endog_annualized_investment_cost::AffExpr = 0.0
         max_cumul_capacity::Float64 = 0.0
         # Shadow
         de_duration::Int64 = $storage_defaults[:de_duration]
@@ -254,16 +254,16 @@ learning_type(g::AbstractStorage) = g.learning_type;
 n_learning_pwl_segments(g::AbstractStorage) = g.n_learning_pwl_segments;
 learning_parameter(g::AbstractStorage) = g.learning_parameter;
 cumulative_capacity_init(g::AbstractStorage) = g.cumulative_capacity_init;
-endog_investment_cost(g::AbstractStorage) = g.endog_investment_cost;
-segments_sos1_prev(g::AbstractStorage) = g.segments_sos1_prev;
+endog_annualized_investment_cost(g::AbstractStorage) = g.endog_annualized_investment_cost;
+endogenous_capex_segment_chosen_from_relevant_period(g::AbstractStorage) = g.endogenous_capex_segment_chosen_from_relevant_period;
 segments_sos1(g::AbstractStorage) = g.segments_sos1;
 cumulative_experience(g::AbstractStorage) = g.cumulative_experience;
-learning_pwl_slope(g::AbstractStorage) = g.learning_pwl_slope;
-learning_pwl_track(g::AbstractStorage) = g.learning_pwl_track;
-learning_pwl_track(g::AbstractStorage,s::Int64) =  (haskey(learning_pwl_track(g),s) == false) ? 0.0 : g.learning_pwl_track[s];
-segments_sos1_track(g::AbstractStorage) = g.segments_sos1_track;
-segments_sos1_track(g::AbstractStorage,s::Int64) =  (haskey(segments_sos1_track(g),s) == false) ? 0.0 : g.segments_sos1_track[s];
-pwl_cost_slopes(g::AbstractStorage) = g.pwl_cost_slopes;
+endogenous_capex(g::AbstractStorage) = g.endogenous_capex;
+endogenous_capex_track(g::AbstractStorage) = g.endogenous_capex_track;
+endogenous_capex_track(g::AbstractStorage,s::Int64) =  (haskey(endogenous_capex_track(g),s) == false) ? 0.0 : g.endogenous_capex_track[s];
+endogenous_capex_segment_chosen_track(g::AbstractStorage) = g.endogenous_capex_segment_chosen_track;
+endogenous_capex_segment_chosen_track(g::AbstractStorage,s::Int64) =  (haskey(endogenous_capex_segment_chosen_track(g),s) == false) ? 0.0 : g.endogenous_capex_segment_chosen_track[s];
+pwl_capex_slopes(g::AbstractStorage) = g.pwl_capex_slopes;
 aux_new_capacity(g::AbstractStorage) = g.aux_new_capacity;
 annualized_investment_cost_with_learning(g::AbstractStorage) = g.annualized_investment_cost_with_learning;
 annuities_mult(g::AbstractStorage) = g.annuities_mult;

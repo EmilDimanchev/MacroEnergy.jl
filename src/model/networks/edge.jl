@@ -57,19 +57,19 @@ macro AbstractEdgeBaseAttributes()
         learning_type::String = ""
         learning_parameter::Float64 = 0.0
         cumulative_capacity_init::Float64 = 0.0
-        segments_sos1_track::Dict{Int64,Union{JuMPVariable}} = Dict(1 => Vector{VariableRef}())
-        segments_sos1_prev::Union{JuMPVariable,Float64} = Vector{VariableRef}()
+        endogenous_capex_segment_chosen_track::Dict{Int64,Union{JuMPVariable}} = Dict(1 => Vector{VariableRef}())
+        endogenous_capex_segment_chosen_from_relevant_period::Union{JuMPVariable,Float64} = Vector{VariableRef}()
         aux_new_capacity::Union{JuMPVariable,Float64} = 0.0
         cumulative_experience::Union{JuMPVariable,Float64} = 0.0
-        learning_pwl_slope::AffExpr = AffExpr(0.0)
-        learning_pwl_track::Dict{Int64,AffExpr} = Dict(1 => AffExpr(0.0))
-        pwl_cost_slopes::Vector{Float64} = Float64[]
-        annualized_investment_cost_with_learning::AffExpr = AffExpr(0.0)
+        endogenous_capex::AffExpr = AffExpr(0.0)
+        endogenous_capex_track::Dict{Int64,AffExpr} = Dict(1 => AffExpr(0.0))
+        pwl_capex_slopes::Vector{Float64} = Float64[]
+        endog_annualized_investment_cost_times_newcapacity::AffExpr = AffExpr(0.0)
         annuities_mult::Float64 = 0.0
         annualization_factor::Float64 = 0.0
         endog_annualized_cost::AffExpr = AffExpr(0.0)
         init_cumul_capacity::Float64 = 0.0
-        endog_investment_cost::AffExpr = 0.0
+        endog_annualized_investment_cost::AffExpr = 0.0
         max_cumul_capacity::Float64 = 0.0
         # Shadow
         de_duration::Int64 = $edge_defaults[:de_duration]
@@ -87,7 +87,7 @@ macro AbstractEdgeBaseAttributes()
         de_capacity::Union{JuMPVariable,AffExpr,Float64} = AffExpr(0.0)
         de_capacity_track::Dict{Int64,AffExpr} = Dict(1 => AffExpr(0.0))
         new_de_units::Union{JuMPVariable,Float64} = 0.0
-        annualized_investment_cost_with_learning_de::AffExpr = AffExpr(0.0)
+        endog_annualized_investment_cost_times_newcapacity_de::AffExpr = AffExpr(0.0)
         aux_new_capacity_de::Union{JuMPVariable,Float64} = 0.0
         # Approvals and funding (AF)
         af_cost_perc::Float64 = 0.0
@@ -101,7 +101,7 @@ macro AbstractEdgeBaseAttributes()
         af_capacity::Union{JuMPVariable,AffExpr,Float64} = AffExpr(0.0)
         af_capacity_track::Dict{Int64,AffExpr} = Dict(1 => AffExpr(0.0))
         new_af_units::Union{JuMPVariable,Float64} = 0.0
-        annualized_investment_cost_with_learning_af::AffExpr = AffExpr(0.0)
+        endog_annualized_investment_cost_times_newcapacity_af::AffExpr = AffExpr(0.0)
         aux_new_capacity_af::Union{JuMPVariable,Float64} = 0.0
         # Construction and Commissioning (CC)
         cc_cost_perc::Float64 = 0.0
@@ -115,7 +115,7 @@ macro AbstractEdgeBaseAttributes()
         cc_capacity::Union{JuMPVariable,AffExpr,Float64} = AffExpr(0.0)
         cc_capacity_track::Dict{Int64,AffExpr} = Dict(1 => AffExpr(0.0))
         new_cc_units::Union{JuMPVariable,Float64} = 0.0
-        annualized_investment_cost_with_learning_cc::AffExpr = AffExpr(0.0)
+        endog_annualized_investment_cost_times_newcapacity_cc::AffExpr = AffExpr(0.0)
         aux_new_capacity_cc::Union{JuMPVariable,Float64} = 0.0
         # Max growth formulation
         max_new_capacity_init::Float64 = 0.0
@@ -327,17 +327,17 @@ learning_type(e::AbstractEdge) = e.learning_type;
 n_learning_pwl_segments(e::AbstractEdge) = e.n_learning_pwl_segments;
 learning_parameter(e::AbstractEdge) = e.learning_parameter;
 cumulative_capacity_init(e::AbstractEdge) = e.cumulative_capacity_init;
-endog_investment_cost(e::AbstractEdge) = e.endog_investment_cost;
-segments_sos1_prev(e::AbstractEdge) = e.segments_sos1_prev;
+endog_annualized_investment_cost(e::AbstractEdge) = e.endog_annualized_investment_cost;
+endogenous_capex_segment_chosen_from_relevant_period(e::AbstractEdge) = e.endogenous_capex_segment_chosen_from_relevant_period;
 cumulative_experience(e::AbstractEdge) = e.cumulative_experience;
-learning_pwl_slope(e::AbstractEdge) = e.learning_pwl_slope;
-learning_pwl_track(e::AbstractEdge) = e.learning_pwl_track;
-learning_pwl_track(e::AbstractEdge, s::Int64) = (haskey(learning_pwl_track(e), s) == false) ? 0.0 : e.learning_pwl_track[s];
-segments_sos1_track(e::AbstractEdge) = e.segments_sos1_track;
-segments_sos1_track(e::AbstractEdge, s::Int64) = (haskey(segments_sos1_track(e), s) == false) ? 0.0 : e.segments_sos1_track[s];
-pwl_cost_slopes(e::AbstractEdge) = e.pwl_cost_slopes;
+endogenous_capex(e::AbstractEdge) = e.endogenous_capex;
+endogenous_capex_track(e::AbstractEdge) = e.endogenous_capex_track;
+endogenous_capex_track(e::AbstractEdge, s::Int64) = (haskey(endogenous_capex_track(e), s) == false) ? 0.0 : e.endogenous_capex_track[s];
+endogenous_capex_segment_chosen_track(e::AbstractEdge) = e.endogenous_capex_segment_chosen_track;
+endogenous_capex_segment_chosen_track(e::AbstractEdge, s::Int64) = (haskey(endogenous_capex_segment_chosen_track(e), s) == false) ? 0.0 : e.endogenous_capex_segment_chosen_track[s];
+pwl_capex_slopes(e::AbstractEdge) = e.pwl_capex_slopes;
 aux_new_capacity(e::AbstractEdge) = e.aux_new_capacity;
-annualized_investment_cost_with_learning(e::AbstractEdge) = e.annualized_investment_cost_with_learning;
+endog_annualized_investment_cost_times_newcapacity(e::AbstractEdge) = e.endog_annualized_investment_cost_times_newcapacity;
 annuities_mult(e::AbstractEdge) = e.annuities_mult;
 annualization_factor(e::AbstractEdge) = e.annualization_factor;
 endog_annualized_cost(e::AbstractEdge) = e.endog_annualized_cost;
@@ -374,7 +374,7 @@ de_capacity_track(e::AbstractEdge) = e.de_capacity_track;
 de_capacity_track(e::AbstractEdge, s::Int64) = (haskey(de_capacity_track(e), s) == false) ? 0.0 : e.de_capacity_track[s];
 new_de_units(e::AbstractEdge) = e.new_de_units;
 aux_new_capacity_de(e::AbstractEdge) = e.aux_new_capacity_de;
-annualized_investment_cost_with_learning_de(e::AbstractEdge) = e.annualized_investment_cost_with_learning_de;
+endog_annualized_investment_cost_times_newcapacity_de(e::AbstractEdge) = e.endog_annualized_investment_cost_times_newcapacity_de;
 # Approvals and funding (AF)
 new_af_capacity(e::AbstractEdge) = e.new_af_capacity;
 af_capacity(e::AbstractEdge) = e.af_capacity;
@@ -384,7 +384,7 @@ af_capacity_track(e::AbstractEdge) = e.af_capacity_track;
 af_capacity_track(e::AbstractEdge, s::Int64) = (haskey(af_capacity_track(e), s) == false) ? 0.0 : e.af_capacity_track[s];
 new_af_units(e::AbstractEdge) = e.new_af_units;
 aux_new_capacity_af(e::AbstractEdge) = e.aux_new_capacity_af;
-annualized_investment_cost_with_learning_af(e::AbstractEdge) = e.annualized_investment_cost_with_learning_af;
+endog_annualized_investment_cost_times_newcapacity_af(e::AbstractEdge) = e.endog_annualized_investment_cost_times_newcapacity_af;
 # Construction and commissioning (CC)
 new_cc_capacity(e::AbstractEdge) = e.new_cc_capacity;
 cc_capacity(e::AbstractEdge) = e.cc_capacity;
@@ -394,7 +394,7 @@ cc_capacity_track(e::AbstractEdge) = e.cc_capacity_track;
 cc_capacity_track(e::AbstractEdge, s::Int64) = (haskey(cc_capacity_track(e), s) == false) ? 0.0 : e.cc_capacity_track[s];
 new_cc_units(e::AbstractEdge) = e.new_cc_units;
 aux_new_capacity_cc(e::AbstractEdge) = e.aux_new_capacity_cc;
-annualized_investment_cost_with_learning_cc(e::AbstractEdge) = e.annualized_investment_cost_with_learning_cc;
+endog_annualized_investment_cost_times_newcapacity_cc(e::AbstractEdge) = e.endog_annualized_investment_cost_times_newcapacity_cc;
 # Max growth formulation
 max_new_capacity_init(e::AbstractEdge) = e.max_new_capacity_init;
 ##### End of Edge interface #####
@@ -526,21 +526,19 @@ function compute_investment_costs!(e::AbstractEdge, model::Model, settings::Name
             # Linearized learning
             if settings[:TechnologyLearning] && learning_type(e) in settings[:LearningTechnologies]
 
-                model[:eInvestmentFixedCost] += e.annualized_investment_cost_with_learning * (1 - subsidy) * annuities_mult(e)
+                model[:eInvestmentFixedCost] += e.endog_annualized_investment_cost_times_newcapacity * (1 - subsidy) * annuities_mult(e)
 
                 # Nonlinear version for benchmarking
-                # model[:eInvestmentFixedCost] += (1 - subsidy)*endog_investment_cost(e)*annuities_mult(e)*new_capacity(e)
+                # model[:eInvestmentFixedCost] += (1 - subsidy)*endog_annualized_investment_cost(e)*annuities_mult(e)*new_capacity(e)
                 
                 # Shadow capacity for project development constraints
                 model[:eInvestmentFixedCost] +=
-                    e.annualized_investment_cost_with_learning_de * (1 - subsidy) * de_annuities_mult(e)
+                    e.endog_annualized_investment_cost_times_newcapacity_de * (1 - subsidy) * de_annuities_mult(e)
                 model[:eInvestmentFixedCost] +=
-                    e.annualized_investment_cost_with_learning_af * (1 - subsidy) * af_annuities_mult(e)
+                    e.endog_annualized_investment_cost_times_newcapacity_af * (1 - subsidy) * af_annuities_mult(e)
                 model[:eInvestmentFixedCost] +=
-                    e.annualized_investment_cost_with_learning_cc * (1 - subsidy) * cc_annuities_mult(e)
+                    e.endog_annualized_investment_cost_times_newcapacity_cc * (1 - subsidy) * cc_annuities_mult(e)
             
-                
-
             else
                 # No learning
                 add_to_expression!(
