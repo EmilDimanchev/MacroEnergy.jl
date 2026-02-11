@@ -180,7 +180,7 @@ function add_age_based_retirements!(a::AbstractAsset,model::Model, settings::Nam
     for t in fieldnames(typeof(a))
         y = getfield(a, t)
         if isa(y,AbstractEdge) || isa(y,AbstractStorage)
-            if y.retirement_period > 0 || y.min_retired_capacity > 0.0
+            if retirement_period(y) > 0 || min_retired_capacity_track(y) > 0.0 ### Otherwise the constraint is trivially satisfied because the left hand side is zero
                 push!(y.constraints, AgeBasedRetirementConstraint())
                 add_model_constraint!(y.constraints[end], y, model, settings)
             end

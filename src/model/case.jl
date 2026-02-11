@@ -73,7 +73,7 @@ function initialize_min_retired_capacity_track!(system::System)
         for t in fieldnames(typeof(a))
             y = getfield(a,t)
             if :min_retired_capacity ∈ Base.fieldnames(typeof(y))
-                y.min_retired_capacity_track = y.min_retired_capacity
+                y.min_retired_capacity_track = min_retired_capacity(y)
             end
         end
     end
@@ -100,7 +100,7 @@ function track_min_retired_capacity!(a::AbstractAsset, a_prev::AbstractAsset)
         y = getfield(a,t)
         y_prev = getfield(a_prev,t)
         if :min_retired_capacity ∈ Base.fieldnames(typeof(y))
-            y.min_retired_capacity_track = y_prev.min_retired_capacity_track  + y.min_retired_capacity
+            y.min_retired_capacity_track = min_retired_capacity_track(y_prev)  + min_retired_capacity(y)
         end
     end
 

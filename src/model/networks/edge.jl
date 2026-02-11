@@ -296,7 +296,7 @@ end
 max_capacity(e::AbstractEdge) = e.max_capacity;
 max_new_capacity(e::AbstractEdge) = e.max_new_capacity;
 min_capacity(e::AbstractEdge) = e.min_capacity;
-min_retired_capacity(e::AbstractEdge) = e.min_retired_capacity;
+min_retired_capacity(e::AbstractEdge) = e.can_retire ? e.min_retired_capacity : 0.0;
 min_retired_capacity_track(e::AbstractEdge) = e.min_retired_capacity_track;
 min_flow_fraction(e::AbstractEdge) = e.min_flow_fraction;
 new_capacity(e::AbstractEdge) = e.new_capacity;
