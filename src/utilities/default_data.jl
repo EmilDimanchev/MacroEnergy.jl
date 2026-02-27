@@ -114,6 +114,7 @@ function node_default_data()
         :min_nsd => [0.0],
         :price => Float64[],
         :capacity_reserve_margin_id => missing,
+        :capacity_reserve_margin => missing,
         :price_nsd => [0.0],
         :price_supply => [0.0],
         :max_supply => [0.0],

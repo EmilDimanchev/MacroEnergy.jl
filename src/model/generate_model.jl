@@ -114,8 +114,10 @@ function planning_model!(system::System, model::Model, settings::NamedTuple)
     #     add_learning!(system, model, ["wind", "solar"])
     # end
 
-    if !isempty(system.settings.CapacityReserveMargin)
-        @info(" -- Including capacity reserve margins: $(keys(system.settings.CapacityReserveMargin))")
+    # Check if any nodes have capacity reserve margin data
+    capacity_reserve_margin_nodes = get_capacity_reserve_margin_nodes(system)
+    if !isempty(capacity_reserve_margin_nodes)
+        @info(" -- Including capacity reserve margins: $(keys(capacity_reserve_margin_nodes))")
         prepare_capacity_reserve_margin!(system, model)
     end
 
@@ -518,28 +520,39 @@ end
 function prepare_capacity_reserve_margin!(system::System, model::Model)
 
     capacity_reserve_margin_nodes = get_capacity_reserve_margin_nodes(system)
-
-    capacity_reserve_margin_ids = keys(system.settings.CapacityReserveMargin)
+    capacity_reserve_margin_ids = keys(capacity_reserve_margin_nodes)
     
-    if capacity_reserve_margin_ids != keys(capacity_reserve_margin_nodes)
-        missing_ids = setdiff(capacity_reserve_margin_ids, keys(capacity_reserve_margin_nodes))
-        extra_ids = setdiff(keys(capacity_reserve_margin_nodes), capacity_reserve_margin_ids)
-        if !isempty(missing_ids)
-            msg  = " ++ Capacity reserve margin ids defined in settings but not associated with any node: $(collect(missing_ids)). Please double check the input data."
-            @error(msg)
+    # Build margin dictionary from node data instead of settings
+    capacity_reserve_margins = Dict{Symbol,Float64}()
+    for (crm_id, nodes) in capacity_reserve_margin_nodes
+        # Get margin from first node in the zone (all should have same value)
+        margin = capacity_reserve_margin(nodes[1])
+        if ismissing(margin)
+            @error("Node $(id(nodes[1])) has capacity_reserve_margin_id=$crm_id but no capacity_reserve_margin value")
+            error("Missing capacity_reserve_margin value for node $(id(nodes[1]))")
         end
-        if !isempty(extra_ids)
-            msg  = " ++ Capacity reserve margin ids associated with nodes but not defined in settings: $(collect(extra_ids)). Please double check the input data."
-            @error(msg)
+        capacity_reserve_margins[crm_id] = margin
+        
+        # Validate all nodes in zone have same margin
+        for n in nodes[2:end]
+            node_margin = capacity_reserve_margin(n)
+            if !ismissing(node_margin) && node_margin != margin
+                @warn("Inconsistent capacity_reserve_margin values in zone $crm_id: node $(id(n)) has $node_margin vs $(margin) from node $(id(nodes[1]))")
+            end
         end
+    end
+    
+    # Check for deprecated settings usage
+    if !isempty(system.settings.CapacityReserveMargin)
+        @warn("CapacityReserveMargin in settings is deprecated. Values from node files will be used instead.")
     end
 
     peak_demand = Dict{Symbol,Float64}(k=> maximum(sum(demand(n) for n in capacity_reserve_margin_nodes[k])) for k in capacity_reserve_margin_ids)
     
-    required_capacity = Dict{Symbol,Float64}(k=> (1 + system.settings.CapacityReserveMargin[k]) * peak_demand[k] for k in capacity_reserve_margin_ids)
+    required_capacity = Dict{Symbol,Float64}(k=> (1 + capacity_reserve_margins[k]) * peak_demand[k] for k in capacity_reserve_margin_ids)
 
-    if any(system.settings.CapacityReserveMargin[k] == 0.0 for k in capacity_reserve_margin_ids)
-        msg  = " ++ Capacity reserve margin with id: $k is set to 0.0"
+    if any(capacity_reserve_margins[k] == 0.0 for k in capacity_reserve_margin_ids)
+        msg  = " ++ Capacity reserve margin for some zones is set to 0.0"
         @warn(msg)
     end
 
