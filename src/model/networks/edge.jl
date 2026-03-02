@@ -12,7 +12,7 @@ macro AbstractEdgeBaseAttributes()
         capacity::Union{JuMPVariable,AffExpr,Float64} = AffExpr(0.0)
         capacity_size::Float64 = $edge_defaults[:capacity_size]
         capital_recovery_period::Int64 = $edge_defaults[:capital_recovery_period]
-        capacity_reserve_margin_id::Union{Symbol,Missing}  = $edge_defaults[:capacity_reserve_margin_id]
+        capacity_reserve_margin_id::Union{Symbol,Missing} = $edge_defaults[:capacity_reserve_margin_id]
         capacity_reserve_margin_derate_factor::Float64 = $edge_defaults[:capacity_reserve_margin_derate_factor]
         constraints::Vector{AbstractTypeConstraint} = Vector{AbstractTypeConstraint}()
         distance::Float64 = $edge_defaults[:distance]
@@ -477,16 +477,16 @@ function planning_model!(e::AbstractEdge, model::Model, settings::NamedTuple)
 
     if has_capacity(e)
 
-        if !ismissing(capacity_reserve_margin_id(e)) 
+        if !ismissing(capacity_reserve_margin_id(e))
             if capacity_reserve_margin_id(e) ∈ axes(model[:eCapacityReserveMargin])[1]
-                add_to_expression!(model[:eCapacityReserveMargin][capacity_reserve_margin_id(e)], 
-                                    capacity_reserve_margin_derate_factor(e) * capacity(e)
-                                )
+                add_to_expression!(model[:eCapacityReserveMargin][capacity_reserve_margin_id(e)],
+                    capacity_reserve_margin_derate_factor(e) * capacity(e) * availability(e)
+                )
             else
                 error("Edge $(id(e)) is associated with an undefined capacity reserve margin constraint. Please double check the input data.")
             end
         end
-        
+
         if !can_expand(e)
             fix(new_units(e), 0.0; force=true)
             fix(new_de_units(e), 0.0; force=true)
@@ -544,7 +544,7 @@ function compute_investment_costs!(e::AbstractEdge, model::Model, settings::Name
 
                 # Nonlinear version for benchmarking
                 # model[:eInvestmentFixedCost] += (1 - subsidy)*endog_annualized_investment_cost(e)*annuities_mult(e)*new_capacity(e)
-                
+
                 # Shadow capacity for project development constraints
                 model[:eInvestmentFixedCost] +=
                     e.endog_annualized_investment_cost_times_newcapacity_de * (1 - subsidy) * de_annuities_mult(e)
@@ -552,7 +552,7 @@ function compute_investment_costs!(e::AbstractEdge, model::Model, settings::Name
                     e.endog_annualized_investment_cost_times_newcapacity_af * (1 - subsidy) * af_annuities_mult(e)
                 model[:eInvestmentFixedCost] +=
                     e.endog_annualized_investment_cost_times_newcapacity_cc * (1 - subsidy) * cc_annuities_mult(e)
-            
+
             else
                 # No learning
                 add_to_expression!(
