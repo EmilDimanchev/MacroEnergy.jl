@@ -2540,7 +2540,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "AZ_Deep_5_5_257_c171",
@@ -2599,7 +2599,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "AZ_Deep_6_5_283_c176",
@@ -2658,7 +2658,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "AZ_Deep_3_5_200_c161",
@@ -2717,7 +2717,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "AZ_Deep_6_5_273_c177",
@@ -2776,7 +2776,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "AZ_Deep_5_5_238_c172",
@@ -2835,7 +2835,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "AZ_Deep_6_5_263_c178",
@@ -2894,7 +2894,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "CA_NearField_2_5_254_c235",
@@ -2953,7 +2953,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "CA_NearField_3_5_270_c238",
@@ -3012,7 +3012,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "CA_NearField_4_5_283_c241",
@@ -3071,7 +3071,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "CA_Deep_4_5_262_c46",
@@ -3130,7 +3130,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "CA_Deep_5_5_290_c51",
@@ -3189,7 +3189,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "CA_NearField_5_5_289_c244",
@@ -3248,7 +3248,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "CA_NearField_3_5_228_c239",
@@ -3307,7 +3307,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "CA_NearField_4_5_253_c242",
@@ -3366,7 +3366,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "CA_Deep_5_5_278_c52",
@@ -3425,7 +3425,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "CA_Deep_4_5_243_c47",
@@ -3484,7 +3484,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "CA_Deep_3_5_214_c41",
@@ -3543,7 +3543,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "CA_Deep_5_5_269_c53",
@@ -3602,7 +3602,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "CA_NearField_2_5_203_c236",
@@ -3661,7 +3661,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "CA_NearField_5_5_268_c245",
@@ -3720,7 +3720,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "CA_Deep_6_5_298_c56",
@@ -3779,7 +3779,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "CA_Deep_5_5_263_c54",
@@ -3838,7 +3838,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "CO_Deep_5_5_268_c211",
@@ -3897,7 +3897,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "CO_Deep_6_5_290_c216",
@@ -3956,7 +3956,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "CO_Deep_3_5_198_c201",
@@ -4015,7 +4015,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "CO_Deep_4_5_218_c206",
@@ -4074,7 +4074,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "CO_Deep_6_5_277_c217",
@@ -4133,7 +4133,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "CO_Deep_5_5_240_c212",
@@ -4192,7 +4192,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "ID_Deep_5_5_285_c91",
@@ -4251,7 +4251,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "ID_Deep_5_5_269_c92",
@@ -4310,7 +4310,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "MT_Deep_4_5_213_c106",
@@ -4369,7 +4369,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "MT_Deep_3_5_188_c101",
@@ -4428,7 +4428,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "MT_Deep_5_5_236_c111",
@@ -4487,7 +4487,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "MT_Deep_6_5_262_c116",
@@ -4546,7 +4546,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "MT_Deep_3_5_179_c102",
@@ -4605,7 +4605,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "MT_Deep_4_5_191_c107",
@@ -4664,7 +4664,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "MT_Deep_6_5_232_c117",
@@ -4723,7 +4723,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "NM_Deep_5_5_272_c191",
@@ -4782,7 +4782,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "NM_Deep_6_5_294_c196",
@@ -4841,7 +4841,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "NM_Deep_6_5_284_c197",
@@ -4900,7 +4900,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "NM_Deep_5_5_250_c192",
@@ -4959,7 +4959,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "NM_Deep_4_5_219_c186",
@@ -5018,7 +5018,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "NM_Deep_6_5_274_c198",
@@ -5077,7 +5077,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "NM_Deep_5_5_236_c193",
@@ -5136,7 +5136,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "NV_NearField_2_5_239_c248",
@@ -5195,7 +5195,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "NV_NearField_3_5_262_c251",
@@ -5254,7 +5254,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "NV_NearField_4_5_271_c254",
@@ -5313,7 +5313,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "NV_Deep_4_5_249_c66",
@@ -5372,7 +5372,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "NV_NearField_5_5_283_c257",
@@ -5431,7 +5431,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "NV_Deep_5_5_273_c71",
@@ -5490,7 +5490,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "NV_NearField_2_5_200_c249",
@@ -5549,7 +5549,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "NV_NearField_3_5_216_c252",
@@ -5608,7 +5608,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "NV_Deep_5_5_265_c72",
@@ -5667,7 +5667,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "NV_Deep_3_5_211_c61",
@@ -5726,7 +5726,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "NV_Deep_6_5_296_c76",
@@ -5785,7 +5785,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "NV_Deep_6_5_290_c77",
@@ -5844,7 +5844,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "NV_Deep_5_5_254_c73",
@@ -5903,7 +5903,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "OR_NearField_2_5_261_c221",
@@ -5962,7 +5962,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "OR_NearField_3_5_288_c224",
@@ -6021,7 +6021,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "OR_NearField_2_5_225_c222",
@@ -6080,7 +6080,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "OR_NearField_4_5_288_c227",
@@ -6139,7 +6139,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "OR_NearField_3_5_239_c225",
@@ -6198,7 +6198,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "OR_NearField_5_5_300_c230",
@@ -6257,7 +6257,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "OR_NearField_2_5_200_c223",
@@ -6316,7 +6316,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "OR_Deep_4_5_250_c26",
@@ -6375,7 +6375,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "OR_Deep_5_5_282_c31",
@@ -6434,7 +6434,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "OR_NearField_5_5_275_c231",
@@ -6493,7 +6493,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "OR_NearField_4_5_239_c228",
@@ -6552,7 +6552,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "OR_Deep_5_5_268_c32",
@@ -6611,7 +6611,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "OR_NearField_6_5_300_c233",
@@ -6670,7 +6670,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "OR_Deep_6_5_296_c36",
@@ -6729,7 +6729,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "OR_Deep_4_5_229_c27",
@@ -6788,7 +6788,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "UT_NearField_2_5_250_c263",
@@ -6847,7 +6847,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "UT_NearField_3_5_286_c266",
@@ -6906,7 +6906,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "UT_NearField_2_5_225_c264",
@@ -6965,7 +6965,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "UT_NearField_4_5_288_c269",
@@ -7024,7 +7024,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "UT_NearField_3_5_239_c267",
@@ -7083,7 +7083,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "UT_Deep_3_5_230_c141",
@@ -7142,7 +7142,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "UT_NearField_5_5_288_c272",
@@ -7201,7 +7201,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "UT_Deep_5_5_282_c151",
@@ -7260,7 +7260,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "UT_NearField_2_5_200_c265",
@@ -7319,7 +7319,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "UT_NearField_4_5_239_c270",
@@ -7378,7 +7378,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "UT_Deep_4_5_229_c146",
@@ -7437,7 +7437,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "UT_Deep_5_5_256_c152",
@@ -7496,7 +7496,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "UT_Deep_6_5_291_c156",
@@ -7555,7 +7555,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "WA_Deep_6_5_294_c16",
@@ -7614,7 +7614,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "WA_Deep_5_5_256_c11",
@@ -7673,7 +7673,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "WA_Deep_6_5_272_c17",
@@ -7732,7 +7732,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "WA_Deep_4_5_214_c6",
@@ -7791,7 +7791,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "WA_Deep_5_5_231_c12",
@@ -7850,7 +7850,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "WY_Deep_4_5_207_c126",
@@ -7909,7 +7909,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "WY_Deep_6_5_261_c136",
@@ -7968,7 +7968,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "WY_Deep_5_5_225_c131",
@@ -8027,7 +8027,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "WY_Deep_3_5_170_c121",
@@ -8086,7 +8086,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "WY_Deep_3_5_166_c122",
@@ -8145,7 +8145,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "WY_Deep_6_5_228_c137",
@@ -8204,7 +8204,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "WY_Deep_3_5_160_c123",
@@ -8263,7 +8263,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "WY_Deep_4_5_179_c127",
@@ -8322,7 +8322,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "WY_Deep_3_5_153_c124",
@@ -8381,7 +8381,7 @@
                         "capacity_size": 1,
                         "wacc": 0.055,
                         "capital_recovery_period": 20,
-                        "learning_parameter": 0.3,
+                        "learning_parameter": 0.15,
                         "availability": {
                             "timeseries": {
                                 "header": "WY_Deep_6_5_213_c138",
