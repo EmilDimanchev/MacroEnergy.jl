@@ -6,8 +6,7 @@
 #SBATCH --ntasks-per-node=80
 #SBATCH --cpus-per-task=1
 #SBATCH --output=slurm-%j.out 
-#SBATCH --mem=400GB              
-#SBATCH --constraint=amd
+#SBATCH --mem=300GB              
 #SBATCH --time=24:00:00          # (HH:MM:SS)
 #SBATCH --mail-type=all          
 #SBATCH --mail-user=ed0400@princeton.edu
