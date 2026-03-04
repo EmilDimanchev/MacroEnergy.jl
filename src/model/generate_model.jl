@@ -23,6 +23,25 @@ function generate_model(case::Case)
     investment_cost = Dict()
     variable_cost = Dict()
 
+    # Initialize capacity reserve margin structure before period loop
+    # Collect all CRM zones from all periods
+    all_crm_zones = Set{Symbol}()
+    @info("Scanning for capacity reserve margin zones across all periods...")
+    for (idx, system) in enumerate(periods)
+        crm_nodes = get_capacity_reserve_margin_nodes(system)
+        @info(" -- Initial scan period $idx: Found CRM zones: $(collect(keys(crm_nodes)))")
+        @info(" -- Initial scan period $idx: Number of locations: $(length(system.locations))")
+        union!(all_crm_zones, keys(crm_nodes))
+    end
+    
+    # Create the 2D indexed expression if there are any CRM zones
+    if !isempty(all_crm_zones)
+        @info(" -- Initializing capacity reserve margin structure for zones: $(collect(all_crm_zones))")
+        # Initialize with zeros - will be populated during each period
+        @expression(model, eCapacityReserveMargin[k in all_crm_zones, p in 1:num_periods], AffExpr(0.0))
+    else
+        @info(" -- No capacity reserve margin zones found in any period")
+    end
             
 
     for (period_idx,system) in enumerate(periods)
@@ -116,9 +135,14 @@ function planning_model!(system::System, model::Model, settings::NamedTuple)
 
     # Check if any nodes have capacity reserve margin data
     capacity_reserve_margin_nodes = get_capacity_reserve_margin_nodes(system)
-    if !isempty(capacity_reserve_margin_nodes)
+    if !isempty(capacity_reserve_margin_nodes) && haskey(model, :eCapacityReserveMargin)
         @info(" -- Including capacity reserve margins: $(keys(capacity_reserve_margin_nodes))")
-        prepare_capacity_reserve_margin!(system, model)
+        # Get period_idx from first node (all nodes in a system have the same period_index)
+        first_zone_nodes = first(values(capacity_reserve_margin_nodes))
+        period_idx = period_index(first_zone_nodes[1])
+        prepare_capacity_reserve_margin!(system, model, period_idx)
+    elseif !isempty(capacity_reserve_margin_nodes) && !haskey(model, :eCapacityReserveMargin)
+        @warn("Found capacity reserve margin nodes but eCapacityReserveMargin expression was not initialized. This suggests the initial scan did not find these zones.")
     end
 
     planning_model!.(system.locations, Ref(model), Ref(settings))
@@ -517,7 +541,7 @@ function validate_existing_capacity(asset::AbstractAsset)
     end
 end
 
-function prepare_capacity_reserve_margin!(system::System, model::Model)
+function prepare_capacity_reserve_margin!(system::System, model::Model, period_idx::Int)
 
     capacity_reserve_margin_nodes = get_capacity_reserve_margin_nodes(system)
     capacity_reserve_margin_ids = keys(capacity_reserve_margin_nodes)
@@ -547,7 +571,21 @@ function prepare_capacity_reserve_margin!(system::System, model::Model)
         @warn("CapacityReserveMargin in settings is deprecated. Values from node files will be used instead.")
     end
 
-    peak_demand = Dict{Symbol,Float64}(k=> maximum(sum(demand(n) for n in capacity_reserve_margin_nodes[k])) for k in capacity_reserve_margin_ids)
+    # Calculate peak demand and corresponding timestep for each zone
+    peak_demand = Dict{Symbol,Float64}()
+    peak_demand_timestep = Dict{Symbol,Int}()
+    for k in capacity_reserve_margin_ids
+        # Sum demand across all nodes in the zone for each timestep
+        total_demand_timeseries = [sum(demand(n, t) for n in capacity_reserve_margin_nodes[k]) for t in 1:length(demand(capacity_reserve_margin_nodes[k][1]))]
+        peak_demand[k] = maximum(total_demand_timeseries)
+        peak_demand_timestep[k] = argmax(total_demand_timeseries)
+    end
+    
+    # Store peak demand timestep in model for use by edges (indexed by period)
+    if !haskey(model.ext, :peak_demand_timestep)
+        model.ext[:peak_demand_timestep] = Dict{Int,Dict{Symbol,Int}}()
+    end
+    model.ext[:peak_demand_timestep][period_idx] = peak_demand_timestep
     
     required_capacity = Dict{Symbol,Float64}(k=> (1 + capacity_reserve_margins[k]) * peak_demand[k] for k in capacity_reserve_margin_ids)
 
@@ -556,7 +594,14 @@ function prepare_capacity_reserve_margin!(system::System, model::Model)
         @warn(msg)
     end
 
-    @expression(model, eCapacityReserveMargin[k in capacity_reserve_margin_ids], -required_capacity[k]*AffExpr(1))
+    # Set the RHS of the existing expression for this period
+    if !haskey(model, :eCapacityReserveMargin)
+        error("eCapacityReserveMargin expression not found in model. This should have been initialized before the period loop.")
+    end
+    
+    for k in capacity_reserve_margin_ids
+        model[:eCapacityReserveMargin][k, period_idx] = -required_capacity[k]*AffExpr(1)
+    end
 
     push!(system.constraints, CapacityReserveMarginConstraint())
 
@@ -567,7 +612,15 @@ end
 function get_capacity_reserve_margin_nodes(system::System)
     capacity_reserve_margin_nodes = Dict{Symbol,Vector{Node}}()
     nodes = get_nodes(system)
+    node_count = 0
+    location_count = 0
     for n in nodes
+        # Skip if this is a Location rather than a Node
+        if !isa(n, Node)
+            location_count += 1
+            continue
+        end
+        node_count += 1
         crm_id = capacity_reserve_margin_id(n)
         if !ismissing(crm_id)
             if !haskey(capacity_reserve_margin_nodes,crm_id)
@@ -577,5 +630,6 @@ function get_capacity_reserve_margin_nodes(system::System)
             end
         end
     end
+    @info("get_capacity_reserve_margin_nodes: Processed $node_count nodes and $location_count locations, found $(length(capacity_reserve_margin_nodes)) CRM zones")
     return capacity_reserve_margin_nodes
 end

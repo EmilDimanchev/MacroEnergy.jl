@@ -42,6 +42,25 @@ function generate_planning_problem(case::Case)
     om_fixed_cost = Dict()
     investment_cost = Dict()
 
+    # Initialize capacity reserve margin structure before period loop
+    # Collect all CRM zones from all periods
+    all_crm_zones = Set{Symbol}()
+    @info("Scanning for capacity reserve margin zones across all periods...")
+    for (idx, system) in enumerate(periods)
+        crm_nodes = get_capacity_reserve_margin_nodes(system)
+        @info(" -- Initial scan period $idx: Found CRM zones: $(collect(keys(crm_nodes)))")
+        union!(all_crm_zones, keys(crm_nodes))
+    end
+    
+    # Create the 2D indexed expression if there are any CRM zones
+    if !isempty(all_crm_zones)
+        @info(" -- Initializing capacity reserve margin structure for zones: $(collect(all_crm_zones))")
+        # Initialize with zeros - will be populated during each period
+        @expression(model, eCapacityReserveMargin[k in all_crm_zones, p in 1:number_of_periods], AffExpr(0.0))
+    else
+        @info(" -- No capacity reserve margin zones found in any period")
+    end
+
     for (period_idx,system) in enumerate(periods)
 
         @info(" -- Period $period_idx")

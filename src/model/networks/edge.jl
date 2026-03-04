@@ -478,9 +478,16 @@ function planning_model!(e::AbstractEdge, model::Model, settings::NamedTuple)
     if has_capacity(e)
 
         if !ismissing(capacity_reserve_margin_id(e))
-            if capacity_reserve_margin_id(e) ∈ axes(model[:eCapacityReserveMargin])[1]
-                add_to_expression!(model[:eCapacityReserveMargin][capacity_reserve_margin_id(e)],
-                    capacity_reserve_margin_derate_factor(e) * capacity(e) * availability(e)
+            crm_id = capacity_reserve_margin_id(e)
+            p_idx = period_index(e)
+            if crm_id ∈ axes(model[:eCapacityReserveMargin])[1]
+                # Get the peak demand timestep for this CRM zone and period
+                peak_timestep_dict = get(model.ext, :peak_demand_timestep, Dict{Int,Dict{Symbol,Int}}())
+                peak_timestep = get(get(peak_timestep_dict, p_idx, Dict{Symbol,Int}()), crm_id, 1)
+                # Use availability at peak demand timestep (or 1.0 if not defined)
+                availability_at_peak = isempty(availability(e)) ? 1.0 : availability(e, peak_timestep)
+                add_to_expression!(model[:eCapacityReserveMargin][crm_id, p_idx],
+                    capacity_reserve_margin_derate_factor(e) * capacity(e) * availability_at_peak
                 )
             else
                 error("Edge $(id(e)) is associated with an undefined capacity reserve margin constraint. Please double check the input data.")

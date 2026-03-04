@@ -6,10 +6,14 @@ end
 
 function add_model_constraint!(ct::CapacityReserveMarginConstraint, system::System, model::Model)
     
+    # Get zones and period index from the expression
+    crm_zones = axes(model[:eCapacityReserveMargin])[1]
+    p_idx = period_index(system)
+    
     ct.constraint_ref = @constraint(
             model,
-            [k in keys(system.settings.CapacityReserveMargin)],
-            model[:eCapacityReserveMargin][k] >= 0.0
+            [k in crm_zones],
+            model[:eCapacityReserveMargin][k, p_idx] >= 0.0
         )
 
     return nothing
