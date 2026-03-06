@@ -119,6 +119,7 @@ macro AbstractEdgeBaseAttributes()
         new_cc_units::Union{JuMPVariable,Float64} = 0.0
         endog_annualized_investment_cost_times_newcapacity_cc::AffExpr = AffExpr(0.0)
         aux_new_capacity_cc::Union{JuMPVariable,Float64} = 0.0
+        capacity_in_progress_init::Float64 = 0.0
         # Max growth formulation
         max_new_capacity_init::Float64 = 0.0
     end)
@@ -399,6 +400,7 @@ cc_capacity_track(e::AbstractEdge, s::Int64) = (haskey(cc_capacity_track(e), s) 
 new_cc_units(e::AbstractEdge) = e.new_cc_units;
 aux_new_capacity_cc(e::AbstractEdge) = e.aux_new_capacity_cc;
 endog_annualized_investment_cost_times_newcapacity_cc(e::AbstractEdge) = e.endog_annualized_investment_cost_times_newcapacity_cc;
+capacity_in_progress_init(e::AbstractEdge) = e.capacity_in_progress_init;
 # Max growth formulation
 max_new_capacity_init(e::AbstractEdge) = e.max_new_capacity_init;
 ##### End of Edge interface #####

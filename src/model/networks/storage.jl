@@ -95,6 +95,7 @@ macro AbstractStorageBaseAttributes()
         cc_capacity::AffExpr = AffExpr(0.0)
         cc_capacity_track::Dict{Int64,AffExpr} = Dict(1=>AffExpr(0.0))
         new_cc_units::Union{JuMPVariable,Float64} = 0.0
+        capacity_in_progress_init::Float64 = 0.0
         # Max growth formulation
         max_new_capacity_init::Float64 = 0.0
     end)
@@ -317,6 +318,7 @@ new_cc_capacity_track(g::AbstractStorage,s::Int64) =  (haskey(new_cc_capacity_tr
 cc_capacity_track(g::AbstractStorage) = g.cc_capacity_track;
 cc_capacity_track(g::AbstractStorage,s::Int64) =  (haskey(cc_capacity_track(g),s) == false) ? 0.0 : g.cc_capacity_track[s];
 new_cc_units(g::AbstractStorage) = g.new_cc_units;
+capacity_in_progress_init(g::AbstractStorage) = g.capacity_in_progress_init;
 # Max growth formulation
 max_new_capacity_init(g::AbstractStorage) = g.max_new_capacity_init;
 

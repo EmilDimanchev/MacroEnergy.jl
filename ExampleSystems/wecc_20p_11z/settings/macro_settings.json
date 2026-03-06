@@ -1,5 +1,6 @@
 {
     "ConstraintScaling": false,
     "DualExportsEnabled": false,
-    "OutputDir": "results_bd_el_bigm"
+    "OutputDir": "results",
+    "CapacityReserveMargin": {"OR_WA": 0.15, "ID_UT_NV_MT": 0.15, "CA": 0.15, "AZ_NM": 0.15, "WY_CO": 0.15}
 }

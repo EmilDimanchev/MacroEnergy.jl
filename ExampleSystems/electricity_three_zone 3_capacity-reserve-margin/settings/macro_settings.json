@@ -1,5 +1,5 @@
 {
     "ConstraintScaling": true,
     "OutputLayout": "wide",
-    "CapacityReserveMargin": {"OR_WA_ID_MT": 0.15, "CA": 0.15, "AZ_NV": 0.15, "WY_CO_MT": 0.15}
+    "CapacityReserveMargin": {"MA": 0.10, "CT": 0.15, "ME": 0.20}
 }
