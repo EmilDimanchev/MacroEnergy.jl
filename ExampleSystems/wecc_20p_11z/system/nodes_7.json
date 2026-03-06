@@ -29,7 +29,8 @@
                             "path": "system/demand_7.csv"
                         }
                     },
-                    "id": "elec_AZ"
+                    "id": "elec_AZ",
+                    "capacity_reserve_margin_id": "AZ_NM"
                 },
                 {
                     "demand": {
@@ -38,7 +39,8 @@
                             "path": "system/demand_7.csv"
                         }
                     },
-                    "id": "elec_CA"
+                    "id": "elec_CA",
+                    "capacity_reserve_margin_id": "CA"
                 },
                 {
                     "demand": {
@@ -47,7 +49,8 @@
                             "path": "system/demand_7.csv"
                         }
                     },
-                    "id": "elec_CO"
+                    "id": "elec_CO",
+                    "capacity_reserve_margin_id": "WY_CO"
                 },
                 {
                     "demand": {
@@ -56,7 +59,8 @@
                             "path": "system/demand_7.csv"
                         }
                     },
-                    "id": "elec_ID"
+                    "id": "elec_ID",
+                    "capacity_reserve_margin_id": "ID_UT_NV_MT"
                 },
                 {
                     "demand": {
@@ -65,7 +69,8 @@
                             "path": "system/demand_7.csv"
                         }
                     },
-                    "id": "elec_MT"
+                    "id": "elec_MT",
+                    "capacity_reserve_margin_id": "ID_UT_NV_MT"
                 },
                 {
                     "demand": {
@@ -74,7 +79,8 @@
                             "path": "system/demand_7.csv"
                         }
                     },
-                    "id": "elec_NM"
+                    "id": "elec_NM",
+                    "capacity_reserve_margin_id": "AZ_NM"
                 },
                 {
                     "demand": {
@@ -83,7 +89,8 @@
                             "path": "system/demand_7.csv"
                         }
                     },
-                    "id": "elec_NV"
+                    "id": "elec_NV",
+                    "capacity_reserve_margin_id": "ID_UT_NV_MT"
                 },
                 {
                     "demand": {
@@ -92,7 +99,8 @@
                             "path": "system/demand_7.csv"
                         }
                     },
-                    "id": "elec_OR"
+                    "id": "elec_OR",
+                    "capacity_reserve_margin_id": "OR_WA"
                 },
                 {
                     "demand": {
@@ -101,7 +109,8 @@
                             "path": "system/demand_7.csv"
                         }
                     },
-                    "id": "elec_UT"
+                    "id": "elec_UT",
+                    "capacity_reserve_margin_id": "ID_UT_NV_MT"
                 },
                 {
                     "demand": {
@@ -110,7 +119,8 @@
                             "path": "system/demand_7.csv"
                         }
                     },
-                    "id": "elec_WA"
+                    "id": "elec_WA",
+                    "capacity_reserve_margin_id": "OR_WA"
                 },
                 {
                     "demand": {
@@ -119,7 +129,8 @@
                             "path": "system/demand_7.csv"
                         }
                     },
-                    "id": "elec_WY"
+                    "id": "elec_WY",
+                    "capacity_reserve_margin_id": "WY_CO"
                 }
             ],
             "type": "Electricity"
