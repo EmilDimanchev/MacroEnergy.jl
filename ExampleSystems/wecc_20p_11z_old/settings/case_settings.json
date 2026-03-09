@@ -26,6 +26,6 @@
     "TechnologyLearning": false,
     "LearningTechnologies": ["egs"],
     "DeploymentInertia": false,
-    "ProjectDevelopment": true,
+    "ProjectDevelopment": false,
     "CO2Cap": false
 }

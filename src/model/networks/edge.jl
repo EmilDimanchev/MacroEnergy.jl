@@ -120,6 +120,8 @@ macro AbstractEdgeBaseAttributes()
         endog_annualized_investment_cost_times_newcapacity_cc::AffExpr = AffExpr(0.0)
         aux_new_capacity_cc::Union{JuMPVariable,Float64} = 0.0
         capacity_in_progress_init::Float64 = 0.0
+        interconnect_annuity::Float64 = 0.0
+        cff::Float64 = 0.0
         # Max growth formulation
         max_new_capacity_init::Float64 = 0.0
     end)
@@ -401,6 +403,8 @@ new_cc_units(e::AbstractEdge) = e.new_cc_units;
 aux_new_capacity_cc(e::AbstractEdge) = e.aux_new_capacity_cc;
 endog_annualized_investment_cost_times_newcapacity_cc(e::AbstractEdge) = e.endog_annualized_investment_cost_times_newcapacity_cc;
 capacity_in_progress_init(e::AbstractEdge) = e.capacity_in_progress_init;
+interconnect_annuity(e::AbstractEdge) = e.interconnect_annuity;
+cff(e::AbstractEdge) = e.cff;
 # Max growth formulation
 max_new_capacity_init(e::AbstractEdge) = e.max_new_capacity_init;
 ##### End of Edge interface #####
@@ -480,8 +484,10 @@ function planning_model!(e::AbstractEdge, model::Model, settings::NamedTuple)
     if has_capacity(e)
 
         if !ismissing(capacity_reserve_margin_id(e)) 
-            if capacity_reserve_margin_id(e) ∈ axes(model[:eCapacityReserveMargin])[1]
-                add_to_expression!(model[:eCapacityReserveMargin][capacity_reserve_margin_id(e)], 
+            crm_id = capacity_reserve_margin_id(e)
+            p_idx = period_index(e)
+            if haskey(model, :eCapacityReserveMargin) && crm_id ∈ axes(model[:eCapacityReserveMargin])[1]
+                add_to_expression!(model[:eCapacityReserveMargin][crm_id, p_idx], 
                                     capacity_reserve_margin_derate_factor(e) * capacity(e)
                                 )
             else

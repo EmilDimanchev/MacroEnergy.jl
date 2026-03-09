@@ -99,6 +99,21 @@ function add!(system::System, location::Node)
     push!(system.locations, location)
 end
 
+"""
+    period_index(system::System)
+
+Return the period index of this system, inferred from its time data.
+"""
+function period_index(system::System)
+    if haskey(system.time_data, :Electricity)
+        return system.time_data[:Electricity].period_index
+    elseif !isempty(system.time_data)
+        return first(values(system.time_data)).period_index
+    else
+        error("System has no time data; cannot determine period_index.")
+    end
+end
+
 function empty_system(data_dirpath::String)
     @debug("Creating empty system, with data relative path set to $data_dirpath")
     return System(

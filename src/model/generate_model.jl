@@ -22,11 +22,17 @@ function generate_model(case::Case)
     om_fixed_cost = Dict()
     investment_cost = Dict()
     variable_cost = Dict()
-
-            
+    
+    # Initialize eCapacityReserveMargin indexed by [zone, period] before the period loop.
+    # It will be populated inside prepare_capacity_reserve_margin! each period.
+    # CapacityReserveMargin is defined in macro_settings.json (system-level settings),
+    # so we read the zones from the first period's system settings.
+    crm_zones = keys(first(get_periods(case)).settings.CapacityReserveMargin)
+    if !isempty(crm_zones)
+        @expression(model, eCapacityReserveMargin[k in crm_zones, p in 1:num_periods], AffExpr(0.0))
+    end
 
     for (period_idx,system) in enumerate(periods)
-
         @info(" -- Period $period_idx")
 
         model[:eFixedCost] = AffExpr(0.0)
@@ -535,7 +541,7 @@ function prepare_capacity_reserve_margin!(system::System, model::Model)
     end
 
     peak_demand = Dict{Symbol,Float64}(k=> maximum(sum(demand(n) for n in capacity_reserve_margin_nodes[k])) for k in capacity_reserve_margin_ids)
-    
+
     required_capacity = Dict{Symbol,Float64}(k=> (1 + system.settings.CapacityReserveMargin[k]) * peak_demand[k] for k in capacity_reserve_margin_ids)
 
     if any(system.settings.CapacityReserveMargin[k] == 0.0 for k in capacity_reserve_margin_ids)
@@ -543,7 +549,13 @@ function prepare_capacity_reserve_margin!(system::System, model::Model)
         @warn(msg)
     end
 
-    @expression(model, eCapacityReserveMargin[k in capacity_reserve_margin_ids], -required_capacity[k]*AffExpr(1))
+    # Get period index from first node in any zone
+    p_idx = period_index(first(first(values(capacity_reserve_margin_nodes))))
+
+    # Populate the pre-initialized expression for this period
+    for k in capacity_reserve_margin_ids
+        add_to_expression!(model[:eCapacityReserveMargin][k, p_idx], -required_capacity[k])
+    end
 
     push!(system.constraints, CapacityReserveMarginConstraint())
 
@@ -552,16 +564,15 @@ function prepare_capacity_reserve_margin!(system::System, model::Model)
 end
 
 function get_capacity_reserve_margin_nodes(system::System)
-    capacity_reserve_margin_nodes = Dict{Symbol,Vector{Node}}()
+    capacity_reserve_margin_nodes = Dict{Symbol,Vector{Node}}(
+        k => Node[] for k in keys(system.settings.CapacityReserveMargin)
+    )
     nodes = get_nodes(system)
     for n in nodes
+        isa(n, Node) || continue
         crm_id = capacity_reserve_margin_id(n)
         if !ismissing(crm_id)
-            if !haskey(capacity_reserve_margin_nodes,crm_id)
-                capacity_reserve_margin_nodes[crm_id] = [n]
-            else
-                push!(capacity_reserve_margin_nodes[crm_id], n)
-            end
+            push!(capacity_reserve_margin_nodes[crm_id], n)
         end
     end
     return capacity_reserve_margin_nodes

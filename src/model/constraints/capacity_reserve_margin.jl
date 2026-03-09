@@ -4,12 +4,14 @@ Base.@kwdef mutable struct CapacityReserveMarginConstraint <: PlanningConstraint
     constraint_ref::Union{Missing,JuMPConstraint} = missing
 end
 
-function add_model_constraint!(ct::CapacityReserveMarginConstraint, system::System, model::Model)
-    
+function add_model_constraint!(ct::CapacityReserveMarginConstraint, system::System, model::Model, settings::NamedTuple = NamedTuple())
+
+    p_idx = period_index(system)
+
     ct.constraint_ref = @constraint(
             model,
             [k in keys(system.settings.CapacityReserveMargin)],
-            model[:eCapacityReserveMargin][k] >= 0.0
+            model[:eCapacityReserveMargin][k, p_idx] >= 0.0
         )
 
     return nothing

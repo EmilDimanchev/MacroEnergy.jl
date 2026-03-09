@@ -49,6 +49,7 @@
                             "MinDownTimeConstraint": true,
                             "MinUpTimeConstraint": true
                         },
+                        "interconnect_annuity": 0,
                         "min_capacity": 0,
                         "capacity_reserve_margin_id": "AZ_NM",
                         "commodity": "Electricity",
@@ -103,6 +104,7 @@
                             "MinDownTimeConstraint": true,
                             "MinUpTimeConstraint": true
                         },
+                        "interconnect_annuity": 0,
                         "min_capacity": 0,
                         "capacity_reserve_margin_id": "AZ_NM",
                         "commodity": "Electricity",
@@ -157,6 +159,7 @@
                             "MinDownTimeConstraint": true,
                             "MinUpTimeConstraint": true
                         },
+                        "interconnect_annuity": 0,
                         "min_capacity": 0,
                         "capacity_reserve_margin_id": "AZ_NM",
                         "commodity": "Electricity",
@@ -211,6 +214,7 @@
                             "MinDownTimeConstraint": true,
                             "MinUpTimeConstraint": true
                         },
+                        "interconnect_annuity": 0,
                         "min_capacity": 0,
                         "capacity_reserve_margin_id": "AZ_NM",
                         "commodity": "Electricity",
@@ -267,6 +271,7 @@
                             "MinDownTimeConstraint": true,
                             "MinUpTimeConstraint": true
                         },
+                        "interconnect_annuity": 4171.570333510089,
                         "min_capacity": 0,
                         "capacity_reserve_margin_id": "AZ_NM",
                         "commodity": "Electricity",
@@ -321,6 +326,7 @@
                             "MinDownTimeConstraint": true,
                             "MinUpTimeConstraint": true
                         },
+                        "interconnect_annuity": 4171.570333510089,
                         "min_capacity": 0,
                         "capacity_reserve_margin_id": "AZ_NM",
                         "commodity": "Electricity",
@@ -375,6 +381,7 @@
                             "MinDownTimeConstraint": true,
                             "MinUpTimeConstraint": true
                         },
+                        "interconnect_annuity": 4171.570333510089,
                         "min_capacity": 0,
                         "capacity_reserve_margin_id": "CA",
                         "commodity": "Electricity",
@@ -429,6 +436,7 @@
                             "MinDownTimeConstraint": true,
                             "MinUpTimeConstraint": true
                         },
+                        "interconnect_annuity": 4171.570333510089,
                         "min_capacity": 0,
                         "capacity_reserve_margin_id": "CA",
                         "commodity": "Electricity",
@@ -483,6 +491,7 @@
                             "MinDownTimeConstraint": true,
                             "MinUpTimeConstraint": true
                         },
+                        "interconnect_annuity": 4171.570333510089,
                         "min_capacity": 0,
                         "capacity_reserve_margin_id": "CA",
                         "commodity": "Electricity",
@@ -539,6 +548,7 @@
                             "MinDownTimeConstraint": true,
                             "MinUpTimeConstraint": true
                         },
+                        "interconnect_annuity": 4709.971809811662,
                         "min_capacity": 0,
                         "capacity_reserve_margin_id": "CA",
                         "commodity": "Electricity",
@@ -593,6 +603,7 @@
                             "MinDownTimeConstraint": true,
                             "MinUpTimeConstraint": true
                         },
+                        "interconnect_annuity": 4709.971809811662,
                         "min_capacity": 0,
                         "capacity_reserve_margin_id": "CA",
                         "commodity": "Electricity",
@@ -647,6 +658,7 @@
                             "MinDownTimeConstraint": true,
                             "MinUpTimeConstraint": true
                         },
+                        "interconnect_annuity": 4709.971809811662,
                         "min_capacity": 0,
                         "capacity_reserve_margin_id": "WY_CO",
                         "commodity": "Electricity",
@@ -701,6 +713,7 @@
                             "MinDownTimeConstraint": true,
                             "MinUpTimeConstraint": true
                         },
+                        "interconnect_annuity": 4709.971809811662,
                         "min_capacity": 0,
                         "capacity_reserve_margin_id": "WY_CO",
                         "commodity": "Electricity",
@@ -755,6 +768,7 @@
                             "MinDownTimeConstraint": true,
                             "MinUpTimeConstraint": true
                         },
+                        "interconnect_annuity": 4709.971809811662,
                         "min_capacity": 0,
                         "capacity_reserve_margin_id": "WY_CO",
                         "commodity": "Electricity",
@@ -809,6 +823,7 @@
                             "MinDownTimeConstraint": true,
                             "MinUpTimeConstraint": true
                         },
+                        "interconnect_annuity": 4709.971809811662,
                         "min_capacity": 0,
                         "capacity_reserve_margin_id": "WY_CO",
                         "commodity": "Electricity",
@@ -863,6 +878,7 @@
                             "MinDownTimeConstraint": true,
                             "MinUpTimeConstraint": true
                         },
+                        "interconnect_annuity": 4709.971809811662,
                         "min_capacity": 0,
                         "capacity_reserve_margin_id": "WY_CO",
                         "commodity": "Electricity",
@@ -917,6 +933,7 @@
                             "MinDownTimeConstraint": true,
                             "MinUpTimeConstraint": true
                         },
+                        "interconnect_annuity": 4709.971809811662,
                         "min_capacity": 0,
                         "capacity_reserve_margin_id": "ID_UT_NV_MT",
                         "commodity": "Electricity",
@@ -971,6 +988,7 @@
                             "MinDownTimeConstraint": true,
                             "MinUpTimeConstraint": true
                         },
+                        "interconnect_annuity": 4709.971809811662,
                         "min_capacity": 0,
                         "capacity_reserve_margin_id": "ID_UT_NV_MT",
                         "commodity": "Electricity",
@@ -1025,6 +1043,7 @@
                             "MinDownTimeConstraint": true,
                             "MinUpTimeConstraint": true
                         },
+                        "interconnect_annuity": 4709.971809811662,
                         "min_capacity": 0,
                         "capacity_reserve_margin_id": "ID_UT_NV_MT",
                         "commodity": "Electricity",
@@ -1079,6 +1098,7 @@
                             "MinDownTimeConstraint": true,
                             "MinUpTimeConstraint": true
                         },
+                        "interconnect_annuity": 4709.971809811662,
                         "min_capacity": 0,
                         "capacity_reserve_margin_id": "ID_UT_NV_MT",
                         "commodity": "Electricity",
@@ -1133,6 +1153,7 @@
                             "MinDownTimeConstraint": true,
                             "MinUpTimeConstraint": true
                         },
+                        "interconnect_annuity": 4709.971809811662,
                         "min_capacity": 0,
                         "capacity_reserve_margin_id": "ID_UT_NV_MT",
                         "commodity": "Electricity",
@@ -1187,6 +1208,7 @@
                             "MinDownTimeConstraint": true,
                             "MinUpTimeConstraint": true
                         },
+                        "interconnect_annuity": 4709.971809811662,
                         "min_capacity": 0,
                         "capacity_reserve_margin_id": "ID_UT_NV_MT",
                         "commodity": "Electricity",
@@ -1241,6 +1263,7 @@
                             "MinDownTimeConstraint": true,
                             "MinUpTimeConstraint": true
                         },
+                        "interconnect_annuity": 4709.971809811662,
                         "min_capacity": 0,
                         "capacity_reserve_margin_id": "ID_UT_NV_MT",
                         "commodity": "Electricity",
@@ -1295,6 +1318,7 @@
                             "MinDownTimeConstraint": true,
                             "MinUpTimeConstraint": true
                         },
+                        "interconnect_annuity": 4709.971809811662,
                         "min_capacity": 0,
                         "capacity_reserve_margin_id": "AZ_NM",
                         "commodity": "Electricity",
@@ -1349,6 +1373,7 @@
                             "MinDownTimeConstraint": true,
                             "MinUpTimeConstraint": true
                         },
+                        "interconnect_annuity": 4709.971809811662,
                         "min_capacity": 0,
                         "capacity_reserve_margin_id": "AZ_NM",
                         "commodity": "Electricity",
@@ -1403,6 +1428,7 @@
                             "MinDownTimeConstraint": true,
                             "MinUpTimeConstraint": true
                         },
+                        "interconnect_annuity": 4709.971809811662,
                         "min_capacity": 0,
                         "capacity_reserve_margin_id": "AZ_NM",
                         "commodity": "Electricity",
@@ -1457,6 +1483,7 @@
                             "MinDownTimeConstraint": true,
                             "MinUpTimeConstraint": true
                         },
+                        "interconnect_annuity": 4709.971809811662,
                         "min_capacity": 0,
                         "capacity_reserve_margin_id": "AZ_NM",
                         "commodity": "Electricity",
@@ -1511,6 +1538,7 @@
                             "MinDownTimeConstraint": true,
                             "MinUpTimeConstraint": true
                         },
+                        "interconnect_annuity": 4709.971809811662,
                         "min_capacity": 0,
                         "capacity_reserve_margin_id": "AZ_NM",
                         "commodity": "Electricity",
@@ -1565,6 +1593,7 @@
                             "MinDownTimeConstraint": true,
                             "MinUpTimeConstraint": true
                         },
+                        "interconnect_annuity": 4709.971809811662,
                         "min_capacity": 0,
                         "capacity_reserve_margin_id": "ID_UT_NV_MT",
                         "commodity": "Electricity",
@@ -1619,6 +1648,7 @@
                             "MinDownTimeConstraint": true,
                             "MinUpTimeConstraint": true
                         },
+                        "interconnect_annuity": 4709.971809811662,
                         "min_capacity": 0,
                         "capacity_reserve_margin_id": "ID_UT_NV_MT",
                         "commodity": "Electricity",
@@ -1673,6 +1703,7 @@
                             "MinDownTimeConstraint": true,
                             "MinUpTimeConstraint": true
                         },
+                        "interconnect_annuity": 4709.971809811662,
                         "min_capacity": 0,
                         "capacity_reserve_margin_id": "ID_UT_NV_MT",
                         "commodity": "Electricity",
@@ -1727,6 +1758,7 @@
                             "MinDownTimeConstraint": true,
                             "MinUpTimeConstraint": true
                         },
+                        "interconnect_annuity": 4709.971809811662,
                         "min_capacity": 0,
                         "capacity_reserve_margin_id": "ID_UT_NV_MT",
                         "commodity": "Electricity",
@@ -1781,6 +1813,7 @@
                             "MinDownTimeConstraint": true,
                             "MinUpTimeConstraint": true
                         },
+                        "interconnect_annuity": 4709.971809811662,
                         "min_capacity": 0,
                         "capacity_reserve_margin_id": "ID_UT_NV_MT",
                         "commodity": "Electricity",
@@ -1835,6 +1868,7 @@
                             "MinDownTimeConstraint": true,
                             "MinUpTimeConstraint": true
                         },
+                        "interconnect_annuity": 4709.971809811662,
                         "min_capacity": 0,
                         "capacity_reserve_margin_id": "OR_WA",
                         "commodity": "Electricity",
@@ -1889,6 +1923,7 @@
                             "MinDownTimeConstraint": true,
                             "MinUpTimeConstraint": true
                         },
+                        "interconnect_annuity": 4709.971809811662,
                         "min_capacity": 0,
                         "capacity_reserve_margin_id": "OR_WA",
                         "commodity": "Electricity",
@@ -1943,6 +1978,7 @@
                             "MinDownTimeConstraint": true,
                             "MinUpTimeConstraint": true
                         },
+                        "interconnect_annuity": 4709.971809811662,
                         "min_capacity": 0,
                         "capacity_reserve_margin_id": "OR_WA",
                         "commodity": "Electricity",
@@ -1997,6 +2033,7 @@
                             "MinDownTimeConstraint": true,
                             "MinUpTimeConstraint": true
                         },
+                        "interconnect_annuity": 4709.971809811662,
                         "min_capacity": 0,
                         "capacity_reserve_margin_id": "ID_UT_NV_MT",
                         "commodity": "Electricity",
@@ -2051,6 +2088,7 @@
                             "MinDownTimeConstraint": true,
                             "MinUpTimeConstraint": true
                         },
+                        "interconnect_annuity": 4709.971809811662,
                         "min_capacity": 0,
                         "capacity_reserve_margin_id": "ID_UT_NV_MT",
                         "commodity": "Electricity",
@@ -2105,6 +2143,7 @@
                             "MinDownTimeConstraint": true,
                             "MinUpTimeConstraint": true
                         },
+                        "interconnect_annuity": 4709.971809811662,
                         "min_capacity": 0,
                         "capacity_reserve_margin_id": "ID_UT_NV_MT",
                         "commodity": "Electricity",
@@ -2159,6 +2198,7 @@
                             "MinDownTimeConstraint": true,
                             "MinUpTimeConstraint": true
                         },
+                        "interconnect_annuity": 4709.971809811662,
                         "min_capacity": 0,
                         "capacity_reserve_margin_id": "ID_UT_NV_MT",
                         "commodity": "Electricity",
@@ -2213,6 +2253,7 @@
                             "MinDownTimeConstraint": true,
                             "MinUpTimeConstraint": true
                         },
+                        "interconnect_annuity": 4709.971809811662,
                         "min_capacity": 0,
                         "capacity_reserve_margin_id": "ID_UT_NV_MT",
                         "commodity": "Electricity",
@@ -2267,6 +2308,7 @@
                             "MinDownTimeConstraint": true,
                             "MinUpTimeConstraint": true
                         },
+                        "interconnect_annuity": 4709.971809811662,
                         "min_capacity": 0,
                         "capacity_reserve_margin_id": "OR_WA",
                         "commodity": "Electricity",
@@ -2321,6 +2363,7 @@
                             "MinDownTimeConstraint": true,
                             "MinUpTimeConstraint": true
                         },
+                        "interconnect_annuity": 4709.971809811662,
                         "min_capacity": 0,
                         "capacity_reserve_margin_id": "OR_WA",
                         "commodity": "Electricity",
@@ -2375,6 +2418,7 @@
                             "MinDownTimeConstraint": true,
                             "MinUpTimeConstraint": true
                         },
+                        "interconnect_annuity": 4709.971809811662,
                         "min_capacity": 0,
                         "capacity_reserve_margin_id": "OR_WA",
                         "commodity": "Electricity",
@@ -2429,6 +2473,7 @@
                             "MinDownTimeConstraint": true,
                             "MinUpTimeConstraint": true
                         },
+                        "interconnect_annuity": 4709.971809811662,
                         "min_capacity": 0,
                         "capacity_reserve_margin_id": "OR_WA",
                         "commodity": "Electricity",
@@ -2485,6 +2530,7 @@
                             "MinDownTimeConstraint": true,
                             "MinUpTimeConstraint": true
                         },
+                        "interconnect_annuity": 4278.060791253715,
                         "min_capacity": 0,
                         "capacity_reserve_margin_id": "OR_WA",
                         "commodity": "Electricity",
@@ -2539,6 +2585,7 @@
                             "MinDownTimeConstraint": true,
                             "MinUpTimeConstraint": true
                         },
+                        "interconnect_annuity": 4278.060791253715,
                         "min_capacity": 0,
                         "capacity_reserve_margin_id": "OR_WA",
                         "commodity": "Electricity",
@@ -2593,6 +2640,7 @@
                             "MinDownTimeConstraint": true,
                             "MinUpTimeConstraint": true
                         },
+                        "interconnect_annuity": 4278.060791253715,
                         "min_capacity": 0,
                         "capacity_reserve_margin_id": "WY_CO",
                         "commodity": "Electricity",
@@ -2647,6 +2695,7 @@
                             "MinDownTimeConstraint": true,
                             "MinUpTimeConstraint": true
                         },
+                        "interconnect_annuity": 4278.060791253715,
                         "min_capacity": 0,
                         "capacity_reserve_margin_id": "WY_CO",
                         "commodity": "Electricity",
@@ -2701,6 +2750,7 @@
                             "MinDownTimeConstraint": true,
                             "MinUpTimeConstraint": true
                         },
+                        "interconnect_annuity": 4278.060791253715,
                         "min_capacity": 0,
                         "capacity_reserve_margin_id": "WY_CO",
                         "commodity": "Electricity",
@@ -2755,6 +2805,7 @@
                             "MinDownTimeConstraint": true,
                             "MinUpTimeConstraint": true
                         },
+                        "interconnect_annuity": 4278.060791253715,
                         "min_capacity": 0,
                         "capacity_reserve_margin_id": "WY_CO",
                         "commodity": "Electricity",
@@ -2809,6 +2860,7 @@
                             "MinDownTimeConstraint": true,
                             "MinUpTimeConstraint": true
                         },
+                        "interconnect_annuity": 4278.060791253715,
                         "min_capacity": 0,
                         "capacity_reserve_margin_id": "WY_CO",
                         "commodity": "Electricity",
@@ -2859,6 +2911,7 @@
                         "cc_cost_perc": 0.895,
                         "cc_duration": 3,
                         "capacity_in_progress_init": 0,
+                        "interconnect_annuity": 4278.060791253715,
                         "max_new_capacity_init": 727,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -2941,6 +2994,7 @@
                         "cc_cost_perc": 0.895,
                         "cc_duration": 3,
                         "capacity_in_progress_init": 400,
+                        "interconnect_annuity": 4278.060791253715,
                         "max_new_capacity_init": 233,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -3029,6 +3083,7 @@
                             "MinDownTimeConstraint": true,
                             "MinUpTimeConstraint": true
                         },
+                        "interconnect_annuity": 4171.570333510089,
                         "min_capacity": 0,
                         "capacity_reserve_margin_id": "AZ_NM",
                         "commodity": "Electricity",
@@ -3079,6 +3134,7 @@
                         "cc_cost_perc": 0.895,
                         "cc_duration": 3,
                         "capacity_in_progress_init": 0,
+                        "interconnect_annuity": 4171.570333510089,
                         "max_new_capacity_init": 727,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -3161,6 +3217,7 @@
                         "cc_cost_perc": 0.895,
                         "cc_duration": 3,
                         "capacity_in_progress_init": 400,
+                        "interconnect_annuity": 4171.570333510089,
                         "max_new_capacity_init": 233,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -3249,6 +3306,7 @@
                             "MinDownTimeConstraint": true,
                             "MinUpTimeConstraint": true
                         },
+                        "interconnect_annuity": 4709.971809811662,
                         "min_capacity": 0,
                         "capacity_reserve_margin_id": "CA",
                         "commodity": "Electricity",
@@ -3299,6 +3357,7 @@
                         "cc_cost_perc": 0.895,
                         "cc_duration": 3,
                         "capacity_in_progress_init": 0,
+                        "interconnect_annuity": 4709.971809811662,
                         "max_new_capacity_init": 727,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -3381,6 +3440,7 @@
                         "cc_cost_perc": 0.895,
                         "cc_duration": 3,
                         "capacity_in_progress_init": 400,
+                        "interconnect_annuity": 4709.971809811662,
                         "max_new_capacity_init": 233,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -3469,6 +3529,7 @@
                             "MinDownTimeConstraint": true,
                             "MinUpTimeConstraint": true
                         },
+                        "interconnect_annuity": 4057.345931907987,
                         "min_capacity": 0,
                         "capacity_reserve_margin_id": "WY_CO",
                         "commodity": "Electricity",
@@ -3519,6 +3580,7 @@
                         "cc_cost_perc": 0.895,
                         "cc_duration": 3,
                         "capacity_in_progress_init": 0,
+                        "interconnect_annuity": 4057.345931907987,
                         "max_new_capacity_init": 727,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -3601,6 +3663,7 @@
                         "cc_cost_perc": 0.895,
                         "cc_duration": 3,
                         "capacity_in_progress_init": 400,
+                        "interconnect_annuity": 4057.345931907987,
                         "max_new_capacity_init": 233,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -3689,6 +3752,7 @@
                             "MinDownTimeConstraint": true,
                             "MinUpTimeConstraint": true
                         },
+                        "interconnect_annuity": 4222.336733428909,
                         "min_capacity": 0,
                         "capacity_reserve_margin_id": "ID_UT_NV_MT",
                         "commodity": "Electricity",
@@ -3739,6 +3803,7 @@
                         "cc_cost_perc": 0.895,
                         "cc_duration": 3,
                         "capacity_in_progress_init": 0,
+                        "interconnect_annuity": 4222.336733428909,
                         "max_new_capacity_init": 727,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -3821,6 +3886,7 @@
                         "cc_cost_perc": 0.895,
                         "cc_duration": 3,
                         "capacity_in_progress_init": 400,
+                        "interconnect_annuity": 4222.336733428909,
                         "max_new_capacity_init": 233,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -3909,6 +3975,7 @@
                             "MinDownTimeConstraint": true,
                             "MinUpTimeConstraint": true
                         },
+                        "interconnect_annuity": 4016.296537582232,
                         "min_capacity": 0,
                         "capacity_reserve_margin_id": "ID_UT_NV_MT",
                         "commodity": "Electricity",
@@ -3959,6 +4026,7 @@
                         "cc_cost_perc": 0.895,
                         "cc_duration": 3,
                         "capacity_in_progress_init": 0,
+                        "interconnect_annuity": 4016.296537582232,
                         "max_new_capacity_init": 727,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -4041,6 +4109,7 @@
                         "cc_cost_perc": 0.895,
                         "cc_duration": 3,
                         "capacity_in_progress_init": 400,
+                        "interconnect_annuity": 4016.296537582232,
                         "max_new_capacity_init": 233,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -4129,6 +4198,7 @@
                             "MinDownTimeConstraint": true,
                             "MinUpTimeConstraint": true
                         },
+                        "interconnect_annuity": 4097.800407475398,
                         "min_capacity": 0,
                         "capacity_reserve_margin_id": "AZ_NM",
                         "commodity": "Electricity",
@@ -4179,6 +4249,7 @@
                         "cc_cost_perc": 0.895,
                         "cc_duration": 3,
                         "capacity_in_progress_init": 0,
+                        "interconnect_annuity": 4097.800407475398,
                         "max_new_capacity_init": 727,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -4261,6 +4332,7 @@
                         "cc_cost_perc": 0.895,
                         "cc_duration": 3,
                         "capacity_in_progress_init": 400,
+                        "interconnect_annuity": 4097.800407475398,
                         "max_new_capacity_init": 233,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -4349,6 +4421,7 @@
                             "MinDownTimeConstraint": true,
                             "MinUpTimeConstraint": true
                         },
+                        "interconnect_annuity": 4298.882947795765,
                         "min_capacity": 0,
                         "capacity_reserve_margin_id": "ID_UT_NV_MT",
                         "commodity": "Electricity",
@@ -4399,6 +4472,7 @@
                         "cc_cost_perc": 0.895,
                         "cc_duration": 3,
                         "capacity_in_progress_init": 0,
+                        "interconnect_annuity": 4298.882947795765,
                         "max_new_capacity_init": 727,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -4481,6 +4555,7 @@
                         "cc_cost_perc": 0.895,
                         "cc_duration": 3,
                         "capacity_in_progress_init": 400,
+                        "interconnect_annuity": 4298.882947795765,
                         "max_new_capacity_init": 233,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -4569,6 +4644,7 @@
                             "MinDownTimeConstraint": true,
                             "MinUpTimeConstraint": true
                         },
+                        "interconnect_annuity": 4278.655710012059,
                         "min_capacity": 0,
                         "capacity_reserve_margin_id": "OR_WA",
                         "commodity": "Electricity",
@@ -4619,6 +4695,7 @@
                         "cc_cost_perc": 0.895,
                         "cc_duration": 3,
                         "capacity_in_progress_init": 0,
+                        "interconnect_annuity": 4278.655710012059,
                         "max_new_capacity_init": 727,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -4701,6 +4778,7 @@
                         "cc_cost_perc": 0.895,
                         "cc_duration": 3,
                         "capacity_in_progress_init": 400,
+                        "interconnect_annuity": 4278.655710012059,
                         "max_new_capacity_init": 233,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -4789,6 +4867,7 @@
                             "MinDownTimeConstraint": true,
                             "MinUpTimeConstraint": true
                         },
+                        "interconnect_annuity": 4208.455296527434,
                         "min_capacity": 0,
                         "capacity_reserve_margin_id": "ID_UT_NV_MT",
                         "commodity": "Electricity",
@@ -4839,6 +4918,7 @@
                         "cc_cost_perc": 0.895,
                         "cc_duration": 3,
                         "capacity_in_progress_init": 0,
+                        "interconnect_annuity": 4208.455296527434,
                         "max_new_capacity_init": 727,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -4921,6 +5001,7 @@
                         "cc_cost_perc": 0.895,
                         "cc_duration": 3,
                         "capacity_in_progress_init": 400,
+                        "interconnect_annuity": 4208.455296527434,
                         "max_new_capacity_init": 233,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -5009,6 +5090,7 @@
                             "MinDownTimeConstraint": true,
                             "MinUpTimeConstraint": true
                         },
+                        "interconnect_annuity": 4278.060791253715,
                         "min_capacity": 0,
                         "capacity_reserve_margin_id": "OR_WA",
                         "commodity": "Electricity",
@@ -5059,6 +5141,7 @@
                         "cc_cost_perc": 0.895,
                         "cc_duration": 3,
                         "capacity_in_progress_init": 0,
+                        "interconnect_annuity": 4278.060791253715,
                         "max_new_capacity_init": 727,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -5141,6 +5224,7 @@
                         "cc_cost_perc": 0.895,
                         "cc_duration": 3,
                         "capacity_in_progress_init": 400,
+                        "interconnect_annuity": 4278.060791253715,
                         "max_new_capacity_init": 233,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -5229,6 +5313,7 @@
                             "MinDownTimeConstraint": true,
                             "MinUpTimeConstraint": true
                         },
+                        "interconnect_annuity": 4053.7764193579214,
                         "min_capacity": 0,
                         "capacity_reserve_margin_id": "WY_CO",
                         "commodity": "Electricity",
