@@ -25,6 +25,7 @@ function generate_planning_problem(case::Case)
 
     periods = case.systems
     settings = case.settings
+    num_periods = number_of_periods(case)
 
     @info("Deployment inertia set to $(settings[:DeploymentInertia])")
     @info("Project development set to $(settings[:ProjectDevelopment])")
@@ -36,11 +37,14 @@ function generate_planning_problem(case::Case)
 
     @variable(model, vREF == 1)
 
-    number_of_periods = length(periods)
-
     fixed_cost = Dict()
     om_fixed_cost = Dict()
     investment_cost = Dict()
+
+    crm_zones = keys(first(get_periods(case)).settings.CapacityReserveMargin)
+    if !isempty(crm_zones)
+        @expression(model, eCapacityReserveMargin[k in crm_zones, p in 1:num_periods], AffExpr(0.0))
+    end
 
     for (period_idx,system) in enumerate(periods)
 
@@ -70,7 +74,7 @@ function generate_planning_problem(case::Case)
         @info(" -- Including age-based retirements")
         add_age_based_retirements!.(system.assets, model, Ref(settings))
 
-        if period_idx < number_of_periods
+        if period_idx < num_periods
             @info(" -- Available capacity in period $(period_idx) is being carried over to period $(period_idx+1)")
             carry_over_capacities!(periods[period_idx+1], system, settings)
         end
@@ -92,25 +96,25 @@ function generate_planning_problem(case::Case)
 
     discount_rate = settings.DiscountRate
 
-    cum_years = [sum(period_lengths[i] for i in 1:s-1; init=0) for s in 1:number_of_periods];
+    cum_years = [sum(period_lengths[i] for i in 1:s-1; init=0) for s in 1:num_periods];
 
     discount_factor = 1 ./ ( (1 + discount_rate) .^ cum_years)
 
-    @expression(model, eFixedCostByPeriod[s in 1:number_of_periods], discount_factor[s] * fixed_cost[s])
-    @expression(model, eFixedCost, 1e-6*sum(eFixedCostByPeriod[s] for s in 1:number_of_periods))
+    @expression(model, eFixedCostByPeriod[s in 1:num_periods], discount_factor[s] * fixed_cost[s])
+    @expression(model, eFixedCost, 1e-6*sum(eFixedCostByPeriod[s] for s in 1:num_periods))
 
-    @expression(model, eInvestmentFixedCostByPeriod[s in 1:number_of_periods], discount_factor[s] * investment_cost[s])
+    @expression(model, eInvestmentFixedCostByPeriod[s in 1:num_periods], discount_factor[s] * investment_cost[s])
 
-    @expression(model, eOMFixedCostByPeriod[s in 1:number_of_periods], discount_factor[s] * om_fixed_cost[s])
+    @expression(model, eOMFixedCostByPeriod[s in 1:num_periods], discount_factor[s] * om_fixed_cost[s])
 
     period_to_subproblem_map, subproblem_indices = get_period_to_subproblem_mapping(periods);
 
     @variable(model, vTHETA[w in subproblem_indices] .>= 0)
 
-    opexmult = [sum([1 / (1 + discount_rate)^(i) for i in 1:period_lengths[s]]) for s in 1:number_of_periods]
+    opexmult = [sum([1 / (1 + discount_rate)^(i) for i in 1:period_lengths[s]]) for s in 1:num_periods]
 
-    @expression(model, eVariableCostByPeriod[s in 1:number_of_periods], discount_factor[s] * opexmult[s] * sum(vTHETA[w] for w in period_to_subproblem_map[s]))
-    @expression(model, eApproximateVariableCost, sum(eVariableCostByPeriod[s] for s in 1:number_of_periods))
+    @expression(model, eVariableCostByPeriod[s in 1:num_periods], discount_factor[s] * opexmult[s] * sum(vTHETA[w] for w in period_to_subproblem_map[s]))
+    @expression(model, eApproximateVariableCost, sum(eVariableCostByPeriod[s] for s in 1:num_periods))
 
     @objective(model, Min, model[:eFixedCost] + model[:eApproximateVariableCost])
 
