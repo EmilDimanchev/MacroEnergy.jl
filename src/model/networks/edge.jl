@@ -122,6 +122,7 @@ macro AbstractEdgeBaseAttributes()
         capacity_in_progress_init::Float64 = 0.0
         interconnect_annuity::Float64 = 0.0
         cff::Float64 = 0.0
+        interconnect_annuities_mult::Float64 = 0.0
         # Max growth formulation
         max_new_capacity_init::Float64 = 0.0
     end)
@@ -372,6 +373,7 @@ cc_annualized_cost(e::AbstractEdge) = e.cc_annualized_cost;
 de_annuities_mult(e::AbstractEdge) = e.de_annuities_mult;
 af_annuities_mult(e::AbstractEdge) = e.af_annuities_mult;
 cc_annuities_mult(e::AbstractEdge) = e.cc_annuities_mult;
+interconnect_annuities_mult(e::AbstractEdge) = e.interconnect_annuities_mult;
 # Definition and evaluation (DE)
 new_de_capacity(e::AbstractEdge) = e.new_de_capacity;
 de_capacity(e::AbstractEdge) = e.de_capacity;
@@ -548,7 +550,7 @@ function compute_investment_costs!(e::AbstractEdge, model::Model, settings::Name
             # Linearized learning
             if settings[:TechnologyLearning] && learning_type(e) in settings[:LearningTechnologies]
 
-                model[:eInvestmentFixedCost] += e.endog_annualized_investment_cost_times_newcapacity * (1 - subsidy) * annuities_mult(e)
+                model[:eInvestmentFixedCost] += e.endog_annualized_investment_cost_times_newcapacity * (1 - subsidy) * annuities_mult(e) + interconnect_annuity(e) * interconnect_annuities_mult(e) * new_capacity(e)
 
                 # Nonlinear version for benchmarking
                 # model[:eInvestmentFixedCost] += (1 - subsidy)*endog_annualized_investment_cost(e)*annuities_mult(e)*new_capacity(e)
@@ -565,7 +567,7 @@ function compute_investment_costs!(e::AbstractEdge, model::Model, settings::Name
                 # No learning
                 add_to_expression!(
                     model[:eInvestmentFixedCost],
-                    annualized_investment_cost(e) * (1 - subsidy) * annuities_mult(e),
+                    annualized_investment_cost(e) * (1 - subsidy) * annuities_mult(e) + interconnect_annuity(e) * interconnect_annuities_mult(e),
                     new_capacity(e),
                 )
 

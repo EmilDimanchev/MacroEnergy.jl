@@ -350,17 +350,21 @@ function compute_annualized_costs!(y::Union{AbstractEdge,AbstractStorage},settin
     else
         # Check if CAPEX (i.e. investment_cost) was provided. If not, estimate it
         if isnothing(investment_cost(y)) || investment_cost(y) == 0.0
-            y.investment_cost = annualized_investment_cost(y)/annualization_factor(y) 
+            if settings[:ProjectDevelopment]
+                # In the speed limits version, we remove the CFF because it is estimated in project development
+                # Also need to remove interconnection cost, if any, from project cost
+                y.investment_cost = ((annualized_investment_cost(y)-interconnect_annuity(y))/annualization_factor(y))/cff(y)
+            else
+                y.investment_cost = (annualized_investment_cost(y)-interconnect_annuity(y))/annualization_factor(y)
+            end
         end
 
     end
 
+    # Set annualized costs
     if settings[:ProjectDevelopment]
         # Distribute deployment cost in case deployment stage costs are included
         deployment_cost_perc = 1 - de_cost_perc(y) - af_cost_perc(y) - cc_cost_perc(y)
-
-        # Update cost of deployment
-        y.annualized_investment_cost = annualized_investment_cost(y)*deployment_cost_perc
 
         # Development annualized costs
         y.de_annualization_factor = de_wacc(y)>0 && de_cap_recovery(y) > 0 ? de_wacc(y) / (1 - (1 + de_wacc(y))^-de_cap_recovery(y))  : 1.0
@@ -373,8 +377,13 @@ function compute_annualized_costs!(y::Union{AbstractEdge,AbstractStorage},settin
         y.de_annualized_cost = investment_cost(y)*de_annualization_factor(y)*de_cost_perc(y)
         y.af_annualized_cost = investment_cost(y)*af_annualization_factor(y)*af_cost_perc(y)
         y.cc_annualized_cost = investment_cost(y)*cc_annualization_factor(y)*cc_cost_perc(y)
+        # Update cost of deployment
+        y.annualized_investment_cost = investment_cost(y)*annualization_factor(y)*deployment_cost_perc
 
     else
+        @info("Setting annualized cost for technology $(id(y))")
+        y.annualized_investment_cost = investment_cost(y)*annualization_factor(y)
+
         y.de_annualized_cost = 0.0
         y.af_annualized_cost = 0.0
         y.cc_annualized_cost = 0.0
@@ -410,6 +419,8 @@ function discount_fixed_costs!(y::Union{AbstractEdge,AbstractStorage},settings::
         payment_years_remaining = min(capital_recovery_period(y), settings.PeriodLengths[period_index(y)]);
     elseif isa(solution_algorithm(settings[:SolutionAlgorithm]), Monolithic) || isa(solution_algorithm(settings[:SolutionAlgorithm]), Benders)
         payment_years_remaining = min(capital_recovery_period(y), model_years_remaining);
+        cap_recovery_interconnect = 60 # From Power Genome, TODO: add as parameter in inputs
+        interconnect_payment_years_remaining = min(cap_recovery_interconnect, model_years_remaining);
         if settings[:ProjectDevelopment] 
             de_payment_years_remaining = min(de_cap_recovery(y), model_years_remaining);
             af_payment_years_remaining = min(af_cap_recovery(y), model_years_remaining);
@@ -423,6 +434,8 @@ function discount_fixed_costs!(y::Union{AbstractEdge,AbstractStorage},settings::
     # y.annualized_investment_cost = annualized_investment_cost(y) * sum(1 / (1 + settings.DiscountRate)^s for s in 1:payment_years_remaining; init=0);
 
     y.annuities_mult = sum(1 / (1 + settings.DiscountRate)^s for s in 1:payment_years_remaining; init=0);
+    y.interconnect_annuities_mult = sum(1 / (1 + settings.DiscountRate)^s for s in 1:interconnect_payment_years_remaining; init=0);
+    
     if settings[:ProjectDevelopment] 
         y.de_annuities_mult = sum(1 / (1 + settings.DiscountRate)^s for s in 1:de_payment_years_remaining; init=0);
         y.af_annuities_mult = sum(1 / (1 + settings.DiscountRate)^s for s in 1:af_payment_years_remaining; init=0);

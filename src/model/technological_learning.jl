@@ -97,13 +97,20 @@ function add_learning!(system::System, model::Model, period_idx::Int, settings::
                 big_M_capacity = max_new_capacity(e)
                 @constraint(model, [k in 1:n_segments+1], e.new_capacity - e.aux_new_capacity[k] <= big_M_capacity*(1-endogenous_capex_segment_chosen_from_relevant_period(e)[k]))
                 @constraint(model, [k in 1:n_segments+1], e.aux_new_capacity[k] <= big_M_capacity*e.endogenous_capex_segment_chosen_from_relevant_period[k])
-                # Cost term for objective function
-                e.endog_annualized_investment_cost_times_newcapacity = @expression(model, sum(e.pwl_capex_slopes[k]*e.aux_new_capacity[k]*annualization_factor(e) for k in 1:n_segments+1))
 
-                # Nonlinear version for benchmarking
-                # e.endog_annualized_investment_cost = endogenous_capex_track(e, cost_period)*annualization_factor(e)
 
-                if settings[:ProjectDevelopment]
+                if !settings[:ProjectDevelopment]
+                    # Cost term for objective function
+                    e.endog_annualized_investment_cost_times_newcapacity = @expression(model, sum(e.pwl_capex_slopes[k]*e.aux_new_capacity[k]*annualization_factor(e) for k in 1:n_segments+1))
+
+                    # Alternative nonlinear version for benchmarking
+                    # e.endog_annualized_investment_cost = endogenous_capex_track(e, cost_period)*annualization_factor(e)
+
+                else
+                    # Project development (aka capital discipline)
+                    # Cost term for objective function
+                    deployment_cost_perc = 1 - de_cost_perc(y) - af_cost_perc(y) - cc_cost_perc(y)
+                    e.endog_annualized_investment_cost_times_newcapacity = @expression(model, sum(e.pwl_capex_slopes[k]*e.aux_new_capacity[k]*deployment_cost_perc*annualization_factor(e) for k in 1:n_segments+1))
                     # Shadow capacity DE
                     e.aux_new_capacity_de = @variable(model, [k in 1:n_segments+1], lower_bound = 0.0, base_name = "vAUXNEWCAPDE_$(id(e))_stage$(period_index(e))_seg_$k")
                     @constraint(model, [k in 1:n_segments+1], e.new_de_capacity - e.aux_new_capacity_de[k] >= 0)
