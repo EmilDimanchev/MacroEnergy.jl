@@ -13,6 +13,52 @@
         },
         "instance_data": [
             {
+                "id": "AZ_to_CA",
+                "edges": {
+                    "transmission_edge": {
+                        "can_retire": false,
+                        "de_wacc": 0.1,
+                        "annualized_investment_cost": 0,
+                        "af_duration": 1,
+                        "cumulative_capacity_init": -1,
+                        "max_capacity": 10608.07,
+                        "de_cost_perc": 0.161,
+                        "can_expand": true,
+                        "cc_cost_perc": 0.779,
+                        "learning_type": "none",
+                        "de_duration": 5,
+                        "af_cap_recovery": 1,
+                        "cc_duration": 4,
+                        "constraints": {
+                            "MaxCapacityGrowthConstraint": false,
+                            "DevelopmentConstraint": true,
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "start_vertex": "elec_AZ",
+                        "line_loss_percentage": 0,
+                        "capacity_in_progress_init": 3000,
+                        "init_cumul_capacity": -1,
+                        "max_new_capacity_init": -1,
+                        "cagr": -1,
+                        "cc_wacc": 0.06,
+                        "cff": 1,
+                        "af_wacc": 0.1,
+                        "project_attrition": 1,
+                        "max_new_capacity": 10000,
+                        "max_cumul_capacity": -1,
+                        "cc_cap_recovery": 24,
+                        "n_learning_pwl_segments": -1,
+                        "end_vertex": "elec_CA",
+                        "cadr": -1,
+                        "de_cap_recovery": 5,
+                        "learning_parameter": 0,
+                        "existing_capacity": 5304.07,
+                        "af_cost_perc": 0.01
+                    }
+                }
+            },
+            {
                 "id": "AZ_to_NM",
                 "edges": {
                     "transmission_edge": {
@@ -159,7 +205,7 @@
                         "annualized_investment_cost": 53745,
                         "af_duration": 1,
                         "cumulative_capacity_init": -1,
-                        "max_capacity": 767.3140000000001,
+                        "max_capacity": 17535.9145,
                         "de_cost_perc": 0.161,
                         "can_expand": true,
                         "cc_cost_perc": 0.779,
@@ -191,7 +237,7 @@
                         "cadr": -1,
                         "de_cap_recovery": 5,
                         "learning_parameter": 0,
-                        "existing_capacity": 367.314,
+                        "existing_capacity": 8767.9145,
                         "af_cost_perc": 0.01
                     }
                 }
@@ -205,7 +251,7 @@
                         "annualized_investment_cost": 56669,
                         "af_duration": 1,
                         "cumulative_capacity_init": -1,
-                        "max_capacity": 10521.673999999999,
+                        "max_capacity": 16081.673999999999,
                         "de_cost_perc": 0.161,
                         "can_expand": true,
                         "cc_cost_perc": 0.779,
@@ -237,7 +283,53 @@
                         "cadr": -1,
                         "de_cap_recovery": 5,
                         "learning_parameter": 0,
-                        "existing_capacity": 5260.674,
+                        "existing_capacity": 8040.674,
+                        "af_cost_perc": 0.01
+                    }
+                }
+            },
+            {
+                "id": "CA_to_UT",
+                "edges": {
+                    "transmission_edge": {
+                        "can_retire": false,
+                        "de_wacc": 0.1,
+                        "annualized_investment_cost": 0,
+                        "af_duration": 1,
+                        "cumulative_capacity_init": -1,
+                        "max_capacity": 3840,
+                        "de_cost_perc": 0.161,
+                        "can_expand": true,
+                        "cc_cost_perc": 0.779,
+                        "learning_type": "none",
+                        "de_duration": 5,
+                        "af_cap_recovery": 1,
+                        "cc_duration": 4,
+                        "constraints": {
+                            "MaxCapacityGrowthConstraint": false,
+                            "DevelopmentConstraint": true,
+                            "CapacityConstraint": true,
+                            "MaxCapacityConstraint": true
+                        },
+                        "start_vertex": "elec_CA",
+                        "line_loss_percentage": 0,
+                        "capacity_in_progress_init": 3000,
+                        "init_cumul_capacity": -1,
+                        "max_new_capacity_init": -1,
+                        "cagr": -1,
+                        "cc_wacc": 0.06,
+                        "cff": 1,
+                        "af_wacc": 0.1,
+                        "project_attrition": 1,
+                        "max_new_capacity": 10000,
+                        "max_cumul_capacity": -1,
+                        "cc_cap_recovery": 24,
+                        "n_learning_pwl_segments": -1,
+                        "end_vertex": "elec_UT",
+                        "cadr": -1,
+                        "de_cap_recovery": 5,
+                        "learning_parameter": 0,
+                        "existing_capacity": 1920,
                         "af_cost_perc": 0.01
                     }
                 }

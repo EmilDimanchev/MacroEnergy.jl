@@ -373,7 +373,6 @@ cc_annualized_cost(e::AbstractEdge) = e.cc_annualized_cost;
 de_annuities_mult(e::AbstractEdge) = e.de_annuities_mult;
 af_annuities_mult(e::AbstractEdge) = e.af_annuities_mult;
 cc_annuities_mult(e::AbstractEdge) = e.cc_annuities_mult;
-interconnect_annuities_mult(e::AbstractEdge) = e.interconnect_annuities_mult;
 # Definition and evaluation (DE)
 new_de_capacity(e::AbstractEdge) = e.new_de_capacity;
 de_capacity(e::AbstractEdge) = e.de_capacity;
@@ -407,6 +406,7 @@ endog_annualized_investment_cost_times_newcapacity_cc(e::AbstractEdge) = e.endog
 capacity_in_progress_init(e::AbstractEdge) = e.capacity_in_progress_init;
 interconnect_annuity(e::AbstractEdge) = e.interconnect_annuity;
 cff(e::AbstractEdge) = e.cff;
+interconnect_annuities_mult(e::AbstractEdge) = e.interconnect_annuities_mult;
 # Max growth formulation
 max_new_capacity_init(e::AbstractEdge) = e.max_new_capacity_init;
 ##### End of Edge interface #####
@@ -489,6 +489,7 @@ function planning_model!(e::AbstractEdge, model::Model, settings::NamedTuple)
             crm_id = capacity_reserve_margin_id(e)
             p_idx = period_index(e)
             if haskey(model, :eCapacityReserveMargin) && crm_id ∈ axes(model[:eCapacityReserveMargin])[1]
+                @info("Adding derated capacity of edge $(id(e)) to capacity reserve margin constraint $(crm_id) in period index $(p_idx).")
                 add_to_expression!(model[:eCapacityReserveMargin][crm_id, p_idx], 
                                     capacity_reserve_margin_derate_factor(e) * capacity(e)
                                 )

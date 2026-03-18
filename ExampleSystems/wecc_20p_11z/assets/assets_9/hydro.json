@@ -59,7 +59,7 @@
                             "CapacityConstraint": true
                         },
                         "min_capacity": 0,
-                        "capacity_reserve_margin_id": "AZ_NM",
+                        "capacity_reserve_margin_id": "OR_WA_ID_UT_NV_MT_CA_AZ_NM_WY_CO",
                         "fixed_om_cost": 47048,
                         "capacity_reserve_margin_derate_factor": 0.8,
                         "ramp_up_fraction": 0.5,
@@ -114,14 +114,14 @@
                         "BalanceConstraint": true,
                         "MinStorageOutflowConstraint": true
                     },
-                    "max_duration": 1.3470255677991068,
+                    "max_duration": 1.3264653525342562,
                     "fixed_om_cost": 0,
                     "long_duration": false,
                     "min_outflow_fraction": 0,
                     "charge_discharge_ratio": 1,
                     "loss_fraction": 0,
                     "capacity_size": 1,
-                    "existing_capacity": 10829.007944650579
+                    "existing_capacity": 11567.043167169222
                 },
                 "edges": {
                     "discharge_edge": {
@@ -137,7 +137,7 @@
                             "CapacityConstraint": true
                         },
                         "min_capacity": 0,
-                        "capacity_reserve_margin_id": "CA",
+                        "capacity_reserve_margin_id": "OR_WA_ID_UT_NV_MT_CA_AZ_NM_WY_CO",
                         "fixed_om_cost": 47048,
                         "capacity_reserve_margin_derate_factor": 0.8,
                         "ramp_up_fraction": 0.5,
@@ -150,7 +150,7 @@
                         "availability": [
                             1
                         ],
-                        "existing_capacity": 8039.2,
+                        "existing_capacity": 8720.2,
                         "ramp_down_fraction": 0.5
                     },
                     "inflow_edge": {
@@ -171,7 +171,7 @@
                                 "path": "system/hydro_availability.csv"
                             }
                         },
-                        "existing_capacity": 8039.2
+                        "existing_capacity": 8720.2
                     },
                     "spill_edge": {
                         "end_vertex": "water_node",
@@ -215,7 +215,7 @@
                             "CapacityConstraint": true
                         },
                         "min_capacity": 0,
-                        "capacity_reserve_margin_id": "WY_CO",
+                        "capacity_reserve_margin_id": "OR_WA_ID_UT_NV_MT_CA_AZ_NM_WY_CO",
                         "fixed_om_cost": 47048,
                         "capacity_reserve_margin_derate_factor": 0.8,
                         "ramp_up_fraction": 0.5,
@@ -293,7 +293,7 @@
                             "CapacityConstraint": true
                         },
                         "min_capacity": 0,
-                        "capacity_reserve_margin_id": "ID_UT_NV_MT",
+                        "capacity_reserve_margin_id": "OR_WA_ID_UT_NV_MT_CA_AZ_NM_WY_CO",
                         "fixed_om_cost": 47048,
                         "capacity_reserve_margin_derate_factor": 0.8,
                         "ramp_up_fraction": 0.5,
@@ -371,7 +371,7 @@
                             "CapacityConstraint": true
                         },
                         "min_capacity": 0,
-                        "capacity_reserve_margin_id": "ID_UT_NV_MT",
+                        "capacity_reserve_margin_id": "OR_WA_ID_UT_NV_MT_CA_AZ_NM_WY_CO",
                         "fixed_om_cost": 47048,
                         "capacity_reserve_margin_derate_factor": 0.8,
                         "ramp_up_fraction": 0.5,
@@ -449,7 +449,7 @@
                             "CapacityConstraint": true
                         },
                         "min_capacity": 0,
-                        "capacity_reserve_margin_id": "ID_UT_NV_MT",
+                        "capacity_reserve_margin_id": "OR_WA_ID_UT_NV_MT_CA_AZ_NM_WY_CO",
                         "fixed_om_cost": 47048,
                         "capacity_reserve_margin_derate_factor": 0.8,
                         "ramp_up_fraction": 0.5,
@@ -527,7 +527,7 @@
                             "CapacityConstraint": true
                         },
                         "min_capacity": 0,
-                        "capacity_reserve_margin_id": "OR_WA",
+                        "capacity_reserve_margin_id": "OR_WA_ID_UT_NV_MT_CA_AZ_NM_WY_CO",
                         "fixed_om_cost": 47048,
                         "capacity_reserve_margin_derate_factor": 0.8,
                         "ramp_up_fraction": 0.5,
@@ -605,7 +605,7 @@
                             "CapacityConstraint": true
                         },
                         "min_capacity": 0,
-                        "capacity_reserve_margin_id": "ID_UT_NV_MT",
+                        "capacity_reserve_margin_id": "OR_WA_ID_UT_NV_MT_CA_AZ_NM_WY_CO",
                         "fixed_om_cost": 47048,
                         "capacity_reserve_margin_derate_factor": 0.8,
                         "ramp_up_fraction": 0.5,
@@ -683,7 +683,7 @@
                             "CapacityConstraint": true
                         },
                         "min_capacity": 0,
-                        "capacity_reserve_margin_id": "OR_WA",
+                        "capacity_reserve_margin_id": "OR_WA_ID_UT_NV_MT_CA_AZ_NM_WY_CO",
                         "fixed_om_cost": 47048,
                         "capacity_reserve_margin_derate_factor": 0.8,
                         "ramp_up_fraction": 0.5,
@@ -761,7 +761,7 @@
                             "CapacityConstraint": true
                         },
                         "min_capacity": 0,
-                        "capacity_reserve_margin_id": "WY_CO",
+                        "capacity_reserve_margin_id": "OR_WA_ID_UT_NV_MT_CA_AZ_NM_WY_CO",
                         "fixed_om_cost": 47048,
                         "capacity_reserve_margin_derate_factor": 0.8,
                         "ramp_up_fraction": 0.5,

@@ -27,7 +27,7 @@
                             "MustRunConstraint": true
                         },
                         "min_capacity": 0,
-                        "capacity_reserve_margin_id": "AZ_NM",
+                        "capacity_reserve_margin_id": "OR_WA_ID_UT_NV_MT_CA_AZ_NM_WY_CO",
                         "commodity": "Electricity",
                         "fixed_om_cost": 0,
                         "capacity_reserve_margin_derate_factor": 0.9,
@@ -57,7 +57,7 @@
                             "MustRunConstraint": true
                         },
                         "min_capacity": 0,
-                        "capacity_reserve_margin_id": "AZ_NM",
+                        "capacity_reserve_margin_id": "OR_WA_ID_UT_NV_MT_CA_AZ_NM_WY_CO",
                         "commodity": "Electricity",
                         "fixed_om_cost": 47048,
                         "capacity_reserve_margin_derate_factor": 0.8,
@@ -90,7 +90,7 @@
                             "MustRunConstraint": true
                         },
                         "min_capacity": 0,
-                        "capacity_reserve_margin_id": "CA",
+                        "capacity_reserve_margin_id": "OR_WA_ID_UT_NV_MT_CA_AZ_NM_WY_CO",
                         "commodity": "Electricity",
                         "fixed_om_cost": 0,
                         "capacity_reserve_margin_derate_factor": 0.9,
@@ -102,7 +102,7 @@
                         "availability": [
                             1
                         ],
-                        "existing_capacity": 141.6
+                        "existing_capacity": 231.5
                     }
                 }
             },
@@ -120,7 +120,7 @@
                             "MustRunConstraint": true
                         },
                         "min_capacity": 0,
-                        "capacity_reserve_margin_id": "CA",
+                        "capacity_reserve_margin_id": "OR_WA_ID_UT_NV_MT_CA_AZ_NM_WY_CO",
                         "commodity": "Electricity",
                         "fixed_om_cost": 209101,
                         "capacity_reserve_margin_derate_factor": 0.9,
@@ -132,7 +132,7 @@
                         "availability": [
                             1
                         ],
-                        "existing_capacity": 977
+                        "existing_capacity": 1903.5
                     }
                 }
             },
@@ -150,7 +150,7 @@
                             "MustRunConstraint": true
                         },
                         "min_capacity": 0,
-                        "capacity_reserve_margin_id": "CA",
+                        "capacity_reserve_margin_id": "OR_WA_ID_UT_NV_MT_CA_AZ_NM_WY_CO",
                         "commodity": "Electricity",
                         "fixed_om_cost": 47048,
                         "capacity_reserve_margin_derate_factor": 0.8,
@@ -165,7 +165,7 @@
                                 "path": "system/mustrun_availability.csv"
                             }
                         },
-                        "existing_capacity": 238
+                        "existing_capacity": 356.4
                     }
                 }
             },
@@ -183,7 +183,7 @@
                             "MustRunConstraint": true
                         },
                         "min_capacity": 0,
-                        "capacity_reserve_margin_id": "WY_CO",
+                        "capacity_reserve_margin_id": "OR_WA_ID_UT_NV_MT_CA_AZ_NM_WY_CO",
                         "commodity": "Electricity",
                         "fixed_om_cost": 0,
                         "capacity_reserve_margin_derate_factor": 0.9,
@@ -213,7 +213,7 @@
                             "MustRunConstraint": true
                         },
                         "min_capacity": 0,
-                        "capacity_reserve_margin_id": "WY_CO",
+                        "capacity_reserve_margin_id": "OR_WA_ID_UT_NV_MT_CA_AZ_NM_WY_CO",
                         "commodity": "Electricity",
                         "fixed_om_cost": 47048,
                         "capacity_reserve_margin_derate_factor": 0.8,
@@ -246,7 +246,7 @@
                             "MustRunConstraint": true
                         },
                         "min_capacity": 0,
-                        "capacity_reserve_margin_id": "ID_UT_NV_MT",
+                        "capacity_reserve_margin_id": "OR_WA_ID_UT_NV_MT_CA_AZ_NM_WY_CO",
                         "commodity": "Electricity",
                         "fixed_om_cost": 0,
                         "capacity_reserve_margin_derate_factor": 0.9,
@@ -276,7 +276,7 @@
                             "MustRunConstraint": true
                         },
                         "min_capacity": 0,
-                        "capacity_reserve_margin_id": "ID_UT_NV_MT",
+                        "capacity_reserve_margin_id": "OR_WA_ID_UT_NV_MT_CA_AZ_NM_WY_CO",
                         "commodity": "Electricity",
                         "fixed_om_cost": 209101,
                         "capacity_reserve_margin_derate_factor": 0.9,
@@ -306,7 +306,7 @@
                             "MustRunConstraint": true
                         },
                         "min_capacity": 0,
-                        "capacity_reserve_margin_id": "ID_UT_NV_MT",
+                        "capacity_reserve_margin_id": "OR_WA_ID_UT_NV_MT_CA_AZ_NM_WY_CO",
                         "commodity": "Electricity",
                         "fixed_om_cost": 47048,
                         "capacity_reserve_margin_derate_factor": 0.8,
@@ -339,7 +339,7 @@
                             "MustRunConstraint": true
                         },
                         "min_capacity": 0,
-                        "capacity_reserve_margin_id": "ID_UT_NV_MT",
+                        "capacity_reserve_margin_id": "OR_WA_ID_UT_NV_MT_CA_AZ_NM_WY_CO",
                         "commodity": "Electricity",
                         "fixed_om_cost": 0,
                         "capacity_reserve_margin_derate_factor": 0.9,
@@ -369,7 +369,7 @@
                             "MustRunConstraint": true
                         },
                         "min_capacity": 0,
-                        "capacity_reserve_margin_id": "ID_UT_NV_MT",
+                        "capacity_reserve_margin_id": "OR_WA_ID_UT_NV_MT_CA_AZ_NM_WY_CO",
                         "commodity": "Electricity",
                         "fixed_om_cost": 47048,
                         "capacity_reserve_margin_derate_factor": 0.8,
@@ -402,7 +402,7 @@
                             "MustRunConstraint": true
                         },
                         "min_capacity": 0,
-                        "capacity_reserve_margin_id": "AZ_NM",
+                        "capacity_reserve_margin_id": "OR_WA_ID_UT_NV_MT_CA_AZ_NM_WY_CO",
                         "commodity": "Electricity",
                         "fixed_om_cost": 0,
                         "capacity_reserve_margin_derate_factor": 0.9,
@@ -432,7 +432,7 @@
                             "MustRunConstraint": true
                         },
                         "min_capacity": 0,
-                        "capacity_reserve_margin_id": "AZ_NM",
+                        "capacity_reserve_margin_id": "OR_WA_ID_UT_NV_MT_CA_AZ_NM_WY_CO",
                         "commodity": "Electricity",
                         "fixed_om_cost": 209101,
                         "capacity_reserve_margin_derate_factor": 0.9,
@@ -462,7 +462,7 @@
                             "MustRunConstraint": true
                         },
                         "min_capacity": 0,
-                        "capacity_reserve_margin_id": "AZ_NM",
+                        "capacity_reserve_margin_id": "OR_WA_ID_UT_NV_MT_CA_AZ_NM_WY_CO",
                         "commodity": "Electricity",
                         "fixed_om_cost": 47048,
                         "capacity_reserve_margin_derate_factor": 0.8,
@@ -495,7 +495,7 @@
                             "MustRunConstraint": true
                         },
                         "min_capacity": 0,
-                        "capacity_reserve_margin_id": "ID_UT_NV_MT",
+                        "capacity_reserve_margin_id": "OR_WA_ID_UT_NV_MT_CA_AZ_NM_WY_CO",
                         "commodity": "Electricity",
                         "fixed_om_cost": 0,
                         "capacity_reserve_margin_derate_factor": 0.9,
@@ -525,7 +525,7 @@
                             "MustRunConstraint": true
                         },
                         "min_capacity": 0,
-                        "capacity_reserve_margin_id": "ID_UT_NV_MT",
+                        "capacity_reserve_margin_id": "OR_WA_ID_UT_NV_MT_CA_AZ_NM_WY_CO",
                         "commodity": "Electricity",
                         "fixed_om_cost": 209101,
                         "capacity_reserve_margin_derate_factor": 0.9,
@@ -555,7 +555,7 @@
                             "MustRunConstraint": true
                         },
                         "min_capacity": 0,
-                        "capacity_reserve_margin_id": "ID_UT_NV_MT",
+                        "capacity_reserve_margin_id": "OR_WA_ID_UT_NV_MT_CA_AZ_NM_WY_CO",
                         "commodity": "Electricity",
                         "fixed_om_cost": 47048,
                         "capacity_reserve_margin_derate_factor": 0.8,
@@ -588,7 +588,7 @@
                             "MustRunConstraint": true
                         },
                         "min_capacity": 0,
-                        "capacity_reserve_margin_id": "OR_WA",
+                        "capacity_reserve_margin_id": "OR_WA_ID_UT_NV_MT_CA_AZ_NM_WY_CO",
                         "commodity": "Electricity",
                         "fixed_om_cost": 0,
                         "capacity_reserve_margin_derate_factor": 0.9,
@@ -618,7 +618,7 @@
                             "MustRunConstraint": true
                         },
                         "min_capacity": 0,
-                        "capacity_reserve_margin_id": "OR_WA",
+                        "capacity_reserve_margin_id": "OR_WA_ID_UT_NV_MT_CA_AZ_NM_WY_CO",
                         "commodity": "Electricity",
                         "fixed_om_cost": 209101,
                         "capacity_reserve_margin_derate_factor": 0.9,
@@ -648,7 +648,7 @@
                             "MustRunConstraint": true
                         },
                         "min_capacity": 0,
-                        "capacity_reserve_margin_id": "OR_WA",
+                        "capacity_reserve_margin_id": "OR_WA_ID_UT_NV_MT_CA_AZ_NM_WY_CO",
                         "commodity": "Electricity",
                         "fixed_om_cost": 47048,
                         "capacity_reserve_margin_derate_factor": 0.8,
@@ -681,7 +681,7 @@
                             "MustRunConstraint": true
                         },
                         "min_capacity": 0,
-                        "capacity_reserve_margin_id": "ID_UT_NV_MT",
+                        "capacity_reserve_margin_id": "OR_WA_ID_UT_NV_MT_CA_AZ_NM_WY_CO",
                         "commodity": "Electricity",
                         "fixed_om_cost": 0,
                         "capacity_reserve_margin_derate_factor": 0.9,
@@ -711,7 +711,7 @@
                             "MustRunConstraint": true
                         },
                         "min_capacity": 0,
-                        "capacity_reserve_margin_id": "ID_UT_NV_MT",
+                        "capacity_reserve_margin_id": "OR_WA_ID_UT_NV_MT_CA_AZ_NM_WY_CO",
                         "commodity": "Electricity",
                         "fixed_om_cost": 209101,
                         "capacity_reserve_margin_derate_factor": 0.9,
@@ -741,7 +741,7 @@
                             "MustRunConstraint": true
                         },
                         "min_capacity": 0,
-                        "capacity_reserve_margin_id": "ID_UT_NV_MT",
+                        "capacity_reserve_margin_id": "OR_WA_ID_UT_NV_MT_CA_AZ_NM_WY_CO",
                         "commodity": "Electricity",
                         "fixed_om_cost": 47048,
                         "capacity_reserve_margin_derate_factor": 0.8,
@@ -774,7 +774,7 @@
                             "MustRunConstraint": true
                         },
                         "min_capacity": 0,
-                        "capacity_reserve_margin_id": "OR_WA",
+                        "capacity_reserve_margin_id": "OR_WA_ID_UT_NV_MT_CA_AZ_NM_WY_CO",
                         "commodity": "Electricity",
                         "fixed_om_cost": 0,
                         "capacity_reserve_margin_derate_factor": 0.9,
@@ -804,7 +804,7 @@
                             "MustRunConstraint": true
                         },
                         "min_capacity": 0,
-                        "capacity_reserve_margin_id": "OR_WA",
+                        "capacity_reserve_margin_id": "OR_WA_ID_UT_NV_MT_CA_AZ_NM_WY_CO",
                         "commodity": "Electricity",
                         "fixed_om_cost": 47048,
                         "capacity_reserve_margin_derate_factor": 0.8,
@@ -837,7 +837,7 @@
                             "MustRunConstraint": true
                         },
                         "min_capacity": 0,
-                        "capacity_reserve_margin_id": "WY_CO",
+                        "capacity_reserve_margin_id": "OR_WA_ID_UT_NV_MT_CA_AZ_NM_WY_CO",
                         "commodity": "Electricity",
                         "fixed_om_cost": 47048,
                         "capacity_reserve_margin_derate_factor": 0.8,

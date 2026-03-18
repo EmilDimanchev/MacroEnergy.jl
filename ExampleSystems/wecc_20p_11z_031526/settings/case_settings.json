@@ -1,0 +1,31 @@
+{
+    "PeriodLengths": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "SolutionAlgorithm": "Benders",
+    "DiscountRate": 0.045,
+    "TechnologyLearning": false,
+    "LearningTechnologies": ["egs"],
+    "DeploymentInertia": false,
+    "ProjectDevelopment": false,
+    "CO2Cap": false
+}

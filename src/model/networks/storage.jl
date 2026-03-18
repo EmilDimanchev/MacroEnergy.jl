@@ -98,6 +98,7 @@ macro AbstractStorageBaseAttributes()
         capacity_in_progress_init::Float64 = 0.0
         interconnect_annuity::Float64 = 0.0
         cff::Float64 = 0.0
+        interconnect_annuities_mult::Float64 = 0.0
         # Max growth formulation
         max_new_capacity_init::Float64 = 0.0
     end)
@@ -323,6 +324,7 @@ new_cc_units(g::AbstractStorage) = g.new_cc_units;
 capacity_in_progress_init(g::AbstractStorage) = g.capacity_in_progress_init;
 interconnect_annuity(g::AbstractStorage) = g.interconnect_annuity;
 cff(g::AbstractStorage) = g.cff;
+interconnect_annuities_mult(g::AbstractStorage) = g.interconnect_annuities_mult;
 # Max growth formulation
 max_new_capacity_init(g::AbstractStorage) = g.max_new_capacity_init;
 
@@ -566,7 +568,7 @@ function compute_investment_costs!(g::AbstractStorage, model::Model, settings::N
             
             add_to_expression!(
             model[:eInvestmentFixedCost],
-            annualized_investment_cost(g)*annuities_mult(g),
+            annualized_investment_cost(g)*annuities_mult(g) + interconnect_annuity(g) * interconnect_annuities_mult(g),
             new_capacity(g),
             )
 
@@ -587,11 +589,6 @@ function compute_investment_costs!(g::AbstractStorage, model::Model, settings::N
                 new_cc_capacity(g),
             )
 
-            # add_to_expression!(
-            #         model[:eInvestmentFixedCost],
-            #         annualized_investment_cost(g),
-            #         new_capacity(g),
-            #     )
         end
     end
 end

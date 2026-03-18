@@ -381,7 +381,6 @@ function compute_annualized_costs!(y::Union{AbstractEdge,AbstractStorage},settin
         y.annualized_investment_cost = investment_cost(y)*annualization_factor(y)*deployment_cost_perc
 
     else
-        @info("Setting annualized cost for technology $(id(y))")
         y.annualized_investment_cost = investment_cost(y)*annualization_factor(y)
 
         y.de_annualized_cost = 0.0
