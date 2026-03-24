@@ -109,7 +109,7 @@ function add_learning!(system::System, model::Model, period_idx::Int, settings::
                 else
                     # Project development (aka capital discipline)
                     # Cost term for objective function
-                    deployment_cost_perc = 1 - de_cost_perc(y) - af_cost_perc(y) - cc_cost_perc(y)
+                    deployment_cost_perc = 1 - de_cost_perc(e) - af_cost_perc(e) - cc_cost_perc(e)
                     e.endog_annualized_investment_cost_times_newcapacity = @expression(model, sum(e.pwl_capex_slopes[k]*e.aux_new_capacity[k]*deployment_cost_perc*annualization_factor(e) for k in 1:n_segments+1))
                     # Shadow capacity DE
                     e.aux_new_capacity_de = @variable(model, [k in 1:n_segments+1], lower_bound = 0.0, base_name = "vAUXNEWCAPDE_$(id(e))_stage$(period_index(e))_seg_$k")

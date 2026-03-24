@@ -125,6 +125,8 @@ macro AbstractEdgeBaseAttributes()
         interconnect_annuities_mult::Float64 = 0.0
         # Max growth formulation
         max_new_capacity_init::Float64 = 0.0
+        cagr::Float64 = 0.0
+        cadr::Float64 = 0.0
     end)
 end
 
@@ -409,6 +411,8 @@ cff(e::AbstractEdge) = e.cff;
 interconnect_annuities_mult(e::AbstractEdge) = e.interconnect_annuities_mult;
 # Max growth formulation
 max_new_capacity_init(e::AbstractEdge) = e.max_new_capacity_init;
+cagr(e::AbstractEdge) = e.cagr;
+cadr(e::AbstractEdge) = e.cadr;
 ##### End of Edge interface #####
 
 function add_linking_variables!(e::AbstractEdge, model::Model)
@@ -486,13 +490,29 @@ function planning_model!(e::AbstractEdge, model::Model, settings::NamedTuple)
     if has_capacity(e)
 
         if !ismissing(capacity_reserve_margin_id(e)) 
+            
+            # Adjusing CA resource adequacy based on CPUC documents
+            misc_resources_ca_share = Dict{String,Float64}(
+            "OR_conventional_hydroelectric_1_discharge_edge" => 0.24,
+            "NV_conventional_hydroelectric_1_discharge_edge" => 0.57,
+            "AZ_nuclear_1_elec_edge" => 0.2,
+            "AZ_natural_gas_fired_combined_cycle_1_elec_edge" => 0.17,
+            "UT_natural_gas_fired_combined_cycle_1_elec_edge" => 0.26
+            )
+            
             crm_id = capacity_reserve_margin_id(e)
             p_idx = period_index(e)
             if haskey(model, :eCapacityReserveMargin) && crm_id ∈ axes(model[:eCapacityReserveMargin])[1]
-                @info("Adding derated capacity of edge $(id(e)) to capacity reserve margin constraint $(crm_id) in period index $(p_idx).")
-                add_to_expression!(model[:eCapacityReserveMargin][crm_id, p_idx], 
-                                    capacity_reserve_margin_derate_factor(e) * capacity(e)
-                                )
+                if string(id(e)) ∉ keys(misc_resources_ca_share)
+                    # Most resources
+                    add_to_expression!(model[:eCapacityReserveMargin][crm_id, p_idx], capacity_reserve_margin_derate_factor(e) * capacity(e))
+                else
+                    # Split capacity contribution
+                    add_to_expression!(model[:eCapacityReserveMargin][crm_id, p_idx], capacity_reserve_margin_derate_factor(e) * capacity(e) * (1 - misc_resources_ca_share[string(id(e))]))
+                    # Add CA contribution
+                    @info("Edge $(id(e)) added to capacity reserve margin constraint CA")
+                    add_to_expression!(model[:eCapacityReserveMargin][:CA, p_idx], capacity_reserve_margin_derate_factor(e) * capacity(e) * misc_resources_ca_share[string(id(e))])
+                end
             else
                 error("Edge $(id(e)) is associated with an undefined capacity reserve margin constraint. Please double check the input data.")
             end

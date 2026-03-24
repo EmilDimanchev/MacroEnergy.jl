@@ -7,23 +7,20 @@ end
 
 function add_model_constraint!(ct::MaxCapacityGrowthConstraint, y::Union{AbstractEdge,AbstractStorage}, model::Model, settings::NamedTuple)
 
+    # Exclude transmission
     if settings[:DeploymentInertia]
-       
+
         curr_stage = period_index(y)
         prev_stage = curr_stage - 1
-        # Rate of increase
-        CAGR = 0.2
-        # Rate of decline
-        CADR = 0.2
-        
+
         # Limit rate of increase
         if curr_stage >= 2
-            ct.constraint_ref = @constraint(model, new_capacity_track(y,curr_stage) <= 2000 + (1+CAGR)*new_capacity_track(y, prev_stage))
+            ct.constraint_ref = @constraint(model, new_capacity_track(y,curr_stage) <= max_new_capacity_init(y) + (1+cagr(y))*new_capacity_track(y, prev_stage))
         end
 
         # Limit rate of decrease
         if curr_stage >= 2
-            ct.constraint_ref = @constraint(model, new_capacity_track(y,curr_stage) >= (1-CADR)*new_capacity_track(y, prev_stage))
+            ct.constraint_ref = @constraint(model, new_capacity_track(y,curr_stage) >= (1-cadr(y))*new_capacity_track(y, prev_stage) - max_new_capacity_init(y))
         end
 
     end

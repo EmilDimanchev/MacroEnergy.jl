@@ -556,16 +556,24 @@ function prepare_capacity_reserve_margin!(system::System, model::Model)
 
     required_capacity = Dict{Symbol,Float64}(k=> (1 + system.settings.CapacityReserveMargin[k]) * peak_demand[k] for k in capacity_reserve_margin_ids)
 
-    if any(system.settings.CapacityReserveMargin[k] == 0.0 for k in capacity_reserve_margin_ids)
-        msg  = " ++ Capacity reserve margin with id: $k is set to 0.0"
-        @warn(msg)
-    end
-
     # Get period index from first node in any zone
     p_idx = period_index(first(first(values(capacity_reserve_margin_nodes))))
 
     # Populate the pre-initialized expression for this period
     for k in capacity_reserve_margin_ids
+        # Adjust CRM so it is gradually met the first 3 years
+        
+        if p_idx == 1
+             required_capacity[k] *= 1.03/1.15
+        elseif p_idx == 2
+            required_capacity[k] *= 1.06/1.15
+        elseif p_idx == 3
+            required_capacity[k] *= 1.09/1.15
+        elseif p_idx == 4
+            required_capacity[k] *= 1.12/1.15
+        end
+    
+        @info(" -- For zone $k, peak demand is $(peak_demand[k]) and required capacity (including reserve margin) is $(required_capacity[k])")
         add_to_expression!(model[:eCapacityReserveMargin][k, p_idx], -required_capacity[k])
     end
 

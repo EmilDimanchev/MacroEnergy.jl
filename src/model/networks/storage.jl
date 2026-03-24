@@ -101,6 +101,8 @@ macro AbstractStorageBaseAttributes()
         interconnect_annuities_mult::Float64 = 0.0
         # Max growth formulation
         max_new_capacity_init::Float64 = 0.0
+        cagr::Float64 = 0.0
+        cadr::Float64 = 0.0
     end)
 end
 
@@ -327,6 +329,8 @@ cff(g::AbstractStorage) = g.cff;
 interconnect_annuities_mult(g::AbstractStorage) = g.interconnect_annuities_mult;
 # Max growth formulation
 max_new_capacity_init(g::AbstractStorage) = g.max_new_capacity_init;
+cagr(g::AbstractStorage) = g.cagr;
+cadr(g::AbstractStorage) = g.cadr;
 
 function add_linking_variables!(g::Storage, model::Model)
     if has_capacity(g)
