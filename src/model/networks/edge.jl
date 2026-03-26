@@ -123,6 +123,10 @@ macro AbstractEdgeBaseAttributes()
         interconnect_annuity::Float64 = 0.0
         cff::Float64 = 0.0
         interconnect_annuities_mult::Float64 = 0.0
+        new_capital::Union{AffExpr,Float64} = AffExpr(0.0)
+        new_capital_de::Union{AffExpr,Float64} = AffExpr(0.0)
+        new_capital_af::Union{AffExpr,Float64} = AffExpr(0.0)
+        new_capital_cc::Union{AffExpr,Float64} = AffExpr(0.0)
         # Max growth formulation
         max_new_capacity_init::Float64 = 0.0
         cagr::Float64 = 0.0
@@ -409,6 +413,10 @@ capacity_in_progress_init(e::AbstractEdge) = e.capacity_in_progress_init;
 interconnect_annuity(e::AbstractEdge) = e.interconnect_annuity;
 cff(e::AbstractEdge) = e.cff;
 interconnect_annuities_mult(e::AbstractEdge) = e.interconnect_annuities_mult;
+new_capital(e::AbstractEdge) = e.new_capital;
+new_capital_de(e::AbstractEdge) = e.new_capital_de;
+new_capital_af(e::AbstractEdge) = e.new_capital_af;
+new_capital_cc(e::AbstractEdge) = e.new_capital_cc;
 # Max growth formulation
 max_new_capacity_init(e::AbstractEdge) = e.max_new_capacity_init;
 cagr(e::AbstractEdge) = e.cagr;
@@ -610,6 +618,17 @@ function compute_investment_costs!(e::AbstractEdge, model::Model, settings::Name
                 )
 
             end
+
+            if settings[:ProjectDevelopment]
+                e.new_capital = @expression(model, investment_cost(e) * (1 - de_cost_perc(e) - af_cost_perc(e) - cc_cost_perc(e)) * new_capacity(e) )
+            else
+                e.new_capital = @expression(model, investment_cost(e) * new_capacity(e) )
+            end
+            
+            e.new_capital_de = @expression(model, investment_cost(e) * de_cost_perc(e) * new_de_capacity(e) )
+            e.new_capital_af = @expression(model, investment_cost(e) * af_cost_perc(e) * new_af_capacity(e) )
+            e.new_capital_cc = @expression(model, investment_cost(e) * cc_cost_perc(e) * new_cc_capacity(e) )
+
         end
     end
 end

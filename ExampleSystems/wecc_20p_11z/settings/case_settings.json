@@ -23,9 +23,9 @@
     ],
     "SolutionAlgorithm": "Benders",
     "DiscountRate": 0.045,
-    "TechnologyLearning": true,
+    "TechnologyLearning": false,
     "LearningTechnologies": ["egs"],
-    "DeploymentInertia": true,
-    "ProjectDevelopment": true,
+    "DeploymentInertia": false,
+    "ProjectDevelopment": false,
     "CO2Cap": false
 }

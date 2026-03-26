@@ -62,16 +62,30 @@ get_existing_capacity(system::System) = get_optimal_capacity_by_field(system, ex
 
 get_optimal_capacity(asset::AbstractAsset; scaling::Float64=1.0) = get_optimal_capacity_by_field(asset, capacity, scaling)
 get_optimal_new_capacity(asset::AbstractAsset; scaling::Float64=1.0) = get_optimal_capacity_by_field(asset, new_capacity, scaling)
+
 get_optimal_retired_capacity(asset::AbstractAsset; scaling::Float64=1.0) = get_optimal_capacity_by_field(asset, retired_capacity, scaling)
 get_existing_capacity(asset::AbstractAsset; scaling::Float64=1.0) = get_optimal_capacity_by_field(asset, existing_capacity, scaling)
-# Shadow
-get_new_de_capacity(system::System) = get_optimal_capacity_by_field(system, new_de_capacity)
-get_new_af_capacity(system::System) = get_optimal_capacity_by_field(system, new_af_capacity)
-get_new_cc_capacity(system::System) = get_optimal_capacity_by_field(system, new_cc_capacity)
 
-get_de_capacity(system::System) = get_optimal_capacity_by_field(system, de_capacity)
-get_af_capacity(system::System) = get_optimal_capacity_by_field(system, af_capacity)
-get_cc_capacity(system::System) = get_optimal_capacity_by_field(system, cc_capacity)
+# Capital spend
+get_optimal_new_capital(system::System; scaling::Float64=1.0) = get_optimal_capacity_by_field(system, new_capital, scaling)
+get_optimal_new_capital_de(system::System; scaling::Float64=1.0) = get_optimal_capacity_by_field(system, new_capital_de, scaling)
+get_optimal_new_capital_af(system::System; scaling::Float64=1.0) = get_optimal_capacity_by_field(system, new_capital_af, scaling)
+get_optimal_new_capital_cc(system::System; scaling::Float64=1.0) = get_optimal_capacity_by_field(system, new_capital_cc, scaling)
+
+get_optimal_new_capital(asset::AbstractAsset; scaling::Float64=1.0) = get_optimal_capacity_by_field(asset, new_capital, scaling)
+get_optimal_new_capital_de(asset::AbstractAsset; scaling::Float64=1.0) = get_optimal_capacity_by_field(asset, new_capital_de, scaling)
+get_optimal_new_capital_af(asset::AbstractAsset; scaling::Float64=1.0) = get_optimal_capacity_by_field(asset, new_capital_af, scaling)
+get_optimal_new_capital_cc(asset::AbstractAsset; scaling::Float64=1.0) = get_optimal_capacity_by_field(asset, new_capital_cc, scaling)
+
+
+# Shadow
+get_new_de_capacity(system::System; scaling::Float64=1.0) = get_optimal_capacity_by_field(system, new_de_capacity, scaling)
+get_new_af_capacity(system::System; scaling::Float64=1.0) = get_optimal_capacity_by_field(system, new_af_capacity, scaling)
+get_new_cc_capacity(system::System; scaling::Float64=1.0) = get_optimal_capacity_by_field(system, new_cc_capacity, scaling)
+
+get_de_capacity(system::System; scaling::Float64=1.0) = get_optimal_capacity_by_field(system, de_capacity, scaling)
+get_af_capacity(system::System; scaling::Float64=1.0) = get_optimal_capacity_by_field(system, af_capacity, scaling)
+get_cc_capacity(system::System; scaling::Float64=1.0) = get_optimal_capacity_by_field(system, cc_capacity, scaling)
 
 # De
 get_new_de_capacity(asset::AbstractAsset; scaling::Float64=1.0) = get_optimal_capacity_by_field(asset, new_de_capacity, scaling)
@@ -232,13 +246,20 @@ function write_capacity_all_periods(
             # Learning
             endog_costs = get_endog_costs(system; scaling)
             # Shadow
-            new_de_capacity_results = get_new_de_capacity(system)
-            new_af_capacity_results = get_new_af_capacity(system)
-            new_cc_capacity_results = get_new_cc_capacity(system)
-            de_capacity_results = get_de_capacity(system)
-            af_capacity_results = get_af_capacity(system)
-            cc_capacity_results = get_cc_capacity(system)
-            all_capacity_results = vcat(capacity_results, new_capacity_results, retired_capacity_results, endog_costs, new_de_capacity_results, new_af_capacity_results, new_cc_capacity_results, de_capacity_results, af_capacity_results, cc_capacity_results)
+            new_de_capacity_results = get_new_de_capacity(system; scaling)
+            new_af_capacity_results = get_new_af_capacity(system; scaling)
+            new_cc_capacity_results = get_new_cc_capacity(system; scaling)
+            de_capacity_results = get_de_capacity(system; scaling)
+            af_capacity_results = get_af_capacity(system; scaling)
+            cc_capacity_results = get_cc_capacity(system; scaling)
+            # Capital spend
+            new_capital_results = get_optimal_new_capital(system; scaling)
+            new_de_capital_results = get_optimal_new_capital_de(system; scaling)
+            new_af_capital_results = get_optimal_new_capital_af(system; scaling)
+            new_cc_capital_results = get_optimal_new_capital_cc(system; scaling)
+
+
+            all_capacity_results = vcat(capacity_results, new_capacity_results, retired_capacity_results, endog_costs, new_de_capacity_results, new_af_capacity_results, new_cc_capacity_results, de_capacity_results, af_capacity_results, cc_capacity_results, new_capital_results, new_de_capital_results, new_af_capital_results, new_cc_capital_results)
 
             system_number = findfirst(==(system), case.systems)
             period_number_vector = fill(system_number, nrow(all_capacity_results))

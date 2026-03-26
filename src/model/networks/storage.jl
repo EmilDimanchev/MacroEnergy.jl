@@ -99,6 +99,10 @@ macro AbstractStorageBaseAttributes()
         interconnect_annuity::Float64 = 0.0
         cff::Float64 = 0.0
         interconnect_annuities_mult::Float64 = 0.0
+        new_capital::Union{AffExpr,Float64} = AffExpr(0.0)
+        new_capital_de::Union{AffExpr,Float64} = AffExpr(0.0)
+        new_capital_af::Union{AffExpr,Float64} = AffExpr(0.0)
+        new_capital_cc::Union{AffExpr,Float64} = AffExpr(0.0)
         # Max growth formulation
         max_new_capacity_init::Float64 = 0.0
         cagr::Float64 = 0.0
@@ -327,6 +331,10 @@ capacity_in_progress_init(g::AbstractStorage) = g.capacity_in_progress_init;
 interconnect_annuity(g::AbstractStorage) = g.interconnect_annuity;
 cff(g::AbstractStorage) = g.cff;
 interconnect_annuities_mult(g::AbstractStorage) = g.interconnect_annuities_mult;
+new_capital(g::AbstractStorage) = g.new_capital;
+new_capital_de(g::AbstractStorage) = g.new_capital_de;
+new_capital_af(g::AbstractStorage) = g.new_capital_af;
+new_capital_cc(g::AbstractStorage) = g.new_capital_cc;
 # Max growth formulation
 max_new_capacity_init(g::AbstractStorage) = g.max_new_capacity_init;
 cagr(g::AbstractStorage) = g.cagr;
@@ -592,6 +600,16 @@ function compute_investment_costs!(g::AbstractStorage, model::Model, settings::N
                 cc_annualized_cost(g)*cc_annuities_mult(g),
                 new_cc_capacity(g),
             )
+
+            if settings[:ProjectDevelopment]
+                g.new_capital = @expression(model, investment_cost(g) * (1 - de_cost_perc(g) - af_cost_perc(g) - cc_cost_perc(g)) * new_capacity(g) )
+            else
+                g.new_capital = @expression(model, investment_cost(g) * new_capacity(g) )
+            end
+            
+            g.new_capital_de = @expression(model, investment_cost(g) * de_cost_perc(g) * new_de_capacity(g) )
+            g.new_capital_af = @expression(model, investment_cost(g) * af_cost_perc(g) * new_af_capacity(g) )
+            g.new_capital_cc = @expression(model, investment_cost(g) * cc_cost_perc(g) * new_cc_capacity(g) )
 
         end
     end
