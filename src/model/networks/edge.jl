@@ -525,6 +525,22 @@ function planning_model!(e::AbstractEdge, model::Model, settings::NamedTuple)
                 error("Edge $(id(e)) is associated with an undefined capacity reserve margin constraint. Please double check the input data.")
             end
         end
+
+        # Deployment Inertia speed limit constraints
+        if settings[:DeploymentInertia] && inertia_type(e) != missing
+            if period_index(e) == 1
+                add_to_expression!(model[:eDeploymentGrowth][inertia_type(e), period_index(e)], new_capacity(e))
+                add_to_expression!(model[:eDeploymentDecline][inertia_type(e), period_index(e)], new_capacity(e))
+            elseif period_index(e) > 1
+                # CAGR
+                add_to_expression!(model[:eDeploymentGrowth][inertia_type(e), period_index(e)], new_capacity(e) - new_capacity_track(e, period_index(e)-1)*(1+cagr(e)))
+                # CADR
+                add_to_expression!(model[:eDeploymentDecline][inertia_type(e), period_index(e)], new_capacity(e) - new_capacity_track(e, period_index(e)-1)*(1-cadr(e)))
+            end
+
+        end
+            # model[:eDeploymentGrowth][inertia_type(e), period_index(e)] += new_capacity(e) - new_capacity_track(e, period_index(e)-1)*(1+cagr(e))
+            
         
         if !can_expand(e)
             fix(new_units(e), 0.0; force=true)

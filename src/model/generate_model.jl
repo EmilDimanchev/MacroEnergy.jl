@@ -32,6 +32,11 @@ function generate_model(case::Case)
         @expression(model, eCapacityReserveMargin[k in crm_zones, p in 1:num_periods], AffExpr(0.0))
     end
 
+    if settings[:DeploymentInertia] == true
+        @expression(model, eDeploymentGrowth[tech in settings[:TechsWithInertia], p in 2:num_periods], AffExpr(0.0))
+        @expression(model, eDeploymentDecline[tech in settings[:TechsWithInertia], p in 2:num_periods], AffExpr(0.0))
+    end
+
     for (period_idx,system) in enumerate(periods)
         @info(" -- Period $period_idx")
 

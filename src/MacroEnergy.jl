@@ -329,7 +329,7 @@ export AbstractAsset,
     example_readme,
     example_contents,
     authenticate_github,
-    MaxCapacityGrowthConstraint,
+    DeploymentInertiaConstraint,
     DevelopmentConstraint,
     mermaid_diagram,
     save_mermaid_diagram
