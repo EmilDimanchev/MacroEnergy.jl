@@ -11,6 +11,7 @@ function generate_model(case::Case)
     @info("Deployment inertia set to $(settings[:DeploymentInertia])")
     @info("Project development set to $(settings[:ProjectDevelopment])")
     @info("Technology learning set to $(settings[:TechnologyLearning])")
+    @info("CO2 cap set to $(settings[:CO2Cap])")
 
     start_time = time();
 
@@ -32,9 +33,9 @@ function generate_model(case::Case)
         @expression(model, eCapacityReserveMargin[k in crm_zones, p in 1:num_periods], AffExpr(0.0))
     end
 
-    if settings[:DeploymentInertia] == true
-        @expression(model, eDeploymentGrowth[tech in settings[:TechsWithInertia], p in 2:num_periods], AffExpr(0.0))
-        @expression(model, eDeploymentDecline[tech in settings[:TechsWithInertia], p in 2:num_periods], AffExpr(0.0))
+    if settings[:DeploymentInertia]
+        @expression(model, eDeploymentGrowth[tech in settings[:TechsWithInertia], p in 1:num_periods], AffExpr(0.0))
+        @expression(model, eDeploymentDecline[tech in settings[:TechsWithInertia], p in 1:num_periods], AffExpr(0.0))
     end
 
     for (period_idx,system) in enumerate(periods)
@@ -126,8 +127,12 @@ function planning_model!(system::System, model::Model, settings::NamedTuple)
     # end
 
     if !isempty(system.settings.CapacityReserveMargin)
-        @info(" -- Including capacity reserve margins: $(keys(system.settings.CapacityReserveMargin))")
+        # @info(" -- Including capacity reserve margins: $(keys(system.settings.CapacityReserveMargin))")
         prepare_capacity_reserve_margin!(system, model)
+    end
+
+    if settings[:DeploymentInertia]
+        push!(system.constraints, DeploymentInertiaConstraint())
     end
 
     planning_model!.(system.locations, Ref(model), Ref(settings))
@@ -578,7 +583,7 @@ function prepare_capacity_reserve_margin!(system::System, model::Model)
             required_capacity[k] *= 1.12/1.15
         end
     
-        @info(" -- For zone $k, peak demand is $(peak_demand[k]) and required capacity (including reserve margin) is $(required_capacity[k])")
+        # @info(" -- For zone $k, peak demand is $(peak_demand[k]) and required capacity (including reserve margin) is $(required_capacity[k])")
         add_to_expression!(model[:eCapacityReserveMargin][k, p_idx], -required_capacity[k])
     end
 

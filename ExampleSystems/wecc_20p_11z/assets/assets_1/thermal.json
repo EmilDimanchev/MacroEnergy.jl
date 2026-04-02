@@ -264,7 +264,6 @@
                         "can_expand": false,
                         "min_flow_fraction": 0.5,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": false,
                             "MinFlowConstraint": true,
                             "RampingLimitConstraint": true,
                             "CapacityConstraint": true,
@@ -594,7 +593,6 @@
                         "can_expand": false,
                         "min_flow_fraction": 0.5,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": false,
                             "MinFlowConstraint": true,
                             "RampingLimitConstraint": true,
                             "CapacityConstraint": true,
@@ -2576,7 +2574,6 @@
                         "can_expand": false,
                         "min_flow_fraction": 0.5,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": false,
                             "MinFlowConstraint": true,
                             "RampingLimitConstraint": true,
                             "CapacityConstraint": true,
@@ -2965,6 +2962,7 @@
                         "cc_duration": 3,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 4278.060791253715,
+                        "Inertia_category": "ccgt",
                         "max_new_capacity_init": 727,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -2997,7 +2995,6 @@
                         "af_cap_recovery": 1,
                         "min_flow_fraction": 0.3,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "MinFlowConstraint": true,
                             "RampingLimitConstraint": true,
                             "DevelopmentConstraint": true,
@@ -3048,6 +3045,7 @@
                         "cc_duration": 3,
                         "capacity_in_progress_init": 100,
                         "interconnect_annuity": 4278.060791253715,
+                        "Inertia_category": "ct",
                         "max_new_capacity_init": 233,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -3080,7 +3078,6 @@
                         "af_cap_recovery": 0,
                         "min_flow_fraction": 0.3,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "MinFlowConstraint": true,
                             "RampingLimitConstraint": true,
                             "DevelopmentConstraint": true,
@@ -3129,7 +3126,6 @@
                         "can_expand": false,
                         "min_flow_fraction": 0.5,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": false,
                             "MinFlowConstraint": true,
                             "RampingLimitConstraint": true,
                             "CapacityConstraint": true,
@@ -3188,6 +3184,7 @@
                         "cc_duration": 3,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 4171.570333510089,
+                        "Inertia_category": "ccgt",
                         "max_new_capacity_init": 727,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -3220,7 +3217,6 @@
                         "af_cap_recovery": 1,
                         "min_flow_fraction": 0.3,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "MinFlowConstraint": true,
                             "RampingLimitConstraint": true,
                             "DevelopmentConstraint": true,
@@ -3271,6 +3267,7 @@
                         "cc_duration": 3,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 4171.570333510089,
+                        "Inertia_category": "ct",
                         "max_new_capacity_init": 233,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -3303,7 +3300,6 @@
                         "af_cap_recovery": 0,
                         "min_flow_fraction": 0.3,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "MinFlowConstraint": true,
                             "RampingLimitConstraint": true,
                             "DevelopmentConstraint": true,
@@ -3352,7 +3348,6 @@
                         "can_expand": false,
                         "min_flow_fraction": 0.5,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": false,
                             "MinFlowConstraint": true,
                             "RampingLimitConstraint": true,
                             "CapacityConstraint": true,
@@ -3411,6 +3406,7 @@
                         "cc_duration": 3,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 4709.971809811662,
+                        "Inertia_category": "ccgt",
                         "max_new_capacity_init": 727,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -3443,7 +3439,6 @@
                         "af_cap_recovery": 1,
                         "min_flow_fraction": 0.3,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "MinFlowConstraint": true,
                             "RampingLimitConstraint": true,
                             "DevelopmentConstraint": true,
@@ -3494,6 +3489,7 @@
                         "cc_duration": 3,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 4709.971809811662,
+                        "Inertia_category": "ct",
                         "max_new_capacity_init": 233,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -3526,7 +3522,6 @@
                         "af_cap_recovery": 0,
                         "min_flow_fraction": 0.3,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "MinFlowConstraint": true,
                             "RampingLimitConstraint": true,
                             "DevelopmentConstraint": true,
@@ -3575,7 +3570,6 @@
                         "can_expand": false,
                         "min_flow_fraction": 0.5,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": false,
                             "MinFlowConstraint": true,
                             "RampingLimitConstraint": true,
                             "CapacityConstraint": true,
@@ -3634,6 +3628,7 @@
                         "cc_duration": 3,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 4057.345931907987,
+                        "Inertia_category": "ccgt",
                         "max_new_capacity_init": 727,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -3666,7 +3661,6 @@
                         "af_cap_recovery": 1,
                         "min_flow_fraction": 0.3,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "MinFlowConstraint": true,
                             "RampingLimitConstraint": true,
                             "DevelopmentConstraint": true,
@@ -3717,6 +3711,7 @@
                         "cc_duration": 3,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 4057.345931907987,
+                        "Inertia_category": "ct",
                         "max_new_capacity_init": 233,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -3749,7 +3744,6 @@
                         "af_cap_recovery": 0,
                         "min_flow_fraction": 0.3,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "MinFlowConstraint": true,
                             "RampingLimitConstraint": true,
                             "DevelopmentConstraint": true,
@@ -3798,7 +3792,6 @@
                         "can_expand": false,
                         "min_flow_fraction": 0.5,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": false,
                             "MinFlowConstraint": true,
                             "RampingLimitConstraint": true,
                             "CapacityConstraint": true,
@@ -3857,6 +3850,7 @@
                         "cc_duration": 3,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 4222.336733428909,
+                        "Inertia_category": "ccgt",
                         "max_new_capacity_init": 727,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -3889,7 +3883,6 @@
                         "af_cap_recovery": 1,
                         "min_flow_fraction": 0.3,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "MinFlowConstraint": true,
                             "RampingLimitConstraint": true,
                             "DevelopmentConstraint": true,
@@ -3940,6 +3933,7 @@
                         "cc_duration": 3,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 4222.336733428909,
+                        "Inertia_category": "ct",
                         "max_new_capacity_init": 233,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -3972,7 +3966,6 @@
                         "af_cap_recovery": 0,
                         "min_flow_fraction": 0.3,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "MinFlowConstraint": true,
                             "RampingLimitConstraint": true,
                             "DevelopmentConstraint": true,
@@ -4021,7 +4014,6 @@
                         "can_expand": false,
                         "min_flow_fraction": 0.5,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": false,
                             "MinFlowConstraint": true,
                             "RampingLimitConstraint": true,
                             "CapacityConstraint": true,
@@ -4080,6 +4072,7 @@
                         "cc_duration": 3,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 4016.296537582232,
+                        "Inertia_category": "ccgt",
                         "max_new_capacity_init": 727,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -4112,7 +4105,6 @@
                         "af_cap_recovery": 1,
                         "min_flow_fraction": 0.3,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "MinFlowConstraint": true,
                             "RampingLimitConstraint": true,
                             "DevelopmentConstraint": true,
@@ -4163,6 +4155,7 @@
                         "cc_duration": 3,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 4016.296537582232,
+                        "Inertia_category": "ct",
                         "max_new_capacity_init": 233,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -4195,7 +4188,6 @@
                         "af_cap_recovery": 0,
                         "min_flow_fraction": 0.3,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "MinFlowConstraint": true,
                             "RampingLimitConstraint": true,
                             "DevelopmentConstraint": true,
@@ -4244,7 +4236,6 @@
                         "can_expand": false,
                         "min_flow_fraction": 0.5,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": false,
                             "MinFlowConstraint": true,
                             "RampingLimitConstraint": true,
                             "CapacityConstraint": true,
@@ -4303,6 +4294,7 @@
                         "cc_duration": 3,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 4097.800407475398,
+                        "Inertia_category": "ccgt",
                         "max_new_capacity_init": 727,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -4335,7 +4327,6 @@
                         "af_cap_recovery": 1,
                         "min_flow_fraction": 0.3,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "MinFlowConstraint": true,
                             "RampingLimitConstraint": true,
                             "DevelopmentConstraint": true,
@@ -4386,6 +4377,7 @@
                         "cc_duration": 3,
                         "capacity_in_progress_init": 500,
                         "interconnect_annuity": 4097.800407475398,
+                        "Inertia_category": "ct",
                         "max_new_capacity_init": 233,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -4418,7 +4410,6 @@
                         "af_cap_recovery": 0,
                         "min_flow_fraction": 0.3,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "MinFlowConstraint": true,
                             "RampingLimitConstraint": true,
                             "DevelopmentConstraint": true,
@@ -4467,7 +4458,6 @@
                         "can_expand": false,
                         "min_flow_fraction": 0.5,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": false,
                             "MinFlowConstraint": true,
                             "RampingLimitConstraint": true,
                             "CapacityConstraint": true,
@@ -4526,6 +4516,7 @@
                         "cc_duration": 3,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 4298.882947795765,
+                        "Inertia_category": "ccgt",
                         "max_new_capacity_init": 727,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -4558,7 +4549,6 @@
                         "af_cap_recovery": 1,
                         "min_flow_fraction": 0.3,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "MinFlowConstraint": true,
                             "RampingLimitConstraint": true,
                             "DevelopmentConstraint": true,
@@ -4609,6 +4599,7 @@
                         "cc_duration": 3,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 4298.882947795765,
+                        "Inertia_category": "ct",
                         "max_new_capacity_init": 233,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -4641,7 +4632,6 @@
                         "af_cap_recovery": 0,
                         "min_flow_fraction": 0.3,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "MinFlowConstraint": true,
                             "RampingLimitConstraint": true,
                             "DevelopmentConstraint": true,
@@ -4690,7 +4680,6 @@
                         "can_expand": false,
                         "min_flow_fraction": 0.5,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": false,
                             "MinFlowConstraint": true,
                             "RampingLimitConstraint": true,
                             "CapacityConstraint": true,
@@ -4749,6 +4738,7 @@
                         "cc_duration": 3,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 4278.655710012059,
+                        "Inertia_category": "ccgt",
                         "max_new_capacity_init": 727,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -4781,7 +4771,6 @@
                         "af_cap_recovery": 1,
                         "min_flow_fraction": 0.3,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "MinFlowConstraint": true,
                             "RampingLimitConstraint": true,
                             "DevelopmentConstraint": true,
@@ -4832,6 +4821,7 @@
                         "cc_duration": 3,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 4278.655710012059,
+                        "Inertia_category": "ct",
                         "max_new_capacity_init": 233,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -4864,7 +4854,6 @@
                         "af_cap_recovery": 0,
                         "min_flow_fraction": 0.3,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "MinFlowConstraint": true,
                             "RampingLimitConstraint": true,
                             "DevelopmentConstraint": true,
@@ -4913,7 +4902,6 @@
                         "can_expand": false,
                         "min_flow_fraction": 0.5,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": false,
                             "MinFlowConstraint": true,
                             "RampingLimitConstraint": true,
                             "CapacityConstraint": true,
@@ -4972,6 +4960,7 @@
                         "cc_duration": 3,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 4208.455296527434,
+                        "Inertia_category": "ccgt",
                         "max_new_capacity_init": 727,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -5004,7 +4993,6 @@
                         "af_cap_recovery": 1,
                         "min_flow_fraction": 0.3,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "MinFlowConstraint": true,
                             "RampingLimitConstraint": true,
                             "DevelopmentConstraint": true,
@@ -5055,6 +5043,7 @@
                         "cc_duration": 3,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 4208.455296527434,
+                        "Inertia_category": "ct",
                         "max_new_capacity_init": 233,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -5087,7 +5076,6 @@
                         "af_cap_recovery": 0,
                         "min_flow_fraction": 0.3,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "MinFlowConstraint": true,
                             "RampingLimitConstraint": true,
                             "DevelopmentConstraint": true,
@@ -5136,7 +5124,6 @@
                         "can_expand": false,
                         "min_flow_fraction": 0.5,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": false,
                             "MinFlowConstraint": true,
                             "RampingLimitConstraint": true,
                             "CapacityConstraint": true,
@@ -5195,6 +5182,7 @@
                         "cc_duration": 3,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 4278.060791253715,
+                        "Inertia_category": "ccgt",
                         "max_new_capacity_init": 727,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -5227,7 +5215,6 @@
                         "af_cap_recovery": 1,
                         "min_flow_fraction": 0.3,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "MinFlowConstraint": true,
                             "RampingLimitConstraint": true,
                             "DevelopmentConstraint": true,
@@ -5278,6 +5265,7 @@
                         "cc_duration": 3,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 4278.060791253715,
+                        "Inertia_category": "ct",
                         "max_new_capacity_init": 233,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -5310,7 +5298,6 @@
                         "af_cap_recovery": 0,
                         "min_flow_fraction": 0.3,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "MinFlowConstraint": true,
                             "RampingLimitConstraint": true,
                             "DevelopmentConstraint": true,
@@ -5359,7 +5346,6 @@
                         "can_expand": false,
                         "min_flow_fraction": 0.5,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": false,
                             "MinFlowConstraint": true,
                             "RampingLimitConstraint": true,
                             "CapacityConstraint": true,

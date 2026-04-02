@@ -1003,6 +1003,7 @@
                     "cc_cost_perc": 0.895,
                     "cc_duration": 1,
                     "capacity_in_progress_init": 1200,
+                    "Inertia_category": "battery",
                     "max_new_capacity_init": 60,
                     "cagr": 0.794,
                     "cc_wacc": 0.06,
@@ -1025,7 +1026,6 @@
                     "max_capacity": -1,
                     "af_cap_recovery": 0,
                     "constraints": {
-                        "MaxCapacityGrowthConstraint": true,
                         "StorageCapacityConstraint": true,
                         "StorageMaxDurationConstraint": true,
                         "StorageSymmetricCapacityConstraint": true,
@@ -1059,6 +1059,7 @@
                         "cc_cost_perc": 0.895,
                         "cc_duration": 1,
                         "capacity_in_progress_init": 1200,
+                        "Inertia_category": "battery",
                         "max_new_capacity_init": 60,
                         "cagr": 0.794,
                         "cc_wacc": 0.06,
@@ -1082,7 +1083,6 @@
                         "max_capacity": -1,
                         "af_cap_recovery": 0,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "StorageDischargeLimitConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true
@@ -1092,7 +1092,7 @@
                         "capacity_reserve_margin_id": "AZ_NM_CO",
                         "fixed_om_cost": 6725,
                         "max_cumul_capacity": -1,
-                        "capacity_reserve_margin_derate_factor": 0.8,
+                        "capacity_reserve_margin_derate_factor": 0.5,
                         "cc_cap_recovery": 21,
                         "has_capacity": true,
                         "de_cap_recovery": 1,
@@ -1132,6 +1132,7 @@
                     "cc_cost_perc": 0.895,
                     "cc_duration": 2,
                     "capacity_in_progress_init": 0,
+                    "Inertia_category": null,
                     "max_new_capacity_init": -1,
                     "cagr": -1,
                     "cc_wacc": 0.06,
@@ -1154,7 +1155,6 @@
                     "max_capacity": -1,
                     "af_cap_recovery": 1,
                     "constraints": {
-                        "MaxCapacityGrowthConstraint": false,
                         "StorageCapacityConstraint": true,
                         "StorageMaxDurationConstraint": true,
                         "StorageSymmetricCapacityConstraint": true,
@@ -1188,6 +1188,7 @@
                         "cc_cost_perc": 0.895,
                         "cc_duration": 2,
                         "capacity_in_progress_init": 0,
+                        "Inertia_category": null,
                         "max_new_capacity_init": -1,
                         "cagr": -1,
                         "cc_wacc": 0.06,
@@ -1211,7 +1212,6 @@
                         "max_capacity": -1,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": false,
                             "StorageDischargeLimitConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true
@@ -1261,6 +1261,7 @@
                     "cc_cost_perc": 0.895,
                     "cc_duration": 1,
                     "capacity_in_progress_init": 3800,
+                    "Inertia_category": "battery",
                     "max_new_capacity_init": 60,
                     "cagr": 0.794,
                     "cc_wacc": 0.06,
@@ -1283,7 +1284,6 @@
                     "max_capacity": -1,
                     "af_cap_recovery": 0,
                     "constraints": {
-                        "MaxCapacityGrowthConstraint": true,
                         "StorageCapacityConstraint": true,
                         "StorageMaxDurationConstraint": true,
                         "StorageSymmetricCapacityConstraint": true,
@@ -1317,6 +1317,7 @@
                         "cc_cost_perc": 0.895,
                         "cc_duration": 1,
                         "capacity_in_progress_init": 3800,
+                        "Inertia_category": "battery",
                         "max_new_capacity_init": 60,
                         "cagr": 0.794,
                         "cc_wacc": 0.06,
@@ -1340,7 +1341,6 @@
                         "max_capacity": -1,
                         "af_cap_recovery": 0,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "StorageDischargeLimitConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true
@@ -1350,7 +1350,7 @@
                         "capacity_reserve_margin_id": "CA",
                         "fixed_om_cost": 6725,
                         "max_cumul_capacity": -1,
-                        "capacity_reserve_margin_derate_factor": 0.8,
+                        "capacity_reserve_margin_derate_factor": 0.5,
                         "cc_cap_recovery": 21,
                         "has_capacity": true,
                         "de_cap_recovery": 1,
@@ -1390,6 +1390,7 @@
                     "cc_cost_perc": 0.895,
                     "cc_duration": 2,
                     "capacity_in_progress_init": 0,
+                    "Inertia_category": null,
                     "max_new_capacity_init": -1,
                     "cagr": -1,
                     "cc_wacc": 0.06,
@@ -1412,7 +1413,6 @@
                     "max_capacity": -1,
                     "af_cap_recovery": 1,
                     "constraints": {
-                        "MaxCapacityGrowthConstraint": false,
                         "StorageCapacityConstraint": true,
                         "StorageMaxDurationConstraint": true,
                         "StorageSymmetricCapacityConstraint": true,
@@ -1446,6 +1446,7 @@
                         "cc_cost_perc": 0.895,
                         "cc_duration": 2,
                         "capacity_in_progress_init": 0,
+                        "Inertia_category": null,
                         "max_new_capacity_init": -1,
                         "cagr": -1,
                         "cc_wacc": 0.06,
@@ -1469,7 +1470,6 @@
                         "max_capacity": -1,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": false,
                             "StorageDischargeLimitConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true
@@ -1519,6 +1519,7 @@
                     "cc_cost_perc": 0.895,
                     "cc_duration": 1,
                     "capacity_in_progress_init": 100,
+                    "Inertia_category": "battery",
                     "max_new_capacity_init": 60,
                     "cagr": 0.794,
                     "cc_wacc": 0.06,
@@ -1541,7 +1542,6 @@
                     "max_capacity": -1,
                     "af_cap_recovery": 0,
                     "constraints": {
-                        "MaxCapacityGrowthConstraint": true,
                         "StorageCapacityConstraint": true,
                         "StorageMaxDurationConstraint": true,
                         "StorageSymmetricCapacityConstraint": true,
@@ -1575,6 +1575,7 @@
                         "cc_cost_perc": 0.895,
                         "cc_duration": 1,
                         "capacity_in_progress_init": 100,
+                        "Inertia_category": "battery",
                         "max_new_capacity_init": 60,
                         "cagr": 0.794,
                         "cc_wacc": 0.06,
@@ -1598,7 +1599,6 @@
                         "max_capacity": -1,
                         "af_cap_recovery": 0,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "StorageDischargeLimitConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true
@@ -1608,7 +1608,7 @@
                         "capacity_reserve_margin_id": "AZ_NM_CO",
                         "fixed_om_cost": 6725,
                         "max_cumul_capacity": -1,
-                        "capacity_reserve_margin_derate_factor": 0.8,
+                        "capacity_reserve_margin_derate_factor": 0.5,
                         "cc_cap_recovery": 21,
                         "has_capacity": true,
                         "de_cap_recovery": 1,
@@ -1648,6 +1648,7 @@
                     "cc_cost_perc": 0.895,
                     "cc_duration": 2,
                     "capacity_in_progress_init": 0,
+                    "Inertia_category": null,
                     "max_new_capacity_init": -1,
                     "cagr": -1,
                     "cc_wacc": 0.06,
@@ -1670,7 +1671,6 @@
                     "max_capacity": -1,
                     "af_cap_recovery": 1,
                     "constraints": {
-                        "MaxCapacityGrowthConstraint": false,
                         "StorageCapacityConstraint": true,
                         "StorageMaxDurationConstraint": true,
                         "StorageSymmetricCapacityConstraint": true,
@@ -1704,6 +1704,7 @@
                         "cc_cost_perc": 0.895,
                         "cc_duration": 2,
                         "capacity_in_progress_init": 0,
+                        "Inertia_category": null,
                         "max_new_capacity_init": -1,
                         "cagr": -1,
                         "cc_wacc": 0.06,
@@ -1727,7 +1728,6 @@
                         "max_capacity": -1,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": false,
                             "StorageDischargeLimitConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true
@@ -1777,6 +1777,7 @@
                     "cc_cost_perc": 0.895,
                     "cc_duration": 1,
                     "capacity_in_progress_init": 0,
+                    "Inertia_category": "battery",
                     "max_new_capacity_init": 60,
                     "cagr": 0.794,
                     "cc_wacc": 0.06,
@@ -1799,7 +1800,6 @@
                     "max_capacity": -1,
                     "af_cap_recovery": 0,
                     "constraints": {
-                        "MaxCapacityGrowthConstraint": true,
                         "StorageCapacityConstraint": true,
                         "StorageMaxDurationConstraint": true,
                         "StorageSymmetricCapacityConstraint": true,
@@ -1833,6 +1833,7 @@
                         "cc_cost_perc": 0.895,
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
+                        "Inertia_category": "battery",
                         "max_new_capacity_init": 60,
                         "cagr": 0.794,
                         "cc_wacc": 0.06,
@@ -1856,7 +1857,6 @@
                         "max_capacity": -1,
                         "af_cap_recovery": 0,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "StorageDischargeLimitConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true
@@ -1866,7 +1866,7 @@
                         "capacity_reserve_margin_id": "ID_UT_NV_MT_WY",
                         "fixed_om_cost": 6725,
                         "max_cumul_capacity": -1,
-                        "capacity_reserve_margin_derate_factor": 0.8,
+                        "capacity_reserve_margin_derate_factor": 0.5,
                         "cc_cap_recovery": 21,
                         "has_capacity": true,
                         "de_cap_recovery": 1,
@@ -1906,6 +1906,7 @@
                     "cc_cost_perc": 0.895,
                     "cc_duration": 2,
                     "capacity_in_progress_init": 0,
+                    "Inertia_category": null,
                     "max_new_capacity_init": -1,
                     "cagr": -1,
                     "cc_wacc": 0.06,
@@ -1928,7 +1929,6 @@
                     "max_capacity": -1,
                     "af_cap_recovery": 1,
                     "constraints": {
-                        "MaxCapacityGrowthConstraint": false,
                         "StorageCapacityConstraint": true,
                         "StorageMaxDurationConstraint": true,
                         "StorageSymmetricCapacityConstraint": true,
@@ -1962,6 +1962,7 @@
                         "cc_cost_perc": 0.895,
                         "cc_duration": 2,
                         "capacity_in_progress_init": 0,
+                        "Inertia_category": null,
                         "max_new_capacity_init": -1,
                         "cagr": -1,
                         "cc_wacc": 0.06,
@@ -1985,7 +1986,6 @@
                         "max_capacity": -1,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": false,
                             "StorageDischargeLimitConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true
@@ -2035,6 +2035,7 @@
                     "cc_cost_perc": 0.895,
                     "cc_duration": 1,
                     "capacity_in_progress_init": 0,
+                    "Inertia_category": "battery",
                     "max_new_capacity_init": 60,
                     "cagr": 0.794,
                     "cc_wacc": 0.06,
@@ -2057,7 +2058,6 @@
                     "max_capacity": -1,
                     "af_cap_recovery": 0,
                     "constraints": {
-                        "MaxCapacityGrowthConstraint": true,
                         "StorageCapacityConstraint": true,
                         "StorageMaxDurationConstraint": true,
                         "StorageSymmetricCapacityConstraint": true,
@@ -2091,6 +2091,7 @@
                         "cc_cost_perc": 0.895,
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
+                        "Inertia_category": "battery",
                         "max_new_capacity_init": 60,
                         "cagr": 0.794,
                         "cc_wacc": 0.06,
@@ -2114,7 +2115,6 @@
                         "max_capacity": -1,
                         "af_cap_recovery": 0,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "StorageDischargeLimitConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true
@@ -2124,7 +2124,7 @@
                         "capacity_reserve_margin_id": "ID_UT_NV_MT_WY",
                         "fixed_om_cost": 6725,
                         "max_cumul_capacity": -1,
-                        "capacity_reserve_margin_derate_factor": 0.8,
+                        "capacity_reserve_margin_derate_factor": 0.5,
                         "cc_cap_recovery": 21,
                         "has_capacity": true,
                         "de_cap_recovery": 1,
@@ -2164,6 +2164,7 @@
                     "cc_cost_perc": 0.895,
                     "cc_duration": 2,
                     "capacity_in_progress_init": 0,
+                    "Inertia_category": null,
                     "max_new_capacity_init": -1,
                     "cagr": -1,
                     "cc_wacc": 0.06,
@@ -2186,7 +2187,6 @@
                     "max_capacity": -1,
                     "af_cap_recovery": 1,
                     "constraints": {
-                        "MaxCapacityGrowthConstraint": false,
                         "StorageCapacityConstraint": true,
                         "StorageMaxDurationConstraint": true,
                         "StorageSymmetricCapacityConstraint": true,
@@ -2220,6 +2220,7 @@
                         "cc_cost_perc": 0.895,
                         "cc_duration": 2,
                         "capacity_in_progress_init": 0,
+                        "Inertia_category": null,
                         "max_new_capacity_init": -1,
                         "cagr": -1,
                         "cc_wacc": 0.06,
@@ -2243,7 +2244,6 @@
                         "max_capacity": -1,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": false,
                             "StorageDischargeLimitConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true
@@ -2293,6 +2293,7 @@
                     "cc_cost_perc": 0.895,
                     "cc_duration": 1,
                     "capacity_in_progress_init": 500,
+                    "Inertia_category": "battery",
                     "max_new_capacity_init": 60,
                     "cagr": 0.794,
                     "cc_wacc": 0.06,
@@ -2315,7 +2316,6 @@
                     "max_capacity": -1,
                     "af_cap_recovery": 0,
                     "constraints": {
-                        "MaxCapacityGrowthConstraint": true,
                         "StorageCapacityConstraint": true,
                         "StorageMaxDurationConstraint": true,
                         "StorageSymmetricCapacityConstraint": true,
@@ -2349,6 +2349,7 @@
                         "cc_cost_perc": 0.895,
                         "cc_duration": 1,
                         "capacity_in_progress_init": 500,
+                        "Inertia_category": "battery",
                         "max_new_capacity_init": 60,
                         "cagr": 0.794,
                         "cc_wacc": 0.06,
@@ -2372,7 +2373,6 @@
                         "max_capacity": -1,
                         "af_cap_recovery": 0,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "StorageDischargeLimitConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true
@@ -2382,7 +2382,7 @@
                         "capacity_reserve_margin_id": "AZ_NM_CO",
                         "fixed_om_cost": 6725,
                         "max_cumul_capacity": -1,
-                        "capacity_reserve_margin_derate_factor": 0.8,
+                        "capacity_reserve_margin_derate_factor": 0.5,
                         "cc_cap_recovery": 21,
                         "has_capacity": true,
                         "de_cap_recovery": 1,
@@ -2422,6 +2422,7 @@
                     "cc_cost_perc": 0.895,
                     "cc_duration": 2,
                     "capacity_in_progress_init": 0,
+                    "Inertia_category": null,
                     "max_new_capacity_init": -1,
                     "cagr": -1,
                     "cc_wacc": 0.06,
@@ -2444,7 +2445,6 @@
                     "max_capacity": -1,
                     "af_cap_recovery": 1,
                     "constraints": {
-                        "MaxCapacityGrowthConstraint": false,
                         "StorageCapacityConstraint": true,
                         "StorageMaxDurationConstraint": true,
                         "StorageSymmetricCapacityConstraint": true,
@@ -2478,6 +2478,7 @@
                         "cc_cost_perc": 0.895,
                         "cc_duration": 2,
                         "capacity_in_progress_init": 0,
+                        "Inertia_category": null,
                         "max_new_capacity_init": -1,
                         "cagr": -1,
                         "cc_wacc": 0.06,
@@ -2501,7 +2502,6 @@
                         "max_capacity": -1,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": false,
                             "StorageDischargeLimitConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true
@@ -2551,6 +2551,7 @@
                     "cc_cost_perc": 0.895,
                     "cc_duration": 1,
                     "capacity_in_progress_init": 600,
+                    "Inertia_category": "battery",
                     "max_new_capacity_init": 60,
                     "cagr": 0.794,
                     "cc_wacc": 0.06,
@@ -2573,7 +2574,6 @@
                     "max_capacity": -1,
                     "af_cap_recovery": 0,
                     "constraints": {
-                        "MaxCapacityGrowthConstraint": true,
                         "StorageCapacityConstraint": true,
                         "StorageMaxDurationConstraint": true,
                         "StorageSymmetricCapacityConstraint": true,
@@ -2607,6 +2607,7 @@
                         "cc_cost_perc": 0.895,
                         "cc_duration": 1,
                         "capacity_in_progress_init": 600,
+                        "Inertia_category": "battery",
                         "max_new_capacity_init": 60,
                         "cagr": 0.794,
                         "cc_wacc": 0.06,
@@ -2630,7 +2631,6 @@
                         "max_capacity": -1,
                         "af_cap_recovery": 0,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "StorageDischargeLimitConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true
@@ -2640,7 +2640,7 @@
                         "capacity_reserve_margin_id": "ID_UT_NV_MT_WY",
                         "fixed_om_cost": 6725,
                         "max_cumul_capacity": -1,
-                        "capacity_reserve_margin_derate_factor": 0.8,
+                        "capacity_reserve_margin_derate_factor": 0.5,
                         "cc_cap_recovery": 21,
                         "has_capacity": true,
                         "de_cap_recovery": 1,
@@ -2680,6 +2680,7 @@
                     "cc_cost_perc": 0.895,
                     "cc_duration": 2,
                     "capacity_in_progress_init": 0,
+                    "Inertia_category": null,
                     "max_new_capacity_init": -1,
                     "cagr": -1,
                     "cc_wacc": 0.06,
@@ -2702,7 +2703,6 @@
                     "max_capacity": -1,
                     "af_cap_recovery": 1,
                     "constraints": {
-                        "MaxCapacityGrowthConstraint": false,
                         "StorageCapacityConstraint": true,
                         "StorageMaxDurationConstraint": true,
                         "StorageSymmetricCapacityConstraint": true,
@@ -2736,6 +2736,7 @@
                         "cc_cost_perc": 0.895,
                         "cc_duration": 2,
                         "capacity_in_progress_init": 0,
+                        "Inertia_category": null,
                         "max_new_capacity_init": -1,
                         "cagr": -1,
                         "cc_wacc": 0.06,
@@ -2759,7 +2760,6 @@
                         "max_capacity": -1,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": false,
                             "StorageDischargeLimitConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true
@@ -2809,6 +2809,7 @@
                     "cc_cost_perc": 0.895,
                     "cc_duration": 1,
                     "capacity_in_progress_init": 300,
+                    "Inertia_category": "battery",
                     "max_new_capacity_init": 60,
                     "cagr": 0.794,
                     "cc_wacc": 0.06,
@@ -2831,7 +2832,6 @@
                     "max_capacity": -1,
                     "af_cap_recovery": 0,
                     "constraints": {
-                        "MaxCapacityGrowthConstraint": true,
                         "StorageCapacityConstraint": true,
                         "StorageMaxDurationConstraint": true,
                         "StorageSymmetricCapacityConstraint": true,
@@ -2865,6 +2865,7 @@
                         "cc_cost_perc": 0.895,
                         "cc_duration": 1,
                         "capacity_in_progress_init": 300,
+                        "Inertia_category": "battery",
                         "max_new_capacity_init": 60,
                         "cagr": 0.794,
                         "cc_wacc": 0.06,
@@ -2888,7 +2889,6 @@
                         "max_capacity": -1,
                         "af_cap_recovery": 0,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "StorageDischargeLimitConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true
@@ -2898,7 +2898,7 @@
                         "capacity_reserve_margin_id": "OR_WA",
                         "fixed_om_cost": 6725,
                         "max_cumul_capacity": -1,
-                        "capacity_reserve_margin_derate_factor": 0.8,
+                        "capacity_reserve_margin_derate_factor": 0.5,
                         "cc_cap_recovery": 21,
                         "has_capacity": true,
                         "de_cap_recovery": 1,
@@ -2938,6 +2938,7 @@
                     "cc_cost_perc": 0.895,
                     "cc_duration": 2,
                     "capacity_in_progress_init": 0,
+                    "Inertia_category": null,
                     "max_new_capacity_init": -1,
                     "cagr": -1,
                     "cc_wacc": 0.06,
@@ -2960,7 +2961,6 @@
                     "max_capacity": -1,
                     "af_cap_recovery": 1,
                     "constraints": {
-                        "MaxCapacityGrowthConstraint": false,
                         "StorageCapacityConstraint": true,
                         "StorageMaxDurationConstraint": true,
                         "StorageSymmetricCapacityConstraint": true,
@@ -2994,6 +2994,7 @@
                         "cc_cost_perc": 0.895,
                         "cc_duration": 2,
                         "capacity_in_progress_init": 0,
+                        "Inertia_category": null,
                         "max_new_capacity_init": -1,
                         "cagr": -1,
                         "cc_wacc": 0.06,
@@ -3017,7 +3018,6 @@
                         "max_capacity": -1,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": false,
                             "StorageDischargeLimitConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true
@@ -3067,6 +3067,7 @@
                     "cc_cost_perc": 0.895,
                     "cc_duration": 1,
                     "capacity_in_progress_init": 0,
+                    "Inertia_category": "battery",
                     "max_new_capacity_init": 60,
                     "cagr": 0.794,
                     "cc_wacc": 0.06,
@@ -3089,7 +3090,6 @@
                     "max_capacity": -1,
                     "af_cap_recovery": 0,
                     "constraints": {
-                        "MaxCapacityGrowthConstraint": true,
                         "StorageCapacityConstraint": true,
                         "StorageMaxDurationConstraint": true,
                         "StorageSymmetricCapacityConstraint": true,
@@ -3123,6 +3123,7 @@
                         "cc_cost_perc": 0.895,
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
+                        "Inertia_category": "battery",
                         "max_new_capacity_init": 60,
                         "cagr": 0.794,
                         "cc_wacc": 0.06,
@@ -3146,7 +3147,6 @@
                         "max_capacity": -1,
                         "af_cap_recovery": 0,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "StorageDischargeLimitConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true
@@ -3156,7 +3156,7 @@
                         "capacity_reserve_margin_id": "ID_UT_NV_MT_WY",
                         "fixed_om_cost": 6725,
                         "max_cumul_capacity": -1,
-                        "capacity_reserve_margin_derate_factor": 0.8,
+                        "capacity_reserve_margin_derate_factor": 0.5,
                         "cc_cap_recovery": 21,
                         "has_capacity": true,
                         "de_cap_recovery": 1,
@@ -3196,6 +3196,7 @@
                     "cc_cost_perc": 0.895,
                     "cc_duration": 2,
                     "capacity_in_progress_init": 0,
+                    "Inertia_category": null,
                     "max_new_capacity_init": -1,
                     "cagr": -1,
                     "cc_wacc": 0.06,
@@ -3218,7 +3219,6 @@
                     "max_capacity": -1,
                     "af_cap_recovery": 1,
                     "constraints": {
-                        "MaxCapacityGrowthConstraint": false,
                         "StorageCapacityConstraint": true,
                         "StorageMaxDurationConstraint": true,
                         "StorageSymmetricCapacityConstraint": true,
@@ -3252,6 +3252,7 @@
                         "cc_cost_perc": 0.895,
                         "cc_duration": 2,
                         "capacity_in_progress_init": 0,
+                        "Inertia_category": null,
                         "max_new_capacity_init": -1,
                         "cagr": -1,
                         "cc_wacc": 0.06,
@@ -3275,7 +3276,6 @@
                         "max_capacity": -1,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": false,
                             "StorageDischargeLimitConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true
@@ -3325,6 +3325,7 @@
                     "cc_cost_perc": 0.895,
                     "cc_duration": 1,
                     "capacity_in_progress_init": 0,
+                    "Inertia_category": "battery",
                     "max_new_capacity_init": 60,
                     "cagr": 0.794,
                     "cc_wacc": 0.06,
@@ -3347,7 +3348,6 @@
                     "max_capacity": -1,
                     "af_cap_recovery": 0,
                     "constraints": {
-                        "MaxCapacityGrowthConstraint": true,
                         "StorageCapacityConstraint": true,
                         "StorageMaxDurationConstraint": true,
                         "StorageSymmetricCapacityConstraint": true,
@@ -3381,6 +3381,7 @@
                         "cc_cost_perc": 0.895,
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
+                        "Inertia_category": "battery",
                         "max_new_capacity_init": 60,
                         "cagr": 0.794,
                         "cc_wacc": 0.06,
@@ -3404,7 +3405,6 @@
                         "max_capacity": -1,
                         "af_cap_recovery": 0,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "StorageDischargeLimitConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true
@@ -3414,7 +3414,7 @@
                         "capacity_reserve_margin_id": "OR_WA",
                         "fixed_om_cost": 6725,
                         "max_cumul_capacity": -1,
-                        "capacity_reserve_margin_derate_factor": 0.8,
+                        "capacity_reserve_margin_derate_factor": 0.5,
                         "cc_cap_recovery": 21,
                         "has_capacity": true,
                         "de_cap_recovery": 1,
@@ -3454,6 +3454,7 @@
                     "cc_cost_perc": 0.895,
                     "cc_duration": 2,
                     "capacity_in_progress_init": 0,
+                    "Inertia_category": null,
                     "max_new_capacity_init": -1,
                     "cagr": -1,
                     "cc_wacc": 0.06,
@@ -3476,7 +3477,6 @@
                     "max_capacity": -1,
                     "af_cap_recovery": 1,
                     "constraints": {
-                        "MaxCapacityGrowthConstraint": false,
                         "StorageCapacityConstraint": true,
                         "StorageMaxDurationConstraint": true,
                         "StorageSymmetricCapacityConstraint": true,
@@ -3510,6 +3510,7 @@
                         "cc_cost_perc": 0.895,
                         "cc_duration": 2,
                         "capacity_in_progress_init": 0,
+                        "Inertia_category": null,
                         "max_new_capacity_init": -1,
                         "cagr": -1,
                         "cc_wacc": 0.06,
@@ -3533,7 +3534,6 @@
                         "max_capacity": -1,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": false,
                             "StorageDischargeLimitConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true
@@ -3583,6 +3583,7 @@
                     "cc_cost_perc": 0.895,
                     "cc_duration": 1,
                     "capacity_in_progress_init": 0,
+                    "Inertia_category": "battery",
                     "max_new_capacity_init": 60,
                     "cagr": 0.794,
                     "cc_wacc": 0.06,
@@ -3605,7 +3606,6 @@
                     "max_capacity": -1,
                     "af_cap_recovery": 0,
                     "constraints": {
-                        "MaxCapacityGrowthConstraint": true,
                         "StorageCapacityConstraint": true,
                         "StorageMaxDurationConstraint": true,
                         "StorageSymmetricCapacityConstraint": true,
@@ -3639,6 +3639,7 @@
                         "cc_cost_perc": 0.895,
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
+                        "Inertia_category": "battery",
                         "max_new_capacity_init": 60,
                         "cagr": 0.794,
                         "cc_wacc": 0.06,
@@ -3662,7 +3663,6 @@
                         "max_capacity": -1,
                         "af_cap_recovery": 0,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "StorageDischargeLimitConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true
@@ -3672,7 +3672,7 @@
                         "capacity_reserve_margin_id": "ID_UT_NV_MT_WY",
                         "fixed_om_cost": 6725,
                         "max_cumul_capacity": -1,
-                        "capacity_reserve_margin_derate_factor": 0.8,
+                        "capacity_reserve_margin_derate_factor": 0.5,
                         "cc_cap_recovery": 21,
                         "has_capacity": true,
                         "de_cap_recovery": 1,
@@ -3712,6 +3712,7 @@
                     "cc_cost_perc": 0.895,
                     "cc_duration": 2,
                     "capacity_in_progress_init": 0,
+                    "Inertia_category": null,
                     "max_new_capacity_init": -1,
                     "cagr": -1,
                     "cc_wacc": 0.06,
@@ -3734,7 +3735,6 @@
                     "max_capacity": -1,
                     "af_cap_recovery": 1,
                     "constraints": {
-                        "MaxCapacityGrowthConstraint": false,
                         "StorageCapacityConstraint": true,
                         "StorageMaxDurationConstraint": true,
                         "StorageSymmetricCapacityConstraint": true,
@@ -3768,6 +3768,7 @@
                         "cc_cost_perc": 0.895,
                         "cc_duration": 2,
                         "capacity_in_progress_init": 0,
+                        "Inertia_category": null,
                         "max_new_capacity_init": -1,
                         "cagr": -1,
                         "cc_wacc": 0.06,
@@ -3791,7 +3792,6 @@
                         "max_capacity": -1,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": false,
                             "StorageDischargeLimitConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true

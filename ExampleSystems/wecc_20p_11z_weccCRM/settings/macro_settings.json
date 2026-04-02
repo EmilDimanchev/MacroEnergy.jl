@@ -1,6 +1,0 @@
-{
-    "ConstraintScaling": false,
-    "DualExportsEnabled": false,
-    "OutputDir": "results_cd",
-    "CapacityReserveMargin": {"OR_WA_ID_UT_NV_MT_CA_AZ_NM_WY_CO": 0.15}
-}

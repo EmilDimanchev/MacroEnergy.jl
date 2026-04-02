@@ -131,6 +131,7 @@ macro AbstractEdgeBaseAttributes()
         max_new_capacity_init::Float64 = 0.0
         cagr::Float64 = 0.0
         cadr::Float64 = 0.0
+        Inertia_category::Union{Nothing,String} = nothing
     end)
 end
 
@@ -421,6 +422,7 @@ new_capital_cc(e::AbstractEdge) = e.new_capital_cc;
 max_new_capacity_init(e::AbstractEdge) = e.max_new_capacity_init;
 cagr(e::AbstractEdge) = e.cagr;
 cadr(e::AbstractEdge) = e.cadr;
+Inertia_category(e::AbstractEdge) = e.Inertia_category;
 ##### End of Edge interface #####
 
 function add_linking_variables!(e::AbstractEdge, model::Model)
@@ -527,19 +529,17 @@ function planning_model!(e::AbstractEdge, model::Model, settings::NamedTuple)
         end
 
         # Deployment Inertia speed limit constraints
-        if settings[:DeploymentInertia] && inertia_type(e) != missing
+        if settings[:DeploymentInertia] && !isnothing(Inertia_category(e)) && Inertia_category(e) ∈ settings[:TechsWithInertia]
             if period_index(e) == 1
-                add_to_expression!(model[:eDeploymentGrowth][inertia_type(e), period_index(e)], new_capacity(e))
-                add_to_expression!(model[:eDeploymentDecline][inertia_type(e), period_index(e)], new_capacity(e))
+                add_to_expression!(model[:eDeploymentGrowth][Inertia_category(e), period_index(e)], new_capacity(e))
+                add_to_expression!(model[:eDeploymentDecline][Inertia_category(e), period_index(e)], new_capacity(e))
             elseif period_index(e) > 1
                 # CAGR
-                add_to_expression!(model[:eDeploymentGrowth][inertia_type(e), period_index(e)], new_capacity(e) - new_capacity_track(e, period_index(e)-1)*(1+cagr(e)))
+                model[:eDeploymentGrowth][Inertia_category(e), period_index(e)] += new_capacity(e) - new_capacity_track(e, period_index(e)-1)*(1+cagr(e))
                 # CADR
-                add_to_expression!(model[:eDeploymentDecline][inertia_type(e), period_index(e)], new_capacity(e) - new_capacity_track(e, period_index(e)-1)*(1-cadr(e)))
+                model[:eDeploymentDecline][Inertia_category(e), period_index(e)] += new_capacity(e) - new_capacity_track(e, period_index(e)-1)*(1-cadr(e))
             end
-
         end
-            # model[:eDeploymentGrowth][inertia_type(e), period_index(e)] += new_capacity(e) - new_capacity_track(e, period_index(e)-1)*(1+cagr(e))
             
         
         if !can_expand(e)

@@ -776,6 +776,7 @@
                         "cc_duration": 2,
                         "capacity_in_progress_init": 400,
                         "interconnect_annuity": 26212.443,
+                        "Inertia_category": "onshore_wind",
                         "max_new_capacity_init": 200,
                         "commodity": "Electricity",
                         "cagr": 0.162,
@@ -806,7 +807,6 @@
                         "max_capacity": 124312.4,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -838,6 +838,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 1200,
                         "interconnect_annuity": 24731.812,
+                        "Inertia_category": "solar",
                         "max_new_capacity_init": 74.6,
                         "commodity": "Electricity",
                         "cagr": 0.293,
@@ -868,7 +869,6 @@
                         "max_capacity": 875012.7,
                         "af_cap_recovery": 0,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -900,6 +900,7 @@
                         "cc_duration": 2,
                         "capacity_in_progress_init": 100,
                         "interconnect_annuity": 32389.957,
+                        "Inertia_category": "onshore_wind",
                         "max_new_capacity_init": 200,
                         "commodity": "Electricity",
                         "cagr": 0.162,
@@ -930,7 +931,6 @@
                         "max_capacity": 18569.5,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -962,6 +962,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 2600,
                         "interconnect_annuity": 33827.78,
+                        "Inertia_category": "solar",
                         "max_new_capacity_init": 74.6,
                         "commodity": "Electricity",
                         "cagr": 0.293,
@@ -992,7 +993,6 @@
                         "max_capacity": 680832.6,
                         "af_cap_recovery": 0,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -1024,6 +1024,7 @@
                         "cc_duration": 4,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 97086.05,
+                        "Inertia_category": null,
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "cagr": 0.1,
@@ -1054,7 +1055,6 @@
                         "max_capacity": 171067.5,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -1086,6 +1086,7 @@
                         "cc_duration": 4,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 97086.05,
+                        "Inertia_category": null,
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "cagr": 0.1,
@@ -1116,7 +1117,6 @@
                         "max_capacity": 171067.5,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -1183,6 +1183,7 @@
                         "cc_duration": 2,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 25962.248,
+                        "Inertia_category": "onshore_wind",
                         "max_new_capacity_init": 200,
                         "commodity": "Electricity",
                         "cagr": 0.162,
@@ -1213,7 +1214,6 @@
                         "max_capacity": 121710.5,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -1245,6 +1245,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 200,
                         "interconnect_annuity": 27275.521,
+                        "Inertia_category": "solar",
                         "max_new_capacity_init": 74.6,
                         "commodity": "Electricity",
                         "cagr": 0.293,
@@ -1275,7 +1276,6 @@
                         "max_capacity": 926692.8,
                         "af_cap_recovery": 0,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -1307,6 +1307,7 @@
                         "cc_duration": 2,
                         "capacity_in_progress_init": 200,
                         "interconnect_annuity": 31933.883,
+                        "Inertia_category": "onshore_wind",
                         "max_new_capacity_init": 200,
                         "commodity": "Electricity",
                         "cagr": 0.162,
@@ -1337,7 +1338,6 @@
                         "max_capacity": 169503.6,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -1369,6 +1369,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 100,
                         "interconnect_annuity": 31615.795,
+                        "Inertia_category": "solar",
                         "max_new_capacity_init": 74.6,
                         "commodity": "Electricity",
                         "cagr": 0.293,
@@ -1399,7 +1400,6 @@
                         "max_capacity": 1.5947379e6,
                         "af_cap_recovery": 0,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -1431,6 +1431,7 @@
                         "cc_duration": 2,
                         "capacity_in_progress_init": 300,
                         "interconnect_annuity": 23614.482,
+                        "Inertia_category": "onshore_wind",
                         "max_new_capacity_init": 200,
                         "commodity": "Electricity",
                         "cagr": 0.162,
@@ -1461,7 +1462,6 @@
                         "max_capacity": 215618.4,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -1493,6 +1493,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 24946.121,
+                        "Inertia_category": "solar",
                         "max_new_capacity_init": 74.6,
                         "commodity": "Electricity",
                         "cagr": 0.293,
@@ -1523,7 +1524,6 @@
                         "max_capacity": 1.5277834e6,
                         "af_cap_recovery": 0,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -1555,6 +1555,7 @@
                         "cc_duration": 2,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 27034.715,
+                        "Inertia_category": "onshore_wind",
                         "max_new_capacity_init": 200,
                         "commodity": "Electricity",
                         "cagr": 0.162,
@@ -1585,7 +1586,6 @@
                         "max_capacity": 188909.9,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -1617,6 +1617,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 1200,
                         "interconnect_annuity": 27557.23,
+                        "Inertia_category": "solar",
                         "max_new_capacity_init": 74.6,
                         "commodity": "Electricity",
                         "cagr": 0.293,
@@ -1647,7 +1648,6 @@
                         "max_capacity": 1.2921548e6,
                         "af_cap_recovery": 0,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -1679,6 +1679,7 @@
                         "cc_duration": 2,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 32741.244,
+                        "Inertia_category": "onshore_wind",
                         "max_new_capacity_init": 200,
                         "commodity": "Electricity",
                         "cagr": 0.162,
@@ -1709,7 +1710,6 @@
                         "max_capacity": 109299.8,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -1741,6 +1741,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 1200,
                         "interconnect_annuity": 36134.754,
+                        "Inertia_category": "solar",
                         "max_new_capacity_init": 74.6,
                         "commodity": "Electricity",
                         "cagr": 0.293,
@@ -1771,7 +1772,6 @@
                         "max_capacity": 1.1502758e6,
                         "af_cap_recovery": 0,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -1803,6 +1803,7 @@
                         "cc_duration": 2,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 34004.81,
+                        "Inertia_category": "onshore_wind",
                         "max_new_capacity_init": 200,
                         "commodity": "Electricity",
                         "cagr": 0.162,
@@ -1833,7 +1834,6 @@
                         "max_capacity": 57513.3,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -1865,6 +1865,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 34556.21,
+                        "Inertia_category": "solar",
                         "max_new_capacity_init": 74.6,
                         "commodity": "Electricity",
                         "cagr": 0.293,
@@ -1895,7 +1896,6 @@
                         "max_capacity": 551868.4,
                         "af_cap_recovery": 0,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -1927,6 +1927,7 @@
                         "cc_duration": 4,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 91459.45,
+                        "Inertia_category": null,
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "cagr": 0.1,
@@ -1957,7 +1958,6 @@
                         "max_capacity": 339643.9,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -1989,6 +1989,7 @@
                         "cc_duration": 4,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 91459.45,
+                        "Inertia_category": null,
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "cagr": 0.1,
@@ -2019,7 +2020,6 @@
                         "max_capacity": 339643.9,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -2086,6 +2086,7 @@
                         "cc_duration": 2,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 30869.814,
+                        "Inertia_category": "onshore_wind",
                         "max_new_capacity_init": 200,
                         "commodity": "Electricity",
                         "cagr": 0.162,
@@ -2116,7 +2117,6 @@
                         "max_capacity": 73238.7,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -2148,6 +2148,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 600,
                         "interconnect_annuity": 30731.213,
+                        "Inertia_category": "solar",
                         "max_new_capacity_init": 74.6,
                         "commodity": "Electricity",
                         "cagr": 0.293,
@@ -2178,7 +2179,6 @@
                         "max_capacity": 728041.2,
                         "af_cap_recovery": 0,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -2210,6 +2210,7 @@
                         "cc_duration": 2,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 31710.367,
+                        "Inertia_category": "onshore_wind",
                         "max_new_capacity_init": 200,
                         "commodity": "Electricity",
                         "cagr": 0.162,
@@ -2240,7 +2241,6 @@
                         "max_capacity": 47542.7,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -2272,6 +2272,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 100,
                         "interconnect_annuity": 32447.674,
+                        "Inertia_category": "solar",
                         "max_new_capacity_init": 74.6,
                         "commodity": "Electricity",
                         "cagr": 0.293,
@@ -2302,7 +2303,6 @@
                         "max_capacity": 392742.4,
                         "af_cap_recovery": 0,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -2334,6 +2334,7 @@
                         "cc_duration": 4,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 82983.83,
+                        "Inertia_category": null,
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "cagr": 0.1,
@@ -2364,7 +2365,6 @@
                         "max_capacity": 68339.3,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -2396,6 +2396,7 @@
                         "cc_duration": 4,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 82983.83,
+                        "Inertia_category": null,
                         "max_new_capacity_init": 10000,
                         "commodity": "Electricity",
                         "cagr": 0.1,
@@ -2426,7 +2427,6 @@
                         "max_capacity": 68339.3,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -2493,6 +2493,7 @@
                         "cc_duration": 2,
                         "capacity_in_progress_init": 600,
                         "interconnect_annuity": 21007.309,
+                        "Inertia_category": "onshore_wind",
                         "max_new_capacity_init": 200,
                         "commodity": "Electricity",
                         "cagr": 0.162,
@@ -2523,7 +2524,6 @@
                         "max_capacity": 234889.2,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -2555,6 +2555,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 200,
                         "interconnect_annuity": 23106.53,
+                        "Inertia_category": "solar",
                         "max_new_capacity_init": 74.6,
                         "commodity": "Electricity",
                         "cagr": 0.293,
@@ -2585,7 +2586,6 @@
                         "max_capacity": 1725712,
                         "af_cap_recovery": 0,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -2617,6 +2617,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 20675.788769799583,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -2647,7 +2648,6 @@
                         "max_capacity": 4223.36,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -2679,6 +2679,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 19928.72327865201,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -2709,7 +2710,6 @@
                         "max_capacity": 8059.65,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -2741,6 +2741,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 22525.07126549703,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -2771,7 +2772,6 @@
                         "max_capacity": 257.02,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -2803,6 +2803,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 20054.28077312647,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -2833,7 +2834,6 @@
                         "max_capacity": 12404.15,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -2865,6 +2865,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 19995.40626351567,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -2895,7 +2896,6 @@
                         "max_capacity": 19887.63,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -2927,6 +2927,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 18555.203460876313,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -2957,7 +2958,6 @@
                         "max_capacity": 26664.84,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -2989,6 +2989,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 20738.295938106698,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -3019,7 +3020,6 @@
                         "max_capacity": 6431.72,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -3051,6 +3051,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 20690.361901234457,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -3081,7 +3082,6 @@
                         "max_capacity": 7282.57,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -3113,6 +3113,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 20668.04272586091,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -3143,7 +3144,6 @@
                         "max_capacity": 5056.84,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -3175,6 +3175,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 20800.242140213544,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -3205,7 +3206,6 @@
                         "max_capacity": 7800.53,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -3237,6 +3237,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 22497.829650541014,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -3267,7 +3268,6 @@
                         "max_capacity": 12981.09,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -3299,6 +3299,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 20676.056075913475,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -3329,7 +3330,6 @@
                         "max_capacity": 3713.06,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -3361,6 +3361,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 20710.911854085352,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -3391,7 +3392,6 @@
                         "max_capacity": 2247.88,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -3423,6 +3423,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 20682.46248792076,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -3453,7 +3454,6 @@
                         "max_capacity": 2886.95,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -3485,6 +3485,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 23478.652617645872,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -3515,7 +3516,6 @@
                         "max_capacity": 22112.32,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -3547,6 +3547,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 23896.17205516161,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -3577,7 +3578,6 @@
                         "max_capacity": 15171.08,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -3609,6 +3609,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 21021.60815611904,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -3639,7 +3640,6 @@
                         "max_capacity": 6458.01,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -3671,6 +3671,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 26498.581917999676,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -3701,7 +3702,6 @@
                         "max_capacity": 28431.19,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -3733,6 +3733,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 20711.39507401609,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -3763,7 +3764,6 @@
                         "max_capacity": 1694.4,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -3795,6 +3795,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 20583.877400798265,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -3825,7 +3826,6 @@
                         "max_capacity": 1448.8,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -3857,6 +3857,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 12655.511808037776,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -3887,7 +3888,6 @@
                         "max_capacity": 8410.87,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -3919,6 +3919,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 26219.504189568528,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -3949,7 +3950,6 @@
                         "max_capacity": 18327.39,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -3981,6 +3981,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 28630.02810850926,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -4011,7 +4012,6 @@
                         "max_capacity": 10393.6,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -4043,6 +4043,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 26641.07987240721,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -4073,7 +4074,6 @@
                         "max_capacity": 18161.17,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -4105,6 +4105,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 30455.730323387674,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -4135,7 +4136,6 @@
                         "max_capacity": 1483.99,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -4167,6 +4167,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 28566.45483817907,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -4197,7 +4198,6 @@
                         "max_capacity": 16875.23,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -4229,6 +4229,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 29679.261292518837,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -4259,7 +4260,6 @@
                         "max_capacity": 24979.66,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -4291,6 +4291,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 29269.51431643525,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -4321,7 +4322,6 @@
                         "max_capacity": 37355.54,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -4353,6 +4353,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 29689.42362394064,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -4383,7 +4384,6 @@
                         "max_capacity": 14753.87,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -4415,6 +4415,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 30701.08095342444,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -4445,7 +4446,6 @@
                         "max_capacity": 31725.19,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -4477,6 +4477,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 59339.06130846577,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -4507,7 +4508,6 @@
                         "max_capacity": 2521.24,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -4539,6 +4539,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 59712.61863898131,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -4569,7 +4570,6 @@
                         "max_capacity": 296.69,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -4601,6 +4601,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 56615.48812612181,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -4631,7 +4632,6 @@
                         "max_capacity": 7858.37,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -4663,6 +4663,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 55172.169166437845,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -4693,7 +4694,6 @@
                         "max_capacity": 10181.46,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -4725,6 +4725,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 60514.44240381218,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -4755,7 +4756,6 @@
                         "max_capacity": 416.3,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -4787,6 +4787,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 55276.891660139474,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -4817,7 +4818,6 @@
                         "max_capacity": 2317.36,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -4849,6 +4849,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 55278.856078525,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -4879,7 +4880,6 @@
                         "max_capacity": 21804.32,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -4911,6 +4911,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 39958.77831282528,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -4941,7 +4942,6 @@
                         "max_capacity": 6076.58,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -4973,6 +4973,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 39543.42378485401,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -5003,7 +5004,6 @@
                         "max_capacity": 7516.69,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -5035,6 +5035,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 39195.42870745671,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -5065,7 +5066,6 @@
                         "max_capacity": 16758.91,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -5097,6 +5097,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 38867.57699334426,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -5127,7 +5128,6 @@
                         "max_capacity": 15689.04,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -5159,6 +5159,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 39006.72583131538,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -5189,7 +5190,6 @@
                         "max_capacity": 12867.16,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -5221,6 +5221,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 38975.82887204071,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -5251,7 +5252,6 @@
                         "max_capacity": 19285.3,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -5283,6 +5283,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 38973.23469354959,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -5313,7 +5314,6 @@
                         "max_capacity": 23472.56,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -5345,6 +5345,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 50247.53028000459,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -5375,7 +5376,6 @@
                         "max_capacity": 117.21,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -5407,6 +5407,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 49915.07766744257,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -5437,7 +5438,6 @@
                         "max_capacity": 395.67,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -5469,6 +5469,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 42509.58252750314,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -5499,7 +5500,6 @@
                         "max_capacity": 1091.52,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -5531,6 +5531,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 42374.42924560874,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -5561,7 +5562,6 @@
                         "max_capacity": 3514.17,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -5593,6 +5593,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 40872.45331664377,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -5623,7 +5624,6 @@
                         "max_capacity": 785.84,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -5655,6 +5655,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 29496.72584727124,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -5685,7 +5686,6 @@
                         "max_capacity": 6896.87,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -5717,6 +5717,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 50472.242,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -5747,7 +5748,6 @@
                         "max_capacity": 69.71,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -5779,6 +5779,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 45733.93138615588,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -5809,7 +5810,6 @@
                         "max_capacity": 366.61,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -5841,6 +5841,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 40362.19207751984,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -5871,7 +5872,6 @@
                         "max_capacity": 10280.92,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -5903,6 +5903,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 46898.62381517218,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -5933,7 +5934,6 @@
                         "max_capacity": 1832.81,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -5965,6 +5965,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 26629.29963792798,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -5995,7 +5996,6 @@
                         "max_capacity": 6610.24,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -6027,6 +6027,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 32456.00333018435,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -6057,7 +6058,6 @@
                         "max_capacity": 16086.46,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -6089,6 +6089,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 36898.80738403652,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -6119,7 +6120,6 @@
                         "max_capacity": 27618.26,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -6151,6 +6151,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 32414.54,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -6181,7 +6182,6 @@
                         "max_capacity": 152.74,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -6213,6 +6213,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 32414.54,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -6243,7 +6244,6 @@
                         "max_capacity": 216.15,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -6275,6 +6275,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 32414.54,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -6305,7 +6306,6 @@
                         "max_capacity": 69.57,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -6337,6 +6337,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 32414.540000000005,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -6367,7 +6368,6 @@
                         "max_capacity": 217.75,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -6399,6 +6399,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 32414.539999999997,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -6429,7 +6430,6 @@
                         "max_capacity": 155.7,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -6461,6 +6461,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 32414.54,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -6491,7 +6492,6 @@
                         "max_capacity": 117.07,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -6523,6 +6523,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 32414.54,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -6553,7 +6554,6 @@
                         "max_capacity": 54.45,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -6585,6 +6585,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 37478.88012615738,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -6615,7 +6616,6 @@
                         "max_capacity": 7481.61,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -6647,6 +6647,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 35037.154522986355,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -6677,7 +6678,6 @@
                         "max_capacity": 14048.02,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -6709,6 +6709,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 32414.54,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -6739,7 +6740,6 @@
                         "max_capacity": 101.96,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -6771,6 +6771,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 32414.54,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -6801,7 +6802,6 @@
                         "max_capacity": 157.29,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -6833,6 +6833,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 36687.865770828954,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -6863,7 +6864,6 @@
                         "max_capacity": 11944.68,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -6895,6 +6895,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 32414.54,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -6925,7 +6926,6 @@
                         "max_capacity": 117.62,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -6957,6 +6957,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 30019.924075750787,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -6987,7 +6988,6 @@
                         "max_capacity": 13757.43,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -7019,6 +7019,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 36053.28204295836,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -7049,7 +7050,6 @@
                         "max_capacity": 13355.11,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -7081,6 +7081,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 17938.344,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -7111,7 +7112,6 @@
                         "max_capacity": 62.85,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -7143,6 +7143,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 17938.344,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -7173,7 +7174,6 @@
                         "max_capacity": 197,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -7205,6 +7205,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 17938.344,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -7235,7 +7236,6 @@
                         "max_capacity": 74.99,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -7267,6 +7267,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 17938.344,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -7297,7 +7298,6 @@
                         "max_capacity": 239.33,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -7329,6 +7329,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 17938.344,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -7359,7 +7360,6 @@
                         "max_capacity": 168.78,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -7391,6 +7391,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 20672.389308257945,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -7421,7 +7422,6 @@
                         "max_capacity": 1658.1,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -7453,6 +7453,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 17938.343999999997,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -7483,7 +7484,6 @@
                         "max_capacity": 240.77,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -7515,6 +7515,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 20247.624250249835,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -7545,7 +7546,6 @@
                         "max_capacity": 6515.36,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -7577,6 +7577,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 17938.344,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -7607,7 +7608,6 @@
                         "max_capacity": 57.88,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -7639,6 +7639,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 17938.344,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -7669,7 +7670,6 @@
                         "max_capacity": 170.59,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -7701,6 +7701,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 20979.02540942529,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -7731,7 +7732,6 @@
                         "max_capacity": 19087.4,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -7763,6 +7763,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 21164.5044388697,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -7793,7 +7794,6 @@
                         "max_capacity": 19965.4,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -7825,6 +7825,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 20840.75560328977,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -7855,7 +7856,6 @@
                         "max_capacity": 20649.16,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -7887,6 +7887,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 22534.752765297955,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -7917,7 +7918,6 @@
                         "max_capacity": 8928.72,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -7949,6 +7949,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 22851.97944716415,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -7979,7 +7980,6 @@
                         "max_capacity": 10990.43,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -8011,6 +8011,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 20169.165303091024,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -8041,7 +8042,6 @@
                         "max_capacity": 30146.28,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -8073,6 +8073,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 22981.98578226556,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -8103,7 +8104,6 @@
                         "max_capacity": 7878.02,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -8135,6 +8135,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 20895.83234373829,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -8165,7 +8166,6 @@
                         "max_capacity": 31912.92,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -8197,6 +8197,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 33141.86232959879,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -8227,7 +8228,6 @@
                         "max_capacity": 613.83,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -8259,6 +8259,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 38715.27528165415,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -8289,7 +8290,6 @@
                         "max_capacity": 5061.06,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -8321,6 +8321,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 37906.33140474957,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -8351,7 +8352,6 @@
                         "max_capacity": 3627.61,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -8383,6 +8383,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 29780.91,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -8413,7 +8414,6 @@
                         "max_capacity": 84.25,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -8445,6 +8445,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 35423.3811223044,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -8475,7 +8476,6 @@
                         "max_capacity": 192.26,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -8507,6 +8507,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 35319.36458974573,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -8537,7 +8538,6 @@
                         "max_capacity": 8791.98,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -8569,6 +8569,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 32057.777,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -8599,7 +8600,6 @@
                         "max_capacity": 69.8,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -8631,6 +8631,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 39397.92664204149,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -8661,7 +8662,6 @@
                         "max_capacity": 1834.11,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -8693,6 +8693,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 29965.65,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -8723,7 +8724,6 @@
                         "max_capacity": 54.66,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -8755,6 +8755,7 @@
                         "cc_duration": 1,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 31711.473853843665,
+                        "Inertia_category": "egs",
                         "max_new_capacity_init": 500,
                         "commodity": "Electricity",
                         "cagr": 0.397,
@@ -8785,7 +8786,6 @@
                         "max_capacity": 19491.31,
                         "af_cap_recovery": 1,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": true,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true

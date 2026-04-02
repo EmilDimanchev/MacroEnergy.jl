@@ -30,7 +30,6 @@
                         "af_cap_recovery": 1,
                         "cc_duration": 4,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": false,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -38,8 +37,9 @@
                         "start_vertex": "elec_AZ",
                         "line_loss_percentage": 0,
                         "capacity_in_progress_init": 0,
-                        "init_cumul_capacity": -1,
+                        "Inertia_category": null,
                         "max_new_capacity_init": -1,
+                        "init_cumul_capacity": -1,
                         "cagr": -1,
                         "cc_wacc": 0.06,
                         "cff": 1,
@@ -76,7 +76,6 @@
                         "af_cap_recovery": 1,
                         "cc_duration": 4,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": false,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -84,8 +83,9 @@
                         "start_vertex": "elec_AZ",
                         "line_loss_percentage": 0.0908,
                         "capacity_in_progress_init": 4000,
-                        "init_cumul_capacity": -1,
+                        "Inertia_category": null,
                         "max_new_capacity_init": -1,
+                        "init_cumul_capacity": -1,
                         "cagr": -1,
                         "cc_wacc": 0.06,
                         "cff": 1,
@@ -122,7 +122,6 @@
                         "af_cap_recovery": 1,
                         "cc_duration": 4,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": false,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -130,8 +129,9 @@
                         "start_vertex": "elec_AZ",
                         "line_loss_percentage": 0.0792,
                         "capacity_in_progress_init": 0,
-                        "init_cumul_capacity": -1,
+                        "Inertia_category": null,
                         "max_new_capacity_init": -1,
+                        "init_cumul_capacity": -1,
                         "cagr": -1,
                         "cc_wacc": 0.06,
                         "cff": 1,
@@ -168,7 +168,6 @@
                         "af_cap_recovery": 1,
                         "cc_duration": 4,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": false,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -176,8 +175,9 @@
                         "start_vertex": "elec_AZ",
                         "line_loss_percentage": 0.1045,
                         "capacity_in_progress_init": 0,
-                        "init_cumul_capacity": -1,
+                        "Inertia_category": null,
                         "max_new_capacity_init": -1,
+                        "init_cumul_capacity": -1,
                         "cagr": -1,
                         "cc_wacc": 0.06,
                         "cff": 1,
@@ -214,7 +214,6 @@
                         "af_cap_recovery": 1,
                         "cc_duration": 4,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": false,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -222,8 +221,9 @@
                         "start_vertex": "elec_CA",
                         "line_loss_percentage": 0.074,
                         "capacity_in_progress_init": 0,
-                        "init_cumul_capacity": -1,
+                        "Inertia_category": null,
                         "max_new_capacity_init": -1,
+                        "init_cumul_capacity": -1,
                         "cagr": -1,
                         "cc_wacc": 0.06,
                         "cff": 1,
@@ -260,7 +260,6 @@
                         "af_cap_recovery": 1,
                         "cc_duration": 4,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": false,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -268,8 +267,9 @@
                         "start_vertex": "elec_CA",
                         "line_loss_percentage": 0.079,
                         "capacity_in_progress_init": 0,
-                        "init_cumul_capacity": -1,
+                        "Inertia_category": null,
                         "max_new_capacity_init": -1,
+                        "init_cumul_capacity": -1,
                         "cagr": -1,
                         "cc_wacc": 0.06,
                         "cff": 1,
@@ -306,7 +306,6 @@
                         "af_cap_recovery": 1,
                         "cc_duration": 4,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": false,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -314,8 +313,9 @@
                         "start_vertex": "elec_CA",
                         "line_loss_percentage": 0,
                         "capacity_in_progress_init": 0,
-                        "init_cumul_capacity": -1,
+                        "Inertia_category": null,
                         "max_new_capacity_init": -1,
+                        "init_cumul_capacity": -1,
                         "cagr": -1,
                         "cc_wacc": 0.06,
                         "cff": 1,
@@ -352,7 +352,6 @@
                         "af_cap_recovery": 1,
                         "cc_duration": 4,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": false,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -360,8 +359,9 @@
                         "start_vertex": "elec_CO",
                         "line_loss_percentage": 0.0375,
                         "capacity_in_progress_init": 0,
-                        "init_cumul_capacity": -1,
+                        "Inertia_category": null,
                         "max_new_capacity_init": -1,
+                        "init_cumul_capacity": -1,
                         "cagr": -1,
                         "cc_wacc": 0.06,
                         "cff": 1,
@@ -398,7 +398,6 @@
                         "af_cap_recovery": 1,
                         "cc_duration": 4,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": false,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -406,8 +405,9 @@
                         "start_vertex": "elec_CO",
                         "line_loss_percentage": 0.0466,
                         "capacity_in_progress_init": 0,
-                        "init_cumul_capacity": -1,
+                        "Inertia_category": null,
                         "max_new_capacity_init": -1,
+                        "init_cumul_capacity": -1,
                         "cagr": -1,
                         "cc_wacc": 0.06,
                         "cff": 1,
@@ -444,7 +444,6 @@
                         "af_cap_recovery": 1,
                         "cc_duration": 4,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": false,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -452,8 +451,9 @@
                         "start_vertex": "elec_CO",
                         "line_loss_percentage": 0.0449,
                         "capacity_in_progress_init": 0,
-                        "init_cumul_capacity": -1,
+                        "Inertia_category": null,
                         "max_new_capacity_init": -1,
+                        "init_cumul_capacity": -1,
                         "cagr": -1,
                         "cc_wacc": 0.06,
                         "cff": 1,
@@ -490,7 +490,6 @@
                         "af_cap_recovery": 1,
                         "cc_duration": 4,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": false,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -498,8 +497,9 @@
                         "start_vertex": "elec_ID",
                         "line_loss_percentage": 0.0484,
                         "capacity_in_progress_init": 0,
-                        "init_cumul_capacity": -1,
+                        "Inertia_category": null,
                         "max_new_capacity_init": -1,
+                        "init_cumul_capacity": -1,
                         "cagr": -1,
                         "cc_wacc": 0.06,
                         "cff": 1,
@@ -536,7 +536,6 @@
                         "af_cap_recovery": 1,
                         "cc_duration": 4,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": false,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -544,8 +543,9 @@
                         "start_vertex": "elec_ID",
                         "line_loss_percentage": 0.0569,
                         "capacity_in_progress_init": 2000,
-                        "init_cumul_capacity": -1,
+                        "Inertia_category": null,
                         "max_new_capacity_init": -1,
+                        "init_cumul_capacity": -1,
                         "cagr": -1,
                         "cc_wacc": 0.06,
                         "cff": 1,
@@ -582,7 +582,6 @@
                         "af_cap_recovery": 1,
                         "cc_duration": 4,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": false,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -590,8 +589,9 @@
                         "start_vertex": "elec_ID",
                         "line_loss_percentage": 0.0376,
                         "capacity_in_progress_init": 1500,
-                        "init_cumul_capacity": -1,
+                        "Inertia_category": null,
                         "max_new_capacity_init": -1,
+                        "init_cumul_capacity": -1,
                         "cagr": -1,
                         "cc_wacc": 0.06,
                         "cff": 1,
@@ -628,7 +628,6 @@
                         "af_cap_recovery": 1,
                         "cc_duration": 4,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": false,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -636,8 +635,9 @@
                         "start_vertex": "elec_ID",
                         "line_loss_percentage": 0.0308,
                         "capacity_in_progress_init": 0,
-                        "init_cumul_capacity": -1,
+                        "Inertia_category": null,
                         "max_new_capacity_init": -1,
+                        "init_cumul_capacity": -1,
                         "cagr": -1,
                         "cc_wacc": 0.06,
                         "cff": 1,
@@ -674,7 +674,6 @@
                         "af_cap_recovery": 1,
                         "cc_duration": 4,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": false,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -682,8 +681,9 @@
                         "start_vertex": "elec_ID",
                         "line_loss_percentage": 0.041,
                         "capacity_in_progress_init": 0,
-                        "init_cumul_capacity": -1,
+                        "Inertia_category": null,
                         "max_new_capacity_init": -1,
+                        "init_cumul_capacity": -1,
                         "cagr": -1,
                         "cc_wacc": 0.06,
                         "cff": 1,
@@ -720,7 +720,6 @@
                         "af_cap_recovery": 1,
                         "cc_duration": 4,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": false,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -728,8 +727,9 @@
                         "start_vertex": "elec_ID",
                         "line_loss_percentage": 0.0664,
                         "capacity_in_progress_init": 1000,
-                        "init_cumul_capacity": -1,
+                        "Inertia_category": null,
                         "max_new_capacity_init": -1,
+                        "init_cumul_capacity": -1,
                         "cagr": -1,
                         "cc_wacc": 0.06,
                         "cff": 1,
@@ -766,7 +766,6 @@
                         "af_cap_recovery": 1,
                         "cc_duration": 4,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": false,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -774,8 +773,9 @@
                         "start_vertex": "elec_MT",
                         "line_loss_percentage": 0.091,
                         "capacity_in_progress_init": 0,
-                        "init_cumul_capacity": -1,
+                        "Inertia_category": null,
                         "max_new_capacity_init": -1,
+                        "init_cumul_capacity": -1,
                         "cagr": -1,
                         "cc_wacc": 0.06,
                         "cff": 1,
@@ -812,7 +812,6 @@
                         "af_cap_recovery": 1,
                         "cc_duration": 4,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": false,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -820,8 +819,9 @@
                         "start_vertex": "elec_MT",
                         "line_loss_percentage": 0.0388,
                         "capacity_in_progress_init": 0,
-                        "init_cumul_capacity": -1,
+                        "Inertia_category": null,
                         "max_new_capacity_init": -1,
+                        "init_cumul_capacity": -1,
                         "cagr": -1,
                         "cc_wacc": 0.06,
                         "cff": 1,
@@ -858,7 +858,6 @@
                         "af_cap_recovery": 1,
                         "cc_duration": 4,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": false,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -866,8 +865,9 @@
                         "start_vertex": "elec_NM",
                         "line_loss_percentage": 0.0513,
                         "capacity_in_progress_init": 0,
-                        "init_cumul_capacity": -1,
+                        "Inertia_category": null,
                         "max_new_capacity_init": -1,
+                        "init_cumul_capacity": -1,
                         "cagr": -1,
                         "cc_wacc": 0.06,
                         "cff": 1,
@@ -904,7 +904,6 @@
                         "af_cap_recovery": 1,
                         "cc_duration": 4,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": false,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -912,8 +911,9 @@
                         "start_vertex": "elec_NV",
                         "line_loss_percentage": 0.0354,
                         "capacity_in_progress_init": 1500,
-                        "init_cumul_capacity": -1,
+                        "Inertia_category": null,
                         "max_new_capacity_init": -1,
+                        "init_cumul_capacity": -1,
                         "cagr": -1,
                         "cc_wacc": 0.06,
                         "cff": 1,
@@ -950,7 +950,6 @@
                         "af_cap_recovery": 1,
                         "cc_duration": 4,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": false,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -958,8 +957,9 @@
                         "start_vertex": "elec_OR",
                         "line_loss_percentage": 0.019,
                         "capacity_in_progress_init": 0,
-                        "init_cumul_capacity": -1,
+                        "Inertia_category": null,
                         "max_new_capacity_init": -1,
+                        "init_cumul_capacity": -1,
                         "cagr": -1,
                         "cc_wacc": 0.06,
                         "cff": 1,
@@ -996,7 +996,6 @@
                         "af_cap_recovery": 1,
                         "cc_duration": 4,
                         "constraints": {
-                            "MaxCapacityGrowthConstraint": false,
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
                             "MaxCapacityConstraint": true
@@ -1004,8 +1003,9 @@
                         "start_vertex": "elec_UT",
                         "line_loss_percentage": 0.0411,
                         "capacity_in_progress_init": 1500,
-                        "init_cumul_capacity": -1,
+                        "Inertia_category": null,
                         "max_new_capacity_init": -1,
+                        "init_cumul_capacity": -1,
                         "cagr": -1,
                         "cc_wacc": 0.06,
                         "cff": 1,
