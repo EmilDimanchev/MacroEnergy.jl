@@ -1,6 +1,6 @@
 {
     "ConstraintScaling": false,
     "DualExportsEnabled": false,
-    "OutputDir": "results_cd_di_crm",
+    "OutputDir": "results_cd_di_el_cap",
     "CapacityReserveMargin": {"OR_WA": 0.15, "ID_UT_NV_MT_WY": 0.15, "CA": 0.15, "AZ_NM_CO": 0.15}
 }
