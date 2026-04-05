@@ -1,5 +1,0 @@
-{
-    "ConstraintScaling": true,
-    "OutputLayout": "wide",
-    "CapacityReserveMargin": {"MA": 0.10, "CT": 0.15, "ME": 0.20}
-}
