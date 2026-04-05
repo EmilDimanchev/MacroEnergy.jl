@@ -25,7 +25,7 @@
     "DiscountRate": 0.045,
     "TechnologyLearning": false,
     "ProjectDevelopment": true,
-    "CO2Cap": false,
+    "CO2Cap": true,
     "DeploymentInertia": true,
     "LearningTechnologies": ["egs"],
     "TechsWithInertia": ["onshore_wind", "solar", "egs", "battery", "ccgt", "ct"],

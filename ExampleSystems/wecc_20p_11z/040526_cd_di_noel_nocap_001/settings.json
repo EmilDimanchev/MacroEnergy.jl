@@ -1,0 +1,428 @@
+{
+    "case_settings": {
+        "InertiaInitMW": {
+            "egs": 0,
+            "ccgt": 0,
+            "battery": 6500,
+            "solar": 7400,
+            "onshore_wind": 1600,
+            "ct": 600
+        },
+        "InertiaInitialDeclineRate": {
+            "egs": 0.11,
+            "ccgt": 0.11,
+            "battery": 0.794,
+            "solar": 0.039,
+            "onshore_wind": 0.12,
+            "ct": 0.11
+        },
+        "ProjectDevelopment": true,
+        "PeriodLengths": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+        ],
+        "DiscountRate": 0.045,
+        "TechsWithInertia": [
+            "onshore_wind",
+            "solar",
+            "egs",
+            "battery",
+            "ccgt",
+            "ct"
+        ],
+        "InertiaInitialGrowthRate": {
+            "egs": 0.397,
+            "ccgt": 0.397,
+            "battery": 0.794,
+            "solar": 0.293,
+            "onshore_wind": 0.162,
+            "ct": 0.397
+        },
+        "BendersSettings": {
+            "MaxIter": 150,
+            "Distributed": true,
+            "IntegerInvestment": false,
+            "StabParam": 0.5,
+            "StabDynamic": false,
+            "ConvTol": 0.001,
+            "IncludeSubproblemSlacksAutomatically": false,
+            "ExpectFeasibleSubproblems": true,
+            "MaxCpuTime": 100000
+        },
+        "LearningTechnologies": [
+            "egs"
+        ],
+        "InertiaMinMW": {
+            "egs": 1000,
+            "ccgt": 727,
+            "battery": 60,
+            "solar": 74.6,
+            "onshore_wind": 200,
+            "ct": 233
+        },
+        "CO2Cap": false,
+        "TechnologyLearning": false,
+        "DeploymentInertia": true,
+        "SolutionAlgorithm": "MacroEnergy.Benders()"
+    },
+    "system_settings": [
+        {
+            "ConstraintScaling": false,
+            "WriteSubcommodities": false,
+            "OverwriteResults": false,
+            "OutputDir": "040526_cd_di_noel_nocap",
+            "OutputLayout": "long",
+            "AutoCreateNodes": false,
+            "AutoCreateLocations": true,
+            "Retrofitting": false,
+            "CapacityReserveMargin": {
+                "OR_WA": 0.15,
+                "ID_UT_NV_MT_WY": 0.15,
+                "CA": 0.15,
+                "AZ_NM_CO": 0.15
+            },
+            "DualExportsEnabled": false
+        },
+        {
+            "ConstraintScaling": false,
+            "WriteSubcommodities": false,
+            "OverwriteResults": false,
+            "OutputDir": "040526_cd_di_noel_nocap",
+            "OutputLayout": "long",
+            "AutoCreateNodes": false,
+            "AutoCreateLocations": true,
+            "Retrofitting": false,
+            "CapacityReserveMargin": {
+                "OR_WA": 0.15,
+                "ID_UT_NV_MT_WY": 0.15,
+                "CA": 0.15,
+                "AZ_NM_CO": 0.15
+            },
+            "DualExportsEnabled": false
+        },
+        {
+            "ConstraintScaling": false,
+            "WriteSubcommodities": false,
+            "OverwriteResults": false,
+            "OutputDir": "040526_cd_di_noel_nocap",
+            "OutputLayout": "long",
+            "AutoCreateNodes": false,
+            "AutoCreateLocations": true,
+            "Retrofitting": false,
+            "CapacityReserveMargin": {
+                "OR_WA": 0.15,
+                "ID_UT_NV_MT_WY": 0.15,
+                "CA": 0.15,
+                "AZ_NM_CO": 0.15
+            },
+            "DualExportsEnabled": false
+        },
+        {
+            "ConstraintScaling": false,
+            "WriteSubcommodities": false,
+            "OverwriteResults": false,
+            "OutputDir": "040526_cd_di_noel_nocap",
+            "OutputLayout": "long",
+            "AutoCreateNodes": false,
+            "AutoCreateLocations": true,
+            "Retrofitting": false,
+            "CapacityReserveMargin": {
+                "OR_WA": 0.15,
+                "ID_UT_NV_MT_WY": 0.15,
+                "CA": 0.15,
+                "AZ_NM_CO": 0.15
+            },
+            "DualExportsEnabled": false
+        },
+        {
+            "ConstraintScaling": false,
+            "WriteSubcommodities": false,
+            "OverwriteResults": false,
+            "OutputDir": "040526_cd_di_noel_nocap",
+            "OutputLayout": "long",
+            "AutoCreateNodes": false,
+            "AutoCreateLocations": true,
+            "Retrofitting": false,
+            "CapacityReserveMargin": {
+                "OR_WA": 0.15,
+                "ID_UT_NV_MT_WY": 0.15,
+                "CA": 0.15,
+                "AZ_NM_CO": 0.15
+            },
+            "DualExportsEnabled": false
+        },
+        {
+            "ConstraintScaling": false,
+            "WriteSubcommodities": false,
+            "OverwriteResults": false,
+            "OutputDir": "040526_cd_di_noel_nocap",
+            "OutputLayout": "long",
+            "AutoCreateNodes": false,
+            "AutoCreateLocations": true,
+            "Retrofitting": false,
+            "CapacityReserveMargin": {
+                "OR_WA": 0.15,
+                "ID_UT_NV_MT_WY": 0.15,
+                "CA": 0.15,
+                "AZ_NM_CO": 0.15
+            },
+            "DualExportsEnabled": false
+        },
+        {
+            "ConstraintScaling": false,
+            "WriteSubcommodities": false,
+            "OverwriteResults": false,
+            "OutputDir": "040526_cd_di_noel_nocap",
+            "OutputLayout": "long",
+            "AutoCreateNodes": false,
+            "AutoCreateLocations": true,
+            "Retrofitting": false,
+            "CapacityReserveMargin": {
+                "OR_WA": 0.15,
+                "ID_UT_NV_MT_WY": 0.15,
+                "CA": 0.15,
+                "AZ_NM_CO": 0.15
+            },
+            "DualExportsEnabled": false
+        },
+        {
+            "ConstraintScaling": false,
+            "WriteSubcommodities": false,
+            "OverwriteResults": false,
+            "OutputDir": "040526_cd_di_noel_nocap",
+            "OutputLayout": "long",
+            "AutoCreateNodes": false,
+            "AutoCreateLocations": true,
+            "Retrofitting": false,
+            "CapacityReserveMargin": {
+                "OR_WA": 0.15,
+                "ID_UT_NV_MT_WY": 0.15,
+                "CA": 0.15,
+                "AZ_NM_CO": 0.15
+            },
+            "DualExportsEnabled": false
+        },
+        {
+            "ConstraintScaling": false,
+            "WriteSubcommodities": false,
+            "OverwriteResults": false,
+            "OutputDir": "040526_cd_di_noel_nocap",
+            "OutputLayout": "long",
+            "AutoCreateNodes": false,
+            "AutoCreateLocations": true,
+            "Retrofitting": false,
+            "CapacityReserveMargin": {
+                "OR_WA": 0.15,
+                "ID_UT_NV_MT_WY": 0.15,
+                "CA": 0.15,
+                "AZ_NM_CO": 0.15
+            },
+            "DualExportsEnabled": false
+        },
+        {
+            "ConstraintScaling": false,
+            "WriteSubcommodities": false,
+            "OverwriteResults": false,
+            "OutputDir": "040526_cd_di_noel_nocap",
+            "OutputLayout": "long",
+            "AutoCreateNodes": false,
+            "AutoCreateLocations": true,
+            "Retrofitting": false,
+            "CapacityReserveMargin": {
+                "OR_WA": 0.15,
+                "ID_UT_NV_MT_WY": 0.15,
+                "CA": 0.15,
+                "AZ_NM_CO": 0.15
+            },
+            "DualExportsEnabled": false
+        },
+        {
+            "ConstraintScaling": false,
+            "WriteSubcommodities": false,
+            "OverwriteResults": false,
+            "OutputDir": "040526_cd_di_noel_nocap",
+            "OutputLayout": "long",
+            "AutoCreateNodes": false,
+            "AutoCreateLocations": true,
+            "Retrofitting": false,
+            "CapacityReserveMargin": {
+                "OR_WA": 0.15,
+                "ID_UT_NV_MT_WY": 0.15,
+                "CA": 0.15,
+                "AZ_NM_CO": 0.15
+            },
+            "DualExportsEnabled": false
+        },
+        {
+            "ConstraintScaling": false,
+            "WriteSubcommodities": false,
+            "OverwriteResults": false,
+            "OutputDir": "040526_cd_di_noel_nocap",
+            "OutputLayout": "long",
+            "AutoCreateNodes": false,
+            "AutoCreateLocations": true,
+            "Retrofitting": false,
+            "CapacityReserveMargin": {
+                "OR_WA": 0.15,
+                "ID_UT_NV_MT_WY": 0.15,
+                "CA": 0.15,
+                "AZ_NM_CO": 0.15
+            },
+            "DualExportsEnabled": false
+        },
+        {
+            "ConstraintScaling": false,
+            "WriteSubcommodities": false,
+            "OverwriteResults": false,
+            "OutputDir": "040526_cd_di_noel_nocap",
+            "OutputLayout": "long",
+            "AutoCreateNodes": false,
+            "AutoCreateLocations": true,
+            "Retrofitting": false,
+            "CapacityReserveMargin": {
+                "OR_WA": 0.15,
+                "ID_UT_NV_MT_WY": 0.15,
+                "CA": 0.15,
+                "AZ_NM_CO": 0.15
+            },
+            "DualExportsEnabled": false
+        },
+        {
+            "ConstraintScaling": false,
+            "WriteSubcommodities": false,
+            "OverwriteResults": false,
+            "OutputDir": "040526_cd_di_noel_nocap",
+            "OutputLayout": "long",
+            "AutoCreateNodes": false,
+            "AutoCreateLocations": true,
+            "Retrofitting": false,
+            "CapacityReserveMargin": {
+                "OR_WA": 0.15,
+                "ID_UT_NV_MT_WY": 0.15,
+                "CA": 0.15,
+                "AZ_NM_CO": 0.15
+            },
+            "DualExportsEnabled": false
+        },
+        {
+            "ConstraintScaling": false,
+            "WriteSubcommodities": false,
+            "OverwriteResults": false,
+            "OutputDir": "040526_cd_di_noel_nocap",
+            "OutputLayout": "long",
+            "AutoCreateNodes": false,
+            "AutoCreateLocations": true,
+            "Retrofitting": false,
+            "CapacityReserveMargin": {
+                "OR_WA": 0.15,
+                "ID_UT_NV_MT_WY": 0.15,
+                "CA": 0.15,
+                "AZ_NM_CO": 0.15
+            },
+            "DualExportsEnabled": false
+        },
+        {
+            "ConstraintScaling": false,
+            "WriteSubcommodities": false,
+            "OverwriteResults": false,
+            "OutputDir": "040526_cd_di_noel_nocap",
+            "OutputLayout": "long",
+            "AutoCreateNodes": false,
+            "AutoCreateLocations": true,
+            "Retrofitting": false,
+            "CapacityReserveMargin": {
+                "OR_WA": 0.15,
+                "ID_UT_NV_MT_WY": 0.15,
+                "CA": 0.15,
+                "AZ_NM_CO": 0.15
+            },
+            "DualExportsEnabled": false
+        },
+        {
+            "ConstraintScaling": false,
+            "WriteSubcommodities": false,
+            "OverwriteResults": false,
+            "OutputDir": "040526_cd_di_noel_nocap",
+            "OutputLayout": "long",
+            "AutoCreateNodes": false,
+            "AutoCreateLocations": true,
+            "Retrofitting": false,
+            "CapacityReserveMargin": {
+                "OR_WA": 0.15,
+                "ID_UT_NV_MT_WY": 0.15,
+                "CA": 0.15,
+                "AZ_NM_CO": 0.15
+            },
+            "DualExportsEnabled": false
+        },
+        {
+            "ConstraintScaling": false,
+            "WriteSubcommodities": false,
+            "OverwriteResults": false,
+            "OutputDir": "040526_cd_di_noel_nocap",
+            "OutputLayout": "long",
+            "AutoCreateNodes": false,
+            "AutoCreateLocations": true,
+            "Retrofitting": false,
+            "CapacityReserveMargin": {
+                "OR_WA": 0.15,
+                "ID_UT_NV_MT_WY": 0.15,
+                "CA": 0.15,
+                "AZ_NM_CO": 0.15
+            },
+            "DualExportsEnabled": false
+        },
+        {
+            "ConstraintScaling": false,
+            "WriteSubcommodities": false,
+            "OverwriteResults": false,
+            "OutputDir": "040526_cd_di_noel_nocap",
+            "OutputLayout": "long",
+            "AutoCreateNodes": false,
+            "AutoCreateLocations": true,
+            "Retrofitting": false,
+            "CapacityReserveMargin": {
+                "OR_WA": 0.15,
+                "ID_UT_NV_MT_WY": 0.15,
+                "CA": 0.15,
+                "AZ_NM_CO": 0.15
+            },
+            "DualExportsEnabled": false
+        },
+        {
+            "ConstraintScaling": false,
+            "WriteSubcommodities": false,
+            "OverwriteResults": false,
+            "OutputDir": "040526_cd_di_noel_nocap",
+            "OutputLayout": "long",
+            "AutoCreateNodes": false,
+            "AutoCreateLocations": true,
+            "Retrofitting": false,
+            "CapacityReserveMargin": {
+                "OR_WA": 0.15,
+                "ID_UT_NV_MT_WY": 0.15,
+                "CA": 0.15,
+                "AZ_NM_CO": 0.15
+            },
+            "DualExportsEnabled": false
+        }
+    ]
+}
