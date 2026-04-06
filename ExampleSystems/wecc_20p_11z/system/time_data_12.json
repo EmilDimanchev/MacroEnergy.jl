@@ -7,7 +7,7 @@
         "CO2": 1,
         "CO2Captured": 1
     },
-    "NumberOfSubperiods": 4,
+    "NumberOfSubperiods": 20,
     "HoursPerSubperiod": {
         "Coal": 168,
         "NaturalGas": 168,

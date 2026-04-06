@@ -76,61 +76,6 @@ function add_model_constraint!(ct::DevelopmentConstraint, y::Union{AbstractEdge,
             ct.constraint_ref = @constraint(model, af_capacity_track(y, curr_period) == model[:DECapacity])
         end
         ct.constraint_ref = @constraint(model, cc_capacity_track(y, curr_period) == model[:CCCapacity])
-    
-        
-        # if curr_period < cc_duration(y) + 1
-        #     ct.constraint_ref = @constraint(model, new_capacity_track(y, curr_period) <= capacity_in_progress_init(y))
-        # else
-        #     ct.constraint_ref = @constraint(model, new_capacity_track(y, curr_period) <= cc_capacity_track(y, prev_period))
-        # end
-
-        # if curr_period < af_duration(y) + 1
-        
-        #     ct.constraint_ref = @constraint(model, new_cc_capacity_track(y, curr_period) <= capacity_in_progress_init(y))
-            
-        # else
-        #     ct.constraint_ref = @constraint(model, new_cc_capacity_track(y, curr_period) <= af_capacity_track(y, prev_period))
-        # end
-
-        
-        # if curr_period < de_duration(y) + 1
-        #     ct.constraint_ref = @constraint(model, new_af_capacity_track(y, curr_period) <= capacity_in_progress_init(y))
-            
-        # else
-        #     ct.constraint_ref = @constraint(model, new_af_capacity_track(y, curr_period) <= de_capacity_track(y, prev_period))
-        # end
-    
-
-        # if curr_period == 1
-
-            # ct.constraint_ref = @constraint(model, new_capacity_track(y, curr_period) <= capacity_in_progress_init(y))
-            # if af_duration(y) > 0
-            #     ct.constraint_ref = @constraint(model, new_af_capacity_track(y, curr_period) <= capacity_in_progress_init(y))
-            # end
-            # ct.constraint_ref = @constraint(model, new_cc_capacity_track(y, curr_period) <= capacity_in_progress_init(y))
-            
-        # elseif curr_period >= 2
-
-            # ct.constraint_ref = @constraint(model, new_capacity_track(y, curr_period) <= cc_capacity_track(y, prev_period))
-
-            # ct.constraint_ref = @constraint(model, new_cc_capacity_track(y, curr_period) <= af_capacity_track(y, prev_period))
-            # ct.constraint_ref = @constraint(model, new_af_capacity_track(y, curr_period) <= de_capacity_track(y, prev_period))
-
-            # Add previous periods' capacity 
-            # add_to_expression!(model[:DECapacity], de_capacity_track(y, prev_period), 1.0)
-            # add_to_expression!(model[:AFCapacity], af_capacity_track(y, prev_period), 1.0)
-            # add_to_expression!(model[:CCCapacity], cc_capacity_track(y, prev_period), 1.0)
-
-            # Subtract used capacity
-            # if af_duration(y) > 0
-            #     add_to_expression!(model[:DECapacity], new_af_capacity_track(y, curr_period), -1.0)
-            # else
-            #     add_to_expression!(model[:DECapacity], new_cc_capacity_track(y, curr_period), -1.0)
-            # end
-            # add_to_expression!(model[:AFCapacity], new_cc_capacity_track(y, curr_period), -1.0)
-            # add_to_expression!(model[:CCCapacity], new_capacity_track(y, curr_period), -1.0)
-        # end
-
 
         
     end
