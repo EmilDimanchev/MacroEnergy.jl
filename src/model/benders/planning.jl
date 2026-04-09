@@ -30,6 +30,7 @@ function generate_planning_problem(case::Case)
     @info("Deployment inertia set to $(settings[:DeploymentInertia])")
     @info("Project development set to $(settings[:ProjectDevelopment])")
     @info("Technology learning set to $(settings[:TechnologyLearning])")
+    @info("CO2 cap set to $(settings[:CO2Cap])")
 
     start_time = time();
 

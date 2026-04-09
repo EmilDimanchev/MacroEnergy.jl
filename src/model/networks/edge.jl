@@ -593,25 +593,23 @@ function compute_investment_costs!(e::AbstractEdge, model::Model, settings::Name
             end
 
             # Linearized learning
-            if settings[:TechnologyLearning]
+            if settings[:TechnologyLearning] && learning_type(e) in settings[:LearningTechnologies]
+                
+                model[:eInvestmentFixedCost] += e.endog_annualized_investment_cost_times_newcapacity * (1 - subsidy) * annuities_mult(e) + interconnect_annuity(e) * interconnect_annuities_mult(e) * new_capacity(e)
 
-                if learning_type(e) in settings[:LearningTechnologies]
-
-                    model[:eInvestmentFixedCost] += e.endog_annualized_investment_cost_times_newcapacity * (1 - subsidy) * annuities_mult(e) + interconnect_annuity(e) * interconnect_annuities_mult(e) * new_capacity(e)
-
-                    # Nonlinear version for benchmarking
-                    # model[:eInvestmentFixedCost] += (1 - subsidy)*endog_annualized_investment_cost(e)*annuities_mult(e)*new_capacity(e)
-                    
-                    # Shadow capacity for project development constraints
-                    model[:eInvestmentFixedCost] +=
-                        e.endog_annualized_investment_cost_times_newcapacity_de * (1 - subsidy) * de_annuities_mult(e)
-                    model[:eInvestmentFixedCost] +=
-                        e.endog_annualized_investment_cost_times_newcapacity_af * (1 - subsidy) * af_annuities_mult(e)
-                    model[:eInvestmentFixedCost] +=
-                        e.endog_annualized_investment_cost_times_newcapacity_cc * (1 - subsidy) * cc_annuities_mult(e)
-                end
+                # Nonlinear version for benchmarking
+                # model[:eInvestmentFixedCost] += (1 - subsidy)*endog_annualized_investment_cost(e)*annuities_mult(e)*new_capacity(e)
+                
+                # Shadow capacity for project development constraints
+                model[:eInvestmentFixedCost] +=
+                    e.endog_annualized_investment_cost_times_newcapacity_de * (1 - subsidy) * de_annuities_mult(e)
+                model[:eInvestmentFixedCost] +=
+                    e.endog_annualized_investment_cost_times_newcapacity_af * (1 - subsidy) * af_annuities_mult(e)
+                model[:eInvestmentFixedCost] +=
+                    e.endog_annualized_investment_cost_times_newcapacity_cc * (1 - subsidy) * cc_annuities_mult(e)
             
-            else
+            
+            elseif !settings[:TechnologyLearning] || !(learning_type(e) in settings[:LearningTechnologies])
                 # No learning
                 add_to_expression!(
                     model[:eInvestmentFixedCost],
