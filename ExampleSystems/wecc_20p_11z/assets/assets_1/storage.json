@@ -43,7 +43,7 @@
                     "min_duration": 1,
                     "wacc": 0,
                     "capital_recovery_period": 0,
-                    "existing_capacity": 2380
+                    "existing_capacity": 1190
                 },
                 "edges": {
                     "discharge_edge": {
@@ -193,7 +193,7 @@
                     "min_duration": 1,
                     "wacc": 0,
                     "capital_recovery_period": 0,
-                    "existing_capacity": 22284
+                    "existing_capacity": 11142
                 },
                 "edges": {
                     "discharge_edge": {
@@ -343,7 +343,7 @@
                     "min_duration": 1,
                     "wacc": 0,
                     "capital_recovery_period": 0,
-                    "existing_capacity": 920
+                    "existing_capacity": 460
                 },
                 "edges": {
                     "discharge_edge": {
@@ -568,7 +568,7 @@
                     "min_duration": 1,
                     "wacc": 0,
                     "capital_recovery_period": 0,
-                    "existing_capacity": 1467.2
+                    "existing_capacity": 733.6
                 },
                 "edges": {
                     "discharge_edge": {
@@ -643,7 +643,7 @@
                     "min_duration": 1,
                     "wacc": 0,
                     "capital_recovery_period": 0,
-                    "existing_capacity": 3120
+                    "existing_capacity": 1560
                 },
                 "edges": {
                     "discharge_edge": {
@@ -718,7 +718,7 @@
                     "min_duration": 1,
                     "wacc": 0,
                     "capital_recovery_period": 0,
-                    "existing_capacity": 120
+                    "existing_capacity": 60
                 },
                 "edges": {
                     "discharge_edge": {
@@ -868,7 +868,7 @@
                     "min_duration": 1,
                     "wacc": 0,
                     "capital_recovery_period": 0,
-                    "existing_capacity": 16
+                    "existing_capacity": 8
                 },
                 "edges": {
                     "discharge_edge": {
@@ -1013,7 +1013,7 @@
                     "max_new_capacity": 10000,
                     "n_learning_pwl_segments": 5,
                     "cadr": 0.794,
-                    "investment_cost": 13128,
+                    "investment_cost": 19165,
                     "capacity_size": 1,
                     "wacc": 0.043,
                     "capital_recovery_period": 20,
@@ -1077,7 +1077,7 @@
                         "learning_parameter": 0,
                         "af_cost_perc": 0,
                         "de_wacc": 0.066,
-                        "annualized_investment_cost": 14473,
+                        "annualized_investment_cost": 21128,
                         "learning_type": "battery",
                         "de_duration": 1,
                         "max_capacity": -1,
@@ -1271,7 +1271,7 @@
                     "max_new_capacity": 10000,
                     "n_learning_pwl_segments": 5,
                     "cadr": 0.794,
-                    "investment_cost": 13513,
+                    "investment_cost": 19727,
                     "capacity_size": 1,
                     "wacc": 0.043,
                     "capital_recovery_period": 20,
@@ -1335,7 +1335,7 @@
                         "learning_parameter": 0,
                         "af_cost_perc": 0,
                         "de_wacc": 0.066,
-                        "annualized_investment_cost": 14896,
+                        "annualized_investment_cost": 21747,
                         "learning_type": "battery",
                         "de_duration": 1,
                         "max_capacity": -1,
@@ -1529,7 +1529,7 @@
                     "max_new_capacity": 10000,
                     "n_learning_pwl_segments": 5,
                     "cadr": 0.794,
-                    "investment_cost": 12856,
+                    "investment_cost": 18768,
                     "capacity_size": 1,
                     "wacc": 0.043,
                     "capital_recovery_period": 20,
@@ -1593,7 +1593,7 @@
                         "learning_parameter": 0,
                         "af_cost_perc": 0,
                         "de_wacc": 0.066,
-                        "annualized_investment_cost": 14173,
+                        "annualized_investment_cost": 20690,
                         "learning_type": "battery",
                         "de_duration": 1,
                         "max_capacity": -1,
@@ -1787,7 +1787,7 @@
                     "max_new_capacity": 10000,
                     "n_learning_pwl_segments": 5,
                     "cadr": 0.794,
-                    "investment_cost": 13372,
+                    "investment_cost": 19521,
                     "capacity_size": 1,
                     "wacc": 0.043,
                     "capital_recovery_period": 20,
@@ -1851,7 +1851,7 @@
                         "learning_parameter": 0,
                         "af_cost_perc": 0,
                         "de_wacc": 0.066,
-                        "annualized_investment_cost": 14741,
+                        "annualized_investment_cost": 21520,
                         "learning_type": "battery",
                         "de_duration": 1,
                         "max_capacity": -1,
@@ -2045,7 +2045,7 @@
                     "max_new_capacity": 10000,
                     "n_learning_pwl_segments": 5,
                     "cadr": 0.794,
-                    "investment_cost": 13278,
+                    "investment_cost": 19384,
                     "capacity_size": 1,
                     "wacc": 0.043,
                     "capital_recovery_period": 20,
@@ -2109,7 +2109,7 @@
                         "learning_parameter": 0,
                         "af_cost_perc": 0,
                         "de_wacc": 0.066,
-                        "annualized_investment_cost": 14638,
+                        "annualized_investment_cost": 21369,
                         "learning_type": "battery",
                         "de_duration": 1,
                         "max_capacity": -1,
@@ -2303,7 +2303,7 @@
                     "max_new_capacity": 10000,
                     "n_learning_pwl_segments": 5,
                     "cadr": 0.794,
-                    "investment_cost": 13128,
+                    "investment_cost": 19165,
                     "capacity_size": 1,
                     "wacc": 0.043,
                     "capital_recovery_period": 20,
@@ -2367,7 +2367,7 @@
                         "learning_parameter": 0,
                         "af_cost_perc": 0,
                         "de_wacc": 0.066,
-                        "annualized_investment_cost": 14473,
+                        "annualized_investment_cost": 21128,
                         "learning_type": "battery",
                         "de_duration": 1,
                         "max_capacity": -1,
@@ -2561,7 +2561,7 @@
                     "max_new_capacity": 10000,
                     "n_learning_pwl_segments": 5,
                     "cadr": 0.794,
-                    "investment_cost": 13372,
+                    "investment_cost": 19521,
                     "capacity_size": 1,
                     "wacc": 0.043,
                     "capital_recovery_period": 20,
@@ -2625,7 +2625,7 @@
                         "learning_parameter": 0,
                         "af_cost_perc": 0,
                         "de_wacc": 0.066,
-                        "annualized_investment_cost": 14741,
+                        "annualized_investment_cost": 21520,
                         "learning_type": "battery",
                         "de_duration": 1,
                         "max_capacity": -1,
@@ -2819,7 +2819,7 @@
                     "max_new_capacity": 10000,
                     "n_learning_pwl_segments": 5,
                     "cadr": 0.794,
-                    "investment_cost": 13278,
+                    "investment_cost": 19384,
                     "capacity_size": 1,
                     "wacc": 0.043,
                     "capital_recovery_period": 20,
@@ -2883,7 +2883,7 @@
                         "learning_parameter": 0,
                         "af_cost_perc": 0,
                         "de_wacc": 0.066,
-                        "annualized_investment_cost": 14638,
+                        "annualized_investment_cost": 21369,
                         "learning_type": "battery",
                         "de_duration": 1,
                         "max_capacity": -1,
@@ -3077,7 +3077,7 @@
                     "max_new_capacity": 10000,
                     "n_learning_pwl_segments": 5,
                     "cadr": 0.794,
-                    "investment_cost": 13372,
+                    "investment_cost": 19521,
                     "capacity_size": 1,
                     "wacc": 0.043,
                     "capital_recovery_period": 20,
@@ -3141,7 +3141,7 @@
                         "learning_parameter": 0,
                         "af_cost_perc": 0,
                         "de_wacc": 0.066,
-                        "annualized_investment_cost": 14741,
+                        "annualized_investment_cost": 21520,
                         "learning_type": "battery",
                         "de_duration": 1,
                         "max_capacity": -1,
@@ -3335,7 +3335,7 @@
                     "max_new_capacity": 10000,
                     "n_learning_pwl_segments": 5,
                     "cadr": 0.794,
-                    "investment_cost": 13278,
+                    "investment_cost": 19384,
                     "capacity_size": 1,
                     "wacc": 0.043,
                     "capital_recovery_period": 20,
@@ -3399,7 +3399,7 @@
                         "learning_parameter": 0,
                         "af_cost_perc": 0,
                         "de_wacc": 0.066,
-                        "annualized_investment_cost": 14638,
+                        "annualized_investment_cost": 21369,
                         "learning_type": "battery",
                         "de_duration": 1,
                         "max_capacity": -1,
@@ -3593,7 +3593,7 @@
                     "max_new_capacity": 10000,
                     "n_learning_pwl_segments": 5,
                     "cadr": 0.794,
-                    "investment_cost": 13372,
+                    "investment_cost": 19521,
                     "capacity_size": 1,
                     "wacc": 0.043,
                     "capital_recovery_period": 20,
@@ -3657,7 +3657,7 @@
                         "learning_parameter": 0,
                         "af_cost_perc": 0,
                         "de_wacc": 0.066,
-                        "annualized_investment_cost": 14741,
+                        "annualized_investment_cost": 21520,
                         "learning_type": "battery",
                         "de_duration": 1,
                         "max_capacity": -1,
