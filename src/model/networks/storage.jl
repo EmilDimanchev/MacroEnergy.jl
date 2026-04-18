@@ -581,41 +581,43 @@ function compute_investment_costs!(g::AbstractStorage, model::Model, settings::N
         if can_expand(g)
             
             # Apply subsidy depending on stage
-            de_itc_schedule = [e.itc_schedule[(e.de_duration+e.af_duration)+1:end]; zeros(min((e.de_duration+e.af_duration), length(l)))]
-            af_itc_schedule = [e.itc_schedule[(e.af_duration)+1:end]; zeros(min((e.af_duration), length(l)))]
+            de_itc_schedule = [g.itc_schedule[(g.de_duration+g.af_duration)+1:end]; zeros(min((g.de_duration+g.af_duration), length(g.itc_schedule)))]
+            af_itc_schedule = [g.itc_schedule[(g.af_duration)+1:end]; zeros(min((g.af_duration), length(g.itc_schedule)))]
+            @info("DE ITC schedule for $(id(g)) is: $(de_itc_schedule)")
+            @info("AF ITC schedule for $(id(g)) is: $(af_itc_schedule)")
 
             add_to_expression!(
             model[:eInvestmentFixedCost],
-            annualized_investment_cost(g)*annuities_mult(g) + interconnect_annuity(g) * interconnect_annuities_mult(g),
+            annualized_investment_cost(g)*annuities_mult(g) + interconnect_annuity(g) * interconnect_annuities_mult(g) * (1-g.itc_schedule[period_index(g)]),
             new_capacity(g),
             )
 
             # Shadow capacity for project development constraints
             add_to_expression!(
                 model[:eInvestmentFixedCost],
-                de_annualized_cost(g)*de_annuities_mult(g),
+                de_annualized_cost(g)*de_annuities_mult(g)*(1-de_itc_schedule[period_index(g)]),
                 new_de_capacity(g),
             )
             add_to_expression!(
                 model[:eInvestmentFixedCost],
-                af_annualized_cost(g)*af_annuities_mult(g),
+                af_annualized_cost(g)*af_annuities_mult(g)*(1-af_itc_schedule[period_index(g)]),
                 new_af_capacity(g),
             )
             add_to_expression!(
                 model[:eInvestmentFixedCost],
-                cc_annualized_cost(g)*cc_annuities_mult(g),
+                cc_annualized_cost(g)*cc_annuities_mult(g)*(1-g.itc_schedule[period_index(g)]) ,
                 new_cc_capacity(g),
             )
 
             if settings[:ProjectDevelopment]
-                g.new_capital = @expression(model, investment_cost(g) * (1 - de_cost_perc(g) - af_cost_perc(g) - cc_cost_perc(g)) * new_capacity(g) )
+                g.new_capital = @expression(model, investment_cost(g) * (1 - de_cost_perc(g) - af_cost_perc(g) - cc_cost_perc(g)) * new_capacity(g) * (1 - g.itc_schedule[period_index(g)]))
             else
-                g.new_capital = @expression(model, investment_cost(g) * new_capacity(g) )
+                g.new_capital = @expression(model, investment_cost(g) * new_capacity(g) * (1 - g.itc_schedule[period_index(g)]))
             end
-            
-            g.new_capital_de = @expression(model, investment_cost(g) * de_cost_perc(g) * new_de_capacity(g) )
-            g.new_capital_af = @expression(model, investment_cost(g) * af_cost_perc(g) * new_af_capacity(g) )
-            g.new_capital_cc = @expression(model, investment_cost(g) * cc_cost_perc(g) * new_cc_capacity(g) )
+
+            g.new_capital_de = @expression(model, investment_cost(g) * de_cost_perc(g) * new_de_capacity(g) * (1 - de_itc_schedule[period_index(g)]))
+            g.new_capital_af = @expression(model, investment_cost(g) * af_cost_perc(g) * new_af_capacity(g) * (1 - af_itc_schedule[period_index(g)]))
+            g.new_capital_cc = @expression(model, investment_cost(g) * cc_cost_perc(g) * new_cc_capacity(g) * (1 - g.itc_schedule[period_index(g)]))
 
         end
     end
