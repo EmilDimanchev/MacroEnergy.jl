@@ -127,6 +127,7 @@ macro AbstractEdgeBaseAttributes()
         new_capital_de::Union{AffExpr,Float64} = AffExpr(0.0)
         new_capital_af::Union{AffExpr,Float64} = AffExpr(0.0)
         new_capital_cc::Union{AffExpr,Float64} = AffExpr(0.0)
+        itc_schedule::Vector{Float64} = zeros(20)
         # Max growth formulation
         max_new_capacity_init::Float64 = 0.0
         cagr::Float64 = 0.0
@@ -418,6 +419,7 @@ new_capital(e::AbstractEdge) = e.new_capital;
 new_capital_de(e::AbstractEdge) = e.new_capital_de;
 new_capital_af(e::AbstractEdge) = e.new_capital_af;
 new_capital_cc(e::AbstractEdge) = e.new_capital_cc;
+itc_schedule(e::AbstractEdge) = e.itc_schedule;
 # Max growth formulation
 max_new_capacity_init(e::AbstractEdge) = e.max_new_capacity_init;
 cagr(e::AbstractEdge) = e.cagr;
@@ -584,67 +586,65 @@ end
 function compute_investment_costs!(e::AbstractEdge, model::Model, settings::NamedTuple)
     if has_capacity(e)
         if can_expand(e)
-
-            # Apply OBBB subsidy to EGS technologies
-            if period_index(e) < 11 && (occursin("Deep", string(id(e))) || occursin("NearField", string(id(e))))
-                subsidy = 0.4
-            else
-                subsidy = 0.0
-            end
-
+            
+            
+            # Apply subsidy depending on stage
+            de_itc_schedule = [e.itc_schedule[(e.de_duration+e.af_duration)+1:end]; zeros(min((e.de_duration+e.af_duration), length(l)))]
+            af_itc_schedule = [e.itc_schedule[(e.af_duration)+1:end]; zeros(min((e.af_duration), length(l)))]
+            
             # Linearized learning
             if settings[:TechnologyLearning] && learning_type(e) in settings[:LearningTechnologies]
                 
-                model[:eInvestmentFixedCost] += e.endog_annualized_investment_cost_times_newcapacity * (1 - subsidy) * annuities_mult(e) + interconnect_annuity(e) * interconnect_annuities_mult(e) * new_capacity(e)
+                model[:eInvestmentFixedCost] += e.endog_annualized_investment_cost_times_newcapacity * (1 - itc_schedule[period_index(e)]) * annuities_mult(e) + interconnect_annuity(e) * interconnect_annuities_mult(e) * new_capacity(e)
 
                 # Nonlinear version for benchmarking
                 # model[:eInvestmentFixedCost] += (1 - subsidy)*endog_annualized_investment_cost(e)*annuities_mult(e)*new_capacity(e)
                 
                 # Shadow capacity for project development constraints
                 model[:eInvestmentFixedCost] +=
-                    e.endog_annualized_investment_cost_times_newcapacity_de * (1 - subsidy) * de_annuities_mult(e)
+                    e.endog_annualized_investment_cost_times_newcapacity_de * (1 - de_itc_schedule[period_index(e)]) * de_annuities_mult(e)
                 model[:eInvestmentFixedCost] +=
-                    e.endog_annualized_investment_cost_times_newcapacity_af * (1 - subsidy) * af_annuities_mult(e)
+                    e.endog_annualized_investment_cost_times_newcapacity_af * (1 - af_itc_schedule[period_index(e)]) * af_annuities_mult(e)
                 model[:eInvestmentFixedCost] +=
-                    e.endog_annualized_investment_cost_times_newcapacity_cc * (1 - subsidy) * cc_annuities_mult(e)
+                    e.endog_annualized_investment_cost_times_newcapacity_cc * (1 - itc_schedule[period_index(e)]) * cc_annuities_mult(e)
             
             
             elseif !settings[:TechnologyLearning] || !(learning_type(e) in settings[:LearningTechnologies])
                 # No learning
                 add_to_expression!(
                     model[:eInvestmentFixedCost],
-                    annualized_investment_cost(e) * (1 - subsidy) * annuities_mult(e) + interconnect_annuity(e) * interconnect_annuities_mult(e),
+                    annualized_investment_cost(e) * (1 - itc_schedule[period_index(e)]) * annuities_mult(e) + interconnect_annuity(e) * interconnect_annuities_mult(e),
                     new_capacity(e),
                 )
 
                 # Shadow capacity for project development constraints
                 add_to_expression!(
                     model[:eInvestmentFixedCost],
-                    de_annualized_cost(e) * (1 - subsidy) * de_annuities_mult(e),
+                    de_annualized_cost(e) * (1 - de_itc_schedule[period_index(e)]) * de_annuities_mult(e),
                     new_de_capacity(e),
                 )
                 add_to_expression!(
                     model[:eInvestmentFixedCost],
-                    af_annualized_cost(e) * (1 - subsidy) * af_annuities_mult(e),
+                    af_annualized_cost(e) * (1 - af_itc_schedule[period_index(e)]) * af_annuities_mult(e),
                     new_af_capacity(e),
                 )
                 add_to_expression!(
                     model[:eInvestmentFixedCost],
-                    cc_annualized_cost(e) * (1 - subsidy) * cc_annuities_mult(e),
+                    cc_annualized_cost(e) * (1 - itc_schedule[period_index(e)]) * cc_annuities_mult(e),
                     new_cc_capacity(e),
                 )
 
             end
 
             if settings[:ProjectDevelopment]
-                e.new_capital = @expression(model, investment_cost(e) * (1 - de_cost_perc(e) - af_cost_perc(e) - cc_cost_perc(e)) * new_capacity(e) )
+                e.new_capital = @expression(model, investment_cost(e) * (1 - de_cost_perc(e) - af_cost_perc(e) - cc_cost_perc(e)) * new_capacity(e) * (1 - itc_schedule[period_index(e)]))
             else
-                e.new_capital = @expression(model, investment_cost(e) * new_capacity(e) )
+                e.new_capital = @expression(model, investment_cost(e) * new_capacity(e) * (1 - itc_schedule[period_index(e)]))
             end
 
-            e.new_capital_de = @expression(model, investment_cost(e) * de_cost_perc(e) * new_de_capacity(e) )
-            e.new_capital_af = @expression(model, investment_cost(e) * af_cost_perc(e) * new_af_capacity(e) )
-            e.new_capital_cc = @expression(model, investment_cost(e) * cc_cost_perc(e) * new_cc_capacity(e) )
+            e.new_capital_de = @expression(model, investment_cost(e) * de_cost_perc(e) * new_de_capacity(e) * (1 - de_itc_schedule[period_index(e)]))
+            e.new_capital_af = @expression(model, investment_cost(e) * af_cost_perc(e) * new_af_capacity(e) * (1 - af_itc_schedule[period_index(e)]))
+            e.new_capital_cc = @expression(model, investment_cost(e) * cc_cost_perc(e) * new_cc_capacity(e) * (1 - itc_schedule[period_index(e)]))
 
         end
     end

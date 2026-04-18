@@ -103,6 +103,7 @@ macro AbstractStorageBaseAttributes()
         new_capital_de::Union{AffExpr,Float64} = AffExpr(0.0)
         new_capital_af::Union{AffExpr,Float64} = AffExpr(0.0)
         new_capital_cc::Union{AffExpr,Float64} = AffExpr(0.0)
+        itc_schedule::Vector{Float64} = zeros(20)
         # Max growth formulation
         max_new_capacity_init::Float64 = 0.0
         cagr::Float64 = 0.0
@@ -335,6 +336,7 @@ new_capital(g::AbstractStorage) = g.new_capital;
 new_capital_de(g::AbstractStorage) = g.new_capital_de;
 new_capital_af(g::AbstractStorage) = g.new_capital_af;
 new_capital_cc(g::AbstractStorage) = g.new_capital_cc;
+itc_schedule(g::AbstractStorage) = g.itc_schedule;
 # Max growth formulation
 max_new_capacity_init(g::AbstractStorage) = g.max_new_capacity_init;
 cagr(g::AbstractStorage) = g.cagr;
@@ -578,6 +580,10 @@ function compute_investment_costs!(g::AbstractStorage, model::Model, settings::N
     if has_capacity(g)
         if can_expand(g)
             
+            # Apply subsidy depending on stage
+            de_itc_schedule = [e.itc_schedule[(e.de_duration+e.af_duration)+1:end]; zeros(min((e.de_duration+e.af_duration), length(l)))]
+            af_itc_schedule = [e.itc_schedule[(e.af_duration)+1:end]; zeros(min((e.af_duration), length(l)))]
+
             add_to_expression!(
             model[:eInvestmentFixedCost],
             annualized_investment_cost(g)*annuities_mult(g) + interconnect_annuity(g) * interconnect_annuities_mult(g),
