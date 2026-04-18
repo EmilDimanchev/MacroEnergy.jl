@@ -8,7 +8,6 @@
 #SBATCH --mem=400GB    
 #SBATCH --output=slurm-%j.out 
 #SBATCH --time=24:00:00          # (HH:MM:SS)
-#SBATCH --time=24:00:00          # (HH:MM:SS)
 #SBATCH --mail-type=all          
 #SBATCH --mail-user=ed0400@princeton.edu
 
