@@ -626,13 +626,13 @@ function compute_investment_costs!(g::AbstractStorage, model::Model, settings::N
     end
 end
 
-function compute_om_fixed_costs!(g::AbstractStorage, model::Model, cost_type::Function=pv_period_fixed_om_cost)
-    if has_capacity(g)
-        if fixed_om_cost(g) > 0
+function compute_om_fixed_costs!(e::AbstractEdge, model::Model)
+    if has_capacity(e)
+        if fixed_om_cost(e) > 0
             add_to_expression!(
                 model[:eOMFixedCost],
-                cost_type(g),
-                capacity(g),
+                fixed_om_cost(e),
+                capacity(e),
             )
         end
     end
