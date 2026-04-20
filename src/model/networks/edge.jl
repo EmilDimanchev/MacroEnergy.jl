@@ -750,12 +750,12 @@ function compute_investment_costs!(e::AbstractEdge, model::Model, settings::Name
     end
 end
 
-function compute_om_fixed_costs!(e::AbstractEdge, model::Model, cost_type::Function=pv_period_fixed_om_cost)
+function compute_om_fixed_costs!(e::AbstractEdge, model::Model)
     if has_capacity(e)
         if fixed_om_cost(e) > 0
             add_to_expression!(
                 model[:eOMFixedCost],
-                cost_type(e),
+                fixed_om_cost(e),
                 capacity(e),
             )
         end
