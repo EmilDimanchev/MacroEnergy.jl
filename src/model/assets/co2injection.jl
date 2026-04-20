@@ -106,7 +106,6 @@ function make(asset_type::Type{CO2Injection}, data::AbstractDict{Symbol,Any}, sy
         CO2Captured,
         co2_captured_start_node,
         co2_captured_end_node, 
-        system.settings
     )
 
     co2_storage_edge_key = :co2_storage_edge
@@ -133,7 +132,6 @@ function make(asset_type::Type{CO2Injection}, data::AbstractDict{Symbol,Any}, sy
         CO2Captured,
         co2_storage_start_node,
         co2_storage_end_node, 
-        system.settings
     )
 
     co2injection_transform.balance_data = Dict(

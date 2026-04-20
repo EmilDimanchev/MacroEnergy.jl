@@ -109,6 +109,13 @@ macro AbstractStorageBaseAttributes()
         max_new_capacity_init::Float64 = 0.0
         cagr::Float64 = 0.0
         cadr::Float64 = 0.0
+        # Macro cost outputs 
+        pv_period_investment_cost::Union{Nothing,Float64} = $storage_defaults[:pv_period_investment_cost]
+        pv_period_fixed_om_cost::Union{Nothing,Float64} = $storage_defaults[:pv_period_fixed_om_cost]
+        pv_period_variable_om_cost::Union{Nothing,Float64} = $storage_defaults[:pv_period_variable_om_cost]
+        cf_period_investment_cost::Union{Nothing,Float64} = $storage_defaults[:cf_period_investment_cost]
+        cf_period_fixed_om_cost::Union{Nothing,Float64} = $storage_defaults[:cf_period_fixed_om_cost]
+        cf_period_variable_om_cost::Union{Nothing,Float64} = $storage_defaults[:cf_period_variable_om_cost]
     end)
 end
 
@@ -343,6 +350,13 @@ itc_schedule(g::AbstractStorage) = g.itc_schedule;
 max_new_capacity_init(g::AbstractStorage) = g.max_new_capacity_init;
 cagr(g::AbstractStorage) = g.cagr;
 cadr(g::AbstractStorage) = g.cadr;
+pv_period_investment_cost(g::AbstractStorage) = g.pv_period_investment_cost;
+cf_period_investment_cost(g::AbstractStorage) = g.cf_period_investment_cost;
+pv_period_fixed_om_cost(g::AbstractStorage) = g.pv_period_fixed_om_cost;
+cf_period_fixed_om_cost(g::AbstractStorage) = g.cf_period_fixed_om_cost;
+variable_om_cost(g::AbstractStorage) = g.variable_om_cost;
+pv_period_variable_om_cost(g::AbstractStorage) = g.pv_period_variable_om_cost;
+cf_period_variable_om_cost(g::AbstractStorage) = g.cf_period_variable_om_cost;
 
 function add_linking_variables!(g::Storage, model::Model)
     if has_capacity(g)
@@ -636,6 +650,23 @@ function compute_om_fixed_costs!(e::AbstractEdge, model::Model)
             )
         end
     end
+end
+
+function compute_fixed_costs!(g::AbstractStorage, model::Model, cost_type::Symbol=:PV)
+    allowed_cost_types = [:PV, :CF]
+    if !(cost_type in allowed_cost_types)
+        error("Invalid cost type: $cost_type. Allowed types are: $(allowed_cost_types)")
+    end
+    invesment_cost_function = Dict{Symbol, Function}(
+        :PV => pv_period_investment_cost,
+        :CF => cf_period_investment_cost
+    )
+    fom_cost_function = Dict{Symbol, Function}(
+        :PV => pv_period_fixed_om_cost,
+        :CF => cf_period_fixed_om_cost
+    )
+    compute_investment_costs!(g, model, invesment_cost_function[cost_type])
+    compute_om_fixed_costs!(g, model, fom_cost_function[cost_type])
 end
 
 function compute_fixed_costs!(g::AbstractStorage, model::Model, settings::NamedTuple)

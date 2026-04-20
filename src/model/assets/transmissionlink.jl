@@ -110,7 +110,6 @@ function make(asset_type::Type{<:TransmissionLink}, data::AbstractDict{Symbol,An
         commodity,
         t_start_node,
         t_end_node,
-        system.settings
     )
     return TransmissionLink(id, transmission_edge)
 end

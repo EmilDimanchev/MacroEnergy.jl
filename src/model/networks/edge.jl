@@ -133,6 +133,12 @@ macro AbstractEdgeBaseAttributes()
         cagr::Float64 = 0.0
         cadr::Float64 = 0.0
         Inertia_category::Union{Nothing,String} = nothing
+        # Macro cost outputspv_period_investment_cost::Union{Nothing,Float64} = $edge_defaults[:pv_period_investment_cost]
+        cf_period_investment_cost::Union{Nothing,Float64} = $edge_defaults[:cf_period_investment_cost]
+        pv_period_fixed_om_cost::Union{Nothing,Float64} = $edge_defaults[:pv_period_fixed_om_cost]
+        cf_period_fixed_om_cost::Union{Nothing,Float64} = $edge_defaults[:cf_period_fixed_om_cost]
+        pv_period_variable_om_cost::Union{Nothing,Float64} = $edge_defaults[:pv_period_variable_om_cost]
+        cf_period_variable_om_cost::Union{Nothing,Float64} = $edge_defaults[:cf_period_variable_om_cost]
     end)
 end
 
@@ -525,6 +531,12 @@ max_new_capacity_init(e::AbstractEdge) = e.max_new_capacity_init;
 cagr(e::AbstractEdge) = e.cagr;
 cadr(e::AbstractEdge) = e.cadr;
 Inertia_category(e::AbstractEdge) = e.Inertia_category;
+pv_period_investment_cost(e::AbstractEdge) = e.pv_period_investment_cost;
+cf_period_investment_cost(e::AbstractEdge) = e.cf_period_investment_cost;
+pv_period_fixed_om_cost(e::AbstractEdge) = e.pv_period_fixed_om_cost;
+cf_period_fixed_om_cost(e::AbstractEdge) = e.cf_period_fixed_om_cost;
+pv_period_variable_om_cost(e::AbstractEdge) = e.pv_period_variable_om_cost;
+cf_period_variable_om_cost(e::AbstractEdge) = e.cf_period_variable_om_cost;
 ##### End of Edge interface #####
 
 function add_linking_variables!(e::AbstractEdge, model::Model)
@@ -760,6 +772,23 @@ function compute_om_fixed_costs!(e::AbstractEdge, model::Model)
             )
         end
     end
+end
+
+function compute_fixed_costs!(e::AbstractEdge, model::Model, cost_type::Symbol=:PV)
+    allowed_cost_types = [:PV, :CF]
+    if !(cost_type in allowed_cost_types)
+        error("Invalid cost type: $cost_type. Allowed types are: $(allowed_cost_types)")
+    end
+    invesment_cost_function = Dict{Symbol, Function}(
+        :PV => pv_period_investment_cost,
+        :CF => cf_period_investment_cost
+    )
+    fom_cost_function = Dict{Symbol, Function}(
+        :PV => pv_period_fixed_om_cost,
+        :CF => cf_period_fixed_om_cost
+    )
+    compute_investment_costs!(e, model, invesment_cost_function[cost_type])
+    compute_om_fixed_costs!(e, model, fom_cost_function[cost_type])
 end
 
 function compute_fixed_costs!(e::AbstractEdge, model::Model, settings::NamedTuple)

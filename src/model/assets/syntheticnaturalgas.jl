@@ -127,7 +127,6 @@ function make(asset_type::Type{SyntheticNaturalGas}, data::AbstractDict{Symbol,A
         CO2Captured,
         co2_captured_start_node,
         co2_captured_end_node,
-        system.settings
     )
 
     natgas_edge_key = :natgas_edge
@@ -154,7 +153,6 @@ function make(asset_type::Type{SyntheticNaturalGas}, data::AbstractDict{Symbol,A
         NaturalGas,
         natgas_start_node,
         natgas_end_node,
-        system.settings
     )
 
     elec_edge_key = :elec_edge
@@ -181,7 +179,6 @@ function make(asset_type::Type{SyntheticNaturalGas}, data::AbstractDict{Symbol,A
         Electricity,
         elec_start_node,
         elec_end_node,
-        system.settings
     )
 
     h2_edge_key = :h2_edge
@@ -208,7 +205,6 @@ function make(asset_type::Type{SyntheticNaturalGas}, data::AbstractDict{Symbol,A
         Hydrogen,
         h2_start_node,
         h2_end_node,
-        system.settings
     )
 
     co2_emission_edge_key = :co2_emission_edge
@@ -235,7 +231,6 @@ function make(asset_type::Type{SyntheticNaturalGas}, data::AbstractDict{Symbol,A
         CO2,
         co2_emission_start_node,
         co2_emission_end_node,
-        system.settings
     )
 
     synthetic_natural_gas_transform.balance_data = Dict(

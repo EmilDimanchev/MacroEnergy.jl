@@ -187,7 +187,6 @@ function make(asset_type::Type{Battery}, data::AbstractDict{Symbol,Any}, system:
         commodity,
         charge_start_node,
         charge_end_node,
-        system.settings
     )
 
     ## Discharge output of the battery
@@ -222,7 +221,6 @@ function make(asset_type::Type{Battery}, data::AbstractDict{Symbol,Any}, system:
         commodity,
         discharge_start_node,
         discharge_end_node,
-        system.settings
     )
 
     battery_storage.discharge_edge = battery_discharge

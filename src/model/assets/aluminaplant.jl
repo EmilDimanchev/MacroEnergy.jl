@@ -136,7 +136,6 @@ function make(asset_type::Type{AluminaPlant}, data::AbstractDict{Symbol,Any}, sy
         Electricity,
         elec_start_node,
         elec_end_node,
-        system.settings
     )
 
     #Bauxite Edge
@@ -166,7 +165,6 @@ function make(asset_type::Type{AluminaPlant}, data::AbstractDict{Symbol,Any}, sy
         Bauxite,
         bauxite_start_node,
         bauxite_end_node,
-        system.settings
     )
 
     fuel_edge_key = :fuel_edge
@@ -195,7 +193,6 @@ function make(asset_type::Type{AluminaPlant}, data::AbstractDict{Symbol,Any}, sy
         commodity,
         fuel_start_node,
         fuel_end_node,
-        system.settings
     )
 
     # Alumina Edge
@@ -224,7 +221,6 @@ function make(asset_type::Type{AluminaPlant}, data::AbstractDict{Symbol,Any}, sy
         Alumina,
         alumina_start_node,
         alumina_end_node,
-        system.settings
     )
 
     #CO2 Edge
@@ -252,7 +248,6 @@ function make(asset_type::Type{AluminaPlant}, data::AbstractDict{Symbol,Any}, sy
         CO2,
         co2_start_node,
         co2_end_node,
-        system.settings
     )
 
     # Balance Constraint Values

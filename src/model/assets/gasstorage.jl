@@ -217,7 +217,6 @@ function make(asset_type::Type{GasStorage}, data::AbstractDict{Symbol,Any}, syst
         Electricity,
         charge_elec_start_node,
         charge_elec_end_node,
-        system.settings
     )
 
     discharge_elec_edge_key = :discharge_elec_edge
@@ -244,7 +243,6 @@ function make(asset_type::Type{GasStorage}, data::AbstractDict{Symbol,Any}, syst
         Electricity,
         discharge_elec_start_node,
         discharge_elec_end_node,
-        system.settings
     )
 
     charge_edge_key = :charge_edge
@@ -266,7 +264,6 @@ function make(asset_type::Type{GasStorage}, data::AbstractDict{Symbol,Any}, syst
         commodity,
         charge_start_node,
         charge_end_node,
-        system.settings
     )
 
     discharge_edge_key = :discharge_edge
@@ -288,7 +285,6 @@ function make(asset_type::Type{GasStorage}, data::AbstractDict{Symbol,Any}, syst
         commodity,
         discharge_start_node,
         discharge_end_node,
-        system.settings
     )
 
     external_charge_edge_key = :external_charge_edge
@@ -315,7 +311,6 @@ function make(asset_type::Type{GasStorage}, data::AbstractDict{Symbol,Any}, syst
         commodity,
         external_charge_start_node,
         external_charge_end_node,
-        system.settings
     )
 
     external_discharge_edge_key = :external_discharge_edge
@@ -342,7 +337,6 @@ function make(asset_type::Type{GasStorage}, data::AbstractDict{Symbol,Any}, syst
         commodity,
         external_discharge_start_node,
         external_discharge_end_node,
-        system.settings
     )
 
     gas_storage.discharge_edge = gas_storage_discharge

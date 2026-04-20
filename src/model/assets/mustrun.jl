@@ -96,8 +96,7 @@ function make(asset_type::Type{MustRun}, data::AbstractDict{Symbol,Any}, system:
         system.time_data[:Electricity],
         Electricity,
         elec_start_node,
-        elec_end_node,
-        system.settings
+        elec_end_node
     )
 
     return asset_type(id, mustrun_transform, elec_edge)

@@ -119,7 +119,6 @@ function make(asset_type::Type{<:VRE}, data::AbstractDict{Symbol,Any}, system::S
         Electricity,
         elec_start_node,
         elec_end_node,
-        system.settings,
     )
     
     return asset_type(id, vre_transform, elec_edge)
