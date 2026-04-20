@@ -461,6 +461,9 @@ function discount_fixed_costs!(y::Union{AbstractEdge,AbstractStorage},settings::
         y.cc_annuities_mult = sum(1 / (1 + settings.DiscountRate)^s for s in 1:cc_payment_years_remaining; init=0);
     end
     
+    # This PV is relative to the start of the Case, not the start of the period
+    y.pv_period_investment_cost = annualized_investment_cost(y) * present_value_annuity_factor(discount_rate, payment_years_remaining)
+    
     period_pv_annuity_factor = present_value_annuity_factor(discount_rate, period_length)
     y.pv_period_fixed_om_cost = fixed_om_cost(y) * period_pv_annuity_factor
     y.pv_period_variable_om_cost = variable_om_cost(y) * period_pv_annuity_factor
