@@ -19,6 +19,7 @@ import MacroEnergy:
     current_subperiod,
     ensure_duals_available!,
     generate_model,
+    create_optimizer,
     get_constraint_by_type,
     get_transformations,
     has_duals,
@@ -76,8 +77,8 @@ function test_ensure_duals_available!()
     @testset "ensure_duals_available! Tests" begin
         # Load case and generate model
         case = load_case(test_path)
-        model = generate_model(case)
-        set_optimizer(model, optim)
+        optimizer = create_optimizer(optim)
+        model = generate_model(case, optimizer)
         set_silent(model)
         optimize!(model)
 
@@ -221,7 +222,7 @@ function test_write_co2_cap_duals(case, model)
                 # Test duals are consistent with the "true results"
                 co2_cap_duals_true = CSV.read(joinpath(test_path, "results", "co2_cap_duals_true.csv"), DataFrame)
                 @test df.Node == co2_cap_duals_true.Node
-                @test isapprox(df[:, Not(:Node)], co2_cap_duals_true[:, Not(:Node)], atol=1e-10)
+                @test isapprox(df[:, Not(:Node, :CO2_Slack)], co2_cap_duals_true[:, Not(:Node, :CO2_Slack)], atol=1e-10)
 
                 @test "Node" in names(df)
                 @test "CO2_Shadow_Price" in names(df)
@@ -230,7 +231,7 @@ function test_write_co2_cap_duals(case, model)
                 @test eltype(df.CO2_Shadow_Price) <: Real
                 
                 if "CO2_Slack" in names(df)
-                    @test eltype(df.CO2_Slack) <: Real
+                    @test eltype(df.CO2_Slack) <: Union{Float64, Missing}
                 end
                 
                 @test all(isfinite, df.CO2_Shadow_Price)

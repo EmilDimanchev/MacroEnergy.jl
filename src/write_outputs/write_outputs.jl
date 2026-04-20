@@ -1,30 +1,18 @@
 """
 Write results when using Monolithic as solution algorithm.
 """
-function write_outputs(case_path::AbstractString, case::Case, model::Model)
+function write_outputs(
+    case_path::AbstractString, 
+    case::Case, 
+    model::Model
+)
     num_periods = number_of_periods(case)
     periods = get_periods(case)
-    for (period_idx,period) in enumerate(periods)
+    settings = get_settings(case)
+    for (period_idx, period) in enumerate(periods)
         @info("Writing results for period $period_idx")
-        
-        create_discounted_cost_expressions!(model, period, get_settings(case))
-
-        compute_undiscounted_costs!(model, period, get_settings(case))
-
-        ## Create results directory to store the results
-        if num_periods > 1
-            # Create a directory for each period
-            results_dir = joinpath(case_path, "results_period_$period_idx")
-        else
-            # Create a directory for the single period
-            results_dir = joinpath(case_path, "results")
-        end
-        mkpath(results_dir)
-
-        # Scaling factor for variable cost portion of objective function
-        discount_scaling = compute_variable_cost_discount_scaling(period_idx, get_settings(case))
-
-        write_outputs(results_dir, period, model, discount_scaling)
+        results_dir = mkpath_for_period(case_path, num_periods, period_idx)
+        write_period_outputs(results_dir, period_idx, period, model, settings)
     end
     write_settings(case, joinpath(case_path, "settings.json"))
 
@@ -37,10 +25,26 @@ function write_outputs(case_path::AbstractString, case::Case, model::Model)
 end
 
 """
-Write results when using Myopic as solution algorithm. 
+Write results when using Myopic as solution algorithm.
 """
-function write_outputs(case_path::AbstractString, case::Case, myopic_results::MyopicResults)
-    @debug("Outputs were already written during iteration.")
+function write_outputs_myopic(
+    output_path::AbstractString, 
+    case::Case, 
+    model::Model, 
+    system::System, 
+    period_idx::Int
+)
+    num_periods = number_of_periods(case)
+    settings = get_settings(case)
+    # Create results directory to store outputs for this period
+    results_dir = mkpath_for_period(output_path, num_periods, period_idx)
+
+    if settings.MyopicSettings[:WriteModelLP]
+        @info(" -- Writing LP file for period $(period_idx)")
+        write_to_file(model, joinpath(results_dir, "model_period_$(period_idx).lp"))
+    end
+
+    write_period_outputs(results_dir, period_idx, system, model, settings)
     return nothing
 end
 
@@ -55,8 +59,16 @@ function write_outputs(case_path::AbstractString, case::Case, bd_results::Bender
 
     period_to_subproblem_map, _ = get_period_to_subproblem_mapping(periods)
 
-    # get the flow results from the operational subproblems
-    flow_df = collect_flow_results(case, bd_results)
+    # Collect subproblem data (flows, NSD, storage levels, operational costs)
+    @info "Collecting subproblem results..."
+    subproblems_data = collect_data_from_subproblems(case, bd_results)
+    
+    # Extract individual result types from the unified extraction
+    flow_df = flows(subproblems_data)
+    nsd_df = non_served_demand(subproblems_data)
+    storage_level_df = storage_levels(subproblems_data)
+    curtailment_df = curtailment(subproblems_data)
+    operational_costs_df = operational_costs(subproblems_data)
     
     # get the policy slack variables from the operational subproblems
     slack_vars = collect_distributed_policy_slack_vars(bd_results)
@@ -67,15 +79,9 @@ function write_outputs(case_path::AbstractString, case::Case, bd_results::Bender
 
     for (period_idx, period) in enumerate(periods)
         @info("Writing results for period $period_idx")
+
         ## Create results directory to store the results
-        if num_periods > 1
-            # Create a directory for each period
-            results_dir = joinpath(case_path, "results_period_$period_idx")
-        else
-            # Create a directory for the single period
-            results_dir = joinpath(case_path, "results")
-        end
-        mkpath(results_dir)
+        results_dir = mkpath_for_period(case_path, num_periods, period_idx)
 
         # subproblem indices for the current period
         subop_indices_period = period_to_subproblem_map[period_idx]
@@ -86,11 +92,28 @@ function write_outputs(case_path::AbstractString, case::Case, bd_results::Bender
 
         # Flow results
         write_flows(joinpath(results_dir, "flows.csv"), period, flow_df[subop_indices_period])
+
+        # Non-served demand results
+        write_non_served_demand(joinpath(results_dir, "non_served_demand.csv"), period, nsd_df[subop_indices_period])
+
+        # Storage level results
+        write_storage_level(joinpath(results_dir, "storage_level.csv"), period, storage_level_df[subop_indices_period])
         
-        # Cost results
+        # Curtailment results
+        write_curtailment(joinpath(results_dir, "curtailment.csv"), period, curtailment_df[subop_indices_period])
+
+        # Sub-period weights (for downstream revenue and weighted-sum calculations)
+        write_time_weights(joinpath(results_dir, "time_weights.csv"), period)
+
+        # Cost results (system level)
         costs = prepare_costs_benders(period, bd_results, subop_indices_period, settings)
+
         write_costs(joinpath(results_dir, "costs.csv"), period, costs)
+        
         write_undiscounted_costs(joinpath(results_dir, "undiscounted_costs.csv"), period, costs)
+        
+        # Detailed cost breakdown (assets and zones level)
+        write_detailed_costs_benders(results_dir, period, costs, operational_costs_df[subop_indices_period], settings)
 
         # Write dual values (if enabled)
         if period.settings.DualExportsEnabled
@@ -110,9 +133,12 @@ function write_outputs(case_path::AbstractString, case::Case, bd_results::Bender
             
             # Scaling factor to account for discounting in multi-period models
             discount_scaling = compute_variable_cost_discount_scaling(period_idx, settings)
-            write_duals_benders(results_dir, period, bd_results.planning_problem, discount_scaling)
+            write_duals(results_dir, period, discount_scaling)
         end
     end
+    	
+    write_benders_convergence(case_path, bd_results)
+
     write_settings(case, joinpath(case_path, "settings.json"))
     
     # Capacity across all periods
@@ -124,28 +150,49 @@ function write_outputs(case_path::AbstractString, case::Case, bd_results::Bender
 end
 
 """
-    Fallback function to write outputs for a single period.
+    write_period_outputs(results_dir, period_idx, system, model, settings)
+
+Write all outputs for a single period (one iteration of the Monolithic/Myopic loop).
+Sets up cost expressions, then writes capacity, costs, flows, NSD, storage, and duals.
+Used by Monolithic in its loop and by Myopic after setup.
 """
-function write_outputs(results_dir::AbstractString, 
-    system::System, 
-    model::Model, 
-    scaling::Float64=1.0
+function write_period_outputs(
+    results_dir::AbstractString,
+    period_idx::Int,
+    system::System,
+    model::Model,
+    settings::NamedTuple
 )
     
     # Capacity results
     write_capacity(joinpath(results_dir, "capacity.csv"), system)
     
-    # Cost results
+    # Cost results (system level)
+    create_discounted_cost_expressions!(model, system, settings)
+    compute_undiscounted_costs!(model, system, settings)
     write_costs(joinpath(results_dir, "costs.csv"), system, model)
     write_undiscounted_costs(joinpath(results_dir, "undiscounted_costs.csv"), system, model)
+    # Cost results (detailed breakdown by type and zone, discounted and undiscounted)
+    write_detailed_costs(results_dir, system, model, settings)
 
     # Flow results
     write_flow(joinpath(results_dir, "flows.csv"), system)
+    # Non-served demand results
+    write_non_served_demand(joinpath(results_dir, "non_served_demand.csv"), system)
+    # Storage level results
+    write_storage_level(joinpath(results_dir, "storage_level.csv"), system)
+    # Curtailment results
+    write_curtailment(joinpath(results_dir, "curtailment.csv"), system)
+
+    # Sub-period weights (for downstream revenue and weighted-sum calculations)
+    write_time_weights(joinpath(results_dir, "time_weights.csv"), system)
 
     # Write dual values (if enabled)
     if system.settings.DualExportsEnabled
-        ensure_duals_available!(model)        
-        write_duals(results_dir, system, scaling)
+        ensure_duals_available!(model)
+        # Scaling factor for variable cost portion of objective function
+        discount_scaling = compute_variable_cost_discount_scaling(period_idx, settings)
+        write_duals(results_dir, system, discount_scaling)
     end
 
     return nothing

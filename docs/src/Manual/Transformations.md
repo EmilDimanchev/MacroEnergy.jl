@@ -199,9 +199,9 @@ The `Transformation` is one of the components which make up the `ThermalPower` A
 struct ThermalPower{T} <: AbstractAsset
     id::AssetId
     thermal_transform::Transformation
-    elec_edge::Union{Edge{<:Electricity},EdgeWithUC{<:Electricity}}
-    fuel_edge::Edge{<:T}
-    co2_edge::Edge{<:CO2}
+    elec_edge::Union{UnidirectionalEdge{<:Electricity},EdgeWithUC{<:Electricity}}
+    fuel_edge::UnidirectionalEdge{<:T}
+    co2_edge::UnidirectionalEdge{<:CO2}
 end
 ```
 

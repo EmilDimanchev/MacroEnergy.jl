@@ -96,7 +96,7 @@ The following tables outline the attributes that can be set for a DirectReductio
 #### Essential Attributes
 | Field | Type | Description |
 |--------------|---------|------------|
-| `Type` | String | Asset type identifier: "DirectReductionElectricArcFurnace" |
+| `type` | String | Asset type identifier: "DirectReductionElectricArcFurnace" |
 | `id` | String | Unique identifier for the asset instance |
 | `location` | String | Geographic location/node identifier |
 | `timedata` | String | Time resolution for the time series data linked to the transformation |
@@ -186,12 +186,12 @@ The DirectReductionElectricArcFurnace asset is defined as follows:
 struct DirectReductionElectricArcFurnace{T1 <: Commodity,T2 <: Commodity} <: AbstractAsset
     id::AssetId
     dreaf_transform::Transformation
-    crudesteel_edge::Edge{CrudeSteel}
-    reductant_edge::Edge{T1} # natural gas or hydrogen
-    elec_edge::Edge{Electricity}
-    carbonsource_edge::Edge{T2} # coal, charcoal, etc. 
-    ironore_edge::Edge{<:IronOre}
-    co2_edge::Edge{CO2}
+    crudesteel_edge::UnidirectionalEdge{CrudeSteel}
+    reductant_edge::UnidirectionalEdge{T1} # natural gas or hydrogen
+    elec_edge::UnidirectionalEdge{Electricity}
+    carbonsource_edge::UnidirectionalEdge{T2} # coal, charcoal, etc. 
+    ironore_edge::UnidirectionalEdge{<:IronOre}
+    co2_edge::UnidirectionalEdge{CO2}
 end
 ```
 Here, two of the asset edges are parameterized. T1 denotes the reductant, which may be either natural gas or hydrogen, while T2 denotes the carbon source, which may be coal, charcoal, or other carbon materials.

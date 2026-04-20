@@ -37,7 +37,8 @@ const pages = [
             "Running Models" => "Guides/User Guide/user_run_model.md",
             "Writing Results" => "Guides/User Guide/user_write_results.md",
             "Using Multi-Period Models" => "Guides/User Guide/user_multiperiod.md",
-            "Exploring the Asset library" => "Guides/User Guide/user_using_asset_libary.md"
+            "Exploring the Asset library" => "Guides/User Guide/user_using_asset_libary.md",
+            "Adding Retrofitting Constraints" => "Guides/User Guide/user_retrofitting_constraints.md"
         ],
         "Modeler Guide" => [
             "Introduction" => "Guides/Modeler Guide/modeler_introduction.md",
@@ -58,6 +59,8 @@ const pages = [
     "Manual" => [
         "Introduction" => "Manual/manual_introduction.md",
         "Inputs" => "Manual/Inputs.md",
+        "Time Data" => "Manual/TimeData.md",
+        "Timeseries" => "Manual/Timeseries.md",
         "Outputs" => "Manual/Outputs.md",
         "System" => "Manual/System.md",
         "Model" => "Manual/Model.md",
@@ -71,9 +74,13 @@ const pages = [
         "Commodities" => "Manual/Commodities.md",
         "Assets" => "Manual/Assets.md",
         "Asset Library" => [
+            "Manual/assets/aluminaplant.md",
+            "Manual/assets/aluminumrefining.md",
+            "Manual/assets/aluminumsmelting.md",
             "Manual/assets/battery.md",
             "Manual/assets/beccselectricity.md",
             "Manual/assets/beccshydrogen.md",
+            "Manual/assets/downstreamemissions.md",
             "Manual/assets/electricdac.md",
             "Manual/assets/electricheating.md",
             "Manual/assets/electricsteam.md",
@@ -87,10 +94,16 @@ const pages = [
             "Manual/assets/integrateddirectreductionelectricarcfurnace.md",
             "Manual/assets/mustrun.md",
             "Manual/assets/natgasdaq.md",
+            "Manual/assets/onewaytransmissionlink.md",
             "Manual/assets/standalonelectricarcfurnace.md",
+            "Manual/assets/syntheticammonia.md",
+            "Manual/assets/syntheticmethanol.md",
+            "Manual/assets/thermalammonia.md",
             "Manual/assets/thermalhydrogen.md",
+            "Manual/assets/thermalmethanol.md",
             "Manual/assets/thermalpower.md",
             "Manual/assets/transmissionlink.md",
+            "Manual/assets/upstreamemissions.md",
             "Manual/assets/vre.md"
         ],
         "Financial Assumptions" => "Manual/Financial_assumptions.md",
@@ -104,6 +117,7 @@ const pages = [
         "Writing output data" => "References/4_writing_output.md",
         "Utilities" => "References/5_utilities.md",
         "Downloading examples" => "References/ref_download_examples.md",
+        "Running a Macro Model" => "References/ref_run_case.md",
         # "Asset Library" => "References/2_assets.md", TODO: think if we should include this
     ],
     "Appendix" => [

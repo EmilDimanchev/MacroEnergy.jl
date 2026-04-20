@@ -8,7 +8,9 @@ function load!(system::System, file_path::AbstractString)::Nothing
     if isfile(file_path)
         load!(system, load_inputs(file_path))
     elseif isdir(file_path)
-        files = get_json_files(file_path)
+        json_files = get_json_files(file_path)
+        csv_files = get_csv_files(file_path)
+        files = vcat(json_files, csv_files)
         files = sort(files, by = x -> occursin("_retrofit_option", x) ? 0 : 1) # Sorts files so that retrofit options are loaded first
         for file in files
             load!(system, joinpath(file_path, file))
@@ -51,6 +53,13 @@ function load!(system::System, data::AbstractDict{Symbol,Any})::Nothing
             end
             
             # add!(system, make(data[:instance_data][:type], data[:instance_data], system))
+            asset_instance = Base.invokelatest(
+                make,
+                data[:instance_data][:type],
+                data[:instance_data],
+                system,
+            )
+            add!(system, asset_instance)
 
         elseif isa(data[:instance_data], AbstractVector{<:AbstractDict{Symbol,Any}})
             load!(system, expand_instances(data))
@@ -123,7 +132,7 @@ function check_and_convert_type(data::AbstractDict{Symbol,Any}, m::Module = Macr
         return commodity_types(m)[type]
     end
     validate_type_attribute(type, m)
-    return getfield(m, type)
+    return Base.invokelatest(getfield, m, type)
 end
 
 function data_has_only_instance_data(data::AbstractDict{Symbol,Any})::Bool

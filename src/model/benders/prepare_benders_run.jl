@@ -47,7 +47,7 @@ function get_period_to_subproblem_mapping(periods::Vector{System})
             end
         end
     end
-    return period_to_subproblem_map, collect(1:subperiod_count)
+    return period_to_subproblem_map, subperiod_count
     
 end
 
@@ -56,7 +56,7 @@ function start_distributed_processes!(number_of_processes::Int64,case_path::Abst
     # rmprocs.(workers())
 
     if haskey(ENV,"SLURM_NTASKS")
-        ntasks = min(number_of_processes,parse(Int, ENV["SLURM_NTASKS"]));
+        parse(Int, ENV["SLURM_NTASKS"]) > number_of_processes ? @warn("SLURM_NTASKS is greater than the number of processes specified. Only $number_of_processes processes will be used.") : nothing
         cpus_per_task = parse(Int, ENV["SLURM_CPUS_PER_TASK"]);
         addprocs(SlurmClusterManager.SlurmManager(); exeflags=["-t $cpus_per_task"])
     else
@@ -97,7 +97,6 @@ function create_worker_process(pid,project,case_path::AbstractString)
 
     Distributed.remotecall_eval(Main, pid, :(using MacroEnergySolvers))
 
-    additions_path = user_additions_module_path(case_path)
-    Distributed.remotecall_eval(MacroEnergy, pid, :(MacroEnergy.load_user_additions($additions_path)))
+    Distributed.remotecall_eval(MacroEnergy, pid, :(MacroEnergy.load_user_additions($case_path)))
 
 end

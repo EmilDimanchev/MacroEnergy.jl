@@ -112,7 +112,7 @@ The following tables outline the attributes that can be set for a BfBof.
 #### Essential Attributes
 | Field | Type | Description |
 |--------------|---------|------------|
-| `Type` | String | Asset type identifier: "BlastFurnaceBasicOxygenFurnace" |
+| `type` | String | Asset type identifier: "BlastFurnaceBasicOxygenFurnace" |
 | `id` | String | Unique identifier for the asset instance |
 | `location` | String | Geographic location/node identifier |
 | `timedata` | String | Time resolution for the time series data linked to the transformation |
@@ -203,14 +203,14 @@ The BlastFurnaceBasicOxygenFurnace asset is defined as follows:
 struct BlastFurnaceBasicOxygenFurnace <: AbstractAsset
     id::AssetId
     bfbof_transform::Transformation
-    ironore_edge::Edge{<:IronOre}
-    metcoal_edge::Edge{<:Coal}
-    thermalcoal_edge::Edge{<:Coal}
-    steelscrap_edge::Edge{SteelScrap}
-    natgas_edge::Edge{NaturalGas}
-    crudesteel_edge::Edge{CrudeSteel}
-    elec_edge::Edge{Electricity}
-    co2_edge::Edge{CO2}
+    ironore_edge::UnidirectionalEdge{<:IronOre}
+    metcoal_edge::UnidirectionalEdge{<:Coal}
+    thermalcoal_edge::UnidirectionalEdge{<:Coal}
+    steelscrap_edge::UnidirectionalEdge{SteelScrap}
+    natgas_edge::UnidirectionalEdge{NaturalGas}
+    crudesteel_edge::UnidirectionalEdge{CrudeSteel}
+    elec_edge::UnidirectionalEdge{Electricity}
+    co2_edge::UnidirectionalEdge{CO2}
 end
 ```
 

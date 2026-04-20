@@ -6,7 +6,7 @@ Base.@kwdef mutable struct StorageDischargeLimitConstraint <: OperationConstrain
 end
 
 @doc raw"""
-    add_model_constraint!(ct::StorageDischargeLimitConstraint, e::Edge, model::Model)
+    add_model_constraint!(ct::StorageDischargeLimitConstraint, e::AbstractEdge, model::Model)
 
 Add a storage discharge limit constraint to the edge `e` if the start vertex of the edge is a storage. The functional form of the constraint is:
 
@@ -19,8 +19,11 @@ for each time `t` in `time_interval(e)` for the edge `e`. The function [`timeste
 
 !!! note "Storage discharge limit constraint"
     This constraint is only applied to edges with a start vertex that is a storage.
+
+!!! note "Storage discharge limit constraint"
+    This constraint is only valid for unidirectional edges with or without unit commitment.
 """
-function add_model_constraint!(ct::StorageDischargeLimitConstraint, e::Edge, model::Model, settings::NamedTuple)
+function add_model_constraint!(ct::StorageDischargeLimitConstraint, e::AbstractEdge, model::Model, settings::NamedTuple)
 
     if isa(start_vertex(e), Storage)
         ct.constraint_ref = @constraint(
@@ -31,5 +34,10 @@ function add_model_constraint!(ct::StorageDischargeLimitConstraint, e::Edge, mod
         )
     end
 
+    return nothing
+end
+
+function add_model_constraint!(ct::StorageDischargeLimitConstraint, e::BidirectionalEdge, model::Model)
+    @warn "Storage discharge limit constraint is not applicable to bidirectional edges. No constraint added."
     return nothing
 end

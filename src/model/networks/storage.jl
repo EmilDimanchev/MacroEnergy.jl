@@ -34,6 +34,7 @@ macro AbstractStorageBaseAttributes()
         retirement_period::Int64 = $storage_defaults[:retirement_period]
         retired_units::Union{Missing, JuMPVariable} = missing
         storage_level::JuMPVariable = Vector{VariableRef}()
+        variable_om_cost::Float64 = $storage_defaults[:variable_om_cost]
         wacc::Union{Missing,Float64} = missing
         annualized_investment_cost::Union{Nothing,Float64} = $storage_defaults[:annualized_investment_cost]
         # Learning
@@ -177,7 +178,7 @@ function make_storage(
     data::Dict{Symbol,Any},
     time_data::TimeData,
     commodity::DataType,
-    settings::NamedTuple=NamedTuple()
+    location::Union{Missing,Symbol} = missing
 )
     # We could instead filter on an explicit list of keys
     # As it is, this will add configure several additional
@@ -186,7 +187,7 @@ function make_storage(
     filtered_data = Dict{Symbol, Any}(
         k => v for (k,v) in data if k in storage_kwargs
     )
-    remove_keys = [:id, :timedata]
+    remove_keys = [:id, :timedata, :location]
     for key in remove_keys
         if haskey(filtered_data, key)
             delete!(filtered_data, key)
@@ -198,13 +199,14 @@ function make_storage(
     _storage = Storage{commodity}(;
         id = id,
         timedata = time_data,
+        location = location,
         filtered_data...
     )
 
     return _storage
 end
-Storage(id::Symbol, data::Dict{Symbol,Any}, time_data::TimeData, commodity::DataType, settings::NamedTuple=NamedTuple()) =
-    make_storage(id, data, time_data, commodity, settings)
+Storage(id::Symbol, data::Dict{Symbol,Any}, time_data::TimeData, commodity::DataType, location::Union{Missing,Symbol} = missing) =
+    make_storage(id, data, time_data, commodity, location)
 
 ######### Storage interface #########
 all_constraints(g::AbstractStorage) = g.constraints;
@@ -461,13 +463,13 @@ function make_long_duration_storage(
     data::Dict{Symbol,Any},
     time_data::TimeData,
     commodity::DataType,
+    location::Union{Missing,Symbol} = missing
 )
-
     storage_kwargs = Base.fieldnames(LongDurationStorage)
     filtered_data = Dict{Symbol,Any}(
         k => v for (k, v) in data if k in storage_kwargs
     )
-    remove_keys = [:id, :timedata]
+    remove_keys = [:id, :timedata, :location]
     for key in remove_keys
         if haskey(filtered_data, key)
             delete!(filtered_data, key)
@@ -479,12 +481,13 @@ function make_long_duration_storage(
     _storage = LongDurationStorage{commodity}(;
         id=id,
         timedata=time_data,
+        location = location,
         filtered_data...
     )
     return _storage
 end
-LongDurationStorage(id::Symbol, data::Dict{Symbol,Any}, time_data::TimeData, commodity::DataType) =
-    make_long_duration_storage(id, data, time_data, commodity)
+LongDurationStorage(id::Symbol, data::Dict{Symbol,Any}, time_data::TimeData, commodity::DataType, location::Union{Missing,Symbol} = missing) =
+    make_long_duration_storage(id, data, time_data, commodity, location)
 
 function add_linking_variables!(g::LongDurationStorage, model::Model)
 
@@ -623,12 +626,12 @@ function compute_investment_costs!(g::AbstractStorage, model::Model, settings::N
     end
 end
 
-function compute_om_fixed_costs!(g::AbstractStorage, model::Model)
+function compute_om_fixed_costs!(g::AbstractStorage, model::Model, cost_type::Function=pv_period_fixed_om_cost)
     if has_capacity(g)
         if fixed_om_cost(g) > 0
             add_to_expression!(
                 model[:eOMFixedCost],
-                fixed_om_cost(g),
+                cost_type(g),
                 capacity(g),
             )
         end
@@ -639,3 +642,6 @@ function compute_fixed_costs!(g::AbstractStorage, model::Model, settings::NamedT
     compute_investment_costs!(g, model, settings)
     compute_om_fixed_costs!(g, model)
 end
+# Function to filter storages with capacity variables from a Vector of storages.
+storages_with_capacity_variables(storages::Vector{<:AbstractStorage}) =
+    AbstractStorage[storage for storage in storages if has_capacity(storage)]

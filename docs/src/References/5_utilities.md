@@ -1,7 +1,7 @@
 # [Non-Benders Utility Functions](@id non-benders-utilities)
 
 ```@index
-Pages = ["4_utilities.md"]
+Pages = ["5_utilities.md"]
 ```
 
 ## `all_constraints`
@@ -179,27 +179,32 @@ MacroEnergy.struct_info
 MacroEnergy.timestepbefore
 ```
 
-## `collect_flow_results`
-```@docs
-MacroEnergy.collect_flow_results
-```
-
-## `collect_local_flows`
-```@docs
-MacroEnergy.collect_local_flows
-```
-
-## `collect_distributed_flows`
-```@docs
-MacroEnergy.collect_distributed_flows
-```
-
-## `evaluate_vtheta_in_expression`
-```@docs
-MacroEnergy.evaluate_vtheta_in_expression
-```
-
 # Benders Utility Functions
+
+## `SubproblemsData`
+```@docs
+MacroEnergy.SubproblemsData
+```
+
+## `collect_data_from_subproblems`
+```@docs
+MacroEnergy.collect_data_from_subproblems
+```
+
+## `collect_distributed_data`
+```@docs
+MacroEnergy.collect_distributed_data
+```
+
+## `collect_local_data`
+```@docs
+MacroEnergy.collect_local_data
+```
+
+## `extract_subproblem_results`
+```@docs
+MacroEnergy.extract_subproblem_results
+```
 
 ## `populate_slack_vars_from_subproblems!`
 ```@docs

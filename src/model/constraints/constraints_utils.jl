@@ -28,7 +28,7 @@ function add_constraints_by_type!(
     constraint_type::DataType, settings::NamedTuple)
     for c in all_constraints(y)
         if isa(c, constraint_type)
-            add_model_constraint!(c, y, model, settings)
+            Base.invokelatest(add_model_constraint!, c, y, model, settings)
         end
     end
 end

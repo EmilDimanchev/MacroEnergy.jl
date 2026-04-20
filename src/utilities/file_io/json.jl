@@ -10,7 +10,7 @@ function read_json(file_path::AbstractString)
     return data
 end
 
-function write_json(file_path::AbstractString, data::Dict{Symbol,<:Any})::Nothing
+function write_json(file_path::AbstractString, data::AbstractDict)::Nothing
     io = open(file_path, "w")
     JSON3.pretty(io, data; allow_inf=true)
     close(io)

@@ -48,6 +48,9 @@ abstract type Bauxite <: Commodity end ## tonnes
 abstract type IronOre <: Commodity end ## tonnes
 abstract type SteelScrap <: Commodity end ## tonnes
 abstract type CrudeSteel <: Commodity end ## tonnes
+abstract type Ammonia <: Commodity end ## MWh
+abstract type Methanol <: Commodity end ## MWh
+abstract type Nitrogen <: Commodity end ## tonnes
 abstract type Heat <: Commodity end ## MWh
 abstract type Steam <: Commodity end ## MWh
 
@@ -135,8 +138,24 @@ function include_all_in_folder(folder::AbstractString, root_path::AbstractString
     return nothing
 end
 
-# include files
-include_all_in_folder("utilities")
+include_all_in_folder("model/types/")
+
+include("utilities/file_io/json.jl")
+include("utilities/file_io/csv.jl")
+include("utilities/file_io/duckdb.jl")
+include("utilities/file_io/read_file.jl")
+include("utilities/asset_diagrams.jl")
+include("utilities/benchmarking.jl")
+include("utilities/comparisons.jl")
+include("utilities/default_data.jl")
+include("utilities/download_examples.jl")
+include("utilities/economics.jl")
+include("utilities/logging.jl")
+include("utilities/model_templates.jl")
+include("utilities/run_tools.jl")
+include("utilities/user_additions.jl")
+include("utilities/utilities.jl")
+include_all_in_folder("utilities/model_converters")
 
 include("model/units.jl")
 include("model/time_management.jl")
@@ -150,14 +169,16 @@ include("model/networks/asset.jl")
 include("model/system.jl")
 include("model/case.jl")
 include("model/networks/macroobject.jl")
-include("model/generate_model.jl")
 include("model/optimizer.jl")
+include("model/generate_model.jl")
 include("model/retrofit.jl")
 include("model/scaling.jl")
 include("model/solver.jl")
 include("model/myopic.jl")
 include_all_in_folder("model/constraints")
 include_all_in_folder("model/benders")
+
+include("utilities/postprocessing.jl")
 
 include("model/assets/battery.jl")
 include("model/assets/electrolyzer.jl")
@@ -166,7 +187,12 @@ include("model/assets/gasstorage.jl")
 include("model/assets/thermalhydrogen.jl")
 include("model/assets/thermalpower.jl")
 include("model/assets/transmissionlink.jl")
+include("model/assets/onewaytransmissionlink.jl")
 include("model/assets/vre.jl")
+include("model/assets/thermalammonia.jl")
+include("model/assets/thermalammoniaccs.jl")
+include("model/assets/thermalmethanol.jl")
+include("model/assets/thermalmethanolccs.jl")
 include("model/assets/thermalhydrogenccs.jl")
 include("model/assets/thermalpowerccs.jl")
 include("model/assets/natgasdac.jl")
@@ -178,10 +204,12 @@ include("model/assets/beccsliquidfuels.jl")
 include("model/assets/beccsnaturalgas.jl")
 include("model/assets/hydrores.jl")
 include("model/assets/mustrun.jl")
-include("model/assets/fossilfuelsupstream.jl")
-include("model/assets/fuelsenduse.jl")
+include("model/assets/upstreamemissions.jl")
+include("model/assets/downstreamemissions.jl")
 include("model/assets/syntheticnaturalgas.jl")
 include("model/assets/syntheticliquidfuels.jl")
+include("model/assets/syntheticammonia.jl")
+include("model/assets/syntheticmethanol.jl")
 include("model/assets/co2injection.jl")
 include("model/assets/cementplant.jl")
 include("model/assets/aluminumrefining.jl")
@@ -234,32 +262,43 @@ export AbstractAsset,
     CO2Injection,
     CO2StorageConstraint,
     CapacityConstraint,
-    collect_results,
     Commodity,
+    update_node_supply_inputs,
+    create_optimizer,
     DirectReductionElectricArcFurnace,
     DirectReductionElectricArcFurnaceCCS,
     Edge,
+    UnidirectionalEdge,
+    BidirectionalEdge,
     EdgeWithUC,
+    EdgeWithoutUC,
     Electricity,
     Electrolyzer,
     ElectricDAC,
     ElectricArcFurnace,
     ElectricHeating,
     ElectricSteam,
-    FossilFuelsUpstream,
+    UpstreamEmissions,
     FuelCell,
-    FuelsEndUse,
+    DownstreamEmissions,
     ThermalHeating,
     ThermalSteam,
     GasStorage,
     Graphite,
     get_optimal_capacity,
     get_optimal_capacity_by_field, 
+    get_asset_by_id,
+    get_assets_sametype,
+    get_optimal_capacity, 
+    get_optimal_curtailment,
     get_optimal_discounted_costs,
     get_optimal_flow,
     get_optimal_new_capacity,
+    get_optimal_non_served_demand,
     get_optimal_retired_capacity,
     get_learning_technologies,
+    get_optimal_storage_level,
+    Heat,
     HydroRes,
     Hydrogen,
     IronOre,
@@ -267,29 +306,34 @@ export AbstractAsset,
     LongDurationStorageImplicitMinMaxConstraint,
     LongDurationStorageChangeConstraint,
     LiquidFuels,
+    load_case,
     load_subcommodities_from_file,
+    location_ids,
     MaxCapacityConstraint,
     MaxNewCapacityConstraint,
     MaxNonServedDemandConstraint,
     MaxNonServedDemandPerSegmentConstraint,
     MaxStorageLevelConstraint,
+    MaxInitStorageLevelConstraint,
     MinCapacityConstraint,
     MinDownTimeConstraint,
     MinFlowConstraint,
     MinStorageOutflowConstraint,
     MinStorageLevelConstraint,
+    MinInitStorageLevelConstraint,
     MinUpTimeConstraint,
     MustRun,
     MustRunConstraint,
     NaturalGas,
     NaturalGasDAC,
-    NaturalGasFossilUpstream,
     Node,
     OperationConstraint,
     PlanningConstraint,
     PolicyConstraint,
+    postprocess!,
     RampingLimitConstraint,
     run_case,
+    solve_case,
     Steam,
     SteelScrap,
     Storage,
@@ -299,6 +343,7 @@ export AbstractAsset,
     StorageMinDurationConstraint,
     StorageSymmetricCapacityConstraint,
     StorageDischargeLimitConstraint,
+    StorageChargeLimitConstraint,
     SyntheticNaturalGas,
     SyntheticLiquidFuels,
     ThermalHydrogen,
@@ -306,6 +351,7 @@ export AbstractAsset,
     ThermalHydrogenCCS,
     ThermalPowerCCS,
     TransmissionLink,
+    OneWayTransmissionLink,
     Transformation,
     Uranium,
     VRE,
@@ -313,9 +359,15 @@ export AbstractAsset,
     write_capacity,
     write_costs,
     write_dataframe,
+    write_detailed_costs,
+    write_detailed_costs_benders,
     write_duals,
     write_flow,
-    write_results,
+    write_non_served_demand,
+    write_outputs,
+    write_storage_level,
+    write_curtailment,
+    write_time_weights,
     template_system,
     template_node,
     template_location,

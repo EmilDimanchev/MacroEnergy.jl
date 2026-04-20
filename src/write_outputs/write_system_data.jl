@@ -132,6 +132,16 @@ function prepare_to_json(data::Dict{DataType,Any})
     return Dict(Symbol(k) => v for (k, v) in data)
 end
 
+function prepare_to_json(data::OrderedDict{Symbol,SupplySegment})
+    return OrderedDict{Symbol,OrderedDict{Symbol,Vector{Float64}}}(
+        segment_name => OrderedDict(
+            :price => segment.price,
+            :min => segment.min,
+            :max => segment.max,
+        ) for (segment_name, segment) in data
+    )
+end
+
 # TimeData field of MacroObjects are written as the commodity type
 function prepare_to_json(timedata::TimeData)
     return typesymbol(commodity_type(timedata))

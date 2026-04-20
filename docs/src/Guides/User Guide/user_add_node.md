@@ -171,22 +171,15 @@ Each new Node will be added to the end of the existing Nodes in the Nodes file. 
             "instance_data": [
                 {
                     "location": null,
-                    "min_nsd": [
-                        0
-                    ],
                     "timedata": null,
                     "max_nsd": [
                         0
                     ],
+                    "supply": {
+                    },
                     "price": [
                     ],
                     "price_nsd": [
-                        0
-                    ],
-                    "max_supply": [
-                        0
-                    ],
-                    "price_supply": [
                         0
                     ],
                     "price_unmet_policy": {
@@ -207,6 +200,8 @@ Each new Node will be added to the end of the existing Nodes in the Nodes file. 
 
 Macro will add all default fields to the new Node. Details on each of these fields can be found here. Most fields can be deleted if you do not want to assign a non-default value. The only field which should not be deleted is the "id" field.
 
+For external supply Nodes, the preferred format is to define named segments inside a single `supply` object. Each segment must define `price`, may optionally define `min`, and may optionally define `max`. If `min` is omitted it defaults to zero for that segment. If `max` is omitted it defaults to `Inf`. Legacy `price_supply` / `min_supply` / `max_supply` inputs are still accepted and converted internally to the new representation.
+
 In the future we will add features to allow several Nodes of the same Commodity to be added at once with global data, as well as tools to automatically group Nodes with the same parameters.
 
 ## Giving a Node an ID
@@ -215,13 +210,46 @@ Each Node must have a unique ID. This can be assigned by entering a name / ident
 
 Macro does not currently have a way to check if an ID is already in use. This is something we are investigating as a future feature. In the meantime, we recommend using your code editors search features to see if a preferred ID is already in use.
 
+When you try to create a node with an ID that already exists, different things happen depending on the location and commodity:
+
+#### Same location, same commodity
+Macro will throw an error: `ERROR: A <Commodity> node already exists in the <Location> location.`
+
+**Solution:** Use a different ID.
+
+#### Different locations, same commodity
+**Node creation:**
+- If no other nodes of that commodity exist in those locations → Both nodes are created successfully
+- If other nodes of that commodity already exist in those locations → The error is thrown as above
+
+**Asset connections:**
+- Assets that reference only the location → They should connect to existing nodes automatically (no errors)
+- Assets that reference nodes explicitly (e.g., `TransmissionLink`, `GasStorage`) → They may connect to the wrong node (first one with that ID in the `nodes.json` file)
+
+#### Different locations, different commodities
+**Asset connections:**
+- If an asset references a node explicitly and the first node in the `nodes.json` file with that ID has the wrong commodity → An error is thrown:
+
+```
+ERROR: <Edge ID> cannot be connected to its <start/end> vertex, <vertex ID>.
+They have different commodities
+<Edge ID> is a <commodity> edge.
+<vertex ID> is a <commodity> vertex.
+```
+- If an asset references a node explicitly and the first node in the `nodes.json` file with that ID has the correct commodity → Connected to the first node with that ID (may be the wrong node)
+
+- Assets that don't reference nodes explicitly → They should be created successfully
+
+#### Recommendation
+**Always use unique IDs** to avoid these complications. If you must reuse IDs, be very careful about asset connections and test thoroughly.
+
 ## Adding data and constraints
 
 You should parameterize your new Node by adding data and constraints to the relevant fields of the JSON file.
 
 Details on the Node fields can be found in [the Nodes page of the manual](@ref "Nodes").
 
-Details on adding timeseries data can be found here.
+Details on adding timeseries data can be found [here](@ref "Timeseries").
 
 ## Assing the Node to a Location
 

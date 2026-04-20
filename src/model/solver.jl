@@ -5,10 +5,8 @@ end
 function solve_case(case::Case, opt::Optimizer, ::Monolithic)
 
     @info("*** Running simulation with monolithic solver ***")
-    
-    model = generate_model(case)
 
-    set_optimizer(model, opt)
+    model = generate_model(case, opt)
 
     # For monolithic solution there is only one model
     # scale constraints if the flag is true in the first system
@@ -44,11 +42,15 @@ function solve_case(case::Case, opt::Dict{Symbol, Dict{Symbol, Any}}, ::Benders)
 
     planning_problem = initialize_planning_problem!(case,opt[:planning])
 
-    subproblems, linking_variables_sub = initialize_subproblems!(periods_decomp,opt[:subproblems],bd_setup[:Distributed],bd_setup[:IncludeSubproblemSlacksAutomatically], case.settings)
+    subproblems, linking_variables_sub = initialize_subproblems!(periods_decomp, opt[:subproblems], get_settings(case), bd_setup[:Distributed],bd_setup[:IncludeSubproblemSlacksAutomatically])
 
     results = MacroEnergySolvers.benders(planning_problem, subproblems, linking_variables_sub, Dict(pairs(bd_setup)))
 
     update_with_planning_solution!(case, results.planning_sol.values)
+
+    @info "Perform a final solve of the subproblems to extract the operational decisions corresponding to the best planning solution."
+
+    update_with_subproblem_solutions!(subproblems, results)
 
     return (case, BendersResults(results, subproblems))
 end
@@ -85,13 +87,8 @@ function ensure_duals_available!(model::Model)
     # Fix integer and binary variables to their current values
     fix_discrete_variables(model);
     
-    # Re-solve the LP model silently
-    was_silent = get_attribute(model, MOI.Silent())
-    set_silent(model)
+    # Re-solve the LP model
     optimize!(model)
-    
-    # Restore original silent setting if it was not already set
-    was_silent || unset_silent(model)
     
     # Verify that duals are now available
     assert_is_solved_and_feasible(model)

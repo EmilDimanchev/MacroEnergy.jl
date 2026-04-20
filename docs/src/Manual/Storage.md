@@ -106,7 +106,7 @@ While single period cycles are fine for storage which usually discharge within t
 | `min_duration`           | Float64                   | Minimum storage duration              | hours    | 0.0      |
 | `max_duration`           | Float64                   | Maximum storage duration              | hours    | 0.0      |
 | `min_storage_level`      | Float64                   | Minimum storage level (fraction)      | fraction | 0.0      |
-| `max_storage_level`      | Float64                   | Maximum storage level (fraction)      | fraction | 0.0      |
+| `max_storage_level`      | Float64                   | Maximum storage level (fraction)      | fraction | 1.0      |
 | `min_outflow_fraction`   | Float64                   | Minimum discharge rate (fraction)     | fraction | 0.0      |
 | `loss_fraction`          | Vector{Float64}           | Storage losses per timestep           | fraction | Float64[]|
 
@@ -350,7 +350,7 @@ Methods for creating storage components.
 
 ### Battery Storage
 
-Battery Assets are modeled as a `Storage{Electricity}` component with charging and discharging `Edge{Electricity}`.
+Battery Assets are modeled as a `Storage{Electricity}` component with charging and discharging `UnidirectionalEdge{Electricity}`.
 
 #### Battery Asset, Standard JSON Input Format
 
@@ -387,7 +387,8 @@ As Assets with two `Edges` with capacity, the standard JSON inputs for Battery A
             },
             "discharge_constraints": {
                 "CapacityConstraint": true,
-                "StorageDischargeLimitConstraint": true
+                "StorageDischargeLimitConstraint": true,
+                "StorageChargeLimitConstraint": true
             }
         }
     ]
@@ -420,7 +421,8 @@ Using the advanced input format makes it easier to understand the structure of t
                     "can_retire": false,
                     "constraints": {
                         "CapacityConstraint": true,
-                        "StorageDischargeLimitConstraint": true
+                        "StorageDischargeLimitConstraint": true,
+                        "StorageChargeLimitConstraint": true
                     }
                 },
                 "charge_edge": {
@@ -487,7 +489,8 @@ Some users may find it more straightforward to use some elements of the advanced
                     "efficiency": 0.92,
                     "constraints": {
                         "CapacityConstraint": true,
-                        "StorageDischargeLimitConstraint": true
+                        "StorageDischargeLimitConstraint": true,
+                        "StorageChargeLimitConstraint": true
                     }
                 },
                 "charge_edge": {
@@ -528,12 +531,12 @@ struct GasStorage{T} <: AbstractAsset
     id::AssetId
     pump_transform::Transformation
     gas_storage::AbstractStorage{<:T}
-    charge_edge::Edge{<:T}
-    discharge_edge::Edge{<:T}
-    external_charge_edge::Edge{<:T}
-    external_discharge_edge::Edge{<:T}
-    charge_elec_edge::Edge{<:Electricity}
-    discharge_elec_edge::Edge{<:Electricity}
+    charge_edge::UnidirectionalEdge{<:T}
+    discharge_edge::UnidirectionalEdge{<:T}
+    external_charge_edge::UnidirectionalEdge{<:T}
+    external_discharge_edge::UnidirectionalEdge{<:T}
+    charge_elec_edge::UnidirectionalEdge{<:Electricity}
+    discharge_elec_edge::UnidirectionalEdge{<:Electricity}
 end
 ```
 
@@ -589,6 +592,7 @@ function make(asset_type::Type{GasStorage}, data::AbstractDict{Symbol,Any}, syst
         storage_data,
         system.time_data[commodity_symbol],
         commodity,
+        asset_location
     )
     if long_duration
         lds_constraints = [LongDurationStorageImplicitMinMaxConstraint()]

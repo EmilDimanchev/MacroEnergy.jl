@@ -24,15 +24,44 @@ function run_myopic_iteration!(case::Case, opt::Optimizer)
 
     discount_rate = get_settings(case).DiscountRate
 
-    cum_years = [sum(period_lengths[i] for i in 1:s-1; init=0) for s in 1:num_periods];
+    discount_factor = present_value_factor(discount_rate, period_lengths)
 
-    discount_factor = 1 ./ ( (1 + discount_rate) .^ cum_years)
+    opexmult = present_value_annuity_factor.(discount_rate, period_lengths)
 
-    opexmult = [sum([1 / (1 + discount_rate)^(i) for i in 1:period_lengths[s]]) for s in 1:num_periods]
+    if myopic_settings[:Restart][:enabled]
+        if myopic_settings[:Restart][:from_period] == 1
+            @warn("Restarting from the first period; no previous period to load, proceeding with normal iteration.")
+        else
+            restart_folder = joinpath(case.systems[1].data_dirpath,myopic_settings[:Restart][:folder])
+            restart_period_idx = myopic_settings[:Restart][:from_period]
+            @info("Restarting myopic iteration from period $(restart_period_idx) using capacities results in $(restart_folder)")
+            capacity_results = Dict{Int,DataFrame}()
+            for period_idx in 1:restart_period_idx-1
+                capacity_results[period_idx] = load_previous_capacity_results(joinpath(restart_folder, "results_period_$(period_idx)", "capacity.csv"))
+            end
+            carry_over_capacities!(periods[restart_period_idx], capacity_results,restart_period_idx-1)
+        end
+    end
 
     for (period_idx,system) in enumerate(periods)
+        if myopic_settings[:Restart][:enabled] && (period_idx < myopic_settings[:Restart][:from_period])
+            continue
+        end
+        
+        if period_idx > myopic_settings[:StopAfterPeriod]
+            @info("Reached specified period termination at period $(myopic_settings[:StopAfterPeriod]). Ending myopic iteration.")
+            break
+        end
+
         @info(" -- Generating model for period $(period_idx)")
-        model = Model()
+        if system.settings.EnableJuMPDirectModel
+            model = create_direct_model_with_optimizer(opt)
+        else
+            model = Model()
+            set_optimizer(model, opt)
+        end
+
+        set_string_names_on_creation(model,system.settings.EnableJuMPStringNames)
 
         @variable(model, vREF == 1)
 
@@ -74,24 +103,13 @@ function run_myopic_iteration!(case::Case, opt::Optimizer)
         variable_cost[period_idx] = model[:eVariableCost];
         unregister(model,:eVariableCost)
     
-        @expression(model, eFixedCostByPeriod[period_idx], discount_factor[period_idx] * fixed_cost[period_idx])
-
-        @expression(model, eInvestmentFixedCostByPeriod[period_idx], discount_factor[period_idx] * investment_cost[period_idx])
-
-        @expression(model, eOMFixedCostByPeriod[period_idx], discount_factor[period_idx] * om_fixed_cost[period_idx])
-    
+        @expression(model, eFixedCostByPeriod[idx in [period_idx]], discount_factor[idx] * fixed_cost[idx])
+        @expression(model, eInvestmentFixedCostByPeriod[idx in [period_idx]], discount_factor[idx] * investment_cost[idx])
+        @expression(model, eOMFixedCostByPeriod[idx in [period_idx]], discount_factor[idx] * om_fixed_cost[idx])
         @expression(model, eFixedCost, eFixedCostByPeriod[period_idx])
-        
-        @expression(model, eVariableCostByPeriod[period_idx], discount_factor[period_idx] * opexmult[period_idx] * variable_cost[period_idx])
-    
+        @expression(model, eVariableCostByPeriod[idx in [period_idx]], discount_factor[idx] * opexmult[idx] * variable_cost[idx])
         @expression(model, eVariableCost, eVariableCostByPeriod[period_idx])
-
         @objective(model, Min, model[:eFixedCost] + model[:eVariableCost])
-
-        @info(" -- Including age-based retirements")
-        add_age_based_retirements!.(system.assets, model, Ref(settings))
-
-        set_optimizer(model, opt)
 
         scale_constraints!(system, model)
 
@@ -103,7 +121,7 @@ function run_myopic_iteration!(case::Case, opt::Optimizer)
         end
 
         @info(" -- Writing outputs for period $(period_idx)")
-        write_period_outputs(output_path, case, system, model, period_idx, num_periods)
+        write_outputs_myopic(output_path, case, model, system, period_idx)
 
         # Store or discard the model based on settings
         if return_models
@@ -121,34 +139,43 @@ function run_myopic_iteration!(case::Case, opt::Optimizer)
     return return_models ? MyopicResults(models) : MyopicResults(nothing)
 end
 
-"""
-Write outputs for a single period during myopic iteration.
-This function is called for every period to write outputs immediately.
-"""
-function write_period_outputs(output_path::AbstractString, case::Case, system::System, model::Model, period_idx::Int, num_periods::Int)
-    # Create results directory to store outputs for this period
-    if num_periods > 1
-        results_dir = joinpath(output_path, "results_period_$period_idx")
+function load_previous_capacity_results(path::AbstractString)
+    df = load_dataframe(path)
+    if all(["component_id", "capacity", "new_capacity", "retired_capacity"] .∈ Ref(names(df)))
+        #### The dataframe has wide format
+        return df
+    elseif all(["component_id", "variable", "value"] .∈ Ref(names(df)))
+        #### The dataframe has long format, reshape to wide
+        return reshape_wide(df, :variable, :value)
     else
-        results_dir = joinpath(output_path, "results")
+        error("The capacity results file at $(path) does not have the expected format. It should contain either (component_id, capacity, new_capacity, retired_capacity) columns in wide format or (component_id, variable, value) columns in long format.")
     end
-    mkpath(results_dir)
-    
-    # Set up cost expressions before writing cost outputs
-    create_discounted_cost_expressions!(model, system, get_settings(case))
-    compute_undiscounted_costs!(model, system, get_settings(case))
-    
-    # Write LP file if requested
-    myopic_settings = get_settings(case).MyopicSettings
-    if myopic_settings[:WriteModelLP]
-        @info(" -- Writing LP file for period $(period_idx)")
-        lp_filename = joinpath(results_dir, "model_period_$(period_idx).lp")
-        write_to_file(model, lp_filename)
-    end
-    
-    # Scaling factor for variable cost portion of objective function
-    discount_scaling = compute_variable_cost_discount_scaling(period_idx, get_settings(case))
+end
 
-    # Write all outputs for this period
-    write_outputs(results_dir, system, model, discount_scaling)
+function carry_over_capacities!(system::System, prev_results::Dict{Int64,DataFrame}, last_period::Int)
+
+    all_edges = get_edges(system)
+    storages = get_storages(system)
+    edges_with_capacity = edges_with_capacity_variables(all_edges)
+    components_with_capacity = vcat(edges_with_capacity, storages)
+    for y in components_with_capacity
+        df_restart = prev_results[last_period]
+        component_row = findfirst(df_restart.component_id .== String(id(y)))
+        if isnothing(component_row)
+            @info("Skipping component $(id(y)) as it was not present in the previous period")
+        else
+            y.existing_capacity = df_restart.capacity[component_row]
+            for prev_period in keys(prev_results)
+                df = prev_results[prev_period];
+                component_row = findfirst(df.component_id .== String(id(y)))
+                if !isnothing(component_row)
+                    y.new_capacity_track[prev_period] = df.new_capacity[component_row]
+                    y.retired_capacity_track[prev_period] = df.retired_capacity[component_row]
+                    if isa(y, AbstractEdge) && "retrofitted_capacity" ∈ names(df)
+                        y.retrofitted_capacity_track[prev_period] = df.retrofitted_capacity[component_row]
+                    end
+                end
+            end
+        end
+    end
 end

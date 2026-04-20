@@ -1,12 +1,17 @@
 # Macro Objects
 
 ```@index
-Pages = ["2_macro_objects.md"]
+Pages = ["3_macro_objects.md"]
 ```
 
-## [`Edge`](@id edge-reference)
+## [`UnidirectionalEdge`](@id unidirectionaledge-reference)
 ```@docs
-MacroEnergy.Edge
+MacroEnergy.UnidirectionalEdge
+```
+
+## [`BidirectionalEdge`](@id bidirectionaledge-reference)
+```@docs
+MacroEnergy.BidirectionalEdge
 ```
 
 ## [`EdgeWithUC`](@id edgewithuc-reference)
