@@ -133,7 +133,8 @@ macro AbstractEdgeBaseAttributes()
         cagr::Float64 = 0.0
         cadr::Float64 = 0.0
         Inertia_category::Union{Nothing,String} = nothing
-        # Macro cost outputspv_period_investment_cost::Union{Nothing,Float64} = $edge_defaults[:pv_period_investment_cost]
+        # Macro cost outputs
+        pv_period_investment_cost::Union{Nothing,Float64} = $edge_defaults[:pv_period_investment_cost]
         cf_period_investment_cost::Union{Nothing,Float64} = $edge_defaults[:cf_period_investment_cost]
         pv_period_fixed_om_cost::Union{Nothing,Float64} = $edge_defaults[:pv_period_fixed_om_cost]
         cf_period_fixed_om_cost::Union{Nothing,Float64} = $edge_defaults[:cf_period_fixed_om_cost]
