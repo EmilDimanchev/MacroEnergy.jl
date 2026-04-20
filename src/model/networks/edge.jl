@@ -591,8 +591,6 @@ function compute_investment_costs!(e::AbstractEdge, model::Model, settings::Name
             # Apply subsidy depending on stage
             de_itc_schedule = [e.itc_schedule[(e.de_duration+e.af_duration)+1:end]; zeros(min((e.de_duration+e.af_duration), length(e.itc_schedule)))]
             af_itc_schedule = [e.itc_schedule[(e.af_duration)+1:end]; zeros(min((e.af_duration), length(e.itc_schedule)))]
-            @info("DE ITC schedule for $(id(e)) is: $(de_itc_schedule)")
-            @info("AF ITC schedule for $(id(e)) is: $(af_itc_schedule)")
             
             # Linearized learning
             if settings[:TechnologyLearning] && learning_type(e) in settings[:LearningTechnologies]
