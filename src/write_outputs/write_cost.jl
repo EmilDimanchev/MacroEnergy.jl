@@ -154,35 +154,35 @@ function prepare_discounted_costs(model::Union{Model,NamedTuple}, scaling::Float
     )
 end
 
-function compute_fixed_costs!(system::System, model::Model, settings::NamedTuple)
+function compute_fixed_costs!(system::System, model::Model, cost_type::Symbol=:PV)
     for a in system.assets
-        compute_fixed_costs!(a, model, settings)
+        compute_fixed_costs!(a, model, cost_type)
     end
 end
 
-function compute_fixed_costs!(a::AbstractAsset, model::Model, settings::NamedTuple)
+function compute_fixed_costs!(a::AbstractAsset, model::Model, cost_type::Symbol=:PV)
     for t in fieldnames(typeof(a))
-        compute_fixed_costs!(getfield(a, t), model, settings)
+        compute_fixed_costs!(getfield(a, t), model, cost_type)
     end
 end
 
-function compute_fixed_costs!(g::Union{Node,Transformation},model::Model, settings::NamedTuple)
+function compute_fixed_costs!(g::Union{Node,Transformation},model::Model, cost_type::Symbol=:PV)
     return nothing
 end
 
-function compute_investment_costs!(system::System, model::Model, settings::NamedTuple)
+function compute_investment_costs!(system::System, model::Model, cost_type::Function=pv_period_investment_cost)
     for a in system.assets
-        compute_investment_costs!(a, model, settings)
+        compute_investment_costs!(a, model, cost_type)
     end
 end
 
-function compute_investment_costs!(a::AbstractAsset, model::Model, settings::NamedTuple)
+function compute_investment_costs!(a::AbstractAsset, model::Model, cost_type::Function=pv_period_investment_cost)
     for t in fieldnames(typeof(a))
-        compute_investment_costs!(getfield(a, t), model, settings)
+        compute_investment_costs!(getfield(a, t), model, cost_type)
     end
 end
 
-function compute_investment_costs!(g::Union{Node,Transformation},model::Model, settings::NamedTuple)
+function compute_investment_costs!(g::Union{Node,Transformation}, model::Model, cost_type::Function=pv_period_investment_cost)
     return nothing
 end
 
