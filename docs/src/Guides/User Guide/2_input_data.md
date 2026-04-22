@@ -321,7 +321,8 @@ Therefore, the system has 4 networks and 8 nodes in total.
                 {
                     "id": "co2_sink",
                     "constraints": {
-                        "CO2CapConstraint": true
+                        "CO2CapConstraint": false,
+                        "BalanceConstraint": false
                     },
                     "rhs_policy": {  // right hand side of the policy constraints
                         "CO2CapConstraint": 0

@@ -8,16 +8,12 @@
                 "capital_recovery_period": 20
             },
             "edges": {
-                "discharge_edge": {
-                    "unidirectional": true,
-                    "commodity": "Electricity",
+                "discharge_edge": {"commodity": "Electricity",
                     "wacc": 0.027,
                     "lifetime": 20,
                     "capital_recovery_period": 20
                 },
-                "charge_edge": {
-                    "unidirectional": true,
-                    "commodity": "Electricity"
+                "charge_edge": {"commodity": "Electricity"
                 }
             }
         },

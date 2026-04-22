@@ -30,7 +30,7 @@ function add_model_constraint!(ct::MinFlowConstraint, e::UnidirectionalEdge, mod
     end
 end
 
-function add_model_constraint!(ct::MinFlowConstraint, e::BidirectionalEdge, model::Model)
+function add_model_constraint!(ct::MinFlowConstraint, e::BidirectionalEdge, model::Model, settings::NamedTuple=NamedTuple())
     error("MinFlowConstraint is not supported for bidirectional edges. Please use unidirectional edges for this constraint.")
     return nothing
 end

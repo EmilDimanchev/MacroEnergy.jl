@@ -445,7 +445,8 @@ Sequestration could be modelled using a `Storage{CO2}` component but `Storage` c
                 {
                     "id": "co2_sink",
                     "constraints": {
-                        "CO2CapConstraint": true
+                        "CO2CapConstraint": false,
+                        "BalanceConstraint": false
                     },
                     "rhs_policy": {
                         "CO2CapConstraint": 0
@@ -456,7 +457,10 @@ Sequestration could be modelled using a `Storage{CO2}` component but `Storage` c
         {
             "type": "CO2Captured",
             "global_data": {
-                "time_interval": "CO2Captured"
+                "time_interval": "CO2Captured",
+                "constraints": {
+                    "BalanceConstraint": false
+                }
             },
             "instance_data": [
                 {

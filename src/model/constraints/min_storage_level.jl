@@ -51,7 +51,7 @@ Add a min storage level constraint to the initial storage level of `g`. The func
 !!! note "Only applicable for problems solved with Benders decomposition"
     This constraint is redundant with `MinStorageLevelConstraint` for monolithic models. For Benders decomposition, this constraint helps the planning level master problem choose solutions that are feasible in the subproblem(s)
 """
-function add_model_constraint!(ct::MinInitStorageLevelConstraint, g::LongDurationStorage, model::Model)
+function add_model_constraint!(ct::MinInitStorageLevelConstraint, g::LongDurationStorage, model::Model, settings::NamedTuple=NamedTuple())
 
     ct.constraint_ref = @constraint(
         model,

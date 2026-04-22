@@ -7,25 +7,17 @@
                 }
             },
             "edges": {
-                "co2_captured_edge": {
-                    "unidirectional": true,
-                    "has_capacity": false,
+                "co2_captured_edge": {"has_capacity": false,
                     "end_vertex": "co2_sink_injection",
                     "commodity": "CO2Captured"
                 },
-                "co2_edge": {
-                    "unidirectional": true,
-                    "has_capacity": false,
+                "co2_edge": {"has_capacity": false,
                     "end_vertex": "co2_sink_nothing",
                     "commodity": "CO2"
                 },
-                "elec_edge": {
-                    "unidirectional": true,
-                    "has_capacity": true
+                "elec_edge": {"has_capacity": true
                 },
-                "fuel_edge": {
-                    "unidirectional": true,
-                    "has_capacity": false
+                "fuel_edge": {"has_capacity": false
                 }
             }
         },

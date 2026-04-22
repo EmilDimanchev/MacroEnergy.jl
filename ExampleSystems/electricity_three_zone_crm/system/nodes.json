@@ -108,7 +108,8 @@
             "instance_data": [
                 {
                     "constraints": {
-                        "CO2CapConstraint": true
+                        "CO2CapConstraint": false,
+                        "BalanceConstraint": false
                     },
                     "rhs_policy": {
                         "CO2CapConstraint": 18000
@@ -117,7 +118,8 @@
                 },
                 {
                     "constraints": {
-                        "CO2CapConstraint": true
+                        "CO2CapConstraint": false,
+                        "BalanceConstraint": false
                     },
                     "rhs_policy": {
                         "CO2CapConstraint": 25000
@@ -126,7 +128,8 @@
                 },
                 {
                     "constraints": {
-                        "CO2CapConstraint": true
+                        "CO2CapConstraint": false,
+                        "BalanceConstraint": false
                     },
                     "rhs_policy": {
                         "CO2CapConstraint": 25000
@@ -138,7 +141,10 @@
         },
         {
             "global_data": {
-                "time_interval": "Electricity"
+                "time_interval": "Electricity",
+                "constraints": {
+                    "BalanceConstraint": false
+                }
             },
             "instance_data": [
                 {

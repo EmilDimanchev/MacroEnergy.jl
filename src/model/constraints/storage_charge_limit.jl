@@ -22,7 +22,7 @@ for each time `t` in `time_interval(e)` for the edge `e`. The function [`timeste
 !!! note "Storage charge limit constraint"
     This constraint is only valid for unidirectional edges with or without unit commitment.
 """
-function add_model_constraint!(ct::StorageChargeLimitConstraint, e::AbstractEdge, model::Model)
+function add_model_constraint!(ct::StorageChargeLimitConstraint, e::AbstractEdge, model::Model, settings::NamedTuple=NamedTuple())
 
     if isa(end_vertex(e), Storage)
         ct.constraint_ref = @constraint(
@@ -36,7 +36,7 @@ function add_model_constraint!(ct::StorageChargeLimitConstraint, e::AbstractEdge
     return nothing
 end
 
-function add_model_constraint!(ct::StorageChargeLimitConstraint, e::BidirectionalEdge, model::Model)
+function add_model_constraint!(ct::StorageChargeLimitConstraint, e::BidirectionalEdge, model::Model, settings::NamedTuple=NamedTuple())
     @warn "Storage charge limit constraint is not applicable to bidirectional edges. No constraint added."
     return nothing
 end

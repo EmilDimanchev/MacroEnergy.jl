@@ -635,7 +635,7 @@ function planning_model!(e::AbstractEdge, model::Model, settings::NamedTuple)
                     # Split capacity contribution
                     add_to_expression!(model[:eCapacityReserveMargin][crm_id, p_idx], capacity_reserve_margin_derate_factor(e) * capacity(e) * (1 - misc_resources_ca_share[string(id(e))]))
                     # Add CA contribution
-                    @info("Edge $(id(e)) added to capacity reserve margin constraint CA")
+                    # @info("Edge $(id(e)) added to capacity reserve margin constraint CA")
                     add_to_expression!(model[:eCapacityReserveMargin][:CA, p_idx], capacity_reserve_margin_derate_factor(e) * capacity(e) * misc_resources_ca_share[string(id(e))])
                 end
             else
@@ -797,24 +797,11 @@ function compute_fixed_costs!(e::AbstractEdge, model::Model, settings::NamedTupl
     compute_om_fixed_costs!(e, model)
 end
 
-function operation_model!(e::Edge, model::Model, settings::NamedTuple)
-
-    if e.unidirectional
-        e.flow = @variable(
-            model,
-            [t in time_interval(e)],
-            lower_bound = 0.0,
-            base_name = "vFLOW_$(id(e))_period$(period_index(e))"
-        )
-    else
-        e.flow = @variable(model, [t in time_interval(e)], base_name = "vFLOW_$(id(e))_period$(period_index(e))")
-    end
-
-    update_balances!(e, model)
-
+function add_operation_model_varcosts!(e::EdgeWithoutUC, model::Model)
     for t in time_interval(e)
-        w = current_subperiod(e, t)
-        if variable_om_cost(e) > 0
+        w = current_subperiod(e,t)
+        vom_cost = variable_om_cost(e)
+        if vom_cost > 0
             add_to_expression!(
                 model[:eVariableCost],
                 subperiod_weight(e, w) * vom_cost,
@@ -835,6 +822,7 @@ function operation_model!(e::UnidirectionalEdge, model::Model)
     add_operation_model_varcosts!(e, model)
     return nothing
 end
+
 
 function operation_model!(e::BidirectionalEdge, model::Model)
     e.flow = @variable(model, [t in time_interval(e)], base_name = "vFLOW_$(id(e))_period$(period_index(e))")

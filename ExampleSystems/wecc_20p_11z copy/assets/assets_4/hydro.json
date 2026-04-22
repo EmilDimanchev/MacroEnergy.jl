@@ -5,19 +5,13 @@
                 "commodity": "Electricity"
             },
             "edges": {
-                "discharge_edge": {
-                    "unidirectional": true,
-                    "has_capacity": true,
+                "discharge_edge": {"has_capacity": true,
                     "commodity": "Electricity"
                 },
-                "inflow_edge": {
-                    "unidirectional": true,
-                    "has_capacity": true,
+                "inflow_edge": {"has_capacity": true,
                     "commodity": "Electricity"
                 },
-                "spill_edge": {
-                    "unidirectional": true,
-                    "has_capacity": false,
+                "spill_edge": {"has_capacity": false,
                     "commodity": "Electricity"
                 }
             }

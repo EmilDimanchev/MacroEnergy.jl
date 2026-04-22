@@ -5,9 +5,7 @@
                 "timedata": "Electricity"
             },
             "edges": {
-                "edge": {
-                    "unidirectional": true,
-                    "has_capacity": true,
+                "edge": {"has_capacity": true,
                     "commodity": "Electricity"
                 }
             }

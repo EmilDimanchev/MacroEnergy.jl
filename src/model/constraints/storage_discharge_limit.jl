@@ -37,7 +37,7 @@ function add_model_constraint!(ct::StorageDischargeLimitConstraint, e::AbstractE
     return nothing
 end
 
-function add_model_constraint!(ct::StorageDischargeLimitConstraint, e::BidirectionalEdge, model::Model)
+function add_model_constraint!(ct::StorageDischargeLimitConstraint, e::BidirectionalEdge, model::Model, settings::NamedTuple=NamedTuple())
     @warn "Storage discharge limit constraint is not applicable to bidirectional edges. No constraint added."
     return nothing
 end

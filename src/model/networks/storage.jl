@@ -430,7 +430,7 @@ function planning_model!(g::Storage, model::Model, settings::NamedTuple)
 
 end
 
-function operation_model!(g::Storage, model::Model, settings::NamedTuple)
+function operation_model!(g::Storage, model::Model, settings::NamedTuple=NamedTuple())
 
     g.storage_level = @variable(
         model,
@@ -544,7 +544,7 @@ function planning_model!(g::LongDurationStorage, model::Model, settings::NamedTu
 end
 
 
-function operation_model!(g::LongDurationStorage, model::Model, settings::NamedTuple)
+function operation_model!(g::LongDurationStorage, model::Model, settings::NamedTuple=NamedTuple())
 
     g.storage_level = @variable(
         model,

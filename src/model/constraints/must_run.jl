@@ -31,7 +31,7 @@ function add_model_constraint!(ct::MustRunConstraint, e::AbstractEdge, model::Mo
     end
 end
 
-function add_model_constraint!(ct::MustRunConstraint, e::BidirectionalEdge, model::Model)
+function add_model_constraint!(ct::MustRunConstraint, e::BidirectionalEdge, model::Model, settings::NamedTuple=NamedTuple())
     error("MustRunConstraint is not supported for bidirectional edges. Please use unidirectional edges for this constraint.")
     return nothing
 end

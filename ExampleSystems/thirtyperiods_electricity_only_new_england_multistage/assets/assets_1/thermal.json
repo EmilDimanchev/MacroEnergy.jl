@@ -7,20 +7,14 @@
                 }
             },
             "edges": {
-                "co2_edge": {
-                    "unidirectional": true,
-                    "has_capacity": false
+                "co2_edge": {"has_capacity": false
                 },
-                "elec_edge": {
-                    "unidirectional": true,
-                    "has_capacity": true,
+                "elec_edge": {"has_capacity": true,
                     "wacc": 0.039,
                     "lifetime": 20,
                     "capital_recovery_period": 20
                 },
-                "fuel_edge": {
-                    "unidirectional": true,
-                    "has_capacity": false
+                "fuel_edge": {"has_capacity": false
                 }
             }
         },

@@ -166,7 +166,7 @@ function define_available_capacity!(n::Node, model::Model)
     return nothing
 end
 
-function planning_model!(n::Node, model::Model, settings::NamedTuple)
+function planning_model!(n::Node, model::Model, settings::NamedTuple=NamedTuple())
 
     ### DEFAULT CONSTRAINTS ###
 
@@ -184,7 +184,7 @@ function planning_model!(n::Node, model::Model, settings::NamedTuple)
     return nothing
 end
 
-function operation_model!(n::Node, model::Model, settings::NamedTuple)
+function operation_model!(n::Node, model::Model, settings::NamedTuple=NamedTuple())
 
     if !isempty(balance_ids(n))
         for i in balance_ids(n)

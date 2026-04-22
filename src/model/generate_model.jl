@@ -148,11 +148,11 @@ function planning_model!(system::System, model::Model, settings::NamedTuple)
 end
 
 
-function operation_model!(system::System, model::Model, settings::NamedTuple)
+function operation_model!(system::System, model::Model, settings::NamedTuple=NamedTuple())
 
-    operation_model!.(system.locations, Ref(model), Ref(settings))
+    operation_model!.(system.locations, Ref(model))
 
-    operation_model!.(system.assets, Ref(model), Ref(settings))
+    operation_model!.(system.assets, Ref(model))
 
     add_constraints_by_type!(system, model, OperationConstraint, settings)
 
@@ -165,9 +165,9 @@ function planning_model!(a::AbstractAsset, model::Model, settings::NamedTuple)
     return nothing
 end
 
-function operation_model!(a::AbstractAsset, model::Model, settings::NamedTuple)
+function operation_model!(a::AbstractAsset, model::Model)
     for t in fieldnames(typeof(a))
-        operation_model!(getfield(a, t), model, settings)
+        operation_model!(getfield(a, t), model)
     end
     return nothing
 end

@@ -5,13 +5,9 @@
                 "commodity": "Electricity"
             },
             "edges": {
-                "discharge_edge": {
-                    "unidirectional": true,
-                    "commodity": "Electricity"
+                "discharge_edge": {"commodity": "Electricity"
                 },
-                "charge_edge": {
-                    "unidirectional": true,
-                    "commodity": "Electricity"
+                "charge_edge": {"commodity": "Electricity"
                 }
             }
         },
