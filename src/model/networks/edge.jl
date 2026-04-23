@@ -522,7 +522,7 @@ function planning_model!(e::AbstractEdge, model::Model, settings::NamedTuple)
                     # Split capacity contribution
                     add_to_expression!(model[:eCapacityReserveMargin][crm_id, p_idx], capacity_reserve_margin_derate_factor(e) * capacity(e) * (1 - misc_resources_ca_share[string(id(e))]))
                     # Add CA contribution
-                    @info("Edge $(id(e)) added to capacity reserve margin constraint CA")
+                    # @info("Edge $(id(e)) added to capacity reserve margin constraint CA")
                     add_to_expression!(model[:eCapacityReserveMargin][:CA, p_idx], capacity_reserve_margin_derate_factor(e) * capacity(e) * misc_resources_ca_share[string(id(e))])
                 end
             else

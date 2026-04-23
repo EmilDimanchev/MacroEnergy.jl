@@ -583,8 +583,8 @@ function compute_investment_costs!(g::AbstractStorage, model::Model, settings::N
             # Apply subsidy depending on stage
             de_itc_schedule = [g.itc_schedule[(g.de_duration+g.af_duration)+1:end]; zeros(min((g.de_duration+g.af_duration), length(g.itc_schedule)))]
             af_itc_schedule = [g.itc_schedule[(g.af_duration)+1:end]; zeros(min((g.af_duration), length(g.itc_schedule)))]
-            @info("DE ITC schedule for $(id(g)) is: $(de_itc_schedule)")
-            @info("AF ITC schedule for $(id(g)) is: $(af_itc_schedule)")
+            # @info("DE ITC schedule for $(id(g)) is: $(de_itc_schedule)")
+            # @info("AF ITC schedule for $(id(g)) is: $(af_itc_schedule)")
 
             add_to_expression!(
             model[:eInvestmentFixedCost],
