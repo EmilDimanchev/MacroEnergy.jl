@@ -532,14 +532,15 @@ function add_costs_not_seen_by_myopic!(y::Union{AbstractEdge,AbstractStorage}, s
     k_total  = min(capital_recovery_period(y), model_years_remaining)
     k_myopic = min(capital_recovery_period(y), period_lengths[period_idx])
 
-    y.annualized_investment_cost = annualized_investment_cost(y) * total_mult/myopic_mult;
 
     # TODO add myopic cost for project development stages
     total_mult  = present_value_annuity_factor(discount_rate, k_total)
     myopic_mult = present_value_annuity_factor(discount_rate, k_myopic)
 
     # TODO: We can reorganize this to not need to mutate the pv investment cost
-    # y.pv_period_investment_cost += annualized_investment_cost(y) * (total_mult - myopic_mult)
+    y.pv_period_investment_cost += annualized_investment_cost(y) * (total_mult - myopic_mult)
+
+    y.annualized_investment_cost = annualized_investment_cost(y) * total_mult/myopic_mult;
 end
 
 function add_costs_not_seen_by_myopic!(a::AbstractAsset,settings::NamedTuple)

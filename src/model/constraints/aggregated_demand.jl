@@ -18,7 +18,7 @@ The functional form of the constraint is:
 ```
 "Demand Flow" in the above equation is the net balance commodity flow into the demand node `n`.
 """
-function add_model_constraint!(ct::AggregatedDemandConstraint, n::Node{T}, model::Model) where {T}
+function add_model_constraint!(ct::AggregatedDemandConstraint, n::Node{T}, model::Model, settings::NamedTuple=NamedTuple()) where {T}
     ct_type = typeof(ct)
 
     subperiod_balance = @expression(model, [w in subperiod_indices(n)], 0 * model[:vREF])

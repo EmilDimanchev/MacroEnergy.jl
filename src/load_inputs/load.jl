@@ -49,18 +49,17 @@ function load!(system::System, data::AbstractDict{Symbol,Any})::Nothing
             if any(occursin(s, string(data[:instance_data][:id])) for s in id_list)
                 # @info("Skipping $(data[:instance_data][:id])")
             else
-                add!(system, make(data[:instance_data][:type], data[:instance_data], system))    
-            end
+                # add!(system, make(data[:instance_data][:type], data[:instance_data], system))    
             
-            # add!(system, make(data[:instance_data][:type], data[:instance_data], system))
-            asset_instance = Base.invokelatest(
-                make,
-                data[:instance_data][:type],
-                data[:instance_data],
-                system,
-            )
-            add!(system, asset_instance)
-
+                # add!(system, make(data[:instance_data][:type], data[:instance_data], system))
+                asset_instance = Base.invokelatest(
+                    make,
+                    data[:instance_data][:type],
+                    data[:instance_data],
+                    system,
+                )
+                add!(system, asset_instance)
+            end
         elseif isa(data[:instance_data], AbstractVector{<:AbstractDict{Symbol,Any}})
             load!(system, expand_instances(data))
         else
