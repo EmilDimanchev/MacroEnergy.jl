@@ -14,6 +14,8 @@ function edge_default_data()
         :can_retire => false,
         :can_retrofit => false,
         :is_retrofit => false,
+        :capacity_reserve_margin_id => missing,
+        :capacity_reserve_margin_derate_factor => 1.0,
         :capacity_size => 1.0,
         :existing_capacity => 0.0,
         :min_capacity => 0.0,
@@ -50,6 +52,10 @@ function edge_default_data()
         :cf_period_fixed_om_cost => nothing,
         :pv_period_variable_om_cost => nothing,
         :cf_period_variable_om_cost => nothing
+        :de_duration => 1,
+        :af_duration => 1,
+        :cc_duration => 1,
+        :n_learning_pwl_segments => 0
     )
 end
 
@@ -102,6 +108,10 @@ function storage_default_data()
         :cf_period_fixed_om_cost => nothing,
         :pv_period_variable_om_cost => nothing,
         :cf_period_variable_om_cost => nothing
+        :de_duration => 1,
+        :af_duration => 1,
+        :cc_duration => 1,
+        :n_learning_pwl_segments => 0
     )
 end
 
@@ -117,6 +127,7 @@ function node_default_data()
         :max_nsd => [0.0],
         :min_nsd => [0.0],
         :price => Float64[],
+        :capacity_reserve_margin_id => missing,
         :price_nsd => [0.0],
         :supply => OrderedDict{Symbol,SupplySegment}(),
         :price_unmet_policy => Dict{Symbol,Any}(),

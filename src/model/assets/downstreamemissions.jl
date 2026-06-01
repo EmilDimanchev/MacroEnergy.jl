@@ -128,6 +128,7 @@ function make(asset_type::Type{DownstreamEmissions}, data::AbstractDict{Symbol,A
         commodity,
         fuel_start_node,
         fuel_end_node,
+        system.settings
     )
 
     fuel_demand_edge_key = :fuel_demand_edge
@@ -154,6 +155,7 @@ function make(asset_type::Type{DownstreamEmissions}, data::AbstractDict{Symbol,A
         commodity,
         fuel_demand_start_node,
         fuel_demand_end_node,
+        system.settings
     )
 
     co2_edge_key = :co2_edge
@@ -180,6 +182,7 @@ function make(asset_type::Type{DownstreamEmissions}, data::AbstractDict{Symbol,A
         CO2,
         co2_start_node,
         co2_end_node,
+        system.settings
     )
 
     @add_balance(

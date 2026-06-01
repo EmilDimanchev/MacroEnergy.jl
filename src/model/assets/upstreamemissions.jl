@@ -139,6 +139,7 @@ function make(asset_type::Type{UpstreamEmissions}, data::AbstractDict{Symbol,Any
         commodity,
         fossil_fuel_start_node,
         fossil_fuel_end_node,
+        system.settings
     )
 
     fuel_edge_key = :fuel_edge
@@ -167,6 +168,7 @@ function make(asset_type::Type{UpstreamEmissions}, data::AbstractDict{Symbol,Any
         commodity,
         fuel_start_node,
         fuel_end_node,
+        system.settings
     )
 
     co2_edge_key = :co2_edge
@@ -193,6 +195,7 @@ function make(asset_type::Type{UpstreamEmissions}, data::AbstractDict{Symbol,Any
         CO2,
         co2_start_node,
         co2_end_node,
+        system.settings
     )
 
     @add_balance(

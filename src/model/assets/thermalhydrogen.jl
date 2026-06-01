@@ -194,6 +194,7 @@ function make(asset_type::Type{ThermalHydrogen}, data::AbstractDict{Symbol,Any},
         Electricity,
         elec_start_node,
         elec_end_node,
+        system.settings
     )
 
     h2_edge_key = :h2_edge
@@ -263,6 +264,7 @@ function make(asset_type::Type{ThermalHydrogen}, data::AbstractDict{Symbol,Any},
         commodity,
         fuel_start_node,
         fuel_end_node,
+        system.settings
     )
 
     co2_edge_key = :co2_edge
@@ -289,6 +291,7 @@ function make(asset_type::Type{ThermalHydrogen}, data::AbstractDict{Symbol,Any},
         CO2,
         co2_start_node,
         co2_end_node,
+        system.settings
     )
 
     @add_balance(

@@ -2,15 +2,22 @@ constraint_value(c::AbstractTypeConstraint) = c.constraint_value;
 constraint_dual(c::AbstractTypeConstraint) = c.constraint_dual;
 constraint_ref(c::AbstractTypeConstraint) = c.constraint_ref;
 
-function add_constraints_by_type!(system::System, model::Model, constraint_type::DataType)
+function add_constraints_by_type!(system::System, model::Model, constraint_type::DataType, settings::NamedTuple)
+
+    # System-level constraints (e.g. CapacityReserveMarginConstraint)
+    for c in all_constraints(system)
+        if isa(c, constraint_type)
+            add_model_constraint!(c, system, model, settings)
+        end
+    end
 
     for n in system.locations
-        add_constraints_by_type!(n, model, constraint_type)
+        add_constraints_by_type!(n, model, constraint_type, settings)
     end
 
     for a in system.assets
         for t in fieldnames(typeof(a))
-            add_constraints_by_type!(getfield(a, t), model, constraint_type)
+            add_constraints_by_type!(getfield(a, t), model, constraint_type, settings)
         end
     end
 
@@ -34,7 +41,7 @@ end
 function add_constraints_by_type!(
     location::Location, 
     model::Model,
-    constraint_type::DataType
+    constraint_type::DataType, settings::NamedTuple
 )
     return nothing
 end

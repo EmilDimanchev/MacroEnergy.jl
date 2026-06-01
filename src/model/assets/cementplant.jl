@@ -138,6 +138,7 @@ function make(asset_type::Type{CementPlant}, data::AbstractDict{Symbol,Any}, sys
         Electricity,
         elec_start_node,
         elec_end_node,
+        system.settings
     )
 
     # Fuel Edge
@@ -167,7 +168,8 @@ function make(asset_type::Type{CementPlant}, data::AbstractDict{Symbol,Any}, sys
         system.time_data[commodity_symbol],
         commodity,
         fuel_start_node,
-        fuel_end_node,
+        fuel_end_node, 
+        system.settings
     )
 
     # Cement Edge
@@ -196,7 +198,8 @@ function make(asset_type::Type{CementPlant}, data::AbstractDict{Symbol,Any}, sys
         system.time_data[:Cement],
         Cement,
         cement_start_node,
-        cement_end_node,
+        cement_end_node, 
+        system.settings
     )
 
     # CO2 Emissions Edge
@@ -223,7 +226,8 @@ function make(asset_type::Type{CementPlant}, data::AbstractDict{Symbol,Any}, sys
         system.time_data[:CO2],
         CO2,
         co2_emissions_start_node,
-        co2_emissions_end_node,
+        co2_emissions_end_node, 
+        system.settings
     )
 
     # CO2 Captured Edge
@@ -250,7 +254,8 @@ function make(asset_type::Type{CementPlant}, data::AbstractDict{Symbol,Any}, sys
         system.time_data[:CO2Captured],
         CO2Captured,
         co2_captured_start_node,
-        co2_captured_end_node,
+        co2_captured_end_node, 
+        system.settings
     )
 
     @add_balance(

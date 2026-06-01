@@ -13,6 +13,8 @@ macro AbstractEdgeBaseAttributes()
         capacity::Union{JuMPVariable,AffExpr,Float64} = AffExpr(0.0)
         capacity_size::Float64 = $edge_defaults[:capacity_size]
         capital_recovery_period::Int64 = $edge_defaults[:capital_recovery_period]
+        capacity_reserve_margin_id::Union{Symbol,Missing}  = $edge_defaults[:capacity_reserve_margin_id]
+        capacity_reserve_margin_derate_factor::Float64 = $edge_defaults[:capacity_reserve_margin_derate_factor]
         constraints::Vector{AbstractTypeConstraint} = Vector{AbstractTypeConstraint}()
         distance::Float64 = $edge_defaults[:distance]
         existing_capacity::Union{JuMPVariable,AffExpr,Float64,Int64} = $edge_defaults[:existing_capacity]
@@ -39,7 +41,7 @@ macro AbstractEdgeBaseAttributes()
         retired_capacity_track::Dict{Int64,AffExpr} = Dict(1 => AffExpr(0.0))
         retired_units::Union{JuMPVariable,Float64} = 0.0
         retrofit_efficiency::Union{Missing,Float64} = $edge_defaults[:retrofit_efficiency]
-        retrofit_id::Union{Missing, Vector{Symbol}} = $edge_defaults[:retrofit_id]
+        retrofit_id::Union{Missing,Vector{Symbol}} = $edge_defaults[:retrofit_id]
         retrofitted_capacity::AffExpr = AffExpr(0.0)
         retrofitted_capacity_track::Dict{Int64,AffExpr} = Dict(1 => AffExpr(0.0))
         retrofitted_units::Union{JuMPVariable,Float64} = 0.0
@@ -58,6 +60,85 @@ macro AbstractEdgeBaseAttributes()
         cf_period_fixed_om_cost::Union{Nothing,Float64} = $edge_defaults[:cf_period_fixed_om_cost]
         pv_period_variable_om_cost::Union{Nothing,Float64} = $edge_defaults[:pv_period_variable_om_cost]
         cf_period_variable_om_cost::Union{Nothing,Float64} = $edge_defaults[:cf_period_variable_om_cost]
+        # Learning
+        n_learning_pwl_segments::Int64 = $edge_defaults[:n_learning_pwl_segments]
+        learning_type::String = ""
+        learning_parameter::Float64 = 0.0
+        cumulative_capacity_init::Float64 = 0.0
+        endogenous_capex_segment_chosen_track::Dict{Int64,Union{JuMPVariable}} = Dict(1 => Vector{VariableRef}())
+        endogenous_capex_segment_chosen_from_relevant_period::Union{JuMPVariable,Float64} = Vector{VariableRef}()
+        aux_new_capacity::Union{JuMPVariable,Float64} = 0.0
+        cumulative_experience::Union{JuMPVariable,Float64} = 0.0
+        endogenous_capex::AffExpr = AffExpr(0.0)
+        endogenous_capex_track::Dict{Int64,AffExpr} = Dict(1 => AffExpr(0.0))
+        pwl_capex_slopes::Vector{Float64} = Float64[]
+        endog_annualized_investment_cost_times_newcapacity::AffExpr = AffExpr(0.0)
+        annuities_mult::Float64 = 0.0
+        annualization_factor::Float64 = 0.0
+        endog_annualized_cost::AffExpr = AffExpr(0.0)
+        init_cumul_capacity::Float64 = 0.0
+        endog_annualized_investment_cost::AffExpr = 0.0
+        max_cumul_capacity::Float64 = 0.0
+        # Shadow
+        de_duration::Int64 = $edge_defaults[:de_duration]
+        af_duration::Int64 = $edge_defaults[:af_duration]
+        cc_duration::Int64 = $edge_defaults[:cc_duration]
+        # Definition and evaluation (DE)
+        de_cost_perc::Float64 = 0.0
+        de_wacc::Float64 = 0.1
+        de_annualization_factor::Float64 = 0.0
+        de_cap_recovery::Int64 = 1
+        de_annuities_mult::Float64 = 0.0
+        de_annualized_cost::Float64 = 0.0
+        new_de_capacity::AffExpr = AffExpr(0.0)
+        new_de_capacity_track::Dict{Int64,AffExpr} = Dict(1 => AffExpr(0.0))
+        de_capacity::Union{JuMPVariable,AffExpr,Float64} = AffExpr(0.0)
+        de_capacity_track::Dict{Int64,AffExpr} = Dict(1 => AffExpr(0.0))
+        new_de_units::Union{JuMPVariable,Float64} = 0.0
+        endog_annualized_investment_cost_times_newcapacity_de::AffExpr = AffExpr(0.0)
+        aux_new_capacity_de::Union{JuMPVariable,Float64} = 0.0
+        # Approvals and funding (AF)
+        af_cost_perc::Float64 = 0.0
+        af_wacc::Float64 = 0.1
+        af_annualization_factor::Float64 = 0.0
+        af_cap_recovery::Int64 = 1
+        af_annuities_mult::Float64 = 0.0
+        af_annualized_cost::Float64 = 0.0
+        new_af_capacity::AffExpr = AffExpr(0.0)
+        new_af_capacity_track::Dict{Int64,AffExpr} = Dict(1 => AffExpr(0.0))
+        af_capacity::Union{JuMPVariable,AffExpr,Float64} = AffExpr(0.0)
+        af_capacity_track::Dict{Int64,AffExpr} = Dict(1 => AffExpr(0.0))
+        new_af_units::Union{JuMPVariable,Float64} = 0.0
+        endog_annualized_investment_cost_times_newcapacity_af::AffExpr = AffExpr(0.0)
+        aux_new_capacity_af::Union{JuMPVariable,Float64} = 0.0
+        # Construction and Commissioning (CC)
+        cc_cost_perc::Float64 = 0.0
+        cc_wacc::Float64 = 0.05
+        cc_annualization_factor::Float64 = 0.0
+        cc_cap_recovery::Int64 = 1
+        cc_annuities_mult::Float64 = 0.0
+        cc_annualized_cost::Float64 = 0.0
+        new_cc_capacity::AffExpr = AffExpr(0.0)
+        new_cc_capacity_track::Dict{Int64,AffExpr} = Dict(1 => AffExpr(0.0))
+        cc_capacity::Union{JuMPVariable,AffExpr,Float64} = AffExpr(0.0)
+        cc_capacity_track::Dict{Int64,AffExpr} = Dict(1 => AffExpr(0.0))
+        new_cc_units::Union{JuMPVariable,Float64} = 0.0
+        endog_annualized_investment_cost_times_newcapacity_cc::AffExpr = AffExpr(0.0)
+        aux_new_capacity_cc::Union{JuMPVariable,Float64} = 0.0
+        capacity_in_progress_init::Float64 = 0.0
+        interconnect_annuity::Float64 = 0.0
+        cff::Float64 = 0.0
+        interconnect_annuities_mult::Float64 = 0.0
+        new_capital::Union{AffExpr,Float64} = AffExpr(0.0)
+        new_capital_de::Union{AffExpr,Float64} = AffExpr(0.0)
+        new_capital_af::Union{AffExpr,Float64} = AffExpr(0.0)
+        new_capital_cc::Union{AffExpr,Float64} = AffExpr(0.0)
+        itc_schedule::Vector{Float64} = zeros(20)
+        # Max growth formulation
+        max_new_capacity_init::Float64 = 0.0
+        cagr::Float64 = 0.0
+        cadr::Float64 = 0.0
+        Inertia_category::Union{Nothing,String} = nothing
     end)
 end
 
@@ -160,7 +241,7 @@ function commodity_type(t::Type{Edge{<:T}}) where {T}
     return commodity_type(Edge{ub_type})
 end
 
-function target_is_valid(commodity::Type{<:Commodity}, target::T) where T<:Union{Node, AbstractStorage}
+function target_is_valid(commodity::Type{<:Commodity}, target::T) where T<:Union{Node,AbstractStorage}
     target_commodity = commodity_type(target)
     if (commodity === target_commodity) || (commodity <: target_commodity)
         return true
@@ -183,6 +264,7 @@ function make_edge_unidir(
     commodity::DataType,
     start_vertex::AbstractVertex,
     end_vertex::AbstractVertex,
+    settings::NamedTuple=NamedTuple()
 )
     if !(target_is_valid(commodity, start_vertex))
         error("Edge $id cannot be connected to its start vertex, $(start_vertex.id).\nThey have different commodities\n$id is a $commodity edge.\n$(start_vertex.id) is a $(commodity_type(start_vertex)) vertex.")
@@ -191,8 +273,8 @@ function make_edge_unidir(
     end
 
     edge_kwargs = Base.fieldnames(Edge)
-    filtered_data = Dict{Symbol, Any}(
-        k => v for (k,v) in data if k in edge_kwargs
+    filtered_data = Dict{Symbol,Any}(
+        k => v for (k, v) in data if k in edge_kwargs
     )
     remove_keys = [:id, :start_vertex, :end_vertex, :timedata]
     for key in remove_keys
@@ -214,6 +296,7 @@ function make_edge_unidir(
         end_vertex = end_vertex,
         filtered_data...
     )
+
     return _edge
 end
 
@@ -304,6 +387,8 @@ can_retire(e::AbstractEdge) = e.can_retire;
 can_retrofit(e::AbstractEdge) = e.can_retrofit;
 capacity(e::AbstractEdge) = e.capacity;
 capacity_size(e::AbstractEdge) = e.capacity_size;
+capacity_reserve_margin_id(e::AbstractEdge) = e.capacity_reserve_margin_id;
+capacity_reserve_margin_derate_factor(e::AbstractEdge) = e.capacity_reserve_margin_derate_factor;
 capital_recovery_period(e::AbstractEdge) = e.capital_recovery_period;
 commodity_type(e::AbstractEdge{T}) where {T} = T;
 end_vertex(e::AbstractEdge) = e.end_vertex;
@@ -339,21 +424,21 @@ min_flow_fraction(e::AbstractEdge) = e.min_flow_fraction;
 new_capacity(e::AbstractEdge) = e.new_capacity;
 new_capacity_track(e::AbstractEdge) = e.new_capacity_track;
 #### Note that edge "e" may not be present in the inputs for all case
-new_capacity_track(e::AbstractEdge,s::Int64) =  (haskey(new_capacity_track(e),s) == false) ? 0.0 : e.new_capacity_track[s];
+new_capacity_track(e::AbstractEdge, s::Int64) = (haskey(new_capacity_track(e), s) == false) ? 0.0 : e.new_capacity_track[s];
 new_units(e::AbstractEdge) = e.new_units;
 ramp_down_fraction(e::AbstractEdge) = e.ramp_down_fraction;
 ramp_up_fraction(e::AbstractEdge) = e.ramp_up_fraction;
 retired_capacity(e::AbstractEdge) = e.retired_capacity;
 retired_capacity_track(e::AbstractEdge) = e.retired_capacity_track;
 #### Note that edge "e" may not be present in the inputs for all case
-retired_capacity_track(e::AbstractEdge,s::Int64) =  (haskey(retired_capacity_track(e),s) == false) ? 0.0 : e.retired_capacity_track[s];
+retired_capacity_track(e::AbstractEdge, s::Int64) = (haskey(retired_capacity_track(e), s) == false) ? 0.0 : e.retired_capacity_track[s];
 retired_units(e::AbstractEdge) = e.retired_units;
 retirement_period(e::AbstractEdge) = e.retirement_period;
 retrofit_efficiency(e::AbstractEdge) = e.retrofit_efficiency;
 retrofit_id(e::AbstractEdge) = e.retrofit_id;
 retrofitted_capacity(e::AbstractEdge) = e.retrofitted_capacity;
 retrofitted_capacity_track(e::AbstractEdge) = e.retrofitted_capacity_track;
-retrofitted_capacity_track(e::AbstractEdge,s::Int64) = (haskey(retrofitted_capacity_track(e),s) == false) ? 0.0 : e.retrofitted_capacity_track[s];
+retrofitted_capacity_track(e::AbstractEdge, s::Int64) = (haskey(retrofitted_capacity_track(e), s) == false) ? 0.0 : e.retrofitted_capacity_track[s];
 retrofitted_units(e::AbstractEdge) = e.retrofitted_units;
 start_vertex(e::AbstractEdge)::AbstractVertex = e.start_vertex;
 variable_om_cost(e::AbstractEdge) = e.variable_om_cost;
@@ -365,6 +450,93 @@ pv_period_fixed_om_cost(e::AbstractEdge) = e.pv_period_fixed_om_cost;
 cf_period_fixed_om_cost(e::AbstractEdge) = e.cf_period_fixed_om_cost;
 pv_period_variable_om_cost(e::AbstractEdge) = e.pv_period_variable_om_cost;
 
+# Learning
+learning_type(e::AbstractEdge) = e.learning_type;
+n_learning_pwl_segments(e::AbstractEdge) = e.n_learning_pwl_segments;
+learning_parameter(e::AbstractEdge) = e.learning_parameter;
+cumulative_capacity_init(e::AbstractEdge) = e.cumulative_capacity_init;
+endog_annualized_investment_cost(e::AbstractEdge) = e.endog_annualized_investment_cost;
+endogenous_capex_segment_chosen_from_relevant_period(e::AbstractEdge) = e.endogenous_capex_segment_chosen_from_relevant_period;
+cumulative_experience(e::AbstractEdge) = e.cumulative_experience;
+endogenous_capex(e::AbstractEdge) = e.endogenous_capex;
+endogenous_capex_track(e::AbstractEdge) = e.endogenous_capex_track;
+endogenous_capex_track(e::AbstractEdge, s::Int64) = (haskey(endogenous_capex_track(e), s) == false) ? 0.0 : e.endogenous_capex_track[s];
+endogenous_capex_segment_chosen_track(e::AbstractEdge) = e.endogenous_capex_segment_chosen_track;
+endogenous_capex_segment_chosen_track(e::AbstractEdge, s::Int64) = (haskey(endogenous_capex_segment_chosen_track(e), s) == false) ? 0.0 : e.endogenous_capex_segment_chosen_track[s];
+pwl_capex_slopes(e::AbstractEdge) = e.pwl_capex_slopes;
+aux_new_capacity(e::AbstractEdge) = e.aux_new_capacity;
+endog_annualized_investment_cost_times_newcapacity(e::AbstractEdge) = e.endog_annualized_investment_cost_times_newcapacity;
+annuities_mult(e::AbstractEdge) = e.annuities_mult;
+annualization_factor(e::AbstractEdge) = e.annualization_factor;
+endog_annualized_cost(e::AbstractEdge) = e.endog_annualized_cost;
+init_cumul_capacity(e::AbstractEdge) = e.init_cumul_capacity;
+max_cumul_capacity(e::AbstractEdge) = e.max_cumul_capacity;
+# Shadow
+de_duration(e::AbstractEdge) = e.de_duration;
+af_duration(e::AbstractEdge) = e.af_duration;
+cc_duration(e::AbstractEdge) = e.cc_duration;
+de_cost_perc(e::AbstractEdge) = e.de_cost_perc;
+af_cost_perc(e::AbstractEdge) = e.af_cost_perc;
+cc_cost_perc(e::AbstractEdge) = e.cc_cost_perc;
+de_wacc(e::AbstractEdge) = e.de_wacc;
+af_wacc(e::AbstractEdge) = e.af_wacc;
+cc_wacc(e::AbstractEdge) = e.cc_wacc;
+de_annualization_factor(e::AbstractEdge) = e.de_annualization_factor;
+af_annualization_factor(e::AbstractEdge) = e.af_annualization_factor;
+cc_annualization_factor(e::AbstractEdge) = e.cc_annualization_factor;
+de_cap_recovery(e::AbstractEdge) = e.de_cap_recovery;
+af_cap_recovery(e::AbstractEdge) = e.af_cap_recovery;
+cc_cap_recovery(e::AbstractEdge) = e.cc_cap_recovery;
+de_annualized_cost(e::AbstractEdge) = e.de_annualized_cost;
+af_annualized_cost(e::AbstractEdge) = e.af_annualized_cost;
+cc_annualized_cost(e::AbstractEdge) = e.cc_annualized_cost;
+de_annuities_mult(e::AbstractEdge) = e.de_annuities_mult;
+af_annuities_mult(e::AbstractEdge) = e.af_annuities_mult;
+cc_annuities_mult(e::AbstractEdge) = e.cc_annuities_mult;
+# Definition and evaluation (DE)
+new_de_capacity(e::AbstractEdge) = e.new_de_capacity;
+de_capacity(e::AbstractEdge) = e.de_capacity;
+new_de_capacity_track(e::AbstractEdge) = e.new_de_capacity_track;
+new_de_capacity_track(e::AbstractEdge, s::Int64) = (haskey(new_de_capacity_track(e), s) == false) ? 0.0 : e.new_de_capacity_track[s];
+de_capacity_track(e::AbstractEdge) = e.de_capacity_track;
+de_capacity_track(e::AbstractEdge, s::Int64) = (haskey(de_capacity_track(e), s) == false) ? 0.0 : e.de_capacity_track[s];
+new_de_units(e::AbstractEdge) = e.new_de_units;
+aux_new_capacity_de(e::AbstractEdge) = e.aux_new_capacity_de;
+endog_annualized_investment_cost_times_newcapacity_de(e::AbstractEdge) = e.endog_annualized_investment_cost_times_newcapacity_de;
+# Approvals and funding (AF)
+new_af_capacity(e::AbstractEdge) = e.new_af_capacity;
+af_capacity(e::AbstractEdge) = e.af_capacity;
+new_af_capacity_track(e::AbstractEdge) = e.new_af_capacity_track;
+new_af_capacity_track(e::AbstractEdge, s::Int64) = (haskey(new_af_capacity_track(e), s) == false) ? 0.0 : e.new_af_capacity_track[s];
+af_capacity_track(e::AbstractEdge) = e.af_capacity_track;
+af_capacity_track(e::AbstractEdge, s::Int64) = (haskey(af_capacity_track(e), s) == false) ? 0.0 : e.af_capacity_track[s];
+new_af_units(e::AbstractEdge) = e.new_af_units;
+aux_new_capacity_af(e::AbstractEdge) = e.aux_new_capacity_af;
+endog_annualized_investment_cost_times_newcapacity_af(e::AbstractEdge) = e.endog_annualized_investment_cost_times_newcapacity_af;
+# Construction and commissioning (CC)
+new_cc_capacity(e::AbstractEdge) = e.new_cc_capacity;
+cc_capacity(e::AbstractEdge) = e.cc_capacity;
+new_cc_capacity_track(e::AbstractEdge) = e.new_cc_capacity_track;
+new_cc_capacity_track(e::AbstractEdge, s::Int64) = (haskey(new_cc_capacity_track(e), s) == false) ? 0.0 : e.new_cc_capacity_track[s];
+cc_capacity_track(e::AbstractEdge) = e.cc_capacity_track;
+cc_capacity_track(e::AbstractEdge, s::Int64) = (haskey(cc_capacity_track(e), s) == false) ? 0.0 : e.cc_capacity_track[s];
+new_cc_units(e::AbstractEdge) = e.new_cc_units;
+aux_new_capacity_cc(e::AbstractEdge) = e.aux_new_capacity_cc;
+endog_annualized_investment_cost_times_newcapacity_cc(e::AbstractEdge) = e.endog_annualized_investment_cost_times_newcapacity_cc;
+capacity_in_progress_init(e::AbstractEdge) = e.capacity_in_progress_init;
+interconnect_annuity(e::AbstractEdge) = e.interconnect_annuity;
+cff(e::AbstractEdge) = e.cff;
+interconnect_annuities_mult(e::AbstractEdge) = e.interconnect_annuities_mult;
+new_capital(e::AbstractEdge) = e.new_capital;
+new_capital_de(e::AbstractEdge) = e.new_capital_de;
+new_capital_af(e::AbstractEdge) = e.new_capital_af;
+new_capital_cc(e::AbstractEdge) = e.new_capital_cc;
+itc_schedule(e::AbstractEdge) = e.itc_schedule;
+# Max growth formulation
+max_new_capacity_init(e::AbstractEdge) = e.max_new_capacity_init;
+cagr(e::AbstractEdge) = e.cagr;
+cadr(e::AbstractEdge) = e.cadr;
+Inertia_category(e::AbstractEdge) = e.Inertia_category;
 ##### End of Edge interface #####
 
 function add_linking_variables!(e::AbstractEdge, model::Model)
@@ -380,29 +552,29 @@ end
 function define_available_capacity!(e::AbstractEdge, model::Model)
 
     if has_capacity(e)
-        
+
         e.new_units = @variable(model, lower_bound = 0.0, base_name = "vNEWUNIT_$(id(e))_period$(period_index(e))")
 
         e.retired_units = @variable(model, lower_bound = 0.0, base_name = "vRETUNIT_$(id(e))_period$(period_index(e))")
 
         e.new_capacity = @expression(model, capacity_size(e) * new_units(e))
-        
+
         e.retired_capacity = @expression(model, capacity_size(e) * retired_units(e))
 
-        e.new_capacity_track[period_index(e)] = new_capacity(e);
-        
-        e.retired_capacity_track[period_index(e)] = retired_capacity(e);
+        e.new_capacity_track[period_index(e)] = new_capacity(e)
+
+        e.retired_capacity_track[period_index(e)] = retired_capacity(e)
 
         if can_retrofit(e)
 
             e.retrofitted_units = @variable(model, lower_bound = 0.0, base_name = "vRETROFITUNIT_$(id(e))_period$(period_index(e))")
-            
+
             e.retrofitted_capacity = @expression(model, capacity_size(e) * retrofitted_units(e))
 
             e.retrofitted_capacity_track[period_index(e)] = retrofitted_capacity(e)
 
             @constraint(model, capacity(e) == new_capacity(e) - retired_capacity(e) - retrofitted_capacity(e) + existing_capacity(e))
-            
+
         else
             @constraint(model, capacity(e) == new_capacity(e) - retired_capacity(e) + existing_capacity(e))
         end
@@ -411,18 +583,87 @@ function define_available_capacity!(e::AbstractEdge, model::Model)
         #     model,
         #     new_capacity(e) - retired_capacity(e) + existing_capacity(e)
         # )
+
+        # Shadow
+        # Definition and evaluation (DE)
+        e.new_de_units = @variable(model, lower_bound = 0.0, base_name = "vNEWDEUNIT_$(id(e))_stage$(period_index(e))")
+        e.new_de_capacity = @expression(model, capacity_size(e) * new_de_units(e))
+        e.new_de_capacity_track[period_index(e)] = new_de_capacity(e)
+        e.de_capacity = @variable(model, lower_bound = 0.0, base_name = "vDECAP_$(id(e))_stage$(period_index(e))")
+        e.de_capacity_track[period_index(e)] = de_capacity(e)
+        # Approvals and funding (AF)
+        e.new_af_units = @variable(model, lower_bound = 0.0, base_name = "vNEWAFUNIT_$(id(e))_stage$(period_index(e))")
+        e.new_af_capacity = @expression(model, capacity_size(e) * new_af_units(e))
+        e.new_af_capacity_track[period_index(e)] = new_af_capacity(e)
+        e.af_capacity = @variable(model, lower_bound = 0.0, base_name = "vAFCAP_$(id(e))_stage$(period_index(e))")
+        e.af_capacity_track[period_index(e)] = af_capacity(e)
+        # Construction and commissioning (CC)
+        e.new_cc_units = @variable(model, lower_bound = 0.0, base_name = "vNEWCCUNIT_$(id(e))_stage$(period_index(e))")
+        e.new_cc_capacity = @expression(model, capacity_size(e) * new_cc_units(e))
+        e.new_cc_capacity_track[period_index(e)] = new_cc_capacity(e)
+        e.cc_capacity = @variable(model, lower_bound = 0.0, base_name = "vCCCAP_$(id(e))_stage$(period_index(e))")
+        e.cc_capacity_track[period_index(e)] = cc_capacity(e)
     end
 
     return nothing
 
 end
 
-function planning_model!(e::AbstractEdge, model::Model)
+function planning_model!(e::AbstractEdge, model::Model, settings::NamedTuple)
 
     if has_capacity(e)
 
+        if !ismissing(capacity_reserve_margin_id(e)) 
+            
+            # Adjusing CA resource adequacy based on CPUC documents
+            misc_resources_ca_share = Dict{String,Float64}(
+            "OR_conventional_hydroelectric_1_discharge_edge" => 0.24,
+            "NV_conventional_hydroelectric_1_discharge_edge" => 0.57,
+            "AZ_nuclear_1_elec_edge" => 0.2,
+            "AZ_natural_gas_fired_combined_cycle_1_elec_edge" => 0.17,
+            "UT_natural_gas_fired_combined_cycle_1_elec_edge" => 0.26
+            )
+            
+            crm_id = capacity_reserve_margin_id(e)
+            p_idx = period_index(e)
+            if haskey(model, :eCapacityReserveMargin) && crm_id ∈ axes(model[:eCapacityReserveMargin])[1]
+                if string(id(e)) ∉ keys(misc_resources_ca_share)
+                    # Most resources
+                    add_to_expression!(model[:eCapacityReserveMargin][crm_id, p_idx], capacity_reserve_margin_derate_factor(e) * capacity(e))
+                else
+                    # Split capacity contribution
+                    add_to_expression!(model[:eCapacityReserveMargin][crm_id, p_idx], capacity_reserve_margin_derate_factor(e) * capacity(e) * (1 - misc_resources_ca_share[string(id(e))]))
+                    # Add CA contribution
+                    # @info("Edge $(id(e)) added to capacity reserve margin constraint CA")
+                    add_to_expression!(model[:eCapacityReserveMargin][:CA, p_idx], capacity_reserve_margin_derate_factor(e) * capacity(e) * misc_resources_ca_share[string(id(e))])
+                end
+            else
+                error("Edge $(id(e)) is associated with an undefined capacity reserve margin constraint. Please double check the input data.")
+            end
+        end
+
+        # Deployment Inertia speed limit constraints
+        if settings[:DeploymentInertia] && !isnothing(Inertia_category(e)) && Inertia_category(e) ∈ settings[:TechsWithInertia]
+            if period_index(e) == 1
+                add_to_expression!(model[:eDeploymentGrowth][Inertia_category(e), period_index(e)], new_capacity(e))
+                add_to_expression!(model[:eDeploymentDecline][Inertia_category(e), period_index(e)], new_capacity(e))
+            elseif period_index(e) > 1
+                # CAGR
+                model[:eDeploymentGrowth][Inertia_category(e), period_index(e)] += new_capacity(e) - new_capacity_track(e, period_index(e)-1)*(1+cagr(e))
+                # CADR
+                model[:eDeploymentDecline][Inertia_category(e), period_index(e)] += new_capacity(e) - new_capacity_track(e, period_index(e)-1)*(1-cadr(e))
+            end
+        end
+            
+        
         if !can_expand(e)
-            fix(new_units(e), 0.0; force = true)
+            fix(new_units(e), 0.0; force=true)
+            fix(new_de_units(e), 0.0; force=true)
+            fix(new_af_units(e), 0.0; force=true)
+            fix(new_cc_units(e), 0.0; force=true)
+            fix(de_capacity(e), 0.0; force=true)
+            fix(af_capacity(e), 0.0; force=true)
+            fix(cc_capacity(e), 0.0; force=true)
         else
             if integer_decisions(e)
                 set_integer(new_units(e))
@@ -430,7 +671,7 @@ function planning_model!(e::AbstractEdge, model::Model)
         end
 
         if !can_retire(e)
-            fix(retired_units(e), 0.0; force = true)
+            fix(retired_units(e), 0.0; force=true)
         else
             if integer_decisions(e)
                 set_integer(retired_units(e))
@@ -448,20 +689,81 @@ function planning_model!(e::AbstractEdge, model::Model)
 
     end
 
-    compute_fixed_costs!(e, model)
+    compute_fixed_costs!(e, model, settings)
 
     return nothing
 
 end
 
-function compute_investment_costs!(e::AbstractEdge, model::Model, cost_type::Function=pv_period_investment_cost)
+function compute_investment_costs!(e::AbstractEdge, model::Model, cost_type::Function=pv_period_investment_cost; settings::NamedTuple=NamedTuple())
     if has_capacity(e)
         if can_expand(e)
-            add_to_expression!(
-                model[:eInvestmentFixedCost],
-                cost_type(e),
-                new_capacity(e),
-            )
+
+            # Apply subsidy depending on stage
+            de_itc_schedule = [e.itc_schedule[(e.de_duration+e.af_duration)+1:end]; zeros(min((e.de_duration+e.af_duration), length(e.itc_schedule)))]
+            af_itc_schedule = [e.itc_schedule[(e.af_duration)+1:end]; zeros(min((e.af_duration), length(e.itc_schedule)))]
+            
+            # Linearized learning
+            if settings[:TechnologyLearning] && learning_type(e) in settings[:LearningTechnologies]
+                
+                model[:eInvestmentFixedCost] += e.endog_annualized_investment_cost_times_newcapacity * (1 - e.itc_schedule[period_index(e)]) * annuities_mult(e) + interconnect_annuity(e) * interconnect_annuities_mult(e) * new_capacity(e)
+
+                # Nonlinear version for benchmarking
+                # model[:eInvestmentFixedCost] += (1 - subsidy)*endog_annualized_investment_cost(e)*annuities_mult(e)*new_capacity(e)
+                
+                # Shadow capacity for project development constraints
+                model[:eInvestmentFixedCost] +=
+                    e.endog_annualized_investment_cost_times_newcapacity_de * (1 - de_itc_schedule[period_index(e)]) * de_annuities_mult(e)
+                model[:eInvestmentFixedCost] +=
+                    e.endog_annualized_investment_cost_times_newcapacity_af * (1 - af_itc_schedule[period_index(e)]) * af_annuities_mult(e)
+                model[:eInvestmentFixedCost] +=
+                    e.endog_annualized_investment_cost_times_newcapacity_cc * (1 - e.itc_schedule[period_index(e)]) * cc_annuities_mult(e)
+            
+            
+            elseif !settings[:TechnologyLearning] || !(learning_type(e) in settings[:LearningTechnologies])
+                # No learning
+                add_to_expression!(
+                    model[:eInvestmentFixedCost],
+                    annualized_investment_cost(e) * (1 - e.itc_schedule[period_index(e)]) * annuities_mult(e) + interconnect_annuity(e) * interconnect_annuities_mult(e),
+                    new_capacity(e),
+                )
+
+                # Shadow capacity for project development constraints
+                add_to_expression!(
+                    model[:eInvestmentFixedCost],
+                    de_annualized_cost(e) * (1 - de_itc_schedule[period_index(e)]) * de_annuities_mult(e),
+                    new_de_capacity(e),
+                )
+                add_to_expression!(
+                    model[:eInvestmentFixedCost],
+                    af_annualized_cost(e) * (1 - af_itc_schedule[period_index(e)]) * af_annuities_mult(e),
+                    new_af_capacity(e),
+                )
+                add_to_expression!(
+                    model[:eInvestmentFixedCost],
+                    cc_annualized_cost(e) * (1 - e.itc_schedule[period_index(e)]) * cc_annuities_mult(e),
+                    new_cc_capacity(e),
+                )
+
+            end
+
+            if settings[:ProjectDevelopment]
+                e.new_capital = @expression(model, investment_cost(e) * (1 - de_cost_perc(e) - af_cost_perc(e) - cc_cost_perc(e)) * new_capacity(e) * (1 - e.itc_schedule[period_index(e)]))
+            else
+                e.new_capital = @expression(model, investment_cost(e) * new_capacity(e) * (1 - e.itc_schedule[period_index(e)]))
+            end
+
+            e.new_capital_de = @expression(model, investment_cost(e) * de_cost_perc(e) * new_de_capacity(e) * (1 - de_itc_schedule[period_index(e)]))
+            e.new_capital_af = @expression(model, investment_cost(e) * af_cost_perc(e) * new_af_capacity(e) * (1 - af_itc_schedule[period_index(e)]))
+            e.new_capital_cc = @expression(model, investment_cost(e) * cc_cost_perc(e) * new_cc_capacity(e) * (1 - e.itc_schedule[period_index(e)]))
+
+
+
+            # add_to_expression!(
+            #     model[:eInvestmentFixedCost],
+            #     cost_type(e),
+            #     new_capacity(e),
+            # )
         end
     end
 end
@@ -478,7 +780,7 @@ function compute_om_fixed_costs!(e::AbstractEdge, model::Model, cost_type::Funct
     end
 end
 
-function compute_fixed_costs!(e::AbstractEdge, model::Model, cost_type::Symbol=:PV)
+function compute_fixed_costs!(e::AbstractEdge, model::Model, cost_type::Symbol=:PV; settings::NamedTuple=NamedTuple())
     allowed_cost_types = [:PV, :CF]
     if !(cost_type in allowed_cost_types)
         error("Invalid cost type: $cost_type. Allowed types are: $(allowed_cost_types)")
@@ -491,7 +793,7 @@ function compute_fixed_costs!(e::AbstractEdge, model::Model, cost_type::Symbol=:
         :PV => pv_period_fixed_om_cost,
         :CF => cf_period_fixed_om_cost
     )
-    compute_investment_costs!(e, model, invesment_cost_function[cost_type])
+    compute_investment_costs!(e, model, invesment_cost_function[cost_type]; settings=settings)
     compute_om_fixed_costs!(e, model, fom_cost_function[cost_type])
 end
 
@@ -590,6 +892,7 @@ function make_edge_UC(
     commodity::DataType,
     start_vertex::AbstractVertex,
     end_vertex::AbstractVertex,
+    settings::NamedTuple=NamedTuple()
 )
 
     if !(target_is_valid(commodity, start_vertex))
@@ -613,12 +916,13 @@ function make_edge_UC(
         error("Edge $id is being created as a unidirectional edge, but the input data has unidirectional=false. Edges with Unit Commitment must be unidirectional.")
     end
     _edge = EdgeWithUC{commodity}(;
-        id = id,
-        timedata = time_data,
-        start_vertex = start_vertex,
-        end_vertex = end_vertex,
+        id=id,
+        timedata=time_data,
+        start_vertex=start_vertex,
+        end_vertex=end_vertex,
         filtered_data...,
     )
+
     return _edge
 end
 EdgeWithUC(
@@ -628,7 +932,8 @@ EdgeWithUC(
     commodity::DataType,
     start_vertex::AbstractVertex,
     end_vertex::AbstractVertex,
-) = make_edge_UC(id, data, time_data, commodity, start_vertex, end_vertex)
+    settings::NamedTuple=NamedTuple(),
+) = make_edge_UC(id, data, time_data, commodity, start_vertex, end_vertex, settings)
 
 ######### EdgeWithUC interface #########
 min_down_time(e::EdgeWithUC) = e.min_down_time;
@@ -808,7 +1113,7 @@ function update_startup_fuel_balance!(e::EdgeWithUC)
 
     # The startup fuel will not contribute to the end vertex balance as it is not consumed there.
 
-    v = start_vertex(e);
+    v = start_vertex(e)
 
     i = startup_fuel_balance_id(e)
 

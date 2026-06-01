@@ -139,6 +139,7 @@ function make(asset_type::Type{HydroRes}, data::AbstractDict{Symbol,Any}, system
         Electricity,
         discharge_start_node,
         discharge_end_node,
+        system.settings
     )
 
     inflow_edge_key = :inflow_edge
@@ -165,6 +166,7 @@ function make(asset_type::Type{HydroRes}, data::AbstractDict{Symbol,Any}, system
         Electricity,
         inflow_start_node,
         inflow_end_node,
+        system.settings
     )
     inflow_edge.can_retire = discharge_edge.can_retire;
     inflow_edge.can_expand = discharge_edge.can_expand;
@@ -195,6 +197,7 @@ function make(asset_type::Type{HydroRes}, data::AbstractDict{Symbol,Any}, system
         Electricity,
         spill_start_node,
         spill_end_node,
+        system.settings
     )
 
     hydrostor.discharge_edge = discharge_edge

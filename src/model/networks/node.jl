@@ -1,6 +1,7 @@
 macro AbstractNodeBaseAttributes()
     node_defaults = node_default_data()
     esc(quote
+        capacity_reserve_margin_id::Union{Symbol,Missing} = $node_defaults[:capacity_reserve_margin_id]
         demand::Vector{Float64} = Vector{Float64}()
         min_nsd::Vector{Float64} = $node_defaults[:min_nsd]
         max_nsd::Vector{Float64} = $node_defaults[:max_nsd]
@@ -77,6 +78,7 @@ function make_node(data::AbstractDict{Symbol,Any}, time_data::TimeData, commodit
         demand = get(node_data, :demand, Vector{Float64}()),
         location = as_symbol_or_missing(get(node_data, :location, missing)),
         max_nsd = get(node_data, :max_nsd, [0.0]),
+        capacity_reserve_margin_id = get(node_data, :capacity_reserve_margin_id, missing),
         price = get(node_data, :price, Vector{Float64}()),
         price_nsd = get(node_data, :price_nsd, [0.0]),
         price_unmet_policy = get(node_data, :price_unmet_policy, Dict{DataType,Float64}()),
@@ -94,6 +96,7 @@ Node(data::AbstractDict{Symbol,Any}, time_data::TimeData, commodity::DataType) =
 ######### Node interface #########
 commodity_type(n::Node{T}) where {T} = T;
 demand(n::Node) = n.demand;
+capacity_reserve_margin_id(n::Node) = n.capacity_reserve_margin_id;
 # demand(n::Node, t::Int64) = length(demand(n)) == 1 ? demand(n)[1] : demand(n)[t];
 function demand(n::Node, t::Int64)
     d = demand(n)
@@ -163,7 +166,7 @@ function define_available_capacity!(n::Node, model::Model)
     return nothing
 end
 
-function planning_model!(n::Node, model::Model)
+function planning_model!(n::Node, model::Model, settings::NamedTuple)
 
     ### DEFAULT CONSTRAINTS ###
 

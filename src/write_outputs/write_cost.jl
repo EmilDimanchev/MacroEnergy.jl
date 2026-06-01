@@ -154,35 +154,35 @@ function prepare_discounted_costs(model::Union{Model,NamedTuple}, scaling::Float
     )
 end
 
-function compute_fixed_costs!(system::System, model::Model, cost_type::Symbol=:PV)
+function compute_fixed_costs!(system::System, model::Model, cost_type::Symbol=:PV; settings::NamedTuple=NamedTuple())
     for a in system.assets
         compute_fixed_costs!(a, model, cost_type)
     end
 end
 
-function compute_fixed_costs!(a::AbstractAsset, model::Model, cost_type::Symbol=:PV)
+function compute_fixed_costs!(a::AbstractAsset, model::Model, cost_type::Symbol=:PV; settings::NamedTuple=NamedTuple())
     for t in fieldnames(typeof(a))
         compute_fixed_costs!(getfield(a, t), model, cost_type)
     end
 end
 
-function compute_fixed_costs!(g::Union{Node,Transformation},model::Model, cost_type::Symbol=:PV)
+function compute_fixed_costs!(g::Union{Node,Transformation},model::Model, cost_type::Symbol=:PV; settings::NamedTuple=NamedTuple())
     return nothing
 end
 
-function compute_investment_costs!(system::System, model::Model, cost_type::Function=pv_period_investment_cost)
+function compute_investment_costs!(system::System, model::Model, cost_type::Function=pv_period_investment_cost; settings::NamedTuple=NamedTuple())
     for a in system.assets
         compute_investment_costs!(a, model, cost_type)
     end
 end
 
-function compute_investment_costs!(a::AbstractAsset, model::Model, cost_type::Function=pv_period_investment_cost)
+function compute_investment_costs!(a::AbstractAsset, model::Model, cost_type::Function=pv_period_investment_cost; settings::NamedTuple=NamedTuple())
     for t in fieldnames(typeof(a))
         compute_investment_costs!(getfield(a, t), model, cost_type)
     end
 end
 
-function compute_investment_costs!(g::Union{Node,Transformation}, model::Model, cost_type::Function=pv_period_investment_cost)
+function compute_investment_costs!(g::Union{Node,Transformation}, model::Model, cost_type::Function=pv_period_investment_cost; settings::NamedTuple=NamedTuple())
     return nothing
 end
 
@@ -392,7 +392,7 @@ function compute_undiscounted_costs!(model::Model, system::System, settings::Nam
     model[:eFixedCost] = AffExpr(0.0)
     model[:eOMFixedCost] = AffExpr(0.0)
     model[:eInvestmentFixedCost] = AffExpr(0.0)
-    compute_fixed_costs!(system, model, :CF)
+    compute_fixed_costs!(system, model, :CF; settings=settings)
     model[:eFixedCost] = model[:eInvestmentFixedCost] + model[:eOMFixedCost] 
 
     if !isa(solution_algorithm(settings[:SolutionAlgorithm]), Benders) 

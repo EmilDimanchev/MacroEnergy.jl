@@ -12,7 +12,7 @@ function generate_operation_subproblem(system::System,case_settings::NamedTuple,
 
     define_available_capacity!(system, model)
 
-    operation_model!(system, model)
+    operation_model!(system, model, settings)
 
     if include_subproblem_slacks == true && !haskey(model, :myslack_max)
         @info("Adding slack variables to ensure subproblems are always feasible")
@@ -89,14 +89,29 @@ function initialize_dist_subproblems!(system_decomp::Vector,opt::Dict,case_setti
 
     subproblems_all = distribute([Dict() for i in 1:length(system_decomp)]);
 
+    # @sync for p in workers()
+    #     @async @spawnat p begin
+    #         W_local = localindices(subproblems_all)[1];
+    #         system_local = [system_decomp[k] for k in W_local];
+    #         optimizer = create_optimizer(opt[:solver], opt_env(opt[:solver]), opt[:attributes])
+    #         initialize_local_subproblems!(system_local,localpart(subproblems_all),W_local,optimizer,include_subproblem_slacks, settings);
+    #     end
+    # end
+    # New from LB
+    worker_local_indices = Dict{Int, UnitRange{Int64}}()
     @sync for p in workers()
+        @async worker_local_indices[p] = @fetchfrom p localindices(subproblems_all)[1]
+    end
+
+    @sync for p in workers()
+        W_local = worker_local_indices[p]
+        system_local = system_decomp[W_local]
         @async @spawnat p begin
-            W_local = localindices(subproblems_all)[1];
-            system_local = [system_decomp[k] for k in W_local];
             optimizer = create_optimizer(opt[:solver], opt_env(opt[:solver]), opt[:attributes])
             initialize_local_subproblems!(system_local,localpart(subproblems_all),W_local,optimizer,case_settings,include_subproblem_slacks);
         end
     end
+    # End of new implementation
 
 	p_id = workers();
     np_id = length(p_id);

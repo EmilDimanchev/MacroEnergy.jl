@@ -23,7 +23,7 @@ for each segment `s` in `segments_non_served_demand(n)` and each time `t` in `ti
 function add_model_constraint!(
     ct::MaxNonServedDemandPerSegmentConstraint,
     n::Node,
-    model::Model,
+    model::Model, settings::NamedTuple
 )
     if !isempty(non_served_demand(n))
         ct.constraint_ref = @constraint(

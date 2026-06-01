@@ -131,6 +131,7 @@ function make(asset_type::Type{Electrolyzer}, data::AbstractDict{Symbol,Any}, sy
         Electricity,
         elec_start_node,
         elec_end_node,
+        system.settings
     )
 
     h2_edge_key = :h2_edge
@@ -158,6 +159,7 @@ function make(asset_type::Type{Electrolyzer}, data::AbstractDict{Symbol,Any}, sy
         Hydrogen,
         h2_start_node,
         h2_end_node,
+        system.settings
     )
 
     @add_balance(

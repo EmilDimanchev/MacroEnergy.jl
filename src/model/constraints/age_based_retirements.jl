@@ -4,8 +4,9 @@ Base.@kwdef mutable struct AgeBasedRetirementConstraint <: PlanningConstraint
     constraint_ref::Union{Missing,JuMPConstraint} = missing
 end
 
-function add_model_constraint!(ct::AgeBasedRetirementConstraint, y::Union{AbstractEdge,AbstractStorage}, model::Model)
+function add_model_constraint!(ct::AgeBasedRetirementConstraint, y::Union{AbstractEdge,AbstractStorage}, model::Model, settings::NamedTuple)
     
+
     curr_period = period_index(y);
     ret_period = retirement_period(y);
 

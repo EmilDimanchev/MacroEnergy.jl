@@ -16,7 +16,7 @@ Add a max non-served demand constraint to the node `n`. The functional form of t
 ```
 for each time `t` in `time_interval(n)` for the node `n`.
 """
-function add_model_constraint!(ct::MaxNonServedDemandConstraint, n::Node, model::Model)
+function add_model_constraint!(ct::MaxNonServedDemandConstraint, n::Node, model::Model, settings::NamedTuple)
     if !isempty(non_served_demand(n))
         ct.constraint_ref = @constraint(
             model,

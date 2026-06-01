@@ -131,6 +131,7 @@ function make(asset_type::Type{FuelCell}, data::AbstractDict{Symbol,Any}, system
         Electricity,
         elec_start_node,
         elec_end_node,
+        system.settings
     )
 
     h2_edge_key = :h2_edge
@@ -157,6 +158,7 @@ function make(asset_type::Type{FuelCell}, data::AbstractDict{Symbol,Any}, system
         Hydrogen,
         h2_start_node,
         h2_end_node,
+        system.settings
     )
 
     @add_balance(

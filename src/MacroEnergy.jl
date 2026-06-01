@@ -223,6 +223,7 @@ include("model/assets/cementplant.jl")
 include("model/assets/aluminumrefining.jl")
 include("model/assets/aluminumsmelting.jl")
 include("model/assets/aluminaplant.jl")
+include("model/technological_learning.jl")
 include("model/assets/integratedblastfurnacebasicoxygenfurnace.jl")
 include("model/assets/integratedblastfurnacebasicoxygenfurnaceccs.jl")
 include("model/assets/integrateddirectreductionelectricarcfurnace.jl")
@@ -304,6 +305,7 @@ export AbstractAsset,
     Graphite,
     Heat,
     HydroRes,
+    get_learning_technologies,
     Hydrogen,
     IronOre,
     LongDurationStorage,
@@ -359,6 +361,7 @@ export AbstractAsset,
     Transformation,
     Uranium,
     VRE,
+    Heat,
     write_capacity,
     write_costs,
     write_dataframe,
@@ -385,6 +388,8 @@ export AbstractAsset,
     example_readme,
     example_contents,
     authenticate_github,
+    DeploymentInertiaConstraint,
+    DevelopmentConstraint,
     mermaid_diagram,
     save_mermaid_diagram,
     write_to_json

@@ -18,7 +18,7 @@ Add a storage max duration constraint to the storage `g`. The functional form of
 !!! note "Storage max duration constraint"
     This constraint is only applied if the maximum duration is greater than 0.
 """
-function add_model_constraint!(ct::StorageMaxDurationConstraint, g::AbstractStorage, model::Model)
+function add_model_constraint!(ct::StorageMaxDurationConstraint, g::AbstractStorage, model::Model, settings::NamedTuple)
     e = discharge_edge(g)
 
     if !has_capacity(e)
@@ -54,7 +54,7 @@ Add a storage min duration constraint to the storage `g`. The functional form of
 !!! note "Storage min duration constraint"
     This constraint is only applied if the minimum duration is greater than 0.
 """
-function add_model_constraint!(ct::StorageMinDurationConstraint, g::AbstractStorage, model::Model)
+function add_model_constraint!(ct::StorageMinDurationConstraint, g::AbstractStorage, model::Model, settings::NamedTuple)
     e = discharge_edge(g)
 
     if !has_capacity(e)

@@ -20,7 +20,7 @@ for each time `t` in `time_interval(g)` for the storage `g`.
     This constraint only applies to HydroRes assets. It returns a warning if the storage `g` does not have a spillage edge. 
     If the discharge edge is the only outflow, you should apply MinFlowConstraint to the discharge edge.
 """
-function add_model_constraint!(ct::MinStorageOutflowConstraint, g::AbstractStorage, model::Model)
+function add_model_constraint!(ct::MinStorageOutflowConstraint, g::AbstractStorage, model::Model, settings::NamedTuple)
     discharge_edge = g.discharge_edge;
     spillage_edge = g.spillage_edge;
     

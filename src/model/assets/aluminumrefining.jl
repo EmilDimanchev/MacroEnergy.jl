@@ -134,6 +134,7 @@ function make(asset_type::Type{AluminumRefining}, data::AbstractDict{Symbol,Any}
         Electricity,
         elec_start_node,
         elec_end_node,
+        system.settings
     )
 
     # Create the aluminum scrap input edge
@@ -165,6 +166,7 @@ function make(asset_type::Type{AluminumRefining}, data::AbstractDict{Symbol,Any}
         AluminumScrap,
         aluminumscrap_start_node,
         aluminumscrap_end_node,
+        system.settings
     )
 
     # Create the aluminum output edge
@@ -193,6 +195,7 @@ function make(asset_type::Type{AluminumRefining}, data::AbstractDict{Symbol,Any}
         Aluminum,
         aluminum_start_node,
         aluminum_end_node,
+        system.settings
     )
 
     @add_balance(

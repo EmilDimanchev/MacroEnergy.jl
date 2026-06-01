@@ -140,6 +140,7 @@ function make(asset_type::Type{AluminumSmelting}, data::AbstractDict{Symbol,Any}
         Electricity,
         elec_start_node,
         elec_end_node,
+        system.settings
     )
 
     #Alumina Edge
@@ -169,6 +170,7 @@ function make(asset_type::Type{AluminumSmelting}, data::AbstractDict{Symbol,Any}
         Alumina,
         alumina_start_node,
         alumina_end_node,
+        system.settings
     )
 
     #Graphite Edge
@@ -198,6 +200,7 @@ function make(asset_type::Type{AluminumSmelting}, data::AbstractDict{Symbol,Any}
         Graphite,
         graphite_start_node,
         graphite_end_node,
+        system.settings
     )
 
     # Aluminum Edge
@@ -226,6 +229,7 @@ function make(asset_type::Type{AluminumSmelting}, data::AbstractDict{Symbol,Any}
         Aluminum,
         aluminum_start_node,
         aluminum_end_node,
+        system.settings
     )
 
     # Check if the edge has unit commitment constraints
@@ -276,6 +280,7 @@ function make(asset_type::Type{AluminumSmelting}, data::AbstractDict{Symbol,Any}
         CO2,
         co2_start_node,
         co2_end_node,
+        system.settings
     )
 
     @add_balance(

@@ -4,7 +4,7 @@ Base.@kwdef mutable struct LongDurationStorageChangeConstraint <: OperationConst
     constraint_ref::Union{Missing,JuMPConstraint} = missing
 end
 
-function add_model_constraint!(ct::LongDurationStorageChangeConstraint, g::LongDurationStorage, model::Model)
+function add_model_constraint!(ct::LongDurationStorageChangeConstraint, g::LongDurationStorage, model::Model, settings::NamedTuple)
     subperiod_end = Dict(w => last(get_subperiod(g, w)) for w in subperiod_indices(g));
 
     ct.constraint_ref = @constraint(model, 

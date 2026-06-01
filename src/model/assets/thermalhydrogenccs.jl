@@ -207,6 +207,7 @@ function make(asset_type::Type{ThermalHydrogenCCS}, data::AbstractDict{Symbol,An
         Electricity,
         elec_start_node,
         elec_end_node,
+        system.settings
     )
 
     h2_edge_key = :h2_edge
@@ -275,6 +276,7 @@ function make(asset_type::Type{ThermalHydrogenCCS}, data::AbstractDict{Symbol,An
         commodity,
         fuel_start_node,
         fuel_end_node,
+        system.settings
     )
 
     co2_edge_key = :co2_edge
@@ -301,6 +303,7 @@ function make(asset_type::Type{ThermalHydrogenCCS}, data::AbstractDict{Symbol,An
         CO2,
         co2_start_node,
         co2_end_node,
+        system.settings
     )
 
     co2_captured_edge_key = :co2_captured_edge
@@ -327,6 +330,7 @@ function make(asset_type::Type{ThermalHydrogenCCS}, data::AbstractDict{Symbol,An
         CO2Captured,
         co2_captured_start_node,
         co2_captured_end_node,
+        system.settings
     )
 
     @add_balance(

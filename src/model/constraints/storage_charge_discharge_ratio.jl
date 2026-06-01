@@ -22,7 +22,7 @@ Add a storage charge discharge ratio constraint to the storage `g`. The function
 function add_model_constraint!(
     ct::StorageChargeDischargeRatioConstraint,
     g::AbstractStorage,
-    model::Model,
+    model::Model, settings::NamedTuple
 )
     if !has_capacity(g.discharge_edge) || !has_capacity(g.charge_edge)
          @warn "One of the edges for storage $(id(g)) does not have capacity. Ignoring charge discharge ratio constraint."

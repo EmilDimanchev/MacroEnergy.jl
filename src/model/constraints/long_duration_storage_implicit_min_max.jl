@@ -49,7 +49,7 @@ for each time `t` in the time interval of the storage resource `g`. `t'` is the 
     This constraint only applies to long duration energy storage resources. To model a storage technology as long duration energy storage, the user must set `long_duration = true` in the `Storage` component of the asset in the `.json` file.
     Check the the file `hydropower.json` in the [multisector_three_zones example](https://github.com/macroenergy/MacroEnergyExamples.jl/blob/main/examples/multisector_three_zones/assets/hydropower.json) for an example of how to model a long duration energy storage resource.
 """
-function add_model_constraint!(ct::LongDurationStorageImplicitMinMaxConstraint, g::LongDurationStorage, model::Model)
+function add_model_constraint!(ct::LongDurationStorageImplicitMinMaxConstraint, g::LongDurationStorage, model::Model, settings::NamedTuple)
     W = subperiod_indices(g);
     N = setdiff(modeled_subperiods(g),W)
 
@@ -85,7 +85,7 @@ function add_model_constraint!(ct::LongDurationStorageImplicitMinMaxConstraint, 
 
 end
 
-function add_model_constraint!(ct::LongDurationStorageImplicitMinMaxConstraint, g::Storage, model::Model)
+function add_model_constraint!(ct::LongDurationStorageImplicitMinMaxConstraint, g::Storage, model::Model, settings::NamedTuple)
    
     @warn "$(g.id) is not a long duration storage resource, so Macro will not create a LongDurationStorageImplicitMinMaxConstraint"
     

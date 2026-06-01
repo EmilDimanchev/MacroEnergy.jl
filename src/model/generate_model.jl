@@ -19,6 +19,25 @@ function generate_model(case::Case, opt::Optimizer, ::Monolithic)
     settings = get_settings(case)
     fixed_cost, investment_cost, om_fixed_cost, variable_cost = Dict(), Dict(), Dict(), Dict()
 
+    @info("Deployment inertia set to $(settings[:DeploymentInertia])")
+    @info("Project development set to $(settings[:ProjectDevelopment])")
+    @info("Technology learning set to $(settings[:TechnologyLearning])")
+    @info("CO2 cap set to $(settings[:CO2Cap])")
+
+    # Initialize eCapacityReserveMargin indexed by [zone, period] before the period loop.
+    # It will be populated inside prepare_capacity_reserve_margin! each period.
+    # CapacityReserveMargin is defined in macro_settings.json (system-level settings),
+    # so we read the zones from the first period's system settings.
+    crm_zones = keys(first(get_periods(case)).settings.CapacityReserveMargin)
+    if !isempty(crm_zones)
+        @expression(model, eCapacityReserveMargin[k in crm_zones, p in 1:num_periods], AffExpr(0.0))
+    end
+
+    if settings[:DeploymentInertia]
+        @expression(model, eDeploymentGrowth[tech in settings[:TechsWithInertia], p in 1:num_periods], AffExpr(0.0))
+        @expression(model, eDeploymentDecline[tech in settings[:TechsWithInertia], p in 1:num_periods], AffExpr(0.0))
+    end
+
     for (period_idx, system) in enumerate(periods)
         next = period_idx < length(periods) ? periods[period_idx+1] : nothing
         add_period_to_model!(model, system, next, fixed_cost, investment_cost, om_fixed_cost, variable_cost)
@@ -185,6 +204,11 @@ function build_period_planning!(
     @info(" -- Defining available capacity")
     define_available_capacity!(system, model)
 
+    if settings[:TechnologyLearning] == true
+            @info(" -- Adding technology learning")
+            add_learning!(system, model, period_idx, settings)
+    end
+
     @info(" -- Generating planning model")
     planning_model!(system, model)
 
@@ -246,7 +270,7 @@ function finalize_model_objective!(
     return nothing
 end
 
-function planning_model!(system::System, model::Model)
+function planning_model!(system::System, model::Model, settings::NamedTuple)
 
     for location in system.locations
         planning_model!(location, model)
@@ -256,12 +280,25 @@ function planning_model!(system::System, model::Model)
         planning_model!(asset, model)
     end
 
-    add_constraints_by_type!(system, model, PlanningConstraint)
+    if !isempty(system.settings.CapacityReserveMargin)
+        @info(" -- Including capacity reserve margins: $(keys(system.settings.CapacityReserveMargin))")
+        prepare_capacity_reserve_margin!(system, model)
+    end
+
+    if settings[:DeploymentInertia]
+        push!(system.constraints, DeploymentInertiaConstraint())
+    end
+
+    planning_model!.(system.locations, Ref(model), Ref(settings))
+
+    planning_model!.(system.assets, Ref(model), Ref(settings))
+
+    add_constraints_by_type!(system, model, PlanningConstraint, settings)
 
 end
 
 
-function operation_model!(system::System, model::Model)
+function operation_model!(system::System, model::Model, settings::NamedTuple)
 
     for location in system.locations
         operation_model!(location, model)
@@ -275,16 +312,16 @@ function operation_model!(system::System, model::Model)
     
 end
 
-function planning_model!(a::AbstractAsset, model::Model)
+function planning_model!(a::AbstractAsset, model::Model, settings::NamedTuple)
     for t in fieldnames(typeof(a))
-        planning_model!(getfield(a, t), model)
+        planning_model!(getfield(a, t), model, settings)
     end
     return nothing
 end
 
-function operation_model!(a::AbstractAsset, model::Model)
+function operation_model!(a::AbstractAsset, model::Model, settings::NamedTuple)
     for t in fieldnames(typeof(a))
-        operation_model!(getfield(a, t), model)
+        operation_model!(getfield(a, t), model, settings)
     end
     return nothing
 end
@@ -323,14 +360,14 @@ function define_available_capacity!(a::AbstractAsset, model::Model)
     end
 end
 
-function add_age_based_retirements!(a::AbstractAsset,model::Model)
+function add_age_based_retirements!(a::AbstractAsset,model::Model, settings::NamedTuple)
 
     for t in fieldnames(typeof(a))
         y = getfield(a, t)
         if isa(y,AbstractEdge) || isa(y,AbstractStorage)
             if retirement_period(y) > 0 || min_retired_capacity_track(y) > 0.0 ### Otherwise the constraint is trivially satisfied because the left hand side is zero
                 push!(y.constraints, AgeBasedRetirementConstraint())
-                add_model_constraint!(y.constraints[end], y, model)
+                add_model_constraint!(y.constraints[end], y, model, settings)
             end
         end
     end
@@ -372,7 +409,7 @@ function compute_retirement_period!(a::AbstractAsset, period_lengths::Vector{Int
     return nothing
 end
 
-function carry_over_capacities!(system::System, system_prev::System; perfect_foresight::Bool = true)
+function carry_over_capacities!(system::System, system_prev::System, settings::NamedTuple; perfect_foresight::Bool = true)
 
     for a in system.assets
         a_prev_index = findfirst(id.(system_prev.assets).==id(a))
@@ -381,21 +418,21 @@ function carry_over_capacities!(system::System, system_prev::System; perfect_for
             validate_existing_capacity(a)
         else
             a_prev = system_prev.assets[a_prev_index];
-            carry_over_capacities!(a, a_prev ; perfect_foresight)
+            carry_over_capacities!(a, a_prev, settings; perfect_foresight)
         end
     end
 
 end
 
-function carry_over_capacities!(a::AbstractAsset, a_prev::AbstractAsset; perfect_foresight::Bool = true)
+function carry_over_capacities!(a::AbstractAsset, a_prev::AbstractAsset, settings::NamedTuple; perfect_foresight::Bool = true)
 
     for t in fieldnames(typeof(a))
-        carry_over_capacities!(getfield(a,t), getfield(a_prev,t); perfect_foresight)
+        carry_over_capacities!(getfield(a,t), getfield(a_prev,t), settings; perfect_foresight)
     end
 
 end
 
-function carry_over_capacities!(y::Union{AbstractEdge,AbstractStorage},y_prev::Union{AbstractEdge,AbstractStorage}; perfect_foresight::Bool = true)
+function carry_over_capacities!(y::Union{AbstractEdge,AbstractStorage},y_prev::Union{AbstractEdge,AbstractStorage}, settings::NamedTuple; perfect_foresight::Bool = true)
     if has_capacity(y_prev)
         
         if perfect_foresight
@@ -428,11 +465,36 @@ function carry_over_capacities!(y::Union{AbstractEdge,AbstractStorage},y_prev::U
         end
         
     end
+
+    for prev_period in keys(new_capacity_track(y_prev))
+        if perfect_foresight
+            
+            # Learning
+            if settings[:TechnologyLearning] && learning_type(y) in settings[:LearningTechnologies]
+                
+                y.endogenous_capex_track[prev_period] = endogenous_capex_track(y_prev, prev_period)
+                
+                y.endogenous_capex_segment_chosen_track[prev_period] = endogenous_capex_segment_chosen_track(y_prev,prev_period)
+            end
+            # Shadow capacity for project development 
+            y.new_de_capacity_track[prev_period] = new_de_capacity_track(y_prev,prev_period)
+            y.new_af_capacity_track[prev_period] = new_af_capacity_track(y_prev,prev_period)
+            y.new_cc_capacity_track[prev_period] = new_cc_capacity_track(y_prev,prev_period)
+            y.de_capacity_track[prev_period] = de_capacity_track(y_prev,prev_period)
+            y.af_capacity_track[prev_period] = af_capacity_track(y_prev,prev_period)
+            y.cc_capacity_track[prev_period] = cc_capacity_track(y_prev,prev_period)
+        else
+            # Speed limits not implemented for myopic yet
+            
+        end
+    end
+
+
 end
-function carry_over_capacities!(g::Transformation,g_prev::Transformation; perfect_foresight::Bool = true)
+function carry_over_capacities!(g::Transformation,g_prev::Transformation, settings::NamedTuple; perfect_foresight::Bool = true)
     return nothing
 end
-function carry_over_capacities!(n::Node,n_prev::Node; perfect_foresight::Bool = true)
+function carry_over_capacities!(n::Node,n_prev::Node, settings::NamedTuple; perfect_foresight::Bool = true) 
     return nothing
 end
 
@@ -458,6 +520,47 @@ function compute_annualized_costs!(y::Union{AbstractEdge,AbstractStorage},settin
             y.wacc = settings.DiscountRate;
         end
         y.annualized_investment_cost = investment_cost(y) * capital_recovery_factor(wacc(y), capital_recovery_period(y));
+    
+    else
+        # CAPEX is needed for technology learning. Check if CAPEX was provided. If not, estimate it.
+        if isnothing(investment_cost(y)) || investment_cost(y) == 0.0
+            if settings[:ProjectDevelopment]
+                # In the speed limits version, we remove the CFF because it is estimated in project development
+                # Also need to remove interconnection cost, if any, from project cost
+                @info("Estimating investment cost for $(id(y)) using project development assumptions")
+                y.investment_cost = ((annualized_investment_cost(y)-interconnect_annuity(y))/annualization_factor(y))/cff(y)
+            else
+                y.investment_cost = (annualized_investment_cost(y)-interconnect_annuity(y))/annualization_factor(y)
+            end
+        end
+
+    end
+
+    # Set annualized costs
+    if settings[:ProjectDevelopment]
+        # Distribute deployment cost in case deployment stage costs are included
+        deployment_cost_perc = 1 - de_cost_perc(y) - af_cost_perc(y) - cc_cost_perc(y)
+
+        # Development annualized costs
+        y.de_annualization_factor = de_wacc(y)>0 && de_cap_recovery(y) > 0 ? de_wacc(y) / (1 - (1 + de_wacc(y))^-de_cap_recovery(y))  : 1.0
+        y.af_annualization_factor = af_wacc(y)>0 && af_cap_recovery(y) > 0 ? af_wacc(y) / (1 - (1 + af_wacc(y))^-af_cap_recovery(y))  : 1.0
+        y.cc_annualization_factor = cc_wacc(y)>0 && cc_cap_recovery(y) > 0 ? cc_wacc(y) / (1 - (1 + cc_wacc(y))^-cc_cap_recovery(y))  : 1.0
+
+        # Overwrite CC wacc if general wacc is provided
+        y.cc_wacc = wacc(y) > 0 ? wacc(y) : cc_wacc(y)
+        
+        y.de_annualized_cost = investment_cost(y)*de_annualization_factor(y)*de_cost_perc(y)
+        y.af_annualized_cost = investment_cost(y)*af_annualization_factor(y)*af_cost_perc(y)
+        y.cc_annualized_cost = investment_cost(y)*cc_annualization_factor(y)*cc_cost_perc(y)
+        # Update cost of deployment
+        y.annualized_investment_cost = investment_cost(y)*annualization_factor(y)*deployment_cost_perc
+
+    else
+        y.annualized_investment_cost = investment_cost(y)*annualization_factor(y)
+
+        y.de_annualized_cost = 0.0
+        y.af_annualized_cost = 0.0
+        y.cc_annualized_cost = 0.0
     end
     return nothing
 end
@@ -497,6 +600,13 @@ function discount_fixed_costs!(y::Union{AbstractEdge,AbstractStorage},settings::
         payment_years_remaining = min(capital_recovery_period(y), period_length);
     elseif isa(settings[:ExpansionHorizon], PerfectForesight)
         payment_years_remaining = min(capital_recovery_period(y), model_years_remaining);
+        cap_recovery_interconnect = 60 # From Power Genome, TODO: add as parameter in inputs
+        interconnect_payment_years_remaining = min(cap_recovery_interconnect, model_years_remaining);
+        if settings[:ProjectDevelopment] 
+            de_payment_years_remaining = min(de_cap_recovery(y), model_years_remaining);
+            af_payment_years_remaining = min(af_cap_recovery(y), model_years_remaining);
+            cc_payment_years_remaining = min(cc_cap_recovery(y), model_years_remaining);
+        end
     else
         # Placeholder for other future cases like rolling horizon
         nothing
@@ -504,6 +614,16 @@ function discount_fixed_costs!(y::Union{AbstractEdge,AbstractStorage},settings::
 
     # This PV is relative to the start of the Case, not the start of the period
     y.pv_period_investment_cost = annualized_investment_cost(y) * present_value_annuity_factor(discount_rate, payment_years_remaining)
+
+    # For speed limits
+    y.annuities_mult = sum(1 / (1 + settings.DiscountRate)^s for s in 1:payment_years_remaining; init=0);
+    y.interconnect_annuities_mult = sum(1 / (1 + settings.DiscountRate)^s for s in 1:interconnect_payment_years_remaining; init=0);
+    
+    if settings[:ProjectDevelopment] 
+        y.de_annuities_mult = sum(1 / (1 + settings.DiscountRate)^s for s in 1:de_payment_years_remaining; init=0);
+        y.af_annuities_mult = sum(1 / (1 + settings.DiscountRate)^s for s in 1:af_payment_years_remaining; init=0);
+        y.cc_annuities_mult = sum(1 / (1 + settings.DiscountRate)^s for s in 1:cc_payment_years_remaining; init=0);
+    end
     
     period_pv_annuity_factor = present_value_annuity_factor(discount_rate, period_length)
     y.pv_period_fixed_om_cost = fixed_om_cost(y) * period_pv_annuity_factor
@@ -624,4 +744,69 @@ function create_direct_model_with_optimizer(opt::Optimizer)
     set_optimizer_attributes(model, opt)
 
     return model
+end
+
+function prepare_capacity_reserve_margin!(system::System, model::Model)
+
+    capacity_reserve_margin_nodes = get_capacity_reserve_margin_nodes(system)
+
+    capacity_reserve_margin_ids = keys(system.settings.CapacityReserveMargin)
+    
+    if capacity_reserve_margin_ids != keys(capacity_reserve_margin_nodes)
+        missing_ids = setdiff(capacity_reserve_margin_ids, keys(capacity_reserve_margin_nodes))
+        extra_ids = setdiff(keys(capacity_reserve_margin_nodes), capacity_reserve_margin_ids)
+        if !isempty(missing_ids)
+            msg  = " ++ Capacity reserve margin ids defined in settings but not associated with any node: $(collect(missing_ids)). Please double check the input data."
+            @error(msg)
+        end
+        if !isempty(extra_ids)
+            msg  = " ++ Capacity reserve margin ids associated with nodes but not defined in settings: $(collect(extra_ids)). Please double check the input data."
+            @error(msg)
+        end
+    end
+
+    peak_demand = Dict{Symbol,Float64}(k=> maximum(sum(demand(n) for n in capacity_reserve_margin_nodes[k])) for k in capacity_reserve_margin_ids)
+
+    required_capacity = Dict{Symbol,Float64}(k=> (1 + system.settings.CapacityReserveMargin[k]) * peak_demand[k] for k in capacity_reserve_margin_ids)
+
+    # Get period index from first node in any zone
+    p_idx = period_index(first(first(values(capacity_reserve_margin_nodes))))
+
+    # Populate the pre-initialized expression for this period
+    for k in capacity_reserve_margin_ids
+        # Adjust CRM so it is gradually met the first 3 years
+        
+        if p_idx == 1
+             required_capacity[k] *= 1.03/1.15
+        elseif p_idx == 2
+            required_capacity[k] *= 1.06/1.15
+        elseif p_idx == 3
+            required_capacity[k] *= 1.09/1.15
+        elseif p_idx == 4
+            required_capacity[k] *= 1.12/1.15
+        end
+    
+        # @info(" -- For zone $k, peak demand is $(peak_demand[k]) and required capacity (including reserve margin) is $(required_capacity[k])")
+        add_to_expression!(model[:eCapacityReserveMargin][k, p_idx], -required_capacity[k])
+    end
+
+    push!(system.constraints, CapacityReserveMarginConstraint())
+
+    return nothing
+    
+end
+
+function get_capacity_reserve_margin_nodes(system::System)
+    capacity_reserve_margin_nodes = Dict{Symbol,Vector{Node}}(
+        k => Node[] for k in keys(system.settings.CapacityReserveMargin)
+    )
+    nodes = get_nodes(system)
+    for n in nodes
+        isa(n, Node) || continue
+        crm_id = capacity_reserve_margin_id(n)
+        if !ismissing(crm_id)
+            push!(capacity_reserve_margin_nodes[crm_id], n)
+        end
+    end
+    return capacity_reserve_margin_nodes
 end
