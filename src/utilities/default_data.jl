@@ -51,7 +51,7 @@ function edge_default_data()
         :pv_period_fixed_om_cost => nothing,
         :cf_period_fixed_om_cost => nothing,
         :pv_period_variable_om_cost => nothing,
-        :cf_period_variable_om_cost => nothing
+        :cf_period_variable_om_cost => nothing,
         :de_duration => 1,
         :af_duration => 1,
         :cc_duration => 1,
@@ -107,7 +107,7 @@ function storage_default_data()
         :pv_period_fixed_om_cost => nothing,
         :cf_period_fixed_om_cost => nothing,
         :pv_period_variable_om_cost => nothing,
-        :cf_period_variable_om_cost => nothing
+        :cf_period_variable_om_cost => nothing,
         :de_duration => 1,
         :af_duration => 1,
         :cc_duration => 1,
