@@ -103,6 +103,11 @@ function generate_model(case::Case, opt::Dict{Symbol,Dict{Symbol,Any}}, ::Bender
     @info("Technology learning set to $(haskey(settings, :TechnologyLearning) ? settings[:TechnologyLearning] : false)")
     @info("CO2 cap set to $(haskey(settings, :CO2Cap) ? settings[:CO2Cap] : false)")
 
+    crm_zones = settings.CapacityReserveMargin
+    if !isempty(crm_zones)
+        @expression(planning_model, eCapacityReserveMargin[k in crm_zones, p in 1:num_periods], AffExpr(0.0))
+    end
+    
     if settings[:DeploymentInertia]
         @expression(planning_model, eDeploymentGrowth[tech in settings[:TechsWithInertia], p in 1:num_periods], AffExpr(0.0))
         @expression(planning_model, eDeploymentDecline[tech in settings[:TechsWithInertia], p in 1:num_periods], AffExpr(0.0))
@@ -286,9 +291,9 @@ end
 
 function planning_model!(system::System, model::Model, settings::NamedTuple)
 
-    if !isempty(system.settings.CapacityReserveMargin)
+    if !isempty(settings.CapacityReserveMargin)
         # @info(" -- Including capacity reserve margins: $(keys(system.settings.CapacityReserveMargin))")
-        prepare_capacity_reserve_margin!(system, model)
+        prepare_capacity_reserve_margin!(system, model, settings)
     end
 
     if settings[:DeploymentInertia]
@@ -742,4 +747,69 @@ function create_direct_model_with_optimizer(opt::Optimizer)
     set_optimizer_attributes(model, opt)
 
     return model
+end
+
+function prepare_capacity_reserve_margin!(system::System, model::Model, settings::NamedTuple)
+
+    capacity_reserve_margin_nodes = get_capacity_reserve_margin_nodes(system, settings)
+
+    capacity_reserve_margin_ids = keys(settings.CapacityReserveMargin)
+    
+    if capacity_reserve_margin_ids != keys(capacity_reserve_margin_nodes)
+        missing_ids = setdiff(capacity_reserve_margin_ids, keys(capacity_reserve_margin_nodes))
+        extra_ids = setdiff(keys(capacity_reserve_margin_nodes), capacity_reserve_margin_ids)
+        if !isempty(missing_ids)
+            msg  = " ++ Capacity reserve margin ids defined in settings but not associated with any node: $(collect(missing_ids)). Please double check the input data."
+            @error(msg)
+        end
+        if !isempty(extra_ids)
+            msg  = " ++ Capacity reserve margin ids associated with nodes but not defined in settings: $(collect(extra_ids)). Please double check the input data."
+            @error(msg)
+        end
+    end
+
+    peak_demand = Dict{Symbol,Float64}(k=> maximum(sum(demand(n) for n in capacity_reserve_margin_nodes[k])) for k in capacity_reserve_margin_ids)
+
+    required_capacity = Dict{Symbol,Float64}(k=> (1 + settings.CapacityReserveMargin[k]) * peak_demand[k] for k in capacity_reserve_margin_ids)
+
+    # Get period index from first node in any zone
+    p_idx = period_index(first(first(values(capacity_reserve_margin_nodes))))
+
+    # Populate the pre-initialized expression for this period
+    for k in capacity_reserve_margin_ids
+        # Adjust CRM so it is gradually met the first 3 years
+        
+        if p_idx == 1
+             required_capacity[k] *= 1.03/1.15
+        elseif p_idx == 2
+            required_capacity[k] *= 1.06/1.15
+        elseif p_idx == 3
+            required_capacity[k] *= 1.09/1.15
+        elseif p_idx == 4
+            required_capacity[k] *= 1.12/1.15
+        end
+    
+        # @info(" -- For zone $k, peak demand is $(peak_demand[k]) and required capacity (including reserve margin) is $(required_capacity[k])")
+        add_to_expression!(model[:eCapacityReserveMargin][k, p_idx], -required_capacity[k])
+    end
+
+    add_model_constraint!(CapacityReserveMarginConstraint(), system, model, settings)
+
+    return nothing
+    
+end
+
+function get_capacity_reserve_margin_nodes(system::System, settings::NamedTuple)
+    capacity_reserve_margin_nodes = Dict{Symbol,Vector{Node}}(
+        k => Node[] for k in keys(settings.CapacityReserveMargin)
+    )
+    nodes = get_nodes(system)
+    for n in nodes
+        isa(n, Node) || continue
+        crm_id = capacity_reserve_margin_id(n)
+        if !ismissing(crm_id)
+            push!(capacity_reserve_margin_nodes[crm_id], n)
+        end
+    end
+    return capacity_reserve_margin_nodes
 end

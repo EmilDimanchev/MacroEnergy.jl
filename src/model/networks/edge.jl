@@ -600,6 +600,35 @@ function planning_model!(e::AbstractEdge, model::Model, settings::NamedTuple)
 
     if has_capacity(e)
 
+        if !ismissing(capacity_reserve_margin_id(e)) 
+            
+            # Adjusing CA resource adequacy based on CPUC documents
+            misc_resources_ca_share = Dict{String,Float64}(
+            "OR_conventional_hydroelectric_1_discharge_edge" => 0.24,
+            "NV_conventional_hydroelectric_1_discharge_edge" => 0.57,
+            "AZ_nuclear_1_elec_edge" => 0.2,
+            "AZ_natural_gas_fired_combined_cycle_1_elec_edge" => 0.17,
+            "UT_natural_gas_fired_combined_cycle_1_elec_edge" => 0.26
+            )
+            
+            crm_id = capacity_reserve_margin_id(e)
+            p_idx = period_index(e)
+            if haskey(model, :eCapacityReserveMargin) && crm_id ∈ axes(model[:eCapacityReserveMargin])[1]
+                if string(id(e)) ∉ keys(misc_resources_ca_share)
+                    # Most resources
+                    add_to_expression!(model[:eCapacityReserveMargin][crm_id, p_idx], capacity_reserve_margin_derate_factor(e) * capacity(e))
+                else
+                    # Split capacity contribution
+                    add_to_expression!(model[:eCapacityReserveMargin][crm_id, p_idx], capacity_reserve_margin_derate_factor(e) * capacity(e) * (1 - misc_resources_ca_share[string(id(e))]))
+                    # Add CA contribution
+                    # @info("Edge $(id(e)) added to capacity reserve margin constraint CA")
+                    add_to_expression!(model[:eCapacityReserveMargin][:CA, p_idx], capacity_reserve_margin_derate_factor(e) * capacity(e) * misc_resources_ca_share[string(id(e))])
+                end
+            else
+                error("Edge $(id(e)) is associated with an undefined capacity reserve margin constraint. Please double check the input data.")
+            end
+        end
+        
         if !can_expand(e)
             fix(new_units(e), 0.0; force = true)
             # Project development

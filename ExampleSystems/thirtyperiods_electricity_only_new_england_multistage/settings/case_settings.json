@@ -1,6 +1,7 @@
 {
   "PeriodLengths": [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
   "DiscountRate": 0.045,
+  "CapacityReserveMargin": {"ME": 0.15},
   "SolutionAlgorithm": "Benders",
   "TechnologyLearning": true,
   "DeploymentInertia": true,
