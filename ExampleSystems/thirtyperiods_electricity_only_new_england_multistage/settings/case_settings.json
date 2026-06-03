@@ -2,6 +2,7 @@
   "PeriodLengths": [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
   "DiscountRate": 0.045,
   "SolutionAlgorithm": "Benders",
+  "CapacityReserveMargin": {"OR_WA": 0.15, "ID_UT_NV_MT_WY": 0.15, "CA": 0.15, "AZ_NM_CO": 0.15},
   "TechnologyLearning": true,
   "DeploymentInertia": true,
   "ProjectDevelopment": true,

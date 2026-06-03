@@ -27,6 +27,15 @@ function generate_model(case::Case, opt::Optimizer, ::Monolithic)
     
     fixed_cost, investment_cost, om_fixed_cost, variable_cost = Dict(), Dict(), Dict(), Dict()
 
+    # Initialize eCapacityReserveMargin indexed by [zone, period] before the period loop.
+    # It will be populated inside prepare_capacity_reserve_margin! each period.
+    # CapacityReserveMargin is defined in macro_settings.json (system-level settings),
+    # so we read the zones from the first period's system settings.
+    crm_zones = settings.CapacityReserveMargin
+    if !isempty(crm_zones)
+        @expression(model, eCapacityReserveMargin[k in crm_zones, p in 1:num_periods], AffExpr(0.0))
+    end
+
     if settings[:DeploymentInertia]
         @expression(model, eDeploymentGrowth[tech in settings[:TechsWithInertia], p in 1:num_periods], AffExpr(0.0))
         @expression(model, eDeploymentDecline[tech in settings[:TechsWithInertia], p in 1:num_periods], AffExpr(0.0))
@@ -276,6 +285,15 @@ function finalize_model_objective!(
 end
 
 function planning_model!(system::System, model::Model, settings::NamedTuple)
+
+    if !isempty(system.settings.CapacityReserveMargin)
+        # @info(" -- Including capacity reserve margins: $(keys(system.settings.CapacityReserveMargin))")
+        prepare_capacity_reserve_margin!(system, model)
+    end
+
+    if settings[:DeploymentInertia]
+        push!(system.constraints, DeploymentInertiaConstraint())
+    end
 
     for location in system.locations
         planning_model!(location, model, settings)
