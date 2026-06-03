@@ -292,7 +292,7 @@ function planning_model!(system::System, model::Model, settings::NamedTuple)
     end
 
     if settings[:DeploymentInertia]
-        push!(system.constraints, DeploymentInertiaConstraint())
+        add_model_constraint!(DeploymentInertiaConstraint(), system, model, settings)
     end
 
     for location in system.locations
