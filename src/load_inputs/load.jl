@@ -40,7 +40,7 @@ function load!(system::System, data::AbstractDict{Symbol,Any})::Nothing
                 make_retrofit_options(system, data) # Make retrofitting assets for assets with retrofit_options
             end
 
-            # Hack to simplify EGS resources
+            # Quick fix to simplify EGS resources
             id_list = ["WA_Near", "WA_Deep", "OR_Near", "ID_Near", "ID_Deep", "MT_Deep", "WY_Near", "WY_Deep", "AZ_Near", "AZ_Deep", "CO_Near", "CO_Deep", "CA_NearField_5_5_289_c244", "CA_NearField_3_5_228_c239", "CA_NearField_4_5_253_c242","CA_Deep_5_5_278_c52","CA_Deep_4_5_243_c47" ,"CA_Deep_3_5_214_c41", "CA_Deep_5_5_269_c53", "CA_NearField_2_5_203_c236", "CA_NearField_5_5_268_c245", "CA_Deep_6_5_298_c56", "CA_Deep_5_5_263_c54", "NV_NearField_2_5_200_c249", "NV_NearField_3_5_216_c252", "NV_Deep_3_5_211_c61","NV_Deep_6_5_296_c76", "NV_Deep_6_5_290_c77", "NV_Deep_5_5_254_c73", "UT_Deep_4_5_229_c146", "UT_Deep_5_5_256_c152","UT_Deep_6_5_291_c156", "NM_Deep_6_5_294_c196", "NM_Deep_6_5_284_c197", "NM_Deep_5_5_250_c192", "NM_Deep_4_5_219_c186", "NM_Deep_6_5_274_c198", "NM_Deep_5_5_236_c193", "OR_Deep_5_5_282_c31", "OR_Deep_5_5_268_c32", "OR_Deep_6_5_296_c36","OR_Deep_4_5_229_c27"]
             
             # Skip if any of the id_list strings appear as a substring in the instance id
