@@ -620,7 +620,10 @@ function discount_fixed_costs!(y::Union{AbstractEdge,AbstractStorage},settings::
     # This PV is relative to the start of the Case, not the start of the period
     y.annuities_mult = present_value_annuity_factor(discount_rate, payment_years_remaining)
     y.interconnect_annuities_mult = present_value_annuity_factor(discount_rate, interconnect_payment_years_remaining)
-    y.pv_period_investment_cost = annualized_investment_cost(y) * y.annuities_mult + interconnect_annuity(y) * y.interconnect_annuities_mult
+    
+    if !settings[:TechnologyLearning]
+        y.pv_period_investment_cost = annualized_investment_cost(y) * y.annuities_mult + interconnect_annuity(y) * y.interconnect_annuities_mult
+    end
 
     if settings[:ProjectDevelopment] 
         y.de_annuities_mult = sum(1 / (1 + settings.DiscountRate)^s for s in 1:de_payment_years_remaining; init=0);
