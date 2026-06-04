@@ -55,10 +55,10 @@ end
     return  (1 - (1 + discount_rate) ^ (-total_years)) / discount_rate
 end
 
-@inline function capital_recovery_factor(discount_rate::Float64, total_years::Int)
+@inline function capital_recovery_factor(wacc::Float64, total_years::Int)
     # This assumes we'll check that total_years and discount rate are non-negative beforehand
-    if discount_rate == 0.0
+    if wacc == 0.0
         return 1.0 / total_years
     end
-    return discount_rate / (1 - (1 + discount_rate) ^ (-total_years))
+    return wacc > 0 && total_years > 0 ? wacc / (1 - (1 + wacc) ^ (-total_years)) : 1.0
 end

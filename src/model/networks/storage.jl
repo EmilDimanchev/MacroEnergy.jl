@@ -64,6 +64,7 @@ macro AbstractStorageBaseAttributes()
         learning_delay::Int64 = 1
         interconnect_annuity::Float64 = 0.0
         interconnect_annuities_mult::Float64 = 0.0
+        cff::Float64 = 1.0
         # Project development
         de_duration::Int64 = $storage_defaults[:de_duration]
         af_duration::Int64 = $storage_defaults[:af_duration]
@@ -109,7 +110,7 @@ macro AbstractStorageBaseAttributes()
         new_capital_de::Union{AffExpr,Float64} = AffExpr(0.0)
         new_capital_af::Union{AffExpr,Float64} = AffExpr(0.0)
         new_capital_cc::Union{AffExpr,Float64} = AffExpr(0.0)
-        itc_schedule::Vector{Float64} = zeros(30)
+        itc_schedule::Vector{Float64} = zeros(20)
         # Max growth formulation
         max_new_capacity_init::Float64 = 0.0
         cagr::Float64 = 0.0
@@ -297,6 +298,7 @@ max_cumul_capacity(g::AbstractStorage) = g.max_cumul_capacity;
 learning_delay(g::AbstractStorage) = g.learning_delay;
 interconnect_annuity(g::AbstractStorage) = g.interconnect_annuity;
 interconnect_annuities_mult(g::AbstractStorage) = g.interconnect_annuities_mult;
+cff(g::AbstractStorage) = g.cff;
 # Project development
 de_duration(g::AbstractStorage) = g.de_duration;
 af_duration(g::AbstractStorage) = g.af_duration;

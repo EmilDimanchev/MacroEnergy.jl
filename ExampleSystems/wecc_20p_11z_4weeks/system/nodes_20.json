@@ -220,6 +220,7 @@
             "instance_data": [
                 {
                     "constraints": {
+                        "BalanceConstraint": false,
                         "CO2CapConstraint": true
                     },
                     "rhs_policy": {
@@ -236,6 +237,9 @@
             },
             "instance_data": [
                 {
+                    "constraints": {
+                        "BalanceConstraint": false
+                    },
                     "id": "co2_sink_injection"
                 }
             ],
@@ -247,6 +251,9 @@
             },
             "instance_data": [
                 {
+                    "constraints": {
+                        "BalanceConstraint": false
+                    },
                     "id": "water_node"
                 }
             ],

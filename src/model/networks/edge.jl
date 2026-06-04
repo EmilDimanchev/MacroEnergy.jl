@@ -79,6 +79,7 @@ macro AbstractEdgeBaseAttributes()
         learning_delay::Int64 = 1
         interconnect_annuity::Float64 = 0.0
         interconnect_annuities_mult::Float64 = 0.0
+        cff::Float64 = 1.0
         # Project development
         de_duration::Int64 = $edge_defaults[:de_duration]
         af_duration::Int64 = $edge_defaults[:af_duration]
@@ -130,12 +131,15 @@ macro AbstractEdgeBaseAttributes()
         new_capital_de::Union{AffExpr,Float64} = AffExpr(0.0)
         new_capital_af::Union{AffExpr,Float64} = AffExpr(0.0)
         new_capital_cc::Union{AffExpr,Float64} = AffExpr(0.0)
-        itc_schedule::Vector{Float64} = zeros(30)
+        itc_schedule::Vector{Float64} = zeros(20)
         # Max growth formulation
         max_new_capacity_init::Float64 = 0.0
         cagr::Float64 = 0.0
         cadr::Float64 = 0.0
         Inertia_category::Union{Nothing,String} = nothing
+        # CRM
+        capacity_reserve_margin_id::Union{Symbol,Missing}  = missing
+        capacity_reserve_margin_derate_factor::Float64 = 0.0
     end)
 end
 
@@ -466,6 +470,7 @@ max_cumul_capacity(e::AbstractEdge) = e.max_cumul_capacity;
 learning_delay(e::AbstractEdge) = e.learning_delay;
 interconnect_annuity(e::AbstractEdge) = e.interconnect_annuity;        
 interconnect_annuities_mult(e::AbstractEdge) = e.interconnect_annuities_mult;
+cff(e::AbstractEdge) = e.cff;
 # Project development
 de_duration(e::AbstractEdge) = e.de_duration;
 af_duration(e::AbstractEdge) = e.af_duration;
@@ -529,6 +534,8 @@ max_new_capacity_init(e::AbstractEdge) = e.max_new_capacity_init;
 cagr(e::AbstractEdge) = e.cagr;
 cadr(e::AbstractEdge) = e.cadr;
 Inertia_category(e::AbstractEdge) = e.Inertia_category;
+capacity_reserve_margin_id(e::AbstractEdge) = e.capacity_reserve_margin_id;
+capacity_reserve_margin_derate_factor(e::AbstractEdge) = e.capacity_reserve_margin_derate_factor;
 ##### End of Edge interface #####
 
 function add_linking_variables!(e::AbstractEdge, model::Model)
@@ -744,7 +751,16 @@ function compute_investment_costs!(e::AbstractEdge, model::Model, settings::Name
             e.new_capital_cc = @expression(model, investment_cost(e) * cc_cost_perc(e) * new_cc_capacity(e) * (1 - e.itc_schedule[period_index(e)]))
 
             else
-                # Cash flow costs for output writing
+                # # Cash flow costs for output writing
+                # if settings[:TechnologyLearning] && learning_type(e) in settings[:LearningTechnologies]
+                #     model[:eInvestmentFixedCost] += e.endog_annualized_investment_cost_times_newcapacity * annuities_mult(e) + interconnect_annuity(e) * interconnect_annuities_mult(e) * new_capacity(e)
+                # else
+                #     add_to_expression!(
+                #         model[:eInvestmentFixedCost],
+                #         annualized_investment_cost(e) * annuities_mult(e),
+                #         new_capacity(e),
+                #     )
+
                 add_to_expression!(
                     model[:eInvestmentFixedCost],
                     cost_type(e),

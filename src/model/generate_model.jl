@@ -31,7 +31,7 @@ function generate_model(case::Case, opt::Optimizer, ::Monolithic)
     # It will be populated inside prepare_capacity_reserve_margin! each period.
     # CapacityReserveMargin is defined in macro_settings.json (system-level settings),
     # so we read the zones from the first period's system settings.
-    crm_zones = settings.CapacityReserveMargin
+    crm_zones = collect(keys(settings.CapacityReserveMargin))
     if !isempty(crm_zones)
         @expression(model, eCapacityReserveMargin[k in crm_zones, p in 1:num_periods], AffExpr(0.0))
     end
@@ -103,11 +103,11 @@ function generate_model(case::Case, opt::Dict{Symbol,Dict{Symbol,Any}}, ::Bender
     @info("Technology learning set to $(haskey(settings, :TechnologyLearning) ? settings[:TechnologyLearning] : false)")
     @info("CO2 cap set to $(haskey(settings, :CO2Cap) ? settings[:CO2Cap] : false)")
 
-    crm_zones = settings.CapacityReserveMargin
+    crm_zones = collect(keys(settings.CapacityReserveMargin))
     if !isempty(crm_zones)
         @expression(planning_model, eCapacityReserveMargin[k in crm_zones, p in 1:num_periods], AffExpr(0.0))
     end
-    
+
     if settings[:DeploymentInertia]
         @expression(planning_model, eDeploymentGrowth[tech in settings[:TechsWithInertia], p in 1:num_periods], AffExpr(0.0))
         @expression(planning_model, eDeploymentDecline[tech in settings[:TechsWithInertia], p in 1:num_periods], AffExpr(0.0))
