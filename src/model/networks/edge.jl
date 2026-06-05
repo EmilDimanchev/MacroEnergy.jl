@@ -131,7 +131,7 @@ macro AbstractEdgeBaseAttributes()
         new_capital_de::Union{AffExpr,Float64} = AffExpr(0.0)
         new_capital_af::Union{AffExpr,Float64} = AffExpr(0.0)
         new_capital_cc::Union{AffExpr,Float64} = AffExpr(0.0)
-        itc_schedule::Vector{Float64} = zeros(20)
+        itc_schedule::Union{Nothing,Vector{Float64}} = nothing
         # Max growth formulation
         max_new_capacity_init::Float64 = 0.0
         cagr::Float64 = 0.0
@@ -631,8 +631,6 @@ function planning_model!(e::AbstractEdge, model::Model, settings::NamedTuple)
                     # @info("Edge $(id(e)) added to capacity reserve margin constraint CA")
                     add_to_expression!(model[:eCapacityReserveMargin][:CA, p_idx], capacity_reserve_margin_derate_factor(e) * capacity(e) * misc_resources_ca_share[string(id(e))])
                 end
-            else
-                error("Edge $(id(e)) is associated with an undefined capacity reserve margin constraint. Please double check the input data.")
             end
         end
         
@@ -693,6 +691,9 @@ function compute_investment_costs!(e::AbstractEdge, model::Model, settings::Name
     if has_capacity(e)
         if can_expand(e)
 
+            if itc_schedule(e) == nothing
+                e.itc_schedule = zeros(length(settings[:PeriodLengths]))
+            end
             # Apply subsidy depending on stage
             de_itc_schedule = [e.itc_schedule[(e.de_duration+e.af_duration)+1:end]; zeros(min((e.de_duration+e.af_duration), length(e.itc_schedule)))]
             af_itc_schedule = [e.itc_schedule[(e.af_duration)+1:end]; zeros(min((e.af_duration), length(e.itc_schedule)))]
