@@ -610,6 +610,12 @@ function compute_investment_costs!(g::AbstractStorage, model::Model, settings::N
 
                 add_to_expression!(
                 model[:eInvestmentFixedCost],
+                annualized_investment_cost(g)*annuities_mult(g) + interconnect_annuity(g) * interconnect_annuities_mult(g) * (1-g.itc_schedule[period_index(g)]),
+                new_capacity(g),
+                )
+
+                add_to_expression!(
+                model[:eInvestmentFixedCost],
                 de_annualized_cost(g)*de_annuities_mult(g)*(1-de_itc_schedule[period_index(g)]),
                 new_de_capacity(g),
                 )

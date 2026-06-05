@@ -443,7 +443,7 @@ wacc(e::AbstractEdge) = e.wacc;
 annualized_investment_cost(e::AbstractEdge) = e.annualized_investment_cost;
 function pv_period_investment_cost(e::AbstractEdge)::Union{Float64, Nothing}
     iszero(e.endog_annualized_cost) && return e.pv_period_investment_cost;
-    return value(e.endog_annualized_cost * e.annuities_mult + interconnect_annuity(e)*e.interconnect_annuities_mult)
+    return value(e.endog_annualized_cost * e.annuities_mult) #+ interconnect_annuity(e)*e.interconnect_annuities_mult)
 end
 cf_period_investment_cost(e::AbstractEdge) = e.cf_period_investment_cost;
 pv_period_fixed_om_cost(e::AbstractEdge) = e.pv_period_fixed_om_cost;

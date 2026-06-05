@@ -622,7 +622,7 @@ function discount_fixed_costs!(y::Union{AbstractEdge,AbstractStorage},settings::
     y.interconnect_annuities_mult = present_value_annuity_factor(discount_rate, interconnect_payment_years_remaining)
     
     if !settings[:TechnologyLearning] || !(learning_type(y) in settings[:LearningTechnologies]) 
-        y.pv_period_investment_cost = annualized_investment_cost(y) * y.annuities_mult + interconnect_annuity(y) * y.interconnect_annuities_mult
+        y.pv_period_investment_cost = annualized_investment_cost(y) * y.annuities_mult #+ interconnect_annuity(y) * y.interconnect_annuities_mult
     end
 
     if settings[:ProjectDevelopment] 
