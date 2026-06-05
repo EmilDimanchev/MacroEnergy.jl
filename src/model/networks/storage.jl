@@ -267,7 +267,10 @@ storage_level(g::AbstractStorage) = g.storage_level;
 storage_level(g::AbstractStorage, t::Int64) = storage_level(g)[t];
 wacc(g::AbstractStorage) = g.wacc;
 annualized_investment_cost(g::AbstractStorage) = g.annualized_investment_cost;
-pv_period_investment_cost(g::AbstractStorage) = g.pv_period_investment_cost;
+function pv_period_investment_cost(g::AbstractStorage)::Union{Float64, Nothing}
+    iszero(g.endog_annualized_cost) && return g.pv_period_investment_cost;
+    return value(g.endog_annualized_cost * g.annuities_mult + interconnect_annuity(g)*g.interconnect_annuities_mult)
+end
 cf_period_investment_cost(g::AbstractStorage) = g.cf_period_investment_cost;
 pv_period_fixed_om_cost(g::AbstractStorage) = g.pv_period_fixed_om_cost;
 cf_period_fixed_om_cost(g::AbstractStorage) = g.cf_period_fixed_om_cost;

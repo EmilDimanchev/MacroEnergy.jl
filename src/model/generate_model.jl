@@ -31,7 +31,7 @@ function generate_model(case::Case, opt::Optimizer, ::Monolithic)
     # It will be populated inside prepare_capacity_reserve_margin! each period.
     # CapacityReserveMargin is defined in macro_settings.json (system-level settings),
     # so we read the zones from the first period's system settings.
-    crm_zones = collect(keys(settings.CapacityReserveMargin))
+    crm_zones = haskey(settings, :CapacityReserveMargin) ? collect(keys(settings.CapacityReserveMargin)) : String[]
     if !isempty(crm_zones)
         @expression(model, eCapacityReserveMargin[k in crm_zones, p in 1:num_periods], AffExpr(0.0))
     end
@@ -103,7 +103,7 @@ function generate_model(case::Case, opt::Dict{Symbol,Dict{Symbol,Any}}, ::Bender
     @info("Technology learning set to $(haskey(settings, :TechnologyLearning) ? settings[:TechnologyLearning] : false)")
     @info("CO2 cap set to $(haskey(settings, :CO2Cap) ? settings[:CO2Cap] : false)")
 
-    crm_zones = collect(keys(settings.CapacityReserveMargin))
+    crm_zones = haskey(settings, :CapacityReserveMargin) ? collect(keys(settings.CapacityReserveMargin)) : String[]
     if !isempty(crm_zones)
         @expression(planning_model, eCapacityReserveMargin[k in crm_zones, p in 1:num_periods], AffExpr(0.0))
     end
@@ -291,7 +291,7 @@ end
 
 function planning_model!(system::System, model::Model, settings::NamedTuple)
 
-    if !isempty(settings.CapacityReserveMargin)
+    if haskey(settings, :CapacityReserveMargin) && !isempty(settings.CapacityReserveMargin)
         # @info(" -- Including capacity reserve margins: $(keys(system.settings.CapacityReserveMargin))")
         prepare_capacity_reserve_margin!(system, model, settings)
     end
@@ -621,7 +621,7 @@ function discount_fixed_costs!(y::Union{AbstractEdge,AbstractStorage},settings::
     y.annuities_mult = present_value_annuity_factor(discount_rate, payment_years_remaining)
     y.interconnect_annuities_mult = present_value_annuity_factor(discount_rate, interconnect_payment_years_remaining)
     
-    if !settings[:TechnologyLearning]
+    if !settings[:TechnologyLearning] || !(learning_type(y) in settings[:LearningTechnologies]) 
         y.pv_period_investment_cost = annualized_investment_cost(y) * y.annuities_mult + interconnect_annuity(y) * y.interconnect_annuities_mult
     end
 

@@ -81,7 +81,7 @@ function write_outputs(
 
     write_benders_convergence(case_path, bm.convergence)
     write_settings(case, joinpath(case_path, "settings.json"))
-    write_capacity_all_periods(results_dir, case)
+    # write_capacity_all_periods(results_dir, case)
     return nothing
 end
 
