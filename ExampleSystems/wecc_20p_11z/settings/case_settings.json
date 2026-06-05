@@ -23,10 +23,10 @@
     ],
     "SolutionAlgorithm": "Benders",
     "DiscountRate": 0.045,
-    "TechnologyLearning": true,
+    "TechnologyLearning": false,
     "ProjectDevelopment": true,
     "CO2Cap": true,
-    "DeploymentInertia": true,
+    "DeploymentInertia": false,
     "LearningTechnologies": ["egs"],
     "TechsWithInertia": ["onshore_wind", "solar", "egs", "battery", "ccgt", "ct"],
     "InertiaInitMW": {
