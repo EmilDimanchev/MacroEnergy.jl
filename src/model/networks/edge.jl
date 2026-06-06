@@ -755,15 +755,6 @@ function compute_investment_costs!(e::AbstractEdge, model::Model, settings::Name
             e.new_capital_cc = @expression(model, investment_cost(e) * cc_cost_perc(e) * new_cc_capacity(e) * (1 - e.itc_schedule[period_index(e)]))
 
             else
-                # # Cash flow costs for output writing
-                # if settings[:TechnologyLearning] && learning_type(e) in settings[:LearningTechnologies]
-                #     model[:eInvestmentFixedCost] += e.endog_annualized_investment_cost_times_newcapacity * annuities_mult(e) + interconnect_annuity(e) * interconnect_annuities_mult(e) * new_capacity(e)
-                # else
-                #     add_to_expression!(
-                #         model[:eInvestmentFixedCost],
-                #         annualized_investment_cost(e) * annuities_mult(e),
-                #         new_capacity(e),
-                #     )
 
                 add_to_expression!(
                     model[:eInvestmentFixedCost],
