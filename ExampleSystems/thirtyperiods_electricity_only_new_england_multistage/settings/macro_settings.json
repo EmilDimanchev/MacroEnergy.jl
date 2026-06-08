@@ -1,6 +1,6 @@
 {
     "ConstraintScaling": false,
     "OutputLayout": "wide",
-    "DualExportsEnabled": false,
+    "DualExportsEnabled": true,
     "OutputDir": "results_sltest"
 }
