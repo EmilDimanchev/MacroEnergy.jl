@@ -12,7 +12,7 @@ function generate_operation_subproblem(system::System,case_settings::NamedTuple,
 
     define_available_capacity!(system, model)
 
-    operation_model!(system, model)
+    operation_model!(system, model, case_settings)
 
     if include_subproblem_slacks == true && !haskey(model, :myslack_max)
         @info("Adding slack variables to ensure subproblems are always feasible")

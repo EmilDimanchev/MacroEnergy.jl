@@ -3,7 +3,7 @@
   "DiscountRate": 0.045,
   "CapacityReserveMargin": {},
   "SolutionAlgorithm": "Benders",
-  "TechnologyLearning": true,
+  "TechnologyLearning": false,
   "DeploymentInertia": false,
   "ProjectDevelopment": false,
   "CO2Cap": false,
@@ -22,7 +22,7 @@
       "solar": 0.5
   },
   "InertiaInitialDeclineRate": {
-      "wind": 1,
-      "solar": 1
+      "wind": 0.5,
+      "solar": 0.5
     }
 }

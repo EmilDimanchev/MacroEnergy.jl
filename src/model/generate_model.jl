@@ -195,7 +195,7 @@ function add_period_to_model!(
     build_period_planning!(model, system, next_system, settings)
 
     @info(" -- Generating operational model")
-    operation_model!(system, model)
+    operation_model!(system, model, settings)
 
     store_and_unregister_costs!(model, system, fixed_cost, investment_cost, om_fixed_cost)
 
@@ -313,7 +313,7 @@ function planning_model!(system::System, model::Model, settings::NamedTuple)
 end
 
 
-function operation_model!(system::System, model::Model)
+function operation_model!(system::System, model::Model, settings::NamedTuple=NamedTuple())
 
     for location in system.locations
         operation_model!(location, model)
@@ -323,8 +323,8 @@ function operation_model!(system::System, model::Model)
         operation_model!(asset, model)
     end
 
-    add_constraints_by_type!(system, model, OperationConstraint)
-    
+    add_constraints_by_type!(system, model, OperationConstraint, settings)
+
 end
 
 function planning_model!(a::AbstractAsset, model::Model, settings::NamedTuple)
