@@ -110,7 +110,7 @@ macro AbstractStorageBaseAttributes()
         new_capital_de::Union{AffExpr,Float64} = AffExpr(0.0)
         new_capital_af::Union{AffExpr,Float64} = AffExpr(0.0)
         new_capital_cc::Union{AffExpr,Float64} = AffExpr(0.0)
-        itc_schedule::Union{Nothing,Vector{Float64}} = nothing
+        itc_schedule::Vector{Float64} = zeros(20)
         # Max growth formulation
         max_new_capacity_init::Float64 = 0.0
         cagr::Float64 = 0.0
@@ -599,9 +599,6 @@ function compute_investment_costs!(g::AbstractStorage, model::Model, settings::N
     if has_capacity(g)
         if can_expand(g)
 
-            if itc_schedule(g) == nothing
-                g.itc_schedule = zeros(length(settings[:PeriodLengths]))
-            end
             # Apply subsidy depending on stage
             de_itc_schedule = [g.itc_schedule[(g.de_duration+g.af_duration)+1:end]; zeros(min((g.de_duration+g.af_duration), length(g.itc_schedule)))]
             af_itc_schedule = [g.itc_schedule[(g.af_duration)+1:end]; zeros(min((g.af_duration), length(g.itc_schedule)))]
