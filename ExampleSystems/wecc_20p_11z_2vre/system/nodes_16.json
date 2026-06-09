@@ -141,22 +141,30 @@
             },
             "instance_data": [
                 {
-                    "price": {
-                        "timeseries": {
-                            "header": "mountain_naturalgas",
-                            "path": "system/fuel_prices_16.csv"
+                    "id": "mountain_naturalgas",
+                    "supply": {
+                        "segment1": {
+                            "price": {
+                                "timeseries": {
+                                    "header": "mountain_naturalgas",
+                                    "path": "system/fuel_prices_16.csv"
+                                }
+                            }
                         }
-                    },
-                    "id": "mountain_naturalgas"
+                    }
                 },
                 {
-                    "price": {
-                        "timeseries": {
-                            "header": "pacific_naturalgas",
-                            "path": "system/fuel_prices_16.csv"
+                    "id": "pacific_naturalgas",
+                    "supply": {
+                        "segment1": {
+                            "price": {
+                                "timeseries": {
+                                    "header": "pacific_naturalgas",
+                                    "path": "system/fuel_prices_16.csv"
+                                }
+                            }
                         }
-                    },
-                    "id": "pacific_naturalgas"
+                    }
                 }
             ],
             "type": "NaturalGas"
@@ -167,22 +175,30 @@
             },
             "instance_data": [
                 {
-                    "price": {
-                        "timeseries": {
-                            "header": "mountain_uranium",
-                            "path": "system/fuel_prices_16.csv"
+                    "id": "mountain_uranium",
+                    "supply": {
+                        "segment1": {
+                            "price": {
+                                "timeseries": {
+                                    "header": "mountain_uranium",
+                                    "path": "system/fuel_prices_16.csv"
+                                }
+                            }
                         }
-                    },
-                    "id": "mountain_uranium"
+                    }
                 },
                 {
-                    "price": {
-                        "timeseries": {
-                            "header": "pacific_uranium",
-                            "path": "system/fuel_prices_16.csv"
+                    "id": "pacific_uranium",
+                    "supply": {
+                        "segment1": {
+                            "price": {
+                                "timeseries": {
+                                    "header": "pacific_uranium",
+                                    "path": "system/fuel_prices_16.csv"
+                                }
+                            }
                         }
-                    },
-                    "id": "pacific_uranium"
+                    }
                 }
             ],
             "type": "Uranium"
@@ -193,22 +209,30 @@
             },
             "instance_data": [
                 {
-                    "price": {
-                        "timeseries": {
-                            "header": "mountain_coal",
-                            "path": "system/fuel_prices_16.csv"
+                    "id": "mountain_coal",
+                    "supply": {
+                        "segment1": {
+                            "price": {
+                                "timeseries": {
+                                    "header": "mountain_coal",
+                                    "path": "system/fuel_prices_16.csv"
+                                }
+                            }
                         }
-                    },
-                    "id": "mountain_coal"
+                    }
                 },
                 {
-                    "price": {
-                        "timeseries": {
-                            "header": "pacific_coal",
-                            "path": "system/fuel_prices_16.csv"
+                    "id": "pacific_coal",
+                    "supply": {
+                        "segment1": {
+                            "price": {
+                                "timeseries": {
+                                    "header": "pacific_coal",
+                                    "path": "system/fuel_prices_16.csv"
+                                }
+                            }
                         }
-                    },
-                    "id": "pacific_coal"
+                    }
                 }
             ],
             "type": "Coal"
