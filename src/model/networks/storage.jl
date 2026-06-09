@@ -269,7 +269,7 @@ wacc(g::AbstractStorage) = g.wacc;
 annualized_investment_cost(g::AbstractStorage) = g.annualized_investment_cost;
 function pv_period_investment_cost(g::AbstractStorage)::Union{Float64, Nothing}
     iszero(g.endog_annualized_cost) && return g.pv_period_investment_cost;
-    return value(g.endog_annualized_cost * g.annuities_mult + interconnect_annuity(g)*g.interconnect_annuities_mult)
+    return value((1-g.itc_schedule[period_index(g)]) * g.endog_annualized_cost * g.annuities_mult + interconnect_annuity(g)*g.interconnect_annuities_mult)
 end
 cf_period_investment_cost(g::AbstractStorage) = g.cf_period_investment_cost;
 pv_period_fixed_om_cost(g::AbstractStorage) = g.pv_period_fixed_om_cost;
@@ -607,7 +607,7 @@ function compute_investment_costs!(g::AbstractStorage, model::Model, settings::N
 
                 add_to_expression!(
                 model[:eInvestmentFixedCost],
-                annualized_investment_cost(g)*annuities_mult(g) + interconnect_annuity(g) * interconnect_annuities_mult(g) * (1-g.itc_schedule[period_index(g)]),
+                (1-g.itc_schedule[period_index(g)]) * annualized_investment_cost(g) * annuities_mult(g) + interconnect_annuity(g) * interconnect_annuities_mult(g),
                 new_capacity(g),
                 )
 

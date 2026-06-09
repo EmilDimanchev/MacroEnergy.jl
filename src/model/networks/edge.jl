@@ -443,7 +443,7 @@ wacc(e::AbstractEdge) = e.wacc;
 annualized_investment_cost(e::AbstractEdge) = e.annualized_investment_cost;
 function pv_period_investment_cost(e::AbstractEdge)::Union{Float64, Nothing}
     iszero(e.endog_annualized_cost) && return e.pv_period_investment_cost;
-    return value(e.endog_annualized_cost) * e.annuities_mult #+ interconnect_annuity(e)*e.interconnect_annuities_mult)
+    return value((1 - e.itc_schedule[period_index(e)]) * e.endog_annualized_cost * e.annuities_mult + interconnect_annuity(e)*e.interconnect_annuities_mult)
 end
 cf_period_investment_cost(e::AbstractEdge) = e.cf_period_investment_cost;
 pv_period_fixed_om_cost(e::AbstractEdge) = e.pv_period_fixed_om_cost;
@@ -702,17 +702,17 @@ function compute_investment_costs!(e::AbstractEdge, model::Model, settings::Name
                 # Costs used by model
                 if settings[:TechnologyLearning] && learning_type(e) in settings[:LearningTechnologies]
                     # Linearized learning
-                    model[:eInvestmentFixedCost] += e.endog_annualized_investment_cost_times_newcapacity * annuities_mult(e) + interconnect_annuity(e) * interconnect_annuities_mult(e) * new_capacity(e)
+                    model[:eInvestmentFixedCost] += (1 - e.itc_schedule[period_index(e)]) * e.endog_annualized_investment_cost_times_newcapacity * annuities_mult(e) + interconnect_annuity(e) * interconnect_annuities_mult(e) * new_capacity(e)
                     # Nonlinear version for benchmarking
                     # model[:eInvestmentFixedCost] += (1 - subsidy)*endog_annualized_investment_cost(e)*annuities_mult(e)*new_capacity(e)
 
                     # Shadow capacity for project development constraints (project development)
-                    # model[:eInvestmentFixedCost] +=
-                    #     e.endog_annualized_investment_cost_times_newcapacity_de * (1 - de_itc_schedule[period_index(e)]) * de_annuities_mult(e)
-                    # model[:eInvestmentFixedCost] +=
-                    #     e.endog_annualized_investment_cost_times_newcapacity_af * (1 - af_itc_schedule[period_index(e)]) * af_annuities_mult(e)
-                    # model[:eInvestmentFixedCost] +=
-                    #     e.endog_annualized_investment_cost_times_newcapacity_cc * (1 - e.itc_schedule[period_index(e)]) * cc_annuities_mult(e)
+                    model[:eInvestmentFixedCost] +=
+                        e.endog_annualized_investment_cost_times_newcapacity_de * (1 - de_itc_schedule[period_index(e)]) * de_annuities_mult(e)
+                    model[:eInvestmentFixedCost] +=
+                        e.endog_annualized_investment_cost_times_newcapacity_af * (1 - af_itc_schedule[period_index(e)]) * af_annuities_mult(e)
+                    model[:eInvestmentFixedCost] +=
+                        e.endog_annualized_investment_cost_times_newcapacity_cc * (1 - e.itc_schedule[period_index(e)]) * cc_annuities_mult(e)
 
                 elseif !settings[:TechnologyLearning] || !(learning_type(e) in settings[:LearningTechnologies])
                     # Technologies without endogenous learning
@@ -723,21 +723,21 @@ function compute_investment_costs!(e::AbstractEdge, model::Model, settings::Name
                     )
 
                     # Capacity for project development constraints (project development)
-                    # add_to_expression!(
-                    #     model[:eInvestmentFixedCost],
-                    #     de_annualized_cost(e) * (1 - de_itc_schedule[period_index(e)]) * de_annuities_mult(e),
-                    #     new_de_capacity(e),
-                    # )
-                    # add_to_expression!(
-                    #     model[:eInvestmentFixedCost],
-                    #     af_annualized_cost(e) * (1 - af_itc_schedule[period_index(e)]) * af_annuities_mult(e),
-                    #     new_af_capacity(e),
-                    # )
-                    # add_to_expression!(
-                    #     model[:eInvestmentFixedCost],
-                    #     cc_annualized_cost(e) * (1 - e.itc_schedule[period_index(e)]) * cc_annuities_mult(e),
-                    #     new_cc_capacity(e),
-                    # )
+                    add_to_expression!(
+                        model[:eInvestmentFixedCost],
+                        de_annualized_cost(e) * (1 - de_itc_schedule[period_index(e)]) * de_annuities_mult(e),
+                        new_de_capacity(e),
+                    )
+                    add_to_expression!(
+                        model[:eInvestmentFixedCost],
+                        af_annualized_cost(e) * (1 - af_itc_schedule[period_index(e)]) * af_annuities_mult(e),
+                        new_af_capacity(e),
+                    )
+                    add_to_expression!(
+                        model[:eInvestmentFixedCost],
+                        cc_annualized_cost(e) * (1 - e.itc_schedule[period_index(e)]) * cc_annuities_mult(e),
+                        new_cc_capacity(e),
+                    )
 
                 end
 
