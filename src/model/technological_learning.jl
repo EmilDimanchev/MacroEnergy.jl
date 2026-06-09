@@ -69,8 +69,7 @@ function add_learning!(system::System, model::Model, period_idx::Int, settings::
             # Determine investment cost
             # Depends on learning lag
             if curr_period <= learning_delay(e)
-                # No learning yet, use initial investment cost
-                e.endog_annualized_investment_cost = annualized_investment_cost(e)
+                
 
                 e.endog_annualized_investment_cost_times_newcapacity = annualized_investment_cost(e)*new_capacity(e)
                 
@@ -83,6 +82,8 @@ function add_learning!(system::System, model::Model, period_idx::Int, settings::
                  # For reporting purposes
                 e.endogenous_capex_segment_chosen_from_relevant_period = endogenous_capex_segment_chosen_track(e, curr_period)
                 e.endog_annualized_cost = annualized_investment_cost(e)
+                # For non linear
+                # e.endog_annualized_investment_cost = annualized_investment_cost(e)
 
             else
                 e.endogenous_capex_segment_chosen_from_relevant_period = endogenous_capex_segment_chosen_track(e, cost_period)

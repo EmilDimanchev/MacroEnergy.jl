@@ -1,11 +1,11 @@
 {
-  "PeriodLengths": [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+  "PeriodLengths": [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
   "DiscountRate": 0.045,
   "CapacityReserveMargin": {},
   "SolutionAlgorithm": "Benders",
-  "TechnologyLearning": true,
+  "TechnologyLearning": false,
   "DeploymentInertia": false,
-  "ProjectDevelopment": true,
+  "ProjectDevelopment": false,
   "CO2Cap": false,
   "LearningTechnologies": ["wind"],
   "TechsWithInertia": ["wind", "solar"],
@@ -22,7 +22,7 @@
       "solar": 0.5
   },
   "InertiaInitialDeclineRate": {
-      "wind": 1,
-      "solar": 1
+      "wind": 0.5,
+      "solar": 0.5
     }
 }
