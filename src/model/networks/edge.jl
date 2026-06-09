@@ -742,14 +742,14 @@ function compute_investment_costs!(e::AbstractEdge, model::Model, settings::Name
                 end
 
                 if settings[:ProjectDevelopment]
-                e.new_capital = @expression(model, investment_cost(e) * (1 - de_cost_perc(e) - af_cost_perc(e) - cc_cost_perc(e)) * new_capacity(e) * (1 - e.itc_schedule[period_index(e)]))
-            else
-                e.new_capital = @expression(model, investment_cost(e) * new_capacity(e) * (1 - e.itc_schedule[period_index(e)]))
-            end
+                    e.new_capital = @expression(model, investment_cost(e) * (1 - de_cost_perc(e) - af_cost_perc(e) - cc_cost_perc(e)) * new_capacity(e) * (1 - e.itc_schedule[period_index(e)]))
+                else
+                    e.new_capital = @expression(model, investment_cost(e) * new_capacity(e) * (1 - e.itc_schedule[period_index(e)]))
+                end
 
-            e.new_capital_de = @expression(model, investment_cost(e) * de_cost_perc(e) * new_de_capacity(e) * (1 - de_itc_schedule[period_index(e)]))
-            e.new_capital_af = @expression(model, investment_cost(e) * af_cost_perc(e) * new_af_capacity(e) * (1 - af_itc_schedule[period_index(e)]))
-            e.new_capital_cc = @expression(model, investment_cost(e) * cc_cost_perc(e) * new_cc_capacity(e) * (1 - e.itc_schedule[period_index(e)]))
+                e.new_capital_de = @expression(model, investment_cost(e) * de_cost_perc(e) * new_de_capacity(e) * (1 - de_itc_schedule[period_index(e)]))
+                e.new_capital_af = @expression(model, investment_cost(e) * af_cost_perc(e) * new_af_capacity(e) * (1 - af_itc_schedule[period_index(e)]))
+                e.new_capital_cc = @expression(model, investment_cost(e) * cc_cost_perc(e) * new_cc_capacity(e) * (1 - e.itc_schedule[period_index(e)]))
 
             else
 
