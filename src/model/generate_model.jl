@@ -91,6 +91,7 @@ function generate_model(case::Case, opt::Dict{Symbol,Dict{Symbol,Any}}, ::Bender
     @info("*** Generating Benders decomposition model ***")
     
     planning_model = Model()
+    set_string_names_on_creation(planning_model, true)
     planning_optimizer = opt[:planning]
     optimizer = create_optimizer(planning_optimizer[:solver], opt_env(planning_optimizer[:solver]), planning_optimizer[:attributes])
     set_optimizer(planning_model, optimizer)
@@ -291,15 +292,6 @@ end
 
 function planning_model!(system::System, model::Model, settings::NamedTuple)
 
-    if haskey(settings, :CapacityReserveMargin) && !isempty(settings.CapacityReserveMargin)
-        # @info(" -- Including capacity reserve margins: $(keys(system.settings.CapacityReserveMargin))")
-        prepare_capacity_reserve_margin!(system, model, settings)
-    end
-
-    if settings[:DeploymentInertia]
-        add_model_constraint!(DeploymentInertiaConstraint(), system, model, settings)
-    end
-
     for location in system.locations
         planning_model!(location, model, settings)
     end
@@ -309,6 +301,14 @@ function planning_model!(system::System, model::Model, settings::NamedTuple)
     end
 
     add_constraints_by_type!(system, model, PlanningConstraint, settings)
+    if haskey(settings, :CapacityReserveMargin) && !isempty(settings.CapacityReserveMargin)
+        prepare_capacity_reserve_margin!(system, model, settings)
+        add_model_constraint!(CapacityReserveMarginConstraint(), system, model, settings)
+    end
+    
+    if settings[:DeploymentInertia]
+        add_model_constraint!(DeploymentInertiaConstraint(), system, model, settings)
+    end
 
 end
 
@@ -795,8 +795,6 @@ function prepare_capacity_reserve_margin!(system::System, model::Model, settings
         # @info(" -- For zone $k, peak demand is $(peak_demand[k]) and required capacity (including reserve margin) is $(required_capacity[k])")
         add_to_expression!(model[:eCapacityReserveMargin][k, p_idx], -required_capacity[k])
     end
-
-    add_model_constraint!(CapacityReserveMarginConstraint(), system, model, settings)
 
     return nothing
     
