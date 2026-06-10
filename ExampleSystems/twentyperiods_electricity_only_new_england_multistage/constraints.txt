@@ -1,0 +1,3 @@
+vNEWUNIT_CT_onshore_wind_edge_period1 + vNEWUNIT_ME_onshore_wind_edge_period1 ≥ 5000
+vNEWUNIT_CT_onshore_wind_edge_period1 ≤ 400
+vNEWUNIT_ME_onshore_wind_edge_period1 ≤ 400
