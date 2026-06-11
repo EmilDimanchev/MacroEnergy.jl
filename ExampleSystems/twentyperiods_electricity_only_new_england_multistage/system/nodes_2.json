@@ -116,7 +116,7 @@
                 {
                     "constraints": {
                         "BalanceConstraint": false,
-                        "CO2CapConstraint": true
+                        "CO2CapConstraint": false
                     },
                     "rhs_policy": {
                         "CO2CapConstraint": 18000
@@ -126,7 +126,7 @@
                 {
                     "constraints": {
                         "BalanceConstraint": false,
-                        "CO2CapConstraint": true
+                        "CO2CapConstraint": false
                     },
                     "rhs_policy": {
                         "CO2CapConstraint": 25000
@@ -136,7 +136,7 @@
                 {
                     "constraints": {
                         "BalanceConstraint": false,
-                        "CO2CapConstraint": true
+                        "CO2CapConstraint": false
                     },
                     "rhs_policy": {
                         "CO2CapConstraint": 25000
