@@ -39,7 +39,7 @@ function finalize_planning_model_objective!(
     _, number_of_subperiods = get_period_to_subproblem_mapping(periods)
     @expression(model, eLowerBoundOperatingCost[w in 1:number_of_subperiods], AffExpr(0.0))
 
-    @objective(model, Min, model[:eFixedCost])
+    @objective(model, Min, 1e-6 * model[:eFixedCost])
 
     return nothing
 end

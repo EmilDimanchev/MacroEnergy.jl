@@ -95,7 +95,7 @@ function generate_model(case::Case, opt::Dict{Symbol,Dict{Symbol,Any}}, ::Bender
     planning_optimizer = opt[:planning]
     optimizer = create_optimizer(planning_optimizer[:solver], opt_env(planning_optimizer[:solver]), planning_optimizer[:attributes])
     set_optimizer(planning_model, optimizer)
-    set_silent(planning_model)
+    # set_silent(planning_model)
     settings = get_settings(case)
     num_periods = number_of_periods(case)
     @info("Generating planning problem")
@@ -153,7 +153,7 @@ function generate_model(system::System, opt::Dict{Symbol,Dict{Symbol,Any}}, sett
     planning_optimizer = opt[:planning]
     optimizer = create_optimizer(planning_optimizer[:solver], opt_env(planning_optimizer[:solver]), planning_optimizer[:attributes])
     set_optimizer(model, optimizer)
-    set_silent(model)
+    # set_silent(model)
     
     @info("Generating planning problem for period $(period_index(system))")
     
