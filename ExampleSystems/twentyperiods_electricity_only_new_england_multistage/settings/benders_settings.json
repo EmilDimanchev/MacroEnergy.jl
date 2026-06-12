@@ -1,7 +1,7 @@
 {
   "MaxIter": 500,
   "MaxCpuTime": 21000,
-  "ConvTol": 1e-3,
+  "ConvTol": 1e-4,
   "StabParam": 0.5,
   "StabDynamic": false,
   "IntegerInvestment": false,
