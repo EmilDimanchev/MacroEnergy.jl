@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "Bash(python3 -m json.tool)"
+      "Bash(python3 -m json.tool)",
+      "Bash(python sum_co2_sink_nothing.py)",
+      "Bash(python3 sum_co2_sink_nothing.py)"
     ]
   }
 }

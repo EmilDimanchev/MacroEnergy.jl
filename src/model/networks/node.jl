@@ -155,7 +155,7 @@ function add_linking_variables!(n::Node, model::Model)
             n.policy_budgeting_vars[Symbol(string(ct_type) * "_Budget")] = @variable(
                 model,
                 [w in subperiod_indices(n)],
-                base_name = "v" * string(ct_type) * "_Budget_$(id(n))_period$(period_index(n))"
+                base_name = "v" * string(ct_type) * "_Budget_$(id(n))_period$(period_index(n))", lower_bound = 0.0
             )
         end
     end

@@ -6,6 +6,7 @@
   "TechnologyLearning": false,
   "DeploymentInertia": false,
   "ProjectDevelopment": false,
+  "WriteFullTimeseries": false,
   "CO2Cap": true,
   "LearningTechnologies": ["wind"],
   "TechsWithInertia": ["wind", "solar"],

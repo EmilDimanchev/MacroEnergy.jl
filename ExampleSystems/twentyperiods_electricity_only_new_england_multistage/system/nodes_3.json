@@ -119,7 +119,7 @@
                         "CO2CapConstraint": true
                     },
                     "rhs_policy": {
-                        "CO2CapConstraint": 1
+                        "CO2CapConstraint": 10e6
                     },
                     "id": "co2_sink_1"
                 },
@@ -129,7 +129,7 @@
                         "CO2CapConstraint": true
                     },
                     "rhs_policy": {
-                        "CO2CapConstraint": 1
+                        "CO2CapConstraint": 10e6
                     },
                     "id": "co2_sink_2"
                 },
@@ -139,7 +139,7 @@
                         "CO2CapConstraint": true
                     },
                     "rhs_policy": {
-                        "CO2CapConstraint": 1
+                        "CO2CapConstraint": 10e6
                     },
                     "id": "co2_sink_3"
                 }
