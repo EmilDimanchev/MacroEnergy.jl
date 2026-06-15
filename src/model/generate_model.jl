@@ -670,7 +670,7 @@ function undo_discount_fixed_costs!(y::Union{AbstractEdge,AbstractStorage},setti
     # y.annualized_investment_cost = payment_years_remaining * annualized_investment_cost(y) * capital_recovery_factor(discount_rate, payment_years_remaining)
 
     # y.cf_period_investment_cost = payment_years_remaining * annualized_investment_cost(y)
-    y.cf_period_investment_cost = payment_years_remaining * pv_period_investment_cost(y) * capital_recovery_factor(discount_rate, payment_years_remaining)
+    y.cf_period_investment_cost = payment_years_remaining * pv_period_investment_cost(y) * capital_recovery_factor(wacc(y), payment_years_remaining)
     y.cf_period_fixed_om_cost = period_lengths[period_idx] * fixed_om_cost(y)
     y.cf_period_variable_om_cost = period_lengths[period_idx] * variable_om_cost(y)
 end
