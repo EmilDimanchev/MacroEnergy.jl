@@ -44,6 +44,7 @@ function add_model_constraint!(ct::CO2CapConstraint, n::Node{CO2}, model::Model,
             n.policy_slack_vars[Symbol(string(ct_type) * "_Slack")] = @variable(
                 model,
                 [w in subperiod_indices(n)], 
+                lower_bound = 0.0,
                 base_name = "v" * string(ct_type) * "_Slack_$(id(n))_period$(period_index(n))"
             )
             for w in subperiod_indices(n)
