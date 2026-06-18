@@ -11,7 +11,8 @@
       "Bash(cat /Users/ed0400/Modeling/1_Equilibrium_investment/Cutting_planes/jobscript.sh && ls /Users/ed0400/Modeling/1_Equilibrium_investment/ADMM/)",
       "Read(//Users/ed0400/Modeling/1_Equilibrium_investment/Systems/**)",
       "Read(//Users/ed0400/Modeling/1_Equilibrium_investment/Systems/Inputs_mays_small/**)",
-      "mcp__visualize__read_me"
+      "mcp__visualize__read_me",
+      "Bash(python3)"
     ]
   }
 }
