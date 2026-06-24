@@ -61,5 +61,7 @@
         "battery": 0.794,
         "ccgt": 0.11,
         "ct": 0.11
-    }
+    },
+    "ParameterScaling": true,
+    "ParameterScalingFactor": 1e3
 }
