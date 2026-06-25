@@ -48,11 +48,11 @@ function add_learning!(system::System, model::Model, period_idx::Int, settings::
             # Cumulative_experience combines existing capacity and all new capacity from modeled region
             @constraint(model, sum(cumulative_experience(e)[k] for k in 1:n_segments+1) == sum(new_capacity_track(e,i) for i=1:curr_period, e in learning_tech_edges) + init_cumul_capacity(e))
             
-            # println(string(e.id," points"))
-            # println(x_points)
-            # println(y_points)
-            # println("All slopes")
-            # println(e.pwl_capex_slopes)
+            println(string(e.id," points"))
+            println(x_points)
+            println(y_points)
+            println("All slopes")
+            println(e.pwl_capex_slopes)
 
             # Determine chosen segment
             epsilon_learning = init_cumul_capacity(e)/1e6 # ensures the first inequality is strict
@@ -94,7 +94,7 @@ function add_learning!(system::System, model::Model, period_idx::Int, settings::
 
                 @constraint(model, [k in 1:n_segments+1], e.new_capacity - e.aux_new_capacity[k] >= 0)
                 # Big M constraints
-                big_M_capacity = max_new_capacity(e)
+                big_M_capacity = max_new_capacity(e)*2
                 @constraint(model, [k in 1:n_segments+1], e.new_capacity - e.aux_new_capacity[k] <= big_M_capacity*(1-endogenous_capex_segment_chosen_from_relevant_period(e)[k]))
                 @constraint(model, [k in 1:n_segments+1], e.aux_new_capacity[k] <= big_M_capacity*e.endogenous_capex_segment_chosen_from_relevant_period[k])
 
