@@ -754,6 +754,8 @@ end
 
 function prepare_capacity_reserve_margin!(system::System, model::Model, settings::NamedTuple)
 
+    scaling_factor = settings.ParameterScaling ? Float64(settings.ParameterScalingFactor) : 1.0
+
     capacity_reserve_margin_nodes = get_capacity_reserve_margin_nodes(system, settings)
 
     capacity_reserve_margin_ids = keys(settings.CapacityReserveMargin)
@@ -771,7 +773,7 @@ function prepare_capacity_reserve_margin!(system::System, model::Model, settings
         end
     end
 
-    peak_demand = Dict{Symbol,Float64}(k=> maximum(sum(demand(n) for n in capacity_reserve_margin_nodes[k])) for k in capacity_reserve_margin_ids)
+    peak_demand = Dict{Symbol,Float64}(k=> maximum(sum(demand(n)./scaling_factor for n in capacity_reserve_margin_nodes[k])) for k in capacity_reserve_margin_ids)
 
     required_capacity = Dict{Symbol,Float64}(k=> (1 + settings.CapacityReserveMargin[k]) * peak_demand[k] for k in capacity_reserve_margin_ids)
 

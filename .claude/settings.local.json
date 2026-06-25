@@ -12,7 +12,11 @@
       "Read(//Users/ed0400/Modeling/1_Equilibrium_investment/Systems/**)",
       "Read(//Users/ed0400/Modeling/1_Equilibrium_investment/Systems/Inputs_mays_small/**)",
       "mcp__visualize__read_me",
-      "Bash(python3)"
+      "Bash(python3)",
+      "Read(//Users/ed0400/Modeling/1_Equilibrium_investment/**)",
+      "Read(//Users/ed0400/Modeling/1_Equilibrium_investment/Monolithic/**)",
+      "Bash(echo \"Exit code: $?\")",
+      "Bash(grep -n \"Demand shift weather\\\\|demand_shift_weather\\\\|Demand adders\\\\|demand_adder\" /Users/ed0400/Modeling/1_Equilibrium_investment/Monolithic/../utilities/load_inputs.jl | head -40)"
     ]
   }
 }
