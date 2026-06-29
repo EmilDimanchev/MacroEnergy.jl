@@ -773,9 +773,9 @@ function prepare_capacity_reserve_margin!(system::System, model::Model, settings
         end
     end
 
-    peak_demand = Dict{Symbol,Float64}(k=> maximum(sum(demand(n)./scaling_factor for n in capacity_reserve_margin_nodes[k])) for k in capacity_reserve_margin_ids)
+    peak_demand = Dict{Symbol,Float64}(k=> maximum(sum(demand(n) for n in capacity_reserve_margin_nodes[k])) for k in capacity_reserve_margin_ids)
 
-    required_capacity = Dict{Symbol,Float64}(k=> (1 + settings.CapacityReserveMargin[k]) * peak_demand[k] for k in capacity_reserve_margin_ids)
+    required_capacity = Dict{Symbol,Float64}(k=> (1 + settings.CapacityReserveMargin[k]) * peak_demand[k]/scaling_factor for k in capacity_reserve_margin_ids)
 
     # Get period index from first node in any zone
     p_idx = period_index(first(first(values(capacity_reserve_margin_nodes))))
