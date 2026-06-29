@@ -9,7 +9,7 @@ function add_learning!(system::System, model::Model, period_idx::Int, settings::
     learning_techs = settings[:LearningTechnologies]
     n_learning_techs = length(learning_techs)
 
-    n_segments = 5
+    n_segments = 7
     # Segment of piece-wise linear curve chosen for each learning technology
     endogenous_capex_segment_chosen = @variable(model, [e in 1:n_learning_techs, k in 1:n_segments+1], binary=true, base_name = "vBINSEG_LEARNINGTYPE_$(period_idx)_$(e)_seg_$k")
     @constraint(model, [y in 1:n_learning_techs], sum(endogenous_capex_segment_chosen[y,k] for k in 1:n_segments+1) == 1)
@@ -81,7 +81,7 @@ function add_learning!(system::System, model::Model, period_idx::Int, settings::
 
                  # For reporting purposes
                 e.endogenous_capex_segment_chosen_from_relevant_period = endogenous_capex_segment_chosen_track(e, curr_period)
-                e.endog_annualized_cost = annualized_investment_cost(e)
+                e.endog_capex_cost = investment_cost(e)
                 # For non linear
                 # e.endog_annualized_investment_cost = annualized_investment_cost(e)
 
@@ -141,7 +141,8 @@ function add_learning!(system::System, model::Model, period_idx::Int, settings::
                 ### Enf of linearization
                 
                 # For reporting purposes
-                e.endog_annualized_cost = @expression(model, sum(e.pwl_capex_slopes[k]*e.endogenous_capex_segment_chosen_from_relevant_period[k]*capital_recovery_factor(wacc(e), capital_recovery_period(e)) for k in 1:n_segments+1))
+                # e.endog_annualized_cost = @expression(model, sum(e.pwl_capex_slopes[k]*e.endogenous_capex_segment_chosen_from_relevant_period[k]*capital_recovery_factor(wacc(e), capital_recovery_period(e)) for k in 1:n_segments+1))
+                e.endog_capex_cost = @expression(model, sum(e.pwl_capex_slopes[k]*e.endogenous_capex_segment_chosen_from_relevant_period[k] for k in 1:n_segments+1))
                 
             end
         end

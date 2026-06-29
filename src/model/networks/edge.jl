@@ -72,7 +72,7 @@ macro AbstractEdgeBaseAttributes()
         endog_annualized_investment_cost_times_newcapacity::AffExpr = AffExpr(0.0)
         annuities_mult::Float64 = 0.0
         annualization_factor::Float64 = 0.0
-        endog_annualized_cost::AffExpr = AffExpr(0.0)
+        endog_capex_cost::AffExpr = AffExpr(0.0)
         init_cumul_capacity::Float64 = 0.0
         endog_annualized_investment_cost::AffExpr = 0.0
         max_cumul_capacity::Float64 = 0.0
@@ -442,8 +442,8 @@ variable_om_cost(e::AbstractEdge) = e.variable_om_cost;
 wacc(e::AbstractEdge) = e.wacc;
 annualized_investment_cost(e::AbstractEdge) = e.annualized_investment_cost;
 function pv_period_investment_cost(e::AbstractEdge)::Union{Float64, Nothing}
-    iszero(e.endog_annualized_cost) && return e.pv_period_investment_cost;
-    return value((1 - e.itc_schedule[period_index(e)]) * e.endog_annualized_cost * e.annuities_mult + interconnect_annuity(e)*e.interconnect_annuities_mult)
+    iszero(e.endog_capex_cost) && return e.pv_period_investment_cost;
+    return value((1 - e.itc_schedule[period_index(e)]) * e.endog_capex_cost * e.annuities_mult + interconnect_annuity(e)*e.interconnect_annuities_mult)
 end
 cf_period_investment_cost(e::AbstractEdge) = e.cf_period_investment_cost;
 pv_period_fixed_om_cost(e::AbstractEdge) = e.pv_period_fixed_om_cost;
@@ -467,7 +467,7 @@ aux_new_capacity(e::AbstractEdge) = e.aux_new_capacity;
 endog_annualized_investment_cost_times_newcapacity(e::AbstractEdge) = e.endog_annualized_investment_cost_times_newcapacity;
 annuities_mult(e::AbstractEdge) = e.annuities_mult;
 annualization_factor(e::AbstractEdge) = e.annualization_factor;
-endog_annualized_cost(e::AbstractEdge) = e.endog_annualized_cost;
+endog_capex_cost(e::AbstractEdge) = e.endog_capex_cost;
 init_cumul_capacity(e::AbstractEdge) = e.init_cumul_capacity;
 max_cumul_capacity(e::AbstractEdge) = e.max_cumul_capacity;
 learning_delay(e::AbstractEdge) = e.learning_delay;

@@ -15,6 +15,8 @@ function write_outputs(
         write_period_outputs(results_dir, period_idx, period, model, settings)
     end
     write_settings(case, joinpath(case_path, "settings.json"))
+    scaling = parameter_scaling_factor(settings)
+    write_capacity_all_periods(case_path, case; scaling)
     return nothing
 end
 
@@ -83,7 +85,7 @@ function write_outputs(
 
     write_benders_convergence(case_path, bm.convergence)
     write_settings(case, joinpath(case_path, "settings.json"))
-    # write_capacity_all_periods(results_dir, case)
+    write_capacity_all_periods(case_path, case; scaling)
     return nothing
 end
 

@@ -57,7 +57,7 @@ macro AbstractStorageBaseAttributes()
         annualized_investment_cost_with_learning::AffExpr = AffExpr(0.0)
         annuities_mult::Float64 = 0.0
         annualization_factor::Float64 = 0.0
-        endog_annualized_cost::AffExpr = AffExpr(0.0)
+        endog_capex_cost::AffExpr = AffExpr(0.0)
         init_cumul_capacity::Float64 = 0.0
         endog_annualized_investment_cost::AffExpr = 0.0
         max_cumul_capacity::Float64 = 0.0
@@ -268,8 +268,8 @@ storage_level(g::AbstractStorage, t::Int64) = storage_level(g)[t];
 wacc(g::AbstractStorage) = g.wacc;
 annualized_investment_cost(g::AbstractStorage) = g.annualized_investment_cost;
 function pv_period_investment_cost(g::AbstractStorage)::Union{Float64, Nothing}
-    iszero(g.endog_annualized_cost) && return g.pv_period_investment_cost;
-    return value((1-g.itc_schedule[period_index(g)]) * g.endog_annualized_cost * g.annuities_mult + interconnect_annuity(g)*g.interconnect_annuities_mult)
+    iszero(g.endog_capex_cost) && return g.pv_period_investment_cost;
+    return value((1-g.itc_schedule[period_index(g)]) * g.endog_capex_cost * g.annuities_mult + interconnect_annuity(g)*g.interconnect_annuities_mult)
 end
 cf_period_investment_cost(g::AbstractStorage) = g.cf_period_investment_cost;
 pv_period_fixed_om_cost(g::AbstractStorage) = g.pv_period_fixed_om_cost;
@@ -295,7 +295,7 @@ aux_new_capacity(g::AbstractStorage) = g.aux_new_capacity;
 annualized_investment_cost_with_learning(g::AbstractStorage) = g.annualized_investment_cost_with_learning;
 annuities_mult(g::AbstractStorage) = g.annuities_mult;
 annualization_factor(g::AbstractStorage) = g.annualization_factor;
-endog_annualized_cost(g::AbstractStorage) = g.endog_annualized_cost;
+endog_capex_cost(g::AbstractStorage) = g.endog_capex_cost;
 init_cumul_capacity(g::AbstractStorage) = g.init_cumul_capacity;
 max_cumul_capacity(g::AbstractStorage) = g.max_cumul_capacity;
 learning_delay(g::AbstractStorage) = g.learning_delay;

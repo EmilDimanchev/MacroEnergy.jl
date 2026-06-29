@@ -408,7 +408,7 @@ end
 ##############################
 
 # Cost category symbols for output
-const COST_CATEGORIES = [:Investment, :FixedOM, :VariableOM, :Fuel, :Startup, :NonServedDemand, :Supply, :UnmetPolicyPenalty, :EndogAnnCost]
+const COST_CATEGORIES = [:Investment, :FixedOM, :VariableOM, :Fuel, :Startup, :NonServedDemand, :Supply, :UnmetPolicyPenalty, :EndogCost]
 
 # Categories discounted with discount_factor
 const FIXED_COST_CATEGORIES = Set([:Investment,:FixedOM])
@@ -605,7 +605,7 @@ function get_detailed_costs(system::System, settings::NamedTuple, scaling::Float
         vom = compute_variable_om_cost(e)
         fuel = compute_fuel_cost(e)
         startup = compute_startup_cost(e)
-        endog_ann = value(endog_annualized_cost(e))
+        endog = value(endog_capex_cost(e))
 
         if fuel > 0 && isa(start_vertex(e), Node)
             source_node = start_vertex(e)
@@ -623,7 +623,7 @@ function get_detailed_costs(system::System, settings::NamedTuple, scaling::Float
             (:VariableOM, vom, vom), # first term is discounted later (vectorized)
             (:Fuel, fuel, fuel), # first term is discounted later (vectorized)
             (:Startup, startup, startup),
-            (:EndogAnnCost, endog_ann, endog_ann)
+            (:EndogCost, endog, endog)
         ]
             #(cost_pv == 0 && cost_cf == 0) && continue
             push!(zones, zone)
@@ -797,7 +797,7 @@ function get_fixed_costs_benders(system::System, settings::NamedTuple, scaling::
     for e in edges
         inv_pv, inv_cf = compute_investment_cost(e)
         fom_pv, fom_cf = compute_fixed_om_cost(e)
-        endog_ann = value(endog_annualized_cost(e))
+        endog = value(endog_capex_cost(e))
 
         #(inv_pv == 0 && inv_cf == 0 && fom_pv == 0 && fom_cf == 0) && continue
 
@@ -805,7 +805,7 @@ function get_fixed_costs_benders(system::System, settings::NamedTuple, scaling::
         #asset_type = get_type(edge_asset_map[id(e)])
         asset_id = string(get_resource_id(e, edge_asset_map))
 
-        for (category, cost_pv, cost_cf) in [(:Investment, inv_pv, inv_cf), (:FixedOM, fom_pv, fom_cf), (:EndogAnnCost, endog_ann, endog_ann)]
+        for (category, cost_pv, cost_cf) in [(:Investment, inv_pv, inv_cf), (:FixedOM, fom_pv, fom_cf), (:EndogCost, endog, endog)]
             #(cost_pv == 0 && cost_cf == 0) && continue
             push!(zones, zone)
             push!(ids, asset_id)
@@ -921,8 +921,8 @@ function add_total_row!(df::DataFrame, group_col::Symbol)
     total_by_category = combine(groupby(df, :category), :value => sum => :value)
     total_by_category[!, group_col] .= "Total"
     
-    # Overall total (excluding EndogAnnCost)
-    grand_total = sum(total_by_category[total_by_category.category .!= :EndogAnnCost, :value])
+    # Overall total (excluding EndogCost)
+    grand_total = sum(total_by_category[total_by_category.category .!= :EndogCost, :value])
     total_row = DataFrame(group_col => ["Total"], :category => [:Total], :value => [grand_total])
 
     append!(df, total_by_category)

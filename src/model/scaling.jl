@@ -116,14 +116,14 @@ const _EDGE_SCALABLE_FIELDS = Symbol[
     :capacity_size, :existing_capacity, :max_capacity, :min_capacity,
     :max_new_capacity, :min_retired_capacity,
     :investment_cost, :fixed_om_cost, :variable_om_cost, :annualized_investment_cost,
-    :startup_cost,
+    :startup_cost, :init_cumul_capacity, :max_cumul_capacity, :interconnect_annuity, 
 ]
 # Storage shares the cost/capacity attributes with edges EXCEPT `startup_cost`,
 # which is a unit-commitment (edge-only) concept and is not a Storage field.
 const _STORAGE_SCALABLE_FIELDS = Symbol[
     :capacity_size, :existing_capacity, :max_capacity, :min_capacity,
     :max_new_capacity, :min_retired_capacity,
-    :investment_cost, :fixed_om_cost, :variable_om_cost, :annualized_investment_cost,
+    :investment_cost, :fixed_om_cost, :variable_om_cost, :annualized_investment_cost,:init_cumul_capacity, :max_cumul_capacity, :interconnect_annuity,
 ]
 
 scalable_fields(::AbstractEdge) = _EDGE_SCALABLE_FIELDS
