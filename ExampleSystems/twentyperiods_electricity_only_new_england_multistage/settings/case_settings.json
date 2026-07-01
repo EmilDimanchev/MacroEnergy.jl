@@ -3,11 +3,10 @@
   "DiscountRate": 0.045,
   "CapacityReserveMargin": {},
   "SolutionAlgorithm": "Benders",
-  "TechnologyLearning": true,
-  "DeploymentInertia": true,
-  "ProjectDevelopment": true,
-  "WriteFullTimeseries": false,
-  "CO2Cap": true,
+  "TechnologyLearning": false,
+  "DeploymentInertia": false,
+  "ProjectDevelopment": false,
+  "CO2Cap": false,
   "LearningTechnologies": ["wind"],
   "TechsWithInertia": ["wind", "solar"],
   "InertiaInitMW": {
@@ -26,6 +25,7 @@
       "wind": 0.5,
       "solar": 0.5
     },
-    "ParameterScaling": true,
-    "ParameterScalingFactor": 1e3
+    "ParameterScaling": false,
+    "ParameterScalingFactor": 1e3,
+    "WriteFullTimeseries": false
 }

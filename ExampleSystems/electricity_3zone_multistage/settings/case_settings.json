@@ -4,5 +4,7 @@
   "SolutionAlgorithm": "Benders",
   "TechnologyLearning": false,
   "LearningTechnologies": ["wind"],
-  "CO2Cap": false
+  "CO2Cap": false,
+  "ParameterScaling": false,
+  "ParameterScalingFactor": 1e3
 }

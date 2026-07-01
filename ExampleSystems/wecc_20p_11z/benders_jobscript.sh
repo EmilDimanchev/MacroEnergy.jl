@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#SBATCH --job-name=ed_sl_bd20w        
+#SBATCH --job-name=wecc_sl
 #SBATCH --nodes=5                
 #SBATCH --ntasks=400              
 #SBATCH --ntasks-per-node=80

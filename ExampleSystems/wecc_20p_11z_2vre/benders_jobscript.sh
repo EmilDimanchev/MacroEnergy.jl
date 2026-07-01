@@ -1,13 +1,13 @@
 #!/bin/bash
 
-#SBATCH --job-name=ed_sl_bd20w        
+#SBATCH --job-name=wecc_sl
 #SBATCH --nodes=1
-#SBATCH --ntasks=1
-#SBATCH --ntasks-per-node=1
+#SBATCH --ntasks=50
+#SBATCH --ntasks-per-node=50
 #SBATCH --cpus-per-task=1
 #SBATCH --mem=400GB
 #SBATCH --output=logs/slurm-%j.out
-#SBATCH --time=20:00:00          # (HH:MM:SS)
+#SBATCH --time=24:00:00          # (HH:MM:SS)
 #SBATCH --mail-type=all          
 #SBATCH --mail-user=ed0400@princeton.edu
 
