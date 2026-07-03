@@ -1,6 +1,6 @@
 {
     "ConstraintScaling": false,
-    "DualExportsEnabled": false,
+    "DualExportsEnabled": true,
     "OutputLayout": "long",
-    "OutputDir": "041726_cd_di_el_cap"
+    "OutputDir": "061726"
 }

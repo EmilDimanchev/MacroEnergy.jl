@@ -23,11 +23,11 @@
     ],
     "SolutionAlgorithm": "Benders",
     "DiscountRate": 0.045,
-    "TechnologyLearning": false,
     "CapacityReserveMargin": {"OR_WA": 0.15, "ID_UT_NV_MT_WY": 0.15, "CA": 0.15, "AZ_NM_CO": 0.15},
-    "ProjectDevelopment": false,
-    "CO2Cap": false,
-    "DeploymentInertia": false,
+    "CO2Cap": true,
+    "ProjectDevelopment": true,
+    "DeploymentInertia": true,
+    "TechnologyLearning": true,
     "LearningTechnologies": ["egs"],
     "TechsWithInertia": ["onshore_wind", "solar", "egs", "battery", "ccgt", "ct"],
     "InertiaInitMW": {
@@ -61,5 +61,8 @@
         "battery": 0.794,
         "ccgt": 0.11,
         "ct": 0.11
-    }
+    },
+    "ParameterScaling": true,
+    "ParameterScalingFactor": 1e3,
+    "WriteFullTimeseries": true
 }

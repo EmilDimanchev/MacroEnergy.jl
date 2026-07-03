@@ -7,11 +7,17 @@
                 }
             },
             "edges": {
-                "co2_edge": {"has_capacity": false
+                "co2_edge": {
+                    "unidirectional": true,
+                    "has_capacity": false
                 },
-                "elec_edge": {"has_capacity": true
+                "elec_edge": {
+                    "unidirectional": true,
+                    "has_capacity": true
                 },
-                "fuel_edge": {"has_capacity": false
+                "fuel_edge": {
+                    "unidirectional": true,
+                    "has_capacity": false
                 }
             }
         },
