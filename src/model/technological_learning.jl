@@ -68,7 +68,7 @@ function add_learning!(system::System, model::Model, period_idx::Int, settings::
             
             # Determine investment cost
             # Depends on learning lag
-            if curr_period <= learning_delay(e)
+            if curr_period <= cc_duration(e)
                 
 
                 e.endog_annualized_investment_cost_times_newcapacity = annualized_investment_cost(e)*new_capacity(e)
@@ -91,7 +91,6 @@ function add_learning!(system::System, model::Model, period_idx::Int, settings::
                 e.aux_new_capacity = @variable(model, [k in 1:n_segments+1], lower_bound = 0.0, base_name = "vAUXNEWCAP_$(id(e))_stage$(period_index(e))_seg_$k")
 
                 # Upper bound on new capacity in a given period
-
                 @constraint(model, [k in 1:n_segments+1], e.new_capacity - e.aux_new_capacity[k] >= 0)
                 # Big M constraints
                 big_M_capacity = max_new_capacity(e)*2
@@ -115,8 +114,8 @@ function add_learning!(system::System, model::Model, period_idx::Int, settings::
                     e.aux_new_capacity_de = @variable(model, [k in 1:n_segments+1], lower_bound = 0.0, base_name = "vAUXNEWCAPDE_$(id(e))_stage$(period_index(e))_seg_$k")
                     @constraint(model, [k in 1:n_segments+1], e.new_de_capacity - e.aux_new_capacity_de[k] >= 0)
                     # Big M constraints
-                    @constraint(model, [k in 1:n_segments+1], e.new_de_capacity - e.aux_new_capacity_de[k] <= max_new_capacity(e)*(1-endogenous_capex_segment_chosen_from_relevant_period(e)[k]))
-                    @constraint(model, [k in 1:n_segments+1], e.aux_new_capacity_de[k] <= max_new_capacity(e)*e.endogenous_capex_segment_chosen_from_relevant_period[k])
+                    @constraint(model, [k in 1:n_segments+1], e.new_de_capacity - e.aux_new_capacity_de[k] <= big_M_capacity*(1-endogenous_capex_segment_chosen_from_relevant_period(e)[k]))
+                    @constraint(model, [k in 1:n_segments+1], e.aux_new_capacity_de[k] <= big_M_capacity*e.endogenous_capex_segment_chosen_from_relevant_period[k])
                     # Cost term
                     e.endog_annualized_investment_cost_times_newcapacity_de = @expression(model, sum(e.pwl_capex_slopes[k]*de_cost_perc(e)*e.aux_new_capacity_de[k]*capital_recovery_factor(de_wacc(e), de_cap_recovery(e)) for k in 1:n_segments+1))
 
@@ -124,8 +123,8 @@ function add_learning!(system::System, model::Model, period_idx::Int, settings::
                     e.aux_new_capacity_af = @variable(model, [k in 1:n_segments+1], lower_bound = 0.0, base_name = "vAUXNEWCAPAF_$(id(e))_stage$(period_index(e))_seg_$k")
                     @constraint(model, [k in 1:n_segments+1], e.new_af_capacity - e.aux_new_capacity_af[k] >= 0)
                     # Big M constraints
-                    @constraint(model, [k in 1:n_segments+1], e.new_af_capacity - e.aux_new_capacity_af[k] <= max_new_capacity(e)*(1-endogenous_capex_segment_chosen_from_relevant_period(e)[k]))
-                    @constraint(model, [k in 1:n_segments+1], e.aux_new_capacity_af[k] <= max_new_capacity(e)*e.endogenous_capex_segment_chosen_from_relevant_period[k])
+                    @constraint(model, [k in 1:n_segments+1], e.new_af_capacity - e.aux_new_capacity_af[k] <= big_M_capacity*(1-endogenous_capex_segment_chosen_from_relevant_period(e)[k]))
+                    @constraint(model, [k in 1:n_segments+1], e.aux_new_capacity_af[k] <= big_M_capacity*e.endogenous_capex_segment_chosen_from_relevant_period[k])
                     # Cost term
                     e.endog_annualized_investment_cost_times_newcapacity_af = @expression(model, sum(e.pwl_capex_slopes[k]*af_cost_perc(e)*e.aux_new_capacity_af[k]*capital_recovery_factor(af_wacc(e), af_cap_recovery(e)) for k in 1:n_segments+1))
 
@@ -133,8 +132,8 @@ function add_learning!(system::System, model::Model, period_idx::Int, settings::
                     e.aux_new_capacity_cc = @variable(model, [k in 1:n_segments+1], lower_bound = 0.0, base_name = "vAUXNEWCAPCC_$(id(e))_stage$(period_index(e))_seg_$k")
                     @constraint(model, [k in 1:n_segments+1], e.new_cc_capacity - e.aux_new_capacity_cc[k] >= 0)
                     # Big M constraints
-                    @constraint(model, [k in 1:n_segments+1], e.new_cc_capacity - e.aux_new_capacity_cc[k] <= max_new_capacity(e)*(1-endogenous_capex_segment_chosen_from_relevant_period(e)[k]))
-                    @constraint(model, [k in 1:n_segments+1], e.aux_new_capacity_cc[k] <= max_new_capacity(e)*e.endogenous_capex_segment_chosen_from_relevant_period[k])
+                    @constraint(model, [k in 1:n_segments+1], e.new_cc_capacity - e.aux_new_capacity_cc[k] <= big_M_capacity*(1-endogenous_capex_segment_chosen_from_relevant_period(e)[k]))
+                    @constraint(model, [k in 1:n_segments+1], e.aux_new_capacity_cc[k] <= big_M_capacity*e.endogenous_capex_segment_chosen_from_relevant_period[k])
                     # Cost term
                     e.endog_annualized_investment_cost_times_newcapacity_cc = @expression(model, sum(e.pwl_capex_slopes[k]*cc_cost_perc(e)*e.aux_new_capacity_cc[k]*capital_recovery_factor(cc_wacc(e), cc_cap_recovery(e)) for k in 1:n_segments+1))
                 end

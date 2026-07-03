@@ -209,6 +209,13 @@ function configure_benders!(case_settings::AbstractDict{Symbol,Any})
     @info("Configuring benders")
     settings = default_benders_settings()
     settings = merge(settings, benders_settings)
+
+    # Technology learning should be run with the integer routine turned on
+    if get(case_settings, :TechnologyLearning, false) && !settings[:IntegerInvestment]
+        @info("TechnologyLearning is enabled — forcing IntegerInvestment = true")
+        settings[:IntegerInvestment] = true
+    end
+
     validate_benders_settings(settings)
     case_settings[:BendersSettings] = settings
     return nothing

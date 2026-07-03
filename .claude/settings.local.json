@@ -17,7 +17,20 @@
       "Read(//Users/ed0400/Modeling/1_Equilibrium_investment/Monolithic/**)",
       "Bash(echo \"Exit code: $?\")",
       "Bash(grep -n \"Demand shift weather\\\\|demand_shift_weather\\\\|Demand adders\\\\|demand_adder\" /Users/ed0400/Modeling/1_Equilibrium_investment/Monolithic/../utilities/load_inputs.jl | head -40)",
-      "Bash(find /Users/ed0400/Modeling/1_Equilibrium_investment -name \"Inputs_4repdays_4scen_nostor\" -type d 2>/dev/null; find /Users/ed0400/Modeling -name \"Inputs_4repdays_4scen_nostor\" -type d 2>/dev/null)"
+      "Bash(find /Users/ed0400/Modeling/1_Equilibrium_investment -name \"Inputs_4repdays_4scen_nostor\" -type d 2>/dev/null; find /Users/ed0400/Modeling -name \"Inputs_4repdays_4scen_nostor\" -type d 2>/dev/null)",
+      "Bash(find ~ -maxdepth 4 -type d -name modeling -path \"*envs*\" 2>/dev/null | head; echo \"---conda---\"; which conda 2>/dev/null; ls -d ~/*conda* ~/opt/*conda* 2>/dev/null)",
+      "Bash(grep -rln \"Cost of nonserved energy\" .)",
+      "Bash(grep -rn \"Cost of nonserved energy\\\\|Max nse\" utilities/*.jl Cutting_planes/*.jl)",
+      "Bash(chmod +x \"/Users/ed0400/Modeling/1_Equilibrium_investment/run_slurm_experiment.sh\")",
+      "Bash(julia --version)",
+      "Bash(rm \"/Users/ed0400/Modeling/1_Equilibrium_investment/run_slurm_experiment.sh\")",
+      "Bash(chmod +x \"/Users/ed0400/Modeling/1_Equilibrium_investment/Cutting_planes/run_experiments.sh\")",
+      "Bash(python3 -c ' *)",
+      "Bash(gh api *)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebFetch(domain:github.com)",
+      "Bash(awk -F, '$7 ~ /capacity/{print $3}' capacity_all_periods.csv)",
+      "Bash(grep -E '_[0-9]+$')"
     ]
   }
 }

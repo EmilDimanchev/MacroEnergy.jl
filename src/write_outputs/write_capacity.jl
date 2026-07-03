@@ -247,6 +247,25 @@ get_cc_capacity(asset::AbstractAsset, scaling::Float64=1.0) = get_optimal_capaci
 # Learning
 get_endog_costs(system::System, scaling::Float64=1.0) = get_optimal_capacity_by_field(system, endog_capex_cost, scaling)
 
+# Endogenous investment cost broken out by project-development stage (annualized $,
+# i.e. the actual dollar contribution to eInvestmentFixedCost from each of
+# new_capacity/new_de_capacity/new_af_capacity/new_cc_capacity for learning technologies).
+# Useful for diagnosing whether a learning technology's DE/AF/CC pipeline stages are
+# being priced as expected relative to its main new_capacity cost.
+# Edges only: technological_learning.jl's add_learning! only ever processes edges
+# (get_edges_of_type), and storage.jl doesn't define these fields at all, so
+# querying storages here would error.
+function get_optimal_edge_capacity_by_field(system::System, capacity_func::Function, scaling::Float64)
+    edges, edge_asset_idmap = edges_with_capacity_variables(system, return_ids_map=true)
+    result = get_optimal_capacity_by_field(edges, capacity_func, scaling; obj_asset_map=edge_asset_idmap)
+    result[!, (!isa).(eachcol(result), Vector{Missing})]
+end
+
+get_endog_cost_main(system::System, scaling::Float64=1.0) = get_optimal_edge_capacity_by_field(system, endog_annualized_investment_cost_times_newcapacity, scaling)
+get_endog_cost_de(system::System, scaling::Float64=1.0) = get_optimal_edge_capacity_by_field(system, endog_annualized_investment_cost_times_newcapacity_de, scaling)
+get_endog_cost_af(system::System, scaling::Float64=1.0) = get_optimal_edge_capacity_by_field(system, endog_annualized_investment_cost_times_newcapacity_af, scaling)
+get_endog_cost_cc(system::System, scaling::Float64=1.0) = get_optimal_edge_capacity_by_field(system, endog_annualized_investment_cost_times_newcapacity_cc, scaling)
+
 # Utility function to get the optimal capacity by macro object field
 function get_optimal_capacity_by_field(system::System, capacity_func::Function, scaling::Float64)
     @debug " -- Getting optimal values for $(Symbol(capacity_func)) for the system."
@@ -332,6 +351,12 @@ function write_capacity_all_periods(
             retired_capacity_results = get_optimal_retired_capacity(system, scaling)
             # Learning
             endog_costs = get_endog_costs(system, scaling)
+            # Actual annualized dollar contribution to the objective from each stage
+            # (main/DE/AF/CC), for learning technologies under ProjectDevelopment.
+            endog_cost_main_results = get_endog_cost_main(system, scaling)
+            endog_cost_de_results = get_endog_cost_de(system, scaling)
+            endog_cost_af_results = get_endog_cost_af(system, scaling)
+            endog_cost_cc_results = get_endog_cost_cc(system, scaling)
             # Shadow
             new_de_capacity_results = get_new_de_capacity(system, scaling)
             new_af_capacity_results = get_new_af_capacity(system, scaling)
@@ -345,7 +370,7 @@ function write_capacity_all_periods(
             # new_af_capital_results = get_optimal_new_capital_af(system, scaling)
             # new_cc_capital_results = get_optimal_new_capital_cc(system, scaling)
 
-            all_capacity_results = vcat(capacity_results, new_capacity_results, retired_capacity_results, endog_costs, new_de_capacity_results, new_af_capacity_results, new_cc_capacity_results, de_capacity_results, af_capacity_results, cc_capacity_results)
+            all_capacity_results = vcat(capacity_results, new_capacity_results, retired_capacity_results, endog_costs, endog_cost_main_results, endog_cost_de_results, endog_cost_af_results, endog_cost_cc_results, new_de_capacity_results, new_af_capacity_results, new_cc_capacity_results, de_capacity_results, af_capacity_results, cc_capacity_results)
 
             system_number = findfirst(==(system), case.systems)
             period_number_vector = fill(system_number, nrow(all_capacity_results))
