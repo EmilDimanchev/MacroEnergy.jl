@@ -226,6 +226,7 @@ function _write_benders_period_outputs(
             @debug "No balance constraint duals found for period $period_idx"
         end
 
+        ensure_duals_available!(bm.planning_problem)
         write_duals(results_dir, system, scaling, var_cost_discount)
     end
 

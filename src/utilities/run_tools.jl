@@ -189,7 +189,7 @@ function _run_case_impl(
 
         case, solution = solve_case(case, optimizer_instance)
 
-        postprocess!(case, solution)
+        # postprocess!(case, solution)
 
         if isa(solution, MyopicResults)
             # Outputs already written per-period during iteration; just retrieve the output path for log file copying
