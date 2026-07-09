@@ -30,7 +30,14 @@
       "WebFetch(domain:raw.githubusercontent.com)",
       "WebFetch(domain:github.com)",
       "Bash(awk -F, '$7 ~ /capacity/{print $3}' capacity_all_periods.csv)",
-      "Bash(grep -E '_[0-9]+$')"
+      "Bash(grep -E '_[0-9]+$')",
+      "Bash(MPLBACKEND=Agg /opt/anaconda3/envs/modeling/bin/python plot_runtime_comparison.py)",
+      "Bash(MPLBACKEND=Agg /opt/anaconda3/envs/modeling/bin/python plot_benders_concept.py)",
+      "Bash(MPLBACKEND=Agg /opt/anaconda3/envs/modeling/bin/python plot_benders_reweighted_concept.py)",
+      "Bash(MPLBACKEND=Agg /opt/anaconda3/envs/modeling/bin/python plot_benders_multicut_concept.py)",
+      "Bash(MPLBACKEND=Agg /opt/anaconda3/envs/modeling/bin/python animate_benders_multicut.py)",
+      "Bash(/opt/anaconda3/envs/modeling/bin/python -c ' *)",
+      "Bash(MPLBACKEND=Agg /opt/anaconda3/envs/modeling/bin/python animate_benders_reweighted.py)"
     ]
   }
 }
