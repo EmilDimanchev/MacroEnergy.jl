@@ -193,14 +193,21 @@ end
 Returns `(pv, cf)::NTuple{2,Float64}`: investment cost discounted to period start (PV) and 
 undiscounted total cash flow (CF) for an edge or storage (computed as `cost * new_capacity`).
 """
-function compute_investment_cost(o::T)::NTuple{2,Float64} where T <: Union{AbstractEdge, AbstractStorage}
+function compute_investment_cost(o::T, settings::NamedTuple)::NTuple{2,Float64} where T <: Union{AbstractEdge, AbstractStorage}
     (has_capacity(o) && can_expand(o)) || return (0.0, 0.0)
+    if settings[:TechnologyLearning] && learning_type(o) in settings[:LearningTechnologies]
+        pv_times_new_cap = (1 - o.itc_schedule[period_index(o)]) * value(endog_annualized_investment_cost_times_newcapacity(o)) * annuities_mult(o) + interconnect_annuity(o) * interconnect_annuities_mult(o) * value(new_capacity(o))
+
+    elseif !settings[:TechnologyLearning] || !(learning_type(o) in settings[:LearningTechnologies])
+        pv_times_new_cap = (annualized_investment_cost(o) * annuities_mult(o) + interconnect_annuity(o) * interconnect_annuities_mult(o) ) * value(new_capacity(o))
+    end
+
     pv = pv_period_investment_cost(o)
     isnothing(pv) && error("pv_period_investment_cost is not set for $(id(o)); call discount_fixed_costs! before writing costs")
     cf = cf_period_investment_cost(o)
     isnothing(cf) && error("cf_period_investment_cost is not set for $(id(o)); call undo_discount_fixed_costs! before writing costs")
     cap = value(new_capacity(o))
-    return (pv * cap, cf * cap)
+    return (pv_times_new_cap, cf * cap)
 end
 
 """
@@ -409,7 +416,7 @@ end
 ##############################
 
 # Cost category symbols for output
-const COST_CATEGORIES = [:Investment, :FixedOM, :VariableOM, :Fuel, :Startup, :NonServedDemand, :Supply, :UnmetPolicyPenalty, :EndogCost]
+const COST_CATEGORIES = [:Investment, :FixedOM, :VariableOM, :Fuel, :Startup, :NonServedDemand, :Supply, :UnmetPolicyPenalty]
 
 # Categories discounted with discount_factor
 const FIXED_COST_CATEGORIES = Set([:Investment,:FixedOM])
@@ -606,7 +613,6 @@ function get_detailed_costs(system::System, settings::NamedTuple, scaling::Float
         vom = compute_variable_om_cost(e)
         fuel = compute_fuel_cost(e)
         startup = compute_startup_cost(e)
-        endog = value(endog_capex_cost(e))
 
         if fuel > 0 && isa(start_vertex(e), Node)
             source_node = start_vertex(e)
@@ -623,8 +629,7 @@ function get_detailed_costs(system::System, settings::NamedTuple, scaling::Float
             (:FixedOM, fom_pv, fom_cf),
             (:VariableOM, vom, vom), # first term is discounted later (vectorized)
             (:Fuel, fuel, fuel), # first term is discounted later (vectorized)
-            (:Startup, startup, startup),
-            (:EndogCost, endog, endog)
+            (:Startup, startup, startup)
         ]
             #(cost_pv == 0 && cost_cf == 0) && continue
             push!(zones, zone)
@@ -796,9 +801,8 @@ function get_fixed_costs_benders(system::System, settings::NamedTuple, scaling::
 
     # Collect fixed costs from edges (Investment/FixedOM are both discounted and undiscounted at period start)
     for e in edges
-        inv_pv, inv_cf = compute_investment_cost(e)
+        inv_pv, inv_cf = compute_investment_cost(e, settings)
         fom_pv, fom_cf = compute_fixed_om_cost(e)
-        endog = value(endog_capex_cost(e))
 
         #(inv_pv == 0 && inv_cf == 0 && fom_pv == 0 && fom_cf == 0) && continue
 
@@ -806,7 +810,7 @@ function get_fixed_costs_benders(system::System, settings::NamedTuple, scaling::
         #asset_type = get_type(edge_asset_map[id(e)])
         asset_id = string(get_resource_id(e, edge_asset_map))
 
-        for (category, cost_pv, cost_cf) in [(:Investment, inv_pv, inv_cf), (:FixedOM, fom_pv, fom_cf), (:EndogCost, endog, endog)]
+        for (category, cost_pv, cost_cf) in [(:Investment, inv_pv, inv_cf), (:FixedOM, fom_pv, fom_cf)]
             #(cost_pv == 0 && cost_cf == 0) && continue
             push!(zones, zone)
             push!(ids, asset_id)
@@ -818,7 +822,7 @@ function get_fixed_costs_benders(system::System, settings::NamedTuple, scaling::
 
     # Collect fixed costs from storages (Investment/FixedOM are both discounted and undiscounted at period start)
     for g in storages
-        inv_pv, inv_cf = compute_investment_cost(g)
+        inv_pv, inv_cf = compute_investment_cost(g, settings)
         fom_pv, fom_cf = compute_fixed_om_cost(g)
 
         (inv_pv == 0 && inv_cf == 0 && fom_pv == 0 && fom_cf == 0) && continue
