@@ -186,7 +186,7 @@ function compute_investment_costs!(g::Union{Node,Transformation}, model::Model, 
     return nothing
 end
 
-# Compute investment cost to be reported out
+# Compute investment cost to be reported out 
 """
     compute_investment_cost(o::T) where T <: Union{AbstractEdge, AbstractStorage}
 
