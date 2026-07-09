@@ -186,7 +186,7 @@ function compute_investment_costs!(g::Union{Node,Transformation}, model::Model, 
     return nothing
 end
 
-# Compute investment cost to be reported out 
+# Reporting detailed costs for each asset/edge 
 """
     compute_investment_cost(o::T) where T <: Union{AbstractEdge, AbstractStorage}
 
@@ -927,7 +927,7 @@ function add_total_row!(df::DataFrame, group_col::Symbol)
     total_by_category[!, group_col] .= "Total"
     
     # Overall total (excluding EndogCost)
-    grand_total = sum(total_by_category[total_by_category.category .!= :EndogCost, :value])
+    grand_total = sum(total_by_category.value)
     total_row = DataFrame(group_col => ["Total"], :category => [:Total], :value => [grand_total])
 
     append!(df, total_by_category)
