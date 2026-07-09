@@ -199,11 +199,11 @@ function compute_investment_cost(o::T, settings::NamedTuple)::NTuple{2,Float64} 
         pv_times_new_cap = (1 - o.itc_schedule[period_index(o)]) * value(endog_annualized_investment_cost_times_newcapacity(o)) * annuities_mult(o) + interconnect_annuity(o) * interconnect_annuities_mult(o) * value(new_capacity(o))
 
     elseif !settings[:TechnologyLearning] || !(learning_type(o) in settings[:LearningTechnologies])
-        pv_times_new_cap = (annualized_investment_cost(o) * annuities_mult(o) + interconnect_annuity(o) * interconnect_annuities_mult(o) ) * value(new_capacity(o))
+        pv_times_new_cap = ((1 - o.itc_schedule[period_index(o)]) * (annualized_investment_cost(o) * annuities_mult(o)) + interconnect_annuity(o) * interconnect_annuities_mult(o) ) * value(new_capacity(o))
     end
 
-    pv = pv_period_investment_cost(o)
-    isnothing(pv) && error("pv_period_investment_cost is not set for $(id(o)); call discount_fixed_costs! before writing costs")
+    # pv = pv_period_investment_cost(o)
+    # isnothing(pv) && error("pv_period_investment_cost is not set for $(id(o)); call discount_fixed_costs! before writing costs")
     cf = cf_period_investment_cost(o)
     isnothing(cf) && error("cf_period_investment_cost is not set for $(id(o)); call undo_discount_fixed_costs! before writing costs")
     cap = value(new_capacity(o))

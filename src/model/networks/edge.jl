@@ -718,7 +718,7 @@ function compute_investment_costs!(e::AbstractEdge, model::Model, settings::Name
                     # Technologies without endogenous learning
                     add_to_expression!(
                         model[:eInvestmentFixedCost],
-                        annualized_investment_cost(e) * annuities_mult(e) + interconnect_annuity(e) * interconnect_annuities_mult(e) ,
+                        (1 - e.itc_schedule[period_index(e)]) * annualized_investment_cost(e) * annuities_mult(e) + interconnect_annuity(e) * interconnect_annuities_mult(e) ,
                         new_capacity(e),
                     )
 
