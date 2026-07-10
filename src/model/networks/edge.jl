@@ -703,6 +703,7 @@ function compute_investment_costs!(e::AbstractEdge, model::Model, settings::Name
                 if settings[:TechnologyLearning] && learning_type(e) in settings[:LearningTechnologies]
                     # Linearized learning
                     model[:eInvestmentFixedCost] += (1 - e.itc_schedule[period_index(e)]) * e.endog_annualized_investment_cost_times_newcapacity * annuities_mult(e) + interconnect_annuity(e) * interconnect_annuities_mult(e) * new_capacity(e)
+                    @info "Annuities mult for edge $(id(e)) is $(annuities_mult(e))"
                     # Nonlinear version for benchmarking
                     # model[:eInvestmentFixedCost] += (1 - subsidy)*endog_annualized_investment_cost(e)*annuities_mult(e)*new_capacity(e)
 

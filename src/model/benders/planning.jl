@@ -167,6 +167,14 @@ function update_with_planning_solution!(e::AbstractEdge, planning_variable_value
         e.new_capacity = value(x->planning_variable_values[name(x)], e.new_capacity)
         e.retired_capacity = value(x->planning_variable_values[name(x)], e.retired_capacity)
         e.retrofitted_capacity = value(x->planning_variable_values[name(x)], e.retrofitted_capacity)
+        e.endog_annualized_investment_cost_times_newcapacity = value(x->planning_variable_values[name(x)], e.endog_annualized_investment_cost_times_newcapacity)
+        e.new_de_capacity = value(x->planning_variable_values[name(x)], e.new_de_capacity)
+        e.new_af_capacity = value(x->planning_variable_values[name(x)], e.new_af_capacity)
+        e.new_cc_capacity = value(x->planning_variable_values[name(x)], e.new_cc_capacity)
+        e.endog_annualized_investment_cost_times_newcapacity_de = value(x->planning_variable_values[name(x)], e.endog_annualized_investment_cost_times_newcapacity_de)
+        e.endog_annualized_investment_cost_times_newcapacity_af = value(x->planning_variable_values[name(x)], e.endog_annualized_investment_cost_times_newcapacity_af)
+        e.endog_annualized_investment_cost_times_newcapacity_cc = value(x->planning_variable_values[name(x)], e.endog_annualized_investment_cost_times_newcapacity_cc)
+        
         curr_period = period_index(e)
         e.new_capacity_track[curr_period] = e.new_capacity
         e.retired_capacity_track[curr_period] = e.retired_capacity

@@ -610,6 +610,8 @@ function compute_investment_costs!(g::AbstractStorage, model::Model, settings::N
                 (1-g.itc_schedule[period_index(g)]) * annualized_investment_cost(g) * annuities_mult(g) + interconnect_annuity(g) * interconnect_annuities_mult(g),
                 new_capacity(g),
                 )
+                @info "Annuities mult for edge $(id(g)) is $(annuities_mult(g))"
+                @info "Annualized investment cost for edge $(id(g)) is $(annualized_investment_cost(g))"
 
                 add_to_expression!(
                 model[:eInvestmentFixedCost],

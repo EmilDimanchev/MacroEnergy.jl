@@ -37,7 +37,8 @@
       "Bash(MPLBACKEND=Agg /opt/anaconda3/envs/modeling/bin/python plot_benders_multicut_concept.py)",
       "Bash(MPLBACKEND=Agg /opt/anaconda3/envs/modeling/bin/python animate_benders_multicut.py)",
       "Bash(/opt/anaconda3/envs/modeling/bin/python -c ' *)",
-      "Bash(MPLBACKEND=Agg /opt/anaconda3/envs/modeling/bin/python animate_benders_reweighted.py)"
+      "Bash(MPLBACKEND=Agg /opt/anaconda3/envs/modeling/bin/python animate_benders_reweighted.py)",
+      "Read(//Users/ed0400/MIT Dropbox/Emil Dimanchev/1_Projects/1. Postdoc/2. Speed limits on decarbonization/Results/Results/070526_nocd_nodi_noel_cap/results_period_1/**)"
     ]
   }
 }

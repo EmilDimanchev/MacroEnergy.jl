@@ -3,7 +3,7 @@
   "DiscountRate": 0.045,
   "CapacityReserveMargin": {},
   "SolutionAlgorithm": "Benders",
-  "TechnologyLearning": false,
+  "TechnologyLearning": true,
   "DeploymentInertia": false,
   "ProjectDevelopment": true,
   "CO2Cap": false,
