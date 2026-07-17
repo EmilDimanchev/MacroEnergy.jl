@@ -27,7 +27,7 @@
     "CO2Cap": true,
     "ProjectDevelopment": true,
     "DeploymentInertia": true,
-    "TechnologyLearning": true,
+    "TechnologyLearning": false,
     "LearningTechnologies": ["egs"],
     "TechsWithInertia": ["onshore_wind", "solar", "egs", "battery", "ccgt", "ct"],
     "InertiaInitMW": {
