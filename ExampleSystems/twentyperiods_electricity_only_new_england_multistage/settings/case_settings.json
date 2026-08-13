@@ -1,12 +1,12 @@
 {
   "PeriodLengths": [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
-  "DiscountRate": 0.045,
+  "DiscountRate": 0.02,
   "CapacityReserveMargin": {},
   "SolutionAlgorithm": "Benders",
   "TechnologyLearning": true,
   "DeploymentInertia": false,
   "ProjectDevelopment": true,
-  "CO2Cap": false,
+  "CO2Cap": true,
   "LearningTechnologies": ["wind"],
   "TechsWithInertia": ["wind", "solar"],
   "InertiaInitMW": {
