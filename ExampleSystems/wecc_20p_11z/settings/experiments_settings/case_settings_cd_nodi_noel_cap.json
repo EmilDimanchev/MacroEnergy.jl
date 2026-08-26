@@ -26,8 +26,8 @@
     "CapacityReserveMargin": {"OR_WA": 0.15, "ID_UT_NV_MT_WY": 0.15, "CA": 0.15, "AZ_NM_CO": 0.15},
     "CO2Cap": true,
     "ProjectDevelopment": true,
-    "DeploymentInertia": true,
-    "TechnologyLearning": true,
+    "DeploymentInertia": false,
+    "TechnologyLearning": false,
     "LearningTechnologies": ["egs"],
     "TechsWithInertia": ["onshore_wind", "solar", "egs", "battery", "ccgt", "ct"],
     "InertiaInitMW": {

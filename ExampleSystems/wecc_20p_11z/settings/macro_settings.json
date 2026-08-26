@@ -1,6 +1,6 @@
 {
     "ConstraintScaling": false,
-    "DualExportsEnabled": true,
+    "DualExportsEnabled": false,
     "OutputLayout": "long",
     "OutputDir": "061726"
 }
