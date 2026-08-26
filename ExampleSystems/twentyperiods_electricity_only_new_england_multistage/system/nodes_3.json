@@ -110,7 +110,10 @@
         },
         {
             "global_data": {
-                "time_interval": "CO2"
+                "time_interval": "CO2",
+                "price_unmet_policy": {
+                    "CO2CapConstraint": 150
+                }
             },
             "instance_data": [
                 {
@@ -120,9 +123,6 @@
                     },
                     "rhs_policy": {
                         "CO2CapConstraint": 0
-                    },
-                    "price_unmet_policy": {
-                        "CO2CapConstraint": 600
                     },
                     "id": "co2_sink_1"
                 },
@@ -134,9 +134,6 @@
                     "rhs_policy": {
                         "CO2CapConstraint": 0
                     },
-                    "price_unmet_policy": {
-                        "CO2CapConstraint": 600
-                    },
                     "id": "co2_sink_2"
                 },
                 {
@@ -146,9 +143,6 @@
                     },
                     "rhs_policy": {
                         "CO2CapConstraint": 0
-                    },
-                    "price_unmet_policy": {
-                        "CO2CapConstraint": 600
                     },
                     "id": "co2_sink_3"
                 }
