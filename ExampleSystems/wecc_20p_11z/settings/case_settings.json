@@ -64,5 +64,5 @@
     },
     "ParameterScaling": true,
     "ParameterScalingFactor": 1e3,
-    "WriteFullTimeseries": false
+    "WriteFullTimeseries": true
 }
