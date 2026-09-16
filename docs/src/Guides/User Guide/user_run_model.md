@@ -94,7 +94,7 @@ By default, Macro uses the following Benders settings:
 | `ConvTol` | `1e-3` | Convergence tolerance (relative gap between upper and lower bound) |
 | `StabParam` | `0.0` | Stabilization parameter (set > 0 to enable stabilization) |
 | `StabDynamic` | `false` | Enable dynamic stabilization |
-| `IntegerInvestment` | `false` | Use integer investment decisions in the master problem |
+| `IntegerInvestment` | `false` | Use integer investment decisions in the master problem. Forced on automatically when `TechnologyLearning` is enabled in `case_settings.json`, since the integer routine is required for learning; set it to `true` here to use integer investment without learning. |
 | `Distributed` | `false` | Solve subproblems in parallel using Julia's distributed computing. When enabled, `run_case` automatically spawns and cleans up the required worker processes. |
 | `ExpectFeasibleSubproblems` | `false` | Skip feasibility cuts (use only if subproblems are always feasible) |
 | `IncludeSubproblemSlacksAutomatically` | `false` | Automatically add slack variables to subproblems |

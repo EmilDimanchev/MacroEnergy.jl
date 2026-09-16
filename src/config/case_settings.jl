@@ -210,7 +210,10 @@ function configure_benders!(case_settings::AbstractDict{Symbol,Any})
     settings = default_benders_settings()
     settings = merge(settings, benders_settings)
 
-    # Technology learning should be run with the integer routine turned on
+    # The integer routine in the master problem is required for technology learning, so
+    # learning turns IntegerInvestment on automatically and it does not have to be edited
+    # between learning and non-learning runs. An explicit IntegerInvestment = true is still
+    # honored on its own, so the flag stays usable without learning.
     if get(case_settings, :TechnologyLearning, false) && !settings[:IntegerInvestment]
         @info("TechnologyLearning is enabled — forcing IntegerInvestment = true")
         settings[:IntegerInvestment] = true
