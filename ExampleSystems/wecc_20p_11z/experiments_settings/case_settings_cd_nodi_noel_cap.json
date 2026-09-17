@@ -32,7 +32,7 @@
     "TechsWithInertia": ["onshore_wind", "offshore_wind", "solar", "egs", "battery", "ccgt", "ct"],
     "InertiaInitMW": {
         "onshore_wind": 1600,
-        "offshore_wind": 2000,
+        "offshore_wind": 0.0,
         "solar": 7400,
         "egs": 0.0,
         "battery": 6500,
