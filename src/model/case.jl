@@ -55,6 +55,11 @@ function prepare_case!(systems::Vector{System}, settings::NamedTuple)
     # plain user-supplied number at this point. No-op when scaling is disabled.
     scale!(systems, parameter_scaling_factor(settings))
 
+    # Turn off investment tax credits by zeroing every itc_schedule up front, so
+    # all cost expressions (model and outputs), which read the field directly,
+    # see no subsidy.
+    settings[:InvestmentTaxCredit] || disable_itc!(systems)
+
     for (system_id, system) in enumerate(systems)
         compute_annualized_costs!(system,settings) 
         
@@ -111,4 +116,14 @@ function track_min_retired_capacity!(a::AbstractAsset, a_prev::AbstractAsset)
         end
     end
 
+end
+
+
+# Zero the ITC schedule of every edge and storage (including those inside assets).
+function disable_itc!(systems::Vector{System})
+    @info(" -- InvestmentTaxCredit = false: zeroing itc_schedule on all edges and storages")
+    for system in systems, y in [get_edges(system); get_storages(system)]
+        hasfield(typeof(y), :itc_schedule) && fill!(y.itc_schedule, 0.0)
+    end
+    return nothing
 end

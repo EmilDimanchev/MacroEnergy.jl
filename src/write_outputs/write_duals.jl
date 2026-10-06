@@ -205,11 +205,13 @@ function write_co2_cap_duals(
         end
         
 
-        # Calculate penalty cost if slack variables exist
-        if haskey(price_unmet_policy(node), ct_type)
-            
-            # Get slack variables and penalty price
-            slack_var_key = Symbol(string(ct_type) * "_Slack")
+        # Calculate penalty cost if slack variables exist. A node can have a
+        # price_unmet_policy but no slack variable, e.g. when CO2Cap = false and
+        # the CO2 cap constraint (and its slack) is never built.
+        slack_var_key = Symbol(string(ct_type) * "_Slack")
+        if haskey(price_unmet_policy(node), ct_type) && haskey(policy_slack_vars(node), slack_var_key)
+
+            # Get slack variables
             slack_vars = value.(policy_slack_vars(node)[slack_var_key])
 
             # Total penalty cost across all subperiods

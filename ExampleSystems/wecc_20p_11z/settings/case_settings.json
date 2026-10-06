@@ -24,6 +24,7 @@
     "SolutionAlgorithm": "Benders",
     "DiscountRate": 0.02,
     "CapacityReserveMargin": {"OR_WA": 0.15, "ID_UT_NV_MT_WY": 0.15, "CA": 0.15, "AZ_NM_CO": 0.15},
+    "InvestmentTaxCredit": false,
     "CO2Cap": true,
     "ProjectDevelopment": true,
     "DeploymentInertia": true,

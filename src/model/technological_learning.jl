@@ -7,26 +7,26 @@ Takes a system input because we need to combine new_capacity across edges of the
 function add_learning!(system::System, model::Model, period_idx::Int, settings::NamedTuple)
 
     learning_techs = settings[:LearningTechnologies]
-    n_learning_techs = length(learning_techs)
 
-    n_segments = 7
-    # Segment of piece-wise linear curve chosen for each learning technology
-    endogenous_capex_segment_chosen = @variable(model, [e in 1:n_learning_techs, k in 1:n_segments+1], binary=true, base_name = "vBINSEG_LEARNINGTYPE_$(period_idx)_$(e)_seg_$k")
-    @constraint(model, [y in 1:n_learning_techs], sum(endogenous_capex_segment_chosen[y,k] for k in 1:n_segments+1) == 1)
-
-    for learning_tech in learning_techs
+    for (tech_idx, learning_tech) in enumerate(learning_techs)
 
         learning_tech_edges = get_edges_of_type(system, learning_tech)
-        
+        isempty(learning_tech_edges) && continue
+
+        # Number of segments of the piece-wise linear learning curve (edge input
+        # n_learning_pwl_segments; must be the same for all edges of the technology)
+        n_segments = learning_n_segments(learning_tech_edges, learning_tech)
+
+        # Segment of piece-wise linear curve chosen for this learning technology
+        endogenous_capex_segment_chosen = @variable(model, [k in 1:n_segments+1], binary=true, base_name = "vBINSEG_LEARNINGTYPE_$(period_idx)_$(tech_idx)_seg")
+        @constraint(model, sum(endogenous_capex_segment_chosen[k] for k in 1:n_segments+1) == 1)
+
         for e in learning_tech_edges
 
             if max_cumul_capacity(e) == Inf || max_cumul_capacity(e) == -1
                 error(string(e.id, " is a learning technology but max cumulative capacity is not specified"))
             end
 
-            # Find position in learning techs list
-            learning_type_index = findfirst(x -> x == learning_type(e), learning_techs)
-            
             # Define (x,y) coordinates for piece-wise linear curve (cumulative cost as a function of cumulative capacity added)
             # TODO: Points do not have to be defined inside this loop
             x_points, y_points = compute_pwl_coordinates(n_segments, init_cumul_capacity(e), max_cumul_capacity(e), investment_cost(e), learning_parameter(e))
@@ -43,6 +43,7 @@ function add_learning!(system::System, model::Model, period_idx::Int, settings::
             
             # Learning is delayed by e.g. length of construction
             curr_period = period_index(e)
+            e.learning_delay = cc_duration(e)
             cost_period = curr_period - learning_delay(e)
 
             # Cumulative_experience combines existing capacity and all new capacity from modeled region
@@ -55,16 +56,19 @@ function add_learning!(system::System, model::Model, period_idx::Int, settings::
             println(e.pwl_capex_slopes)
 
             # Determine chosen segment
-            epsilon_learning = init_cumul_capacity(e)/1e6 # ensures the first inequality is strict
+            # Ensures the segment-selection inequality is strict.
+            first_segment_width = x_points[2] - x_points[1]
+            first_segment_width > 0 || error(string(e.id, ": init_cumul_capacity must be below the first learning breakpoint (max_cumul_capacity/2^", n_segments - 1, ")"))
+            epsilon_learning = 1e-3 * first_segment_width
             ϵ = ones(length(x_points))*epsilon_learning 
             # Set segment
-            @constraint(model, [k in 2:n_segments+1], cumulative_experience(e)[k] >= (x_points[k-1] + ϵ[k-1]) * endogenous_capex_segment_chosen[learning_type_index, k])
-            @constraint(model, [k in 1:n_segments+1], cumulative_experience(e)[k] <= x_points[k] * endogenous_capex_segment_chosen[learning_type_index, k])
+            @constraint(model, [k in 2:n_segments+1], cumulative_experience(e)[k] >= (x_points[k-1] + ϵ[k-1]) * endogenous_capex_segment_chosen[k])
+            @constraint(model, [k in 1:n_segments+1], cumulative_experience(e)[k] <= x_points[k] * endogenous_capex_segment_chosen[k])
 
             # Slope reached after building new capacity
-            e.endogenous_capex = @expression(model, sum(endogenous_capex_segment_chosen[learning_type_index, k] * pwl_capex_slopes(e)[k] for k in 1:n_segments+1))
+            e.endogenous_capex = @expression(model, sum(endogenous_capex_segment_chosen[k] * pwl_capex_slopes(e)[k] for k in 1:n_segments+1))
             e.endogenous_capex_track[period_index(e)] = endogenous_capex(e)
-            e.endogenous_capex_segment_chosen_track[period_index(e)] = endogenous_capex_segment_chosen[learning_type_index, :]
+            e.endogenous_capex_segment_chosen_track[period_index(e)] = endogenous_capex_segment_chosen
             
             # Determine investment cost
             # Depends on learning lag
@@ -148,6 +152,13 @@ function add_learning!(system::System, model::Model, period_idx::Int, settings::
         
     end
     return nothing
+end
+
+function learning_n_segments(edges::Vector{AbstractEdge}, learning_tech::String)
+    n = unique(n_learning_pwl_segments.(edges))
+    length(n) == 1 || error("Learning technology '$learning_tech': all edges must have the same n_learning_pwl_segments, found $(sort(n))")
+    n[1] >= 1 || error("Learning technology '$learning_tech': n_learning_pwl_segments must be >= 1, got $(n[1])")
+    return n[1]
 end
 
 """

@@ -14,6 +14,7 @@ function default_case_settings()
         :TechnologyLearning => false,
         :DeploymentInertia => false,
         :ProjectDevelopment => false,
+        :InvestmentTaxCredit => true,   # false: ignore itc_schedule on all edges/storages
         :LearningTechnologies => [],
         :TechsWithInertia => [],
         :InertiaInitMW => Dict{Symbol,Float64}(),
@@ -155,6 +156,7 @@ function validate_case_settings(case_settings::AbstractDict{Symbol,Any})
     @assert case_settings[:DiscountRate] >= 0
     @assert isa(case_settings[:WriteFullTimeseries], Bool)
     @assert isa(case_settings[:ParameterScaling], Bool)
+    @assert isa(case_settings[:InvestmentTaxCredit], Bool)
     @assert case_settings[:ParameterScalingFactor] >= 0
     @assert isa(case_settings[:SolutionAlgorithm], AbstractSolutionAlgorithm)
     @assert isa(case_settings[:ExpansionHorizon], AbstractExpansionHorizon)
