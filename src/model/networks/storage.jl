@@ -55,6 +55,7 @@ macro AbstractStorageBaseAttributes()
         endogenous_capex::AffExpr = AffExpr(0.0)
         endogenous_capex_track::Dict{Int64,AffExpr} = Dict(1=>AffExpr(0.0))
         pwl_capex_slopes::Vector{Float64} = Float64[]
+        pwl_x_points::Vector{Float64} = Float64[]
         annualized_investment_cost_with_learning::AffExpr = AffExpr(0.0)
         annuities_mult::Float64 = 0.0
         annualization_factor::Float64 = 0.0
@@ -292,6 +293,7 @@ endogenous_capex_track(g::AbstractStorage,s::Int64) =  (haskey(endogenous_capex_
 endogenous_capex_segment_chosen_track(g::AbstractStorage) = g.endogenous_capex_segment_chosen_track;
 endogenous_capex_segment_chosen_track(g::AbstractStorage,s::Int64) =  (haskey(endogenous_capex_segment_chosen_track(g),s) == false) ? 0.0 : g.endogenous_capex_segment_chosen_track[s];
 pwl_capex_slopes(g::AbstractStorage) = g.pwl_capex_slopes;
+pwl_x_points(g::AbstractStorage) = g.pwl_x_points;
 aux_new_capacity(g::AbstractStorage) = g.aux_new_capacity;
 annualized_investment_cost_with_learning(g::AbstractStorage) = g.annualized_investment_cost_with_learning;
 annuities_mult(g::AbstractStorage) = g.annuities_mult;

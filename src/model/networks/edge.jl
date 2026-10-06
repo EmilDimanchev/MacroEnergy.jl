@@ -70,6 +70,7 @@ macro AbstractEdgeBaseAttributes()
         endogenous_capex::AffExpr = AffExpr(0.0)
         endogenous_capex_track::Dict{Int64,AffExpr} = Dict(1 => AffExpr(0.0))
         pwl_capex_slopes::Vector{Float64} = Float64[]
+        pwl_x_points::Vector{Float64} = Float64[]   # learning-curve breakpoints (set by prepare_learning_curves!)
         endog_annualized_investment_cost_times_newcapacity::AffExpr = AffExpr(0.0)
         annuities_mult::Float64 = 0.0
         annualization_factor::Float64 = 0.0
@@ -464,6 +465,7 @@ endogenous_capex_track(e::AbstractEdge, s::Int64) = (haskey(endogenous_capex_tra
 endogenous_capex_segment_chosen_track(e::AbstractEdge) = e.endogenous_capex_segment_chosen_track;
 endogenous_capex_segment_chosen_track(e::AbstractEdge, s::Int64) = (haskey(endogenous_capex_segment_chosen_track(e), s) == false) ? 0.0 : e.endogenous_capex_segment_chosen_track[s];
 pwl_capex_slopes(e::AbstractEdge) = e.pwl_capex_slopes;
+pwl_x_points(e::AbstractEdge) = e.pwl_x_points;
 aux_new_capacity(e::AbstractEdge) = e.aux_new_capacity;
 endog_annualized_investment_cost_times_newcapacity(e::AbstractEdge) = e.endog_annualized_investment_cost_times_newcapacity;
 annuities_mult(e::AbstractEdge) = e.annuities_mult;
