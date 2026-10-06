@@ -74,7 +74,7 @@ function add_learning!(system::System, model::Model, period_idx::Int, settings::
             else
                 e.endogenous_capex_segment_chosen_from_relevant_period = endogenous_capex_segment_chosen_track(e, cost_period)
                 seg_chosen = endogenous_capex_segment_chosen_from_relevant_period(e)
-                big_M_capacity = max_new_capacity(e)*2
+                big_M_capacity = max_capacity(e)
 
                 if !settings[:ProjectDevelopment]
                     # Cost term for objective function
@@ -151,6 +151,10 @@ function prepare_learning_curves!(systems::Vector{System}, settings::NamedTuple)
         for e in learning_tech_edges
             if max_cumul_capacity(e) == Inf || max_cumul_capacity(e) == -1
                 error(string(e.id, " is a learning technology but max cumulative capacity is not specified"))
+            end
+            # max_capacity is used as the big-M in the learning-cost linearisation
+            if max_capacity(e) == Inf || max_capacity(e) == -1
+                error(string(e.id, " is a learning technology and max capacity is required for the big-M linearisation, but is not specified"))
             end
 
             x_points, y_points = compute_pwl_coordinates(n_segments, init_cumul_capacity(e), max_cumul_capacity(e), investment_cost(e), learning_parameter(e))
