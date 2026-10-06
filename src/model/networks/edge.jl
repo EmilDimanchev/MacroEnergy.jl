@@ -61,6 +61,7 @@ macro AbstractEdgeBaseAttributes()
         # Learning
         learning_type::String = ""
         learning_parameter::Float64 = 0.0
+        n_learning_pwl_segments::Int64 = 7   # segments of the piece-wise linear learning curve
         cumulative_capacity_init::Float64 = 0.0
         endogenous_capex_segment_chosen_track::Dict{Int64,Union{JuMPVariable}} = Dict(1 => Vector{VariableRef}())
         endogenous_capex_segment_chosen_from_relevant_period::Union{JuMPVariable,Float64} = Vector{VariableRef}()
@@ -703,7 +704,7 @@ function compute_investment_costs!(e::AbstractEdge, model::Model, settings::Name
                 if settings[:TechnologyLearning] && learning_type(e) in settings[:LearningTechnologies]
                     # Linearized learning
                     model[:eInvestmentFixedCost] += (1 - e.itc_schedule[period_index(e)]) * e.endog_annualized_investment_cost_times_newcapacity * annuities_mult(e) + interconnect_annuity(e) * interconnect_annuities_mult(e) * new_capacity(e)
-                    @info "Annuities mult for edge $(id(e)) is $(annuities_mult(e))"
+                    # @info "Annuities mult for edge $(id(e)) is $(annuities_mult(e))"
                     # Nonlinear version for benchmarking
                     # model[:eInvestmentFixedCost] += (1 - subsidy)*endog_annualized_investment_cost(e)*annuities_mult(e)*new_capacity(e)
 

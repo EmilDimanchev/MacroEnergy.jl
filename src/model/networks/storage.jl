@@ -46,6 +46,7 @@ macro AbstractStorageBaseAttributes()
         # Learning
         learning_type::String = ""
         learning_parameter::Float64 = 0.0
+        n_learning_pwl_segments::Int64 = 7   # segments of the piece-wise linear learning curve
         cumulative_capacity_init::Float64 = 0.0
         endogenous_capex_segment_chosen_track::Dict{Int64,Union{JuMPVariable}} = Dict(1 => Vector{VariableRef}())
         endogenous_capex_segment_chosen_from_relevant_period::Union{JuMPVariable,Float64} = Vector{VariableRef}()
@@ -610,8 +611,8 @@ function compute_investment_costs!(g::AbstractStorage, model::Model, settings::N
                 (1-g.itc_schedule[period_index(g)]) * annualized_investment_cost(g) * annuities_mult(g) + interconnect_annuity(g) * interconnect_annuities_mult(g),
                 new_capacity(g),
                 )
-                @info "Annuities mult for edge $(id(g)) is $(annuities_mult(g))"
-                @info "Annualized investment cost for edge $(id(g)) is $(annualized_investment_cost(g))"
+                # @info "Annuities mult for edge $(id(g)) is $(annuities_mult(g))"
+                # @info "Annualized investment cost for edge $(id(g)) is $(annualized_investment_cost(g))"
 
                 add_to_expression!(
                 model[:eInvestmentFixedCost],
