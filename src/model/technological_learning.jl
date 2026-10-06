@@ -1,19 +1,12 @@
 """
-    add_learning!(system, model, period_idx, settings)
-
-Adds endogenous technological learning to `model` for one period. For each
-technology in `settings[:LearningTechnologies]`:
+Adds learning to model for one period, for each technology in `settings[:LearningTechnologies]`:
 
 - cumulative experience = `init_cumul_capacity` + all new capacity built so far
-  across every edge of that technology (learning is shared by the technology);
+  across every edge of that technology.
 - binary variables select the segment of the piece-wise linear learning curve
-  that the cumulative experience falls in;
-- each edge's investment cost uses the capex of the segment selected
-  `learning_delay` periods earlier, linearised with big-M constraints. The
-  resulting cost terms (`endog_annualized_investment_cost_times_newcapacity`,
-  and its `_de`/`_af`/`_cc` parts under ProjectDevelopment) are used in edge.jl.
+  that the cumulative experience falls in.
 
-The learning curves themselves (`pwl_x_points`, `pwl_capex_slopes`) are inputs
+The piece-wise learning curves (`pwl_x_points`, `pwl_capex_slopes`) are inputs
 computed beforehand by `prepare_learning_curves!`.
 """
 function add_learning!(system::System, model::Model, period_idx::Int, settings::NamedTuple)
@@ -25,40 +18,39 @@ function add_learning!(system::System, model::Model, period_idx::Int, settings::
         learning_tech_edges = get_edges_of_type(system, learning_tech)
         isempty(learning_tech_edges) && continue
 
-        # Number of segments of the piece-wise linear learning curve (edge input
-        # n_learning_pwl_segments; must be the same for all edges of the technology)
         n_segments = learning_n_segments(learning_tech_edges, learning_tech)
 
         # Segment of piece-wise linear curve chosen for this learning technology
         endogenous_capex_segment_chosen = @variable(model, [k in 1:n_segments+1], binary=true, base_name = "vBINSEG_LEARNINGTYPE_$(period_idx)_$(tech_idx)_seg")
         @constraint(model, sum(endogenous_capex_segment_chosen[k] for k in 1:n_segments+1) == 1)
 
+        # All edges of the same learning technology have the same breakpoints and initial capacity
+        ref_edge = first(learning_tech_edges)
+        x_points = pwl_x_points(ref_edge)
+        curr_period = period_index(ref_edge)
+
+        cumulative_experience_tech = @variable(model, [k in 1:n_segments+1], lower_bound = 0.0, base_name = "vCUMULCAP_$(learning_tech)_stage$(curr_period)")
+
+        # Cumulative experience combines initial capacity and all new capacity built
+        # so far across every edge of the technology
+        @constraint(model, sum(cumulative_experience_tech[k] for k in 1:n_segments+1) == sum(new_capacity_track(f, i) for i=1:curr_period, f in learning_tech_edges) + init_cumul_capacity(ref_edge))
+
+        # Determine chosen segment
+        # Make segment-selection inequality strict (will scale with parameter scaling based on the x points)
+        ϵ = 1e-3 * (x_points[2] - x_points[1])
+        # Set segment
+        @constraint(model, [k in 2:n_segments+1], cumulative_experience_tech[k] >= (x_points[k-1] + ϵ) * endogenous_capex_segment_chosen[k])
+        @constraint(model, [k in 1:n_segments+1], cumulative_experience_tech[k] <= x_points[k] * endogenous_capex_segment_chosen[k])
+
         for e in learning_tech_edges
 
-            # Breakpoints and segment slopes of the learning curve, computed once
-            # per edge in prepare_learning_curves!
-            x_points = pwl_x_points(e)
-
-            e.cumulative_experience = @variable(model, [k in 1:n_segments+1], lower_bound = 0.0, base_name = "vCUMULCAP_$(id(e))_stage$(period_index(e))")
+            # Shared technology-level variables, kept on the edge for access/reporting
+            e.cumulative_experience = cumulative_experience_tech
 
             # Learning is delayed by learning_delay periods (set in prepare_learning_curves!)
-            curr_period = period_index(e)
             cost_period = curr_period - learning_delay(e)
 
-            # Cumulative_experience combines existing capacity and all new capacity from modeled region
-            @constraint(model, sum(cumulative_experience(e)[k] for k in 1:n_segments+1) == sum(new_capacity_track(f, i) for i=1:curr_period, f in learning_tech_edges) + init_cumul_capacity(e))
-
-            # Determine chosen segment
-            # ϵ makes the segment-selection inequality strict. It is a fraction of
-            # the first segment's width so it stays above solver tolerances after
-            # parameter scaling (init_cumul_capacity/1e6 fell below them, letting
-            # the solver pick segment 2 with no new capacity).
-            ϵ = 1e-3 * (x_points[2] - x_points[1])
-            # Set segment
-            @constraint(model, [k in 2:n_segments+1], cumulative_experience(e)[k] >= (x_points[k-1] + ϵ) * endogenous_capex_segment_chosen[k])
-            @constraint(model, [k in 1:n_segments+1], cumulative_experience(e)[k] <= x_points[k] * endogenous_capex_segment_chosen[k])
-
-            # Slope reached after building new capacity
+            # Slope reached after building new capacity (edge-specific: its own slopes)
             e.endogenous_capex = @expression(model, sum(endogenous_capex_segment_chosen[k] * pwl_capex_slopes(e)[k] for k in 1:n_segments+1))
             e.endogenous_capex_track[period_index(e)] = endogenous_capex(e)
             e.endogenous_capex_segment_chosen_track[period_index(e)] = endogenous_capex_segment_chosen
@@ -116,16 +108,7 @@ function add_learning!(system::System, model::Model, period_idx::Int, settings::
 end
 
 """
-    add_linearized_learning_cost!(model, e, new_cap, seg_chosen, n_segments, big_M,
-                                  prefix, cost_share, crf) -> (aux, cost)
-
-Linearises the learning cost `capex(selected segment) * new_cap`, where the
-segment is chosen by the binaries `seg_chosen`. Adds auxiliary variables `aux[k]`
-(base name `prefix`) with big-M constraints so that `aux[k] = new_cap` for the
-selected segment and 0 otherwise, and returns them together with the annualized
-cost expression `sum_k pwl_capex_slopes(e)[k] * cost_share * aux[k] * crf`.
-`new_cap` is the edge's new capacity or one of its project-development shadow
-capacities; `cost_share` is the share of capex incurred by it.
+Linearizes `capex(selected segment) * new_cap` with big-M constraints. Adds a new variable aux, such that that `aux[k] = new_cap` for the selected segment k and 0 otherwise.
 """
 function add_linearized_learning_cost!(model::Model, e::AbstractEdge, new_cap, seg_chosen,
                                        n_segments::Int, big_M::Float64, prefix::String,
@@ -141,13 +124,6 @@ function add_linearized_learning_cost!(model::Model, e::AbstractEdge, new_cap, s
     return aux, cost
 end
 
-"""
-    learning_n_segments(edges, learning_tech) -> Int
-
-Number of segments of the piece-wise linear learning curve for a learning
-technology, read from the edges' `n_learning_pwl_segments` input. All edges of
-the technology share the segment-choice binaries, so they must use the same value.
-"""
 function learning_n_segments(edges::Vector{AbstractEdge}, learning_tech::String)
     n = unique(n_learning_pwl_segments.(edges))
     length(n) == 1 || error("Learning technology '$learning_tech': all edges must have the same n_learning_pwl_segments, found $(sort(n))")
@@ -156,25 +132,21 @@ function learning_n_segments(edges::Vector{AbstractEdge}, learning_tech::String)
 end
 
 """
-    prepare_learning_curves!(systems, settings)
-
 Computes the piece-wise linear learning curve of every learning-technology edge
-once, before any model is built, and stores it on the edge:
-
-- `pwl_x_points`: cumulative-capacity breakpoints (n_learning_pwl_segments + 1)
-- `pwl_capex_slopes`: capex in each segment; segment 1 (no new capacity, no
-  learning) is the original `investment_cost`, the others are the slopes of the
-  cumulative-cost curve between breakpoints
-
-Also validates the learning inputs. Must run after `compute_annualized_costs!`,
-which derives `investment_cost`. Values are assigned (not appended), so calling it
-again is safe.
+once. This is done before the model is built.
 """
 function prepare_learning_curves!(systems::Vector{System}, settings::NamedTuple)
     for system in systems, learning_tech in settings[:LearningTechnologies]
         learning_tech_edges = get_edges_of_type(system, learning_tech)
         isempty(learning_tech_edges) && continue
         n_segments = learning_n_segments(learning_tech_edges, learning_tech)
+
+        # Cumulative experience (and so the curve breakpoints) is modelled once per
+        # technology in add_learning!, so all its edges must share these inputs
+        for (name, f) in (("init_cumul_capacity", init_cumul_capacity), ("max_cumul_capacity", max_cumul_capacity))
+            vals = unique(f.(learning_tech_edges))
+            length(vals) == 1 || error("Learning technology '$learning_tech': all edges must have the same $name, found $(sort(vals))")
+        end
 
         for e in learning_tech_edges
             if max_cumul_capacity(e) == Inf || max_cumul_capacity(e) == -1
