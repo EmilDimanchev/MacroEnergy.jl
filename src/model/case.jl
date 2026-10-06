@@ -76,6 +76,13 @@ function prepare_case!(systems::Vector{System}, settings::NamedTuple)
         end
     end
 
+    # Learning curves (breakpoints and segment slopes) depend only on input data,
+    # so compute them once here; needs investment_cost from compute_annualized_costs!
+    if settings[:TechnologyLearning]
+        @info(" -- Preparing technology learning curves")
+        prepare_learning_curves!(systems, settings)
+    end
+
 
 end
 
