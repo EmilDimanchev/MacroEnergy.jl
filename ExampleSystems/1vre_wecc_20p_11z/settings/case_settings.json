@@ -24,7 +24,7 @@
     "SolutionAlgorithm": "Benders",
     "DiscountRate": 0.045,
     "TechnologyLearning": false,
-    "CRM": true,
+    "CapacityReserveMarginFlag": true,
     "CapacityReserveMargin": {"OR_WA": 0.15, "ID_UT_NV_MT_WY": 0.15, "CA": 0.15, "AZ_NM_CO": 0.15},
     "ProjectDevelopment": false,
     "CO2Cap": false,
