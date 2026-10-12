@@ -1,0 +1,8 @@
+{
+    "status": "ERROR",
+    "case_path": "/Users/ed0400/Modeling/2_Macro/ExampleSystems/test_small_wecc",
+    "timestamp": "2026-10-12T15:48:08.404",
+    "elapsed_seconds": 0.643,
+    "exception": "ArgumentError",
+    "message": "ArgumentError: Invalid constraint(s) found: DevelopmentConstraint"
+}
