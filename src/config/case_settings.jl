@@ -15,6 +15,7 @@ function default_case_settings()
         :DeploymentInertia => false,
         :ProjectDevelopment => false,
         :InvestmentTaxCredit => true,   # false: ignore itc_schedule on all edges/storages
+        :CRM => true,                   # false: skip the CapacityReserveMargin constraints
         :LearningTechnologies => [],
         :TechsWithInertia => [],
         :InertiaInitMW => Dict{Symbol,Float64}(),
@@ -148,7 +149,18 @@ function configure_case(case_settings::AbstractDict{Symbol,Any})
     isa(settings[:SolutionAlgorithm], Benders) && configure_benders!(settings)
     isa(settings[:ExpansionHorizon], Myopic) && configure_myopic!(settings)
     validate_case_settings(settings)
+    disable_crm!(settings)
     return namedtuple(settings)
+end
+
+# With CRM off, the capacity reserve margin requirements are dropped so that no CRM
+# expressions or constraints are built; the requirements stay in the input file.
+function disable_crm!(settings::AbstractDict{Symbol,Any})
+    if !settings[:CRM] && !isempty(get(settings, :CapacityReserveMargin, Dict()))
+        @info("CRM is false: capacity reserve margin constraints are turned off")
+        settings[:CapacityReserveMargin] = Dict{Symbol,Any}()
+    end
+    return nothing
 end
 
 function validate_case_settings(case_settings::AbstractDict{Symbol,Any})
@@ -157,6 +169,7 @@ function validate_case_settings(case_settings::AbstractDict{Symbol,Any})
     @assert isa(case_settings[:WriteFullTimeseries], Bool)
     @assert isa(case_settings[:ParameterScaling], Bool)
     @assert isa(case_settings[:InvestmentTaxCredit], Bool)
+    @assert isa(case_settings[:CRM], Bool)
     @assert case_settings[:ParameterScalingFactor] >= 0
     @assert isa(case_settings[:SolutionAlgorithm], AbstractSolutionAlgorithm)
     @assert isa(case_settings[:ExpansionHorizon], AbstractExpansionHorizon)
