@@ -672,18 +672,7 @@ function planning_model!(e::AbstractEdge, model::Model, settings::NamedTuple)
             @constraint(model, retired_capacity(e) <= existing_capacity(e))
         end
 
-        # Deployment Inertia speed limit constraints
-        if settings[:DeploymentInertia] && !isnothing(Inertia_category(e)) && Inertia_category(e) ∈ settings[:TechsWithInertia]
-            if period_index(e) == 1
-                add_to_expression!(model[:eDeploymentGrowth][Inertia_category(e), period_index(e)], new_capacity(e))
-                add_to_expression!(model[:eDeploymentDecline][Inertia_category(e), period_index(e)], new_capacity(e))
-            elseif period_index(e) > 1
-                # CAGR
-                model[:eDeploymentGrowth][Inertia_category(e), period_index(e)] += new_capacity(e) - new_capacity_track(e, period_index(e)-1)*(1+cagr(e))
-                # CADR
-                model[:eDeploymentDecline][Inertia_category(e), period_index(e)] += new_capacity(e) - new_capacity_track(e, period_index(e)-1)*(1-cadr(e))
-            end
-        end
+        add_to_deployment_inertia!(e, model, settings)
 
     end
 

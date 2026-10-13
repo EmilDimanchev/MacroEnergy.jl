@@ -39,6 +39,9 @@ function generate_model(case::Case, opt::Optimizer, ::Monolithic)
     if settings[:DeploymentInertia]
         @expression(model, eDeploymentGrowth[tech in settings[:TechsWithInertia], p in 1:num_periods], AffExpr(0.0))
         @expression(model, eDeploymentDecline[tech in settings[:TechsWithInertia], p in 1:num_periods], AffExpr(0.0))
+        # Storage energy capacity (MWh) is tracked separately from power capacity (MW)
+        @expression(model, eDeploymentGrowthEnergy[tech in settings[:TechsWithInertia], p in 1:num_periods], AffExpr(0.0))
+        @expression(model, eDeploymentDeclineEnergy[tech in settings[:TechsWithInertia], p in 1:num_periods], AffExpr(0.0))
     end
 
     for (period_idx, system) in enumerate(periods)
@@ -112,6 +115,9 @@ function generate_model(case::Case, opt::Dict{Symbol,Dict{Symbol,Any}}, ::Bender
     if settings[:DeploymentInertia]
         @expression(planning_model, eDeploymentGrowth[tech in settings[:TechsWithInertia], p in 1:num_periods], AffExpr(0.0))
         @expression(planning_model, eDeploymentDecline[tech in settings[:TechsWithInertia], p in 1:num_periods], AffExpr(0.0))
+        # Storage energy capacity (MWh) is tracked separately from power capacity (MW)
+        @expression(planning_model, eDeploymentGrowthEnergy[tech in settings[:TechsWithInertia], p in 1:num_periods], AffExpr(0.0))
+        @expression(planning_model, eDeploymentDeclineEnergy[tech in settings[:TechsWithInertia], p in 1:num_periods], AffExpr(0.0))
     end
 
     start_time = time()

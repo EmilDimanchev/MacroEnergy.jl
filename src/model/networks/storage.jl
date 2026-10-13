@@ -117,6 +117,9 @@ macro AbstractStorageBaseAttributes()
         max_new_capacity_init::Float64 = 0.0
         cagr::Float64 = 0.0
         cadr::Float64 = 0.0
+        Inertia_category::Union{Nothing,String} = nothing
+        # Duration [h] that converts the MW inertia settings of the category into MWh
+        InertiaInitialDuration::Float64 = 4.0
     end)
 end
 
@@ -361,6 +364,8 @@ itc_schedule(g::AbstractStorage) = g.itc_schedule;
 max_new_capacity_init(g::AbstractStorage) = g.max_new_capacity_init;
 cagr(g::AbstractStorage) = g.cagr;
 cadr(g::AbstractStorage) = g.cadr;
+Inertia_category(g::AbstractStorage) = g.Inertia_category;
+InertiaInitialDuration(g::AbstractStorage) = g.InertiaInitialDuration;
 
 function add_linking_variables!(g::Storage, model::Model)
     if has_capacity(g)
@@ -424,6 +429,8 @@ function planning_model!(g::Storage, model::Model, settings::NamedTuple)
     compute_fixed_costs!(g, model, settings)
 
     @constraint(model, retired_capacity(g) <= existing_capacity(g))
+
+    add_to_deployment_inertia!(g, model, settings)
 
 end
 
@@ -522,6 +529,8 @@ function planning_model!(g::LongDurationStorage, model::Model, settings::NamedTu
     compute_fixed_costs!(g, model, settings)
 
     @constraint(model, retired_capacity(g) <= existing_capacity(g))
+
+    add_to_deployment_inertia!(g, model, settings)
 
     MODELED_SUBPERIODS = modeled_subperiods(g)
     NPeriods = length(MODELED_SUBPERIODS);
