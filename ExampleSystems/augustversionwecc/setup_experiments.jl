@@ -47,8 +47,10 @@ const EXPERIMENTS_DIR = joinpath(TEMPLATE, "settings", "experiments_settings")
 const JOBSCRIPT       = joinpath(TEMPLATE, "benders_jobscript.sh")
 
 # Heavy shared inputs are symlinked; the tiny per-case files are copied.
-const LINK_ITEMS    = ["system", "assets", "system_data.json", "locations.json"]
-const COPY_RUNNERS  = ["Run_benders_oncluster.jl", "run_benders.jl"]
+# system_data.json must be copied, not linked: Macro rewrites it at load time
+# (prep_system_data), so jobs sharing one file race and read it while truncated.
+const LINK_ITEMS    = ["system", "assets", "locations.json"]
+const COPY_RUNNERS  = ["Run_benders_oncluster.jl", "run_benders.jl", "system_data.json"]
 const COPY_SETTINGS = ["macro_settings.json", "benders_settings.json"]  # shared, non-case-specific
 
 # ── Build one case folder ─────────────────────────────────────────────────────

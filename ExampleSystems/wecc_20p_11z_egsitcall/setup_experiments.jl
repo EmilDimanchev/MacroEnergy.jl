@@ -80,8 +80,10 @@ const BATCH_DIR = joinpath(TEMPLATE, BATCH_NAME)
 case_folder_name(name::AbstractString) = "$(TEMPLATE_NAME)_$(name)"
 
 # Heavy shared inputs are symlinked; the tiny per-case files are copied.
-const LINK_ITEMS    = ["system", "assets", "system_data.json", "locations.json"]
-const COPY_RUNNERS  = ["Run_benders_oncluster.jl", "run_benders.jl"]
+# system_data.json must be copied, not linked: Macro rewrites it at load time
+# (prep_system_data), so jobs sharing one file race and read it while truncated.
+const LINK_ITEMS    = ["system", "assets", "locations.json"]
+const COPY_RUNNERS  = ["Run_benders_oncluster.jl", "run_benders.jl", "system_data.json"]
 const COPY_SETTINGS = ["benders_settings.json"]  # shared, non-case-specific
 # macro_settings.json is not copied verbatim: each case needs its own OutputDir
 # pointing into the batch folder, so it is rewritten by write_case_macro_settings.

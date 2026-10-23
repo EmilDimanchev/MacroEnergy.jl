@@ -48,9 +48,23 @@ function prep_system_data(file_path::AbstractString)::Nothing
 
     # FIXME currently overwriting and then re-reading the system_data
     # This is a little janky, but lets us quickly use the JSON parsing functions
+    updated = sprint(io -> JSON3.pretty(io, system_data))
+    isfile(file_path) && read(file_path, String) == updated && return nothing
+
+    # Write to a temporary file and rename it into place, so that other runs
+    # reading the same file (e.g. parallel jobs) never see it truncated.
     @debug("Writing updated system data to $file_path")
-    open(file_path, "w") do io
-        JSON3.pretty(io, system_data)
+    tmp_path, io = mktemp(dirname(file_path); cleanup=false)
+    try
+        write(io, updated)
+        close(io)
+        # mktemp creates the file as owner-only; keep the original permissions
+        chmod(tmp_path, isfile(file_path) ? filemode(file_path) & 0o777 : 0o644)
+        mv(tmp_path, file_path; force=true)
+    catch
+        close(io)
+        rm(tmp_path; force=true)
+        rethrow()
     end
     return nothing
 end
