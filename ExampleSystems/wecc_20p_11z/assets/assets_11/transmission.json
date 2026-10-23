@@ -83,7 +83,7 @@
                             "MaxCapacityConstraint": true
                         },
                         "start_vertex": "elec_AZ",
-                        "capacity_in_progress_init": 4000,
+                        "capacity_in_progress_init": 5200,
                         "Inertia_category": null,
                         "init_cumul_capacity": -1,
                         "max_new_capacity_init": -1,
@@ -563,7 +563,7 @@
                             "MaxCapacityConstraint": true
                         },
                         "start_vertex": "elec_ID",
-                        "capacity_in_progress_init": 2000,
+                        "capacity_in_progress_init": 2600,
                         "Inertia_category": null,
                         "init_cumul_capacity": -1,
                         "max_new_capacity_init": -1,
@@ -611,7 +611,7 @@
                             "MaxCapacityConstraint": true
                         },
                         "start_vertex": "elec_ID",
-                        "capacity_in_progress_init": 1500,
+                        "capacity_in_progress_init": 1950,
                         "Inertia_category": null,
                         "init_cumul_capacity": -1,
                         "max_new_capacity_init": -1,
@@ -755,7 +755,7 @@
                             "MaxCapacityConstraint": true
                         },
                         "start_vertex": "elec_ID",
-                        "capacity_in_progress_init": 1000,
+                        "capacity_in_progress_init": 1300,
                         "Inertia_category": null,
                         "init_cumul_capacity": -1,
                         "max_new_capacity_init": -1,
@@ -947,7 +947,7 @@
                             "MaxCapacityConstraint": true
                         },
                         "start_vertex": "elec_NV",
-                        "capacity_in_progress_init": 1500,
+                        "capacity_in_progress_init": 1950,
                         "Inertia_category": null,
                         "init_cumul_capacity": -1,
                         "max_new_capacity_init": -1,
@@ -1043,7 +1043,7 @@
                             "MaxCapacityConstraint": true
                         },
                         "start_vertex": "elec_UT",
-                        "capacity_in_progress_init": 1500,
+                        "capacity_in_progress_init": 1950,
                         "Inertia_category": null,
                         "init_cumul_capacity": -1,
                         "max_new_capacity_init": -1,
