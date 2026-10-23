@@ -1293,7 +1293,7 @@
                         "max_new_capacity": 10000,
                         "n_learning_pwl_segments": 7,
                         "end_vertex": "elec_AZ",
-                        "cadr": 0.12,
+                        "cadr": 0.11,
                         "variable_om_cost": 0,
                         "capacity_size": 1,
                         "wacc": 0.051,
@@ -1309,7 +1309,7 @@
                         "de_wacc": 0.063,
                         "annualized_investment_cost": 109230,
                         "learning_type": "wind",
-                        "de_duration": 2,
+                        "de_duration": 3,
                         "max_capacity": 653.6,
                         "af_cap_recovery": 1,
                         "constraints": {
@@ -1324,7 +1324,7 @@
                         "max_cumul_capacity": -1,
                         "capacity_reserve_margin_derate_factor": 0.08,
                         "cc_cap_recovery": 22,
-                        "de_cap_recovery": 2,
+                        "de_cap_recovery": 3,
                         "existing_capacity": 0
                     }
                 }
@@ -1377,7 +1377,7 @@
                         "max_new_capacity": 10000,
                         "n_learning_pwl_segments": 7,
                         "end_vertex": "elec_AZ",
-                        "cadr": 0.12,
+                        "cadr": 0.11,
                         "variable_om_cost": 0,
                         "capacity_size": 1,
                         "wacc": 0.051,
@@ -1393,7 +1393,7 @@
                         "de_wacc": 0.063,
                         "annualized_investment_cost": 113022,
                         "learning_type": "wind",
-                        "de_duration": 2,
+                        "de_duration": 3,
                         "max_capacity": 603,
                         "af_cap_recovery": 1,
                         "constraints": {
@@ -1408,7 +1408,7 @@
                         "max_cumul_capacity": -1,
                         "capacity_reserve_margin_derate_factor": 0.08,
                         "cc_cap_recovery": 22,
-                        "de_cap_recovery": 2,
+                        "de_cap_recovery": 3,
                         "existing_capacity": 0
                     }
                 }
@@ -1441,13 +1441,13 @@
                             0,
                             0
                         ],
-                        "af_duration": 0,
+                        "af_duration": 1,
                         "cumulative_capacity_init": -1,
                         "lifetime": 20,
                         "can_expand": true,
-                        "de_cost_perc": 0.065,
+                        "de_cost_perc": 0.04875,
                         "cc_cost_perc": 0.885,
-                        "cc_duration": 1,
+                        "cc_duration": 2,
                         "capacity_in_progress_init": 1200,
                         "interconnect_annuity": 11986.716,
                         "Inertia_category": "solar",
@@ -1461,7 +1461,7 @@
                         "max_new_capacity": 10000,
                         "n_learning_pwl_segments": 7,
                         "end_vertex": "elec_AZ",
-                        "cadr": 0.039,
+                        "cadr": 0.11,
                         "variable_om_cost": 0,
                         "capacity_size": 1,
                         "wacc": 0.043,
@@ -1473,13 +1473,13 @@
                                 "path": "system/vre_availability_2.csv"
                             }
                         },
-                        "af_cost_perc": 0,
+                        "af_cost_perc": 0.01625,
                         "de_wacc": 0.059,
                         "annualized_investment_cost": 89183,
                         "learning_type": "solar",
-                        "de_duration": 1,
+                        "de_duration": 3,
                         "max_capacity": 401412.9,
-                        "af_cap_recovery": 0,
+                        "af_cap_recovery": 1,
                         "constraints": {
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
@@ -1491,8 +1491,8 @@
                         "fixed_om_cost": 16970,
                         "max_cumul_capacity": -1,
                         "capacity_reserve_margin_derate_factor": 0.12,
-                        "cc_cap_recovery": 21,
-                        "de_cap_recovery": 1,
+                        "cc_cap_recovery": 22,
+                        "de_cap_recovery": 3,
                         "existing_capacity": 0
                     }
                 }
@@ -1525,13 +1525,13 @@
                             0,
                             0
                         ],
-                        "af_duration": 0,
+                        "af_duration": 1,
                         "cumulative_capacity_init": -1,
                         "lifetime": 20,
                         "can_expand": true,
-                        "de_cost_perc": 0.065,
+                        "de_cost_perc": 0.04875,
                         "cc_cost_perc": 0.885,
-                        "cc_duration": 1,
+                        "cc_duration": 2,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 33069.152,
                         "Inertia_category": "solar",
@@ -1545,7 +1545,7 @@
                         "max_new_capacity": 10000,
                         "n_learning_pwl_segments": 7,
                         "end_vertex": "elec_AZ",
-                        "cadr": 0.039,
+                        "cadr": 0.11,
                         "variable_om_cost": 0,
                         "capacity_size": 1,
                         "wacc": 0.043,
@@ -1557,13 +1557,13 @@
                                 "path": "system/vre_availability_2.csv"
                             }
                         },
-                        "af_cost_perc": 0,
+                        "af_cost_perc": 0.01625,
                         "de_wacc": 0.059,
                         "annualized_investment_cost": 110266,
                         "learning_type": "solar",
-                        "de_duration": 1,
+                        "de_duration": 3,
                         "max_capacity": 401339.1,
-                        "af_cap_recovery": 0,
+                        "af_cap_recovery": 1,
                         "constraints": {
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
@@ -1575,8 +1575,8 @@
                         "fixed_om_cost": 16970,
                         "max_cumul_capacity": -1,
                         "capacity_reserve_margin_derate_factor": 0.12,
-                        "cc_cap_recovery": 21,
-                        "de_cap_recovery": 1,
+                        "cc_cap_recovery": 22,
+                        "de_cap_recovery": 3,
                         "existing_capacity": 0
                     }
                 }
@@ -1629,7 +1629,7 @@
                         "max_new_capacity": 10000,
                         "n_learning_pwl_segments": 7,
                         "end_vertex": "elec_CA",
-                        "cadr": 0.12,
+                        "cadr": 0.11,
                         "variable_om_cost": 0,
                         "capacity_size": 1,
                         "wacc": 0.051,
@@ -1645,7 +1645,7 @@
                         "de_wacc": 0.063,
                         "annualized_investment_cost": 164326,
                         "learning_type": "wind",
-                        "de_duration": 2,
+                        "de_duration": 3,
                         "max_capacity": 25.1,
                         "af_cap_recovery": 1,
                         "constraints": {
@@ -1660,7 +1660,7 @@
                         "max_cumul_capacity": -1,
                         "capacity_reserve_margin_derate_factor": 0.08,
                         "cc_cap_recovery": 22,
-                        "de_cap_recovery": 2,
+                        "de_cap_recovery": 3,
                         "existing_capacity": 0
                     }
                 }
@@ -1693,13 +1693,13 @@
                             0,
                             0
                         ],
-                        "af_duration": 0,
+                        "af_duration": 1,
                         "cumulative_capacity_init": -1,
                         "lifetime": 20,
                         "can_expand": true,
-                        "de_cost_perc": 0.065,
+                        "de_cost_perc": 0.04875,
                         "cc_cost_perc": 0.885,
-                        "cc_duration": 1,
+                        "cc_duration": 2,
                         "capacity_in_progress_init": 2600,
                         "interconnect_annuity": 21479.512,
                         "Inertia_category": "solar",
@@ -1713,7 +1713,7 @@
                         "max_new_capacity": 10000,
                         "n_learning_pwl_segments": 7,
                         "end_vertex": "elec_CA",
-                        "cadr": 0.039,
+                        "cadr": 0.11,
                         "variable_om_cost": 0,
                         "capacity_size": 1,
                         "wacc": 0.043,
@@ -1725,13 +1725,13 @@
                                 "path": "system/vre_availability_2.csv"
                             }
                         },
-                        "af_cost_perc": 0,
+                        "af_cost_perc": 0.01625,
                         "de_wacc": 0.059,
                         "annualized_investment_cost": 106126,
                         "learning_type": "solar",
-                        "de_duration": 1,
+                        "de_duration": 3,
                         "max_capacity": 281203,
-                        "af_cap_recovery": 0,
+                        "af_cap_recovery": 1,
                         "constraints": {
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
@@ -1743,8 +1743,8 @@
                         "fixed_om_cost": 16970,
                         "max_cumul_capacity": -1,
                         "capacity_reserve_margin_derate_factor": 0.06,
-                        "cc_cap_recovery": 21,
-                        "de_cap_recovery": 1,
+                        "cc_cap_recovery": 22,
+                        "de_cap_recovery": 3,
                         "existing_capacity": 0
                     }
                 }
@@ -1777,13 +1777,13 @@
                             0,
                             0
                         ],
-                        "af_duration": 0,
+                        "af_duration": 1,
                         "cumulative_capacity_init": -1,
                         "lifetime": 20,
                         "can_expand": true,
-                        "de_cost_perc": 0.065,
+                        "de_cost_perc": 0.04875,
                         "cc_cost_perc": 0.885,
-                        "cc_duration": 1,
+                        "cc_duration": 2,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 39907.82,
                         "Inertia_category": "solar",
@@ -1797,7 +1797,7 @@
                         "max_new_capacity": 10000,
                         "n_learning_pwl_segments": 7,
                         "end_vertex": "elec_CA",
-                        "cadr": 0.039,
+                        "cadr": 0.11,
                         "variable_om_cost": 0,
                         "capacity_size": 1,
                         "wacc": 0.043,
@@ -1809,13 +1809,13 @@
                                 "path": "system/vre_availability_2.csv"
                             }
                         },
-                        "af_cost_perc": 0,
+                        "af_cost_perc": 0.01625,
                         "de_wacc": 0.059,
                         "annualized_investment_cost": 124554,
                         "learning_type": "solar",
-                        "de_duration": 1,
+                        "de_duration": 3,
                         "max_capacity": 281128.4,
-                        "af_cap_recovery": 0,
+                        "af_cap_recovery": 1,
                         "constraints": {
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
@@ -1827,8 +1827,8 @@
                         "fixed_om_cost": 16970,
                         "max_cumul_capacity": -1,
                         "capacity_reserve_margin_derate_factor": 0.06,
-                        "cc_cap_recovery": 21,
-                        "de_cap_recovery": 1,
+                        "cc_cap_recovery": 22,
+                        "de_cap_recovery": 3,
                         "existing_capacity": 0
                     }
                 }
@@ -1867,13 +1867,13 @@
                         "can_expand": true,
                         "de_cost_perc": 0.055,
                         "cc_cost_perc": 0.885,
-                        "cc_duration": 4,
+                        "cc_duration": 3,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 100200.27,
                         "Inertia_category": "offshore_wind",
-                        "max_new_capacity_init": 10000,
+                        "max_new_capacity_init": 200,
                         "commodity": "Electricity",
-                        "cagr": 0.1,
+                        "cagr": 0.162,
                         "cc_wacc": 0.06,
                         "cff": 1.109,
                         "af_wacc": 0.078,
@@ -1881,7 +1881,7 @@
                         "max_new_capacity": 10000,
                         "n_learning_pwl_segments": 7,
                         "end_vertex": "elec_CA",
-                        "cadr": 0.1,
+                        "cadr": 0.11,
                         "variable_om_cost": 0,
                         "capacity_size": 1,
                         "wacc": 0.052,
@@ -1897,7 +1897,7 @@
                         "de_wacc": 0.078,
                         "annualized_investment_cost": 396394,
                         "learning_type": "offshorewind",
-                        "de_duration": 2,
+                        "de_duration": 4,
                         "max_capacity": 26245.3,
                         "af_cap_recovery": 1,
                         "constraints": {
@@ -1911,8 +1911,8 @@
                         "fixed_om_cost": 70850,
                         "max_cumul_capacity": -1,
                         "capacity_reserve_margin_derate_factor": 0.4,
-                        "cc_cap_recovery": 24,
-                        "de_cap_recovery": 2,
+                        "cc_cap_recovery": 23,
+                        "de_cap_recovery": 4,
                         "existing_capacity": 0
                     }
                 }
@@ -2022,7 +2022,7 @@
                         "max_new_capacity": 10000,
                         "n_learning_pwl_segments": 7,
                         "end_vertex": "elec_CO",
-                        "cadr": 0.12,
+                        "cadr": 0.11,
                         "variable_om_cost": 0,
                         "capacity_size": 1,
                         "wacc": 0.051,
@@ -2038,7 +2038,7 @@
                         "de_wacc": 0.063,
                         "annualized_investment_cost": 115455,
                         "learning_type": "wind",
-                        "de_duration": 2,
+                        "de_duration": 3,
                         "max_capacity": 22260.1,
                         "af_cap_recovery": 1,
                         "constraints": {
@@ -2053,7 +2053,7 @@
                         "max_cumul_capacity": -1,
                         "capacity_reserve_margin_derate_factor": 0.08,
                         "cc_cap_recovery": 22,
-                        "de_cap_recovery": 2,
+                        "de_cap_recovery": 3,
                         "existing_capacity": 0
                     }
                 }
@@ -2106,7 +2106,7 @@
                         "max_new_capacity": 10000,
                         "n_learning_pwl_segments": 7,
                         "end_vertex": "elec_CO",
-                        "cadr": 0.12,
+                        "cadr": 0.11,
                         "variable_om_cost": 0,
                         "capacity_size": 1,
                         "wacc": 0.051,
@@ -2122,7 +2122,7 @@
                         "de_wacc": 0.063,
                         "annualized_investment_cost": 115945,
                         "learning_type": "wind",
-                        "de_duration": 2,
+                        "de_duration": 3,
                         "max_capacity": 22184.3,
                         "af_cap_recovery": 1,
                         "constraints": {
@@ -2137,7 +2137,7 @@
                         "max_cumul_capacity": -1,
                         "capacity_reserve_margin_derate_factor": 0.08,
                         "cc_cap_recovery": 22,
-                        "de_cap_recovery": 2,
+                        "de_cap_recovery": 3,
                         "existing_capacity": 0
                     }
                 }
@@ -2170,13 +2170,13 @@
                             0,
                             0
                         ],
-                        "af_duration": 0,
+                        "af_duration": 1,
                         "cumulative_capacity_init": -1,
                         "lifetime": 20,
                         "can_expand": true,
-                        "de_cost_perc": 0.065,
+                        "de_cost_perc": 0.04875,
                         "cc_cost_perc": 0.885,
-                        "cc_duration": 1,
+                        "cc_duration": 2,
                         "capacity_in_progress_init": 200,
                         "interconnect_annuity": 16329.668,
                         "Inertia_category": "solar",
@@ -2190,7 +2190,7 @@
                         "max_new_capacity": 10000,
                         "n_learning_pwl_segments": 7,
                         "end_vertex": "elec_CO",
-                        "cadr": 0.039,
+                        "cadr": 0.11,
                         "variable_om_cost": 0,
                         "capacity_size": 1,
                         "wacc": 0.043,
@@ -2202,13 +2202,13 @@
                                 "path": "system/vre_availability_2.csv"
                             }
                         },
-                        "af_cost_perc": 0,
+                        "af_cost_perc": 0.01625,
                         "de_wacc": 0.059,
                         "annualized_investment_cost": 94428,
                         "learning_type": "solar",
-                        "de_duration": 1,
+                        "de_duration": 3,
                         "max_capacity": 407133,
-                        "af_cap_recovery": 0,
+                        "af_cap_recovery": 1,
                         "constraints": {
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
@@ -2220,8 +2220,8 @@
                         "fixed_om_cost": 16970,
                         "max_cumul_capacity": -1,
                         "capacity_reserve_margin_derate_factor": 0.21,
-                        "cc_cap_recovery": 21,
-                        "de_cap_recovery": 1,
+                        "cc_cap_recovery": 22,
+                        "de_cap_recovery": 3,
                         "existing_capacity": 0
                     }
                 }
@@ -2254,13 +2254,13 @@
                             0,
                             0
                         ],
-                        "af_duration": 0,
+                        "af_duration": 1,
                         "cumulative_capacity_init": -1,
                         "lifetime": 20,
                         "can_expand": true,
-                        "de_cost_perc": 0.065,
+                        "de_cost_perc": 0.04875,
                         "cc_cost_perc": 0.885,
-                        "cc_duration": 1,
+                        "cc_duration": 2,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 32282.518,
                         "Inertia_category": "solar",
@@ -2274,7 +2274,7 @@
                         "max_new_capacity": 10000,
                         "n_learning_pwl_segments": 7,
                         "end_vertex": "elec_CO",
-                        "cadr": 0.039,
+                        "cadr": 0.11,
                         "variable_om_cost": 0,
                         "capacity_size": 1,
                         "wacc": 0.043,
@@ -2286,13 +2286,13 @@
                                 "path": "system/vre_availability_2.csv"
                             }
                         },
-                        "af_cost_perc": 0,
+                        "af_cost_perc": 0.01625,
                         "de_wacc": 0.059,
                         "annualized_investment_cost": 110381,
                         "learning_type": "solar",
-                        "de_duration": 1,
+                        "de_duration": 3,
                         "max_capacity": 407009.8,
-                        "af_cap_recovery": 0,
+                        "af_cap_recovery": 1,
                         "constraints": {
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
@@ -2304,8 +2304,8 @@
                         "fixed_om_cost": 16970,
                         "max_cumul_capacity": -1,
                         "capacity_reserve_margin_derate_factor": 0.21,
-                        "cc_cap_recovery": 21,
-                        "de_cap_recovery": 1,
+                        "cc_cap_recovery": 22,
+                        "de_cap_recovery": 3,
                         "existing_capacity": 0
                     }
                 }
@@ -2358,7 +2358,7 @@
                         "max_new_capacity": 10000,
                         "n_learning_pwl_segments": 7,
                         "end_vertex": "elec_ID",
-                        "cadr": 0.12,
+                        "cadr": 0.11,
                         "variable_om_cost": 0,
                         "capacity_size": 1,
                         "wacc": 0.051,
@@ -2374,7 +2374,7 @@
                         "de_wacc": 0.063,
                         "annualized_investment_cost": 104670,
                         "learning_type": "wind",
-                        "de_duration": 2,
+                        "de_duration": 3,
                         "max_capacity": 1407.8,
                         "af_cap_recovery": 1,
                         "constraints": {
@@ -2389,7 +2389,7 @@
                         "max_cumul_capacity": -1,
                         "capacity_reserve_margin_derate_factor": 0.08,
                         "cc_cap_recovery": 22,
-                        "de_cap_recovery": 2,
+                        "de_cap_recovery": 3,
                         "existing_capacity": 0
                     }
                 }
@@ -2442,7 +2442,7 @@
                         "max_new_capacity": 10000,
                         "n_learning_pwl_segments": 7,
                         "end_vertex": "elec_ID",
-                        "cadr": 0.12,
+                        "cadr": 0.11,
                         "variable_om_cost": 0,
                         "capacity_size": 1,
                         "wacc": 0.051,
@@ -2458,7 +2458,7 @@
                         "de_wacc": 0.063,
                         "annualized_investment_cost": 111113,
                         "learning_type": "wind",
-                        "de_duration": 2,
+                        "de_duration": 3,
                         "max_capacity": 1335.4,
                         "af_cap_recovery": 1,
                         "constraints": {
@@ -2473,7 +2473,7 @@
                         "max_cumul_capacity": -1,
                         "capacity_reserve_margin_derate_factor": 0.08,
                         "cc_cap_recovery": 22,
-                        "de_cap_recovery": 2,
+                        "de_cap_recovery": 3,
                         "existing_capacity": 0
                     }
                 }
@@ -2506,13 +2506,13 @@
                             0,
                             0
                         ],
-                        "af_duration": 0,
+                        "af_duration": 1,
                         "cumulative_capacity_init": -1,
                         "lifetime": 20,
                         "can_expand": true,
-                        "de_cost_perc": 0.065,
+                        "de_cost_perc": 0.04875,
                         "cc_cost_perc": 0.885,
-                        "cc_duration": 1,
+                        "cc_duration": 2,
                         "capacity_in_progress_init": 100,
                         "interconnect_annuity": 21366.07,
                         "Inertia_category": "solar",
@@ -2526,7 +2526,7 @@
                         "max_new_capacity": 10000,
                         "n_learning_pwl_segments": 7,
                         "end_vertex": "elec_ID",
-                        "cadr": 0.039,
+                        "cadr": 0.11,
                         "variable_om_cost": 0,
                         "capacity_size": 1,
                         "wacc": 0.043,
@@ -2538,13 +2538,13 @@
                                 "path": "system/vre_availability_2.csv"
                             }
                         },
-                        "af_cost_perc": 0,
+                        "af_cost_perc": 0.01625,
                         "de_wacc": 0.059,
                         "annualized_investment_cost": 100186,
                         "learning_type": "solar",
-                        "de_duration": 1,
+                        "de_duration": 3,
                         "max_capacity": 614463.8,
-                        "af_cap_recovery": 0,
+                        "af_cap_recovery": 1,
                         "constraints": {
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
@@ -2556,8 +2556,8 @@
                         "fixed_om_cost": 16970,
                         "max_cumul_capacity": -1,
                         "capacity_reserve_margin_derate_factor": 0.12,
-                        "cc_cap_recovery": 21,
-                        "de_cap_recovery": 1,
+                        "cc_cap_recovery": 22,
+                        "de_cap_recovery": 3,
                         "existing_capacity": 0
                     }
                 }
@@ -2590,13 +2590,13 @@
                             0,
                             0
                         ],
-                        "af_duration": 0,
+                        "af_duration": 1,
                         "cumulative_capacity_init": -1,
                         "lifetime": 20,
                         "can_expand": true,
-                        "de_cost_perc": 0.065,
+                        "de_cost_perc": 0.04875,
                         "cc_cost_perc": 0.885,
-                        "cc_duration": 1,
+                        "cc_duration": 2,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 34878.99,
                         "Inertia_category": "solar",
@@ -2610,7 +2610,7 @@
                         "max_new_capacity": 10000,
                         "n_learning_pwl_segments": 7,
                         "end_vertex": "elec_ID",
-                        "cadr": 0.039,
+                        "cadr": 0.11,
                         "variable_om_cost": 0,
                         "capacity_size": 1,
                         "wacc": 0.043,
@@ -2622,13 +2622,13 @@
                                 "path": "system/vre_availability_2.csv"
                             }
                         },
-                        "af_cost_perc": 0,
+                        "af_cost_perc": 0.01625,
                         "de_wacc": 0.059,
                         "annualized_investment_cost": 113698,
                         "learning_type": "solar",
-                        "de_duration": 1,
+                        "de_duration": 3,
                         "max_capacity": 614211,
-                        "af_cap_recovery": 0,
+                        "af_cap_recovery": 1,
                         "constraints": {
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
@@ -2640,8 +2640,8 @@
                         "fixed_om_cost": 16970,
                         "max_cumul_capacity": -1,
                         "capacity_reserve_margin_derate_factor": 0.12,
-                        "cc_cap_recovery": 21,
-                        "de_cap_recovery": 1,
+                        "cc_cap_recovery": 22,
+                        "de_cap_recovery": 3,
                         "existing_capacity": 0
                     }
                 }
@@ -2694,7 +2694,7 @@
                         "max_new_capacity": 10000,
                         "n_learning_pwl_segments": 7,
                         "end_vertex": "elec_MT",
-                        "cadr": 0.12,
+                        "cadr": 0.11,
                         "variable_om_cost": 0,
                         "capacity_size": 1,
                         "wacc": 0.051,
@@ -2710,7 +2710,7 @@
                         "de_wacc": 0.063,
                         "annualized_investment_cost": 142704,
                         "learning_type": "wind",
-                        "de_duration": 2,
+                        "de_duration": 3,
                         "max_capacity": 10208.6,
                         "af_cap_recovery": 1,
                         "constraints": {
@@ -2725,7 +2725,7 @@
                         "max_cumul_capacity": -1,
                         "capacity_reserve_margin_derate_factor": 0.08,
                         "cc_cap_recovery": 22,
-                        "de_cap_recovery": 2,
+                        "de_cap_recovery": 3,
                         "existing_capacity": 0
                     }
                 }
@@ -2778,7 +2778,7 @@
                         "max_new_capacity": 10000,
                         "n_learning_pwl_segments": 7,
                         "end_vertex": "elec_MT",
-                        "cadr": 0.12,
+                        "cadr": 0.11,
                         "variable_om_cost": 0,
                         "capacity_size": 1,
                         "wacc": 0.051,
@@ -2794,7 +2794,7 @@
                         "de_wacc": 0.063,
                         "annualized_investment_cost": 143935,
                         "learning_type": "wind",
-                        "de_duration": 2,
+                        "de_duration": 3,
                         "max_capacity": 10181,
                         "af_cap_recovery": 1,
                         "constraints": {
@@ -2809,7 +2809,7 @@
                         "max_cumul_capacity": -1,
                         "capacity_reserve_margin_derate_factor": 0.08,
                         "cc_cap_recovery": 22,
-                        "de_cap_recovery": 2,
+                        "de_cap_recovery": 3,
                         "existing_capacity": 0
                     }
                 }
@@ -2842,13 +2842,13 @@
                             0,
                             0
                         ],
-                        "af_duration": 0,
+                        "af_duration": 1,
                         "cumulative_capacity_init": -1,
                         "lifetime": 20,
                         "can_expand": true,
-                        "de_cost_perc": 0.065,
+                        "de_cost_perc": 0.04875,
                         "cc_cost_perc": 0.885,
-                        "cc_duration": 1,
+                        "cc_duration": 2,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 13762.357,
                         "Inertia_category": "solar",
@@ -2862,7 +2862,7 @@
                         "max_new_capacity": 10000,
                         "n_learning_pwl_segments": 7,
                         "end_vertex": "elec_MT",
-                        "cadr": 0.039,
+                        "cadr": 0.11,
                         "variable_om_cost": 0,
                         "capacity_size": 1,
                         "wacc": 0.043,
@@ -2874,13 +2874,13 @@
                                 "path": "system/vre_availability_2.csv"
                             }
                         },
-                        "af_cost_perc": 0,
+                        "af_cost_perc": 0.01625,
                         "de_wacc": 0.059,
                         "annualized_investment_cost": 92882,
                         "learning_type": "solar",
-                        "de_duration": 1,
+                        "de_duration": 3,
                         "max_capacity": 568034,
-                        "af_cap_recovery": 0,
+                        "af_cap_recovery": 1,
                         "constraints": {
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
@@ -2892,8 +2892,8 @@
                         "fixed_om_cost": 16970,
                         "max_cumul_capacity": -1,
                         "capacity_reserve_margin_derate_factor": 0.12,
-                        "cc_cap_recovery": 21,
-                        "de_cap_recovery": 1,
+                        "cc_cap_recovery": 22,
+                        "de_cap_recovery": 3,
                         "existing_capacity": 0
                     }
                 }
@@ -2926,13 +2926,13 @@
                             0,
                             0
                         ],
-                        "af_duration": 0,
+                        "af_duration": 1,
                         "cumulative_capacity_init": -1,
                         "lifetime": 20,
                         "can_expand": true,
-                        "de_cost_perc": 0.065,
+                        "de_cost_perc": 0.04875,
                         "cc_cost_perc": 0.885,
-                        "cc_duration": 1,
+                        "cc_duration": 2,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 27085.562,
                         "Inertia_category": "solar",
@@ -2946,7 +2946,7 @@
                         "max_new_capacity": 10000,
                         "n_learning_pwl_segments": 7,
                         "end_vertex": "elec_MT",
-                        "cadr": 0.039,
+                        "cadr": 0.11,
                         "variable_om_cost": 0,
                         "capacity_size": 1,
                         "wacc": 0.043,
@@ -2958,13 +2958,13 @@
                                 "path": "system/vre_availability_2.csv"
                             }
                         },
-                        "af_cost_perc": 0,
+                        "af_cost_perc": 0.01625,
                         "de_wacc": 0.059,
                         "annualized_investment_cost": 106205,
                         "learning_type": "solar",
-                        "de_duration": 1,
+                        "de_duration": 3,
                         "max_capacity": 567809.6,
-                        "af_cap_recovery": 0,
+                        "af_cap_recovery": 1,
                         "constraints": {
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
@@ -2976,8 +2976,8 @@
                         "fixed_om_cost": 16970,
                         "max_cumul_capacity": -1,
                         "capacity_reserve_margin_derate_factor": 0.12,
-                        "cc_cap_recovery": 21,
-                        "de_cap_recovery": 1,
+                        "cc_cap_recovery": 22,
+                        "de_cap_recovery": 3,
                         "existing_capacity": 0
                     }
                 }
@@ -3030,7 +3030,7 @@
                         "max_new_capacity": 10000,
                         "n_learning_pwl_segments": 7,
                         "end_vertex": "elec_NM",
-                        "cadr": 0.12,
+                        "cadr": 0.11,
                         "variable_om_cost": 0,
                         "capacity_size": 1,
                         "wacc": 0.051,
@@ -3046,7 +3046,7 @@
                         "de_wacc": 0.063,
                         "annualized_investment_cost": 109877,
                         "learning_type": "wind",
-                        "de_duration": 2,
+                        "de_duration": 3,
                         "max_capacity": 15393.8,
                         "af_cap_recovery": 1,
                         "constraints": {
@@ -3061,7 +3061,7 @@
                         "max_cumul_capacity": -1,
                         "capacity_reserve_margin_derate_factor": 0.08,
                         "cc_cap_recovery": 22,
-                        "de_cap_recovery": 2,
+                        "de_cap_recovery": 3,
                         "existing_capacity": 0
                     }
                 }
@@ -3114,7 +3114,7 @@
                         "max_new_capacity": 10000,
                         "n_learning_pwl_segments": 7,
                         "end_vertex": "elec_NM",
-                        "cadr": 0.12,
+                        "cadr": 0.11,
                         "variable_om_cost": 0,
                         "capacity_size": 1,
                         "wacc": 0.051,
@@ -3130,7 +3130,7 @@
                         "de_wacc": 0.063,
                         "annualized_investment_cost": 112962,
                         "learning_type": "wind",
-                        "de_duration": 2,
+                        "de_duration": 3,
                         "max_capacity": 15388.8,
                         "af_cap_recovery": 1,
                         "constraints": {
@@ -3145,7 +3145,7 @@
                         "max_cumul_capacity": -1,
                         "capacity_reserve_margin_derate_factor": 0.08,
                         "cc_cap_recovery": 22,
-                        "de_cap_recovery": 2,
+                        "de_cap_recovery": 3,
                         "existing_capacity": 0
                     }
                 }
@@ -3178,13 +3178,13 @@
                             0,
                             0
                         ],
-                        "af_duration": 0,
+                        "af_duration": 1,
                         "cumulative_capacity_init": -1,
                         "lifetime": 20,
                         "can_expand": true,
-                        "de_cost_perc": 0.065,
+                        "de_cost_perc": 0.04875,
                         "cc_cost_perc": 0.885,
-                        "cc_duration": 1,
+                        "cc_duration": 2,
                         "capacity_in_progress_init": 1200,
                         "interconnect_annuity": 16873.984,
                         "Inertia_category": "solar",
@@ -3198,7 +3198,7 @@
                         "max_new_capacity": 10000,
                         "n_learning_pwl_segments": 7,
                         "end_vertex": "elec_NM",
-                        "cadr": 0.039,
+                        "cadr": 0.11,
                         "variable_om_cost": 0,
                         "capacity_size": 1,
                         "wacc": 0.043,
@@ -3210,13 +3210,13 @@
                                 "path": "system/vre_availability_2.csv"
                             }
                         },
-                        "af_cost_perc": 0,
+                        "af_cost_perc": 0.01625,
                         "de_wacc": 0.059,
                         "annualized_investment_cost": 94070,
                         "learning_type": "solar",
-                        "de_duration": 1,
+                        "de_duration": 3,
                         "max_capacity": 600608.2,
-                        "af_cap_recovery": 0,
+                        "af_cap_recovery": 1,
                         "constraints": {
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
@@ -3228,8 +3228,8 @@
                         "fixed_om_cost": 16970,
                         "max_cumul_capacity": -1,
                         "capacity_reserve_margin_derate_factor": 0.12,
-                        "cc_cap_recovery": 21,
-                        "de_cap_recovery": 1,
+                        "cc_cap_recovery": 22,
+                        "de_cap_recovery": 3,
                         "existing_capacity": 0
                     }
                 }
@@ -3262,13 +3262,13 @@
                             0,
                             0
                         ],
-                        "af_duration": 0,
+                        "af_duration": 1,
                         "cumulative_capacity_init": -1,
                         "lifetime": 20,
                         "can_expand": true,
-                        "de_cost_perc": 0.065,
+                        "de_cost_perc": 0.04875,
                         "cc_cost_perc": 0.885,
-                        "cc_duration": 1,
+                        "cc_duration": 2,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 34527.65,
                         "Inertia_category": "solar",
@@ -3282,7 +3282,7 @@
                         "max_new_capacity": 10000,
                         "n_learning_pwl_segments": 7,
                         "end_vertex": "elec_NM",
-                        "cadr": 0.039,
+                        "cadr": 0.11,
                         "variable_om_cost": 0,
                         "capacity_size": 1,
                         "wacc": 0.043,
@@ -3294,13 +3294,13 @@
                                 "path": "system/vre_availability_2.csv"
                             }
                         },
-                        "af_cost_perc": 0,
+                        "af_cost_perc": 0.01625,
                         "de_wacc": 0.059,
                         "annualized_investment_cost": 111724,
                         "learning_type": "solar",
-                        "de_duration": 1,
+                        "de_duration": 3,
                         "max_capacity": 600525.4,
-                        "af_cap_recovery": 0,
+                        "af_cap_recovery": 1,
                         "constraints": {
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
@@ -3312,8 +3312,8 @@
                         "fixed_om_cost": 16970,
                         "max_cumul_capacity": -1,
                         "capacity_reserve_margin_derate_factor": 0.12,
-                        "cc_cap_recovery": 21,
-                        "de_cap_recovery": 1,
+                        "cc_cap_recovery": 22,
+                        "de_cap_recovery": 3,
                         "existing_capacity": 0
                     }
                 }
@@ -3366,7 +3366,7 @@
                         "max_new_capacity": 10000,
                         "n_learning_pwl_segments": 7,
                         "end_vertex": "elec_NV",
-                        "cadr": 0.12,
+                        "cadr": 0.11,
                         "variable_om_cost": 0,
                         "capacity_size": 1,
                         "wacc": 0.051,
@@ -3382,7 +3382,7 @@
                         "de_wacc": 0.063,
                         "annualized_investment_cost": 113428,
                         "learning_type": "wind",
-                        "de_duration": 2,
+                        "de_duration": 3,
                         "max_capacity": 826.9,
                         "af_cap_recovery": 1,
                         "constraints": {
@@ -3397,7 +3397,7 @@
                         "max_cumul_capacity": -1,
                         "capacity_reserve_margin_derate_factor": 0.08,
                         "cc_cap_recovery": 22,
-                        "de_cap_recovery": 2,
+                        "de_cap_recovery": 3,
                         "existing_capacity": 0
                     }
                 }
@@ -3450,7 +3450,7 @@
                         "max_new_capacity": 10000,
                         "n_learning_pwl_segments": 7,
                         "end_vertex": "elec_NV",
-                        "cadr": 0.12,
+                        "cadr": 0.11,
                         "variable_om_cost": 0,
                         "capacity_size": 1,
                         "wacc": 0.051,
@@ -3466,7 +3466,7 @@
                         "de_wacc": 0.063,
                         "annualized_investment_cost": 118485,
                         "learning_type": "wind",
-                        "de_duration": 2,
+                        "de_duration": 3,
                         "max_capacity": 797.7,
                         "af_cap_recovery": 1,
                         "constraints": {
@@ -3481,7 +3481,7 @@
                         "max_cumul_capacity": -1,
                         "capacity_reserve_margin_derate_factor": 0.08,
                         "cc_cap_recovery": 22,
-                        "de_cap_recovery": 2,
+                        "de_cap_recovery": 3,
                         "existing_capacity": 0
                     }
                 }
@@ -3514,13 +3514,13 @@
                             0,
                             0
                         ],
-                        "af_duration": 0,
+                        "af_duration": 1,
                         "cumulative_capacity_init": -1,
                         "lifetime": 20,
                         "can_expand": true,
-                        "de_cost_perc": 0.065,
+                        "de_cost_perc": 0.04875,
                         "cc_cost_perc": 0.885,
-                        "cc_duration": 1,
+                        "cc_duration": 2,
                         "capacity_in_progress_init": 1200,
                         "interconnect_annuity": 22357.588,
                         "Inertia_category": "solar",
@@ -3534,7 +3534,7 @@
                         "max_new_capacity": 10000,
                         "n_learning_pwl_segments": 7,
                         "end_vertex": "elec_NV",
-                        "cadr": 0.039,
+                        "cadr": 0.11,
                         "variable_om_cost": 0,
                         "capacity_size": 1,
                         "wacc": 0.043,
@@ -3546,13 +3546,13 @@
                                 "path": "system/vre_availability_2.csv"
                             }
                         },
-                        "af_cost_perc": 0,
+                        "af_cost_perc": 0.01625,
                         "de_wacc": 0.059,
                         "annualized_investment_cost": 101177,
                         "learning_type": "solar",
-                        "de_duration": 1,
+                        "de_duration": 3,
                         "max_capacity": 416763.2,
-                        "af_cap_recovery": 0,
+                        "af_cap_recovery": 1,
                         "constraints": {
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
@@ -3564,8 +3564,8 @@
                         "fixed_om_cost": 16970,
                         "max_cumul_capacity": -1,
                         "capacity_reserve_margin_derate_factor": 0.08,
-                        "cc_cap_recovery": 21,
-                        "de_cap_recovery": 1,
+                        "cc_cap_recovery": 22,
+                        "de_cap_recovery": 3,
                         "existing_capacity": 0
                     }
                 }
@@ -3598,13 +3598,13 @@
                             0,
                             0
                         ],
-                        "af_duration": 0,
+                        "af_duration": 1,
                         "cumulative_capacity_init": -1,
                         "lifetime": 20,
                         "can_expand": true,
-                        "de_cost_perc": 0.065,
+                        "de_cost_perc": 0.04875,
                         "cc_cost_perc": 0.885,
-                        "cc_duration": 1,
+                        "cc_duration": 2,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 33510.027,
                         "Inertia_category": "solar",
@@ -3618,7 +3618,7 @@
                         "max_new_capacity": 10000,
                         "n_learning_pwl_segments": 7,
                         "end_vertex": "elec_NV",
-                        "cadr": 0.039,
+                        "cadr": 0.11,
                         "variable_om_cost": 0,
                         "capacity_size": 1,
                         "wacc": 0.043,
@@ -3630,13 +3630,13 @@
                                 "path": "system/vre_availability_2.csv"
                             }
                         },
-                        "af_cost_perc": 0,
+                        "af_cost_perc": 0.01625,
                         "de_wacc": 0.059,
                         "annualized_investment_cost": 112330,
                         "learning_type": "solar",
-                        "de_duration": 1,
+                        "de_duration": 3,
                         "max_capacity": 416617.6,
-                        "af_cap_recovery": 0,
+                        "af_cap_recovery": 1,
                         "constraints": {
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
@@ -3648,8 +3648,8 @@
                         "fixed_om_cost": 16970,
                         "max_cumul_capacity": -1,
                         "capacity_reserve_margin_derate_factor": 0.08,
-                        "cc_cap_recovery": 21,
-                        "de_cap_recovery": 1,
+                        "cc_cap_recovery": 22,
+                        "de_cap_recovery": 3,
                         "existing_capacity": 0
                     }
                 }
@@ -3702,7 +3702,7 @@
                         "max_new_capacity": 10000,
                         "n_learning_pwl_segments": 7,
                         "end_vertex": "elec_OR",
-                        "cadr": 0.12,
+                        "cadr": 0.11,
                         "variable_om_cost": 0,
                         "capacity_size": 1,
                         "wacc": 0.051,
@@ -3718,7 +3718,7 @@
                         "de_wacc": 0.063,
                         "annualized_investment_cost": 143478,
                         "learning_type": "wind",
-                        "de_duration": 2,
+                        "de_duration": 3,
                         "max_capacity": 512,
                         "af_cap_recovery": 1,
                         "constraints": {
@@ -3733,7 +3733,7 @@
                         "max_cumul_capacity": -1,
                         "capacity_reserve_margin_derate_factor": 0.08,
                         "cc_cap_recovery": 22,
-                        "de_cap_recovery": 2,
+                        "de_cap_recovery": 3,
                         "existing_capacity": 0
                     }
                 }
@@ -3786,7 +3786,7 @@
                         "max_new_capacity": 10000,
                         "n_learning_pwl_segments": 7,
                         "end_vertex": "elec_OR",
-                        "cadr": 0.12,
+                        "cadr": 0.11,
                         "variable_om_cost": 0,
                         "capacity_size": 1,
                         "wacc": 0.051,
@@ -3802,7 +3802,7 @@
                         "de_wacc": 0.063,
                         "annualized_investment_cost": 146547,
                         "learning_type": "wind",
-                        "de_duration": 2,
+                        "de_duration": 3,
                         "max_capacity": 453.3,
                         "af_cap_recovery": 1,
                         "constraints": {
@@ -3817,7 +3817,7 @@
                         "max_cumul_capacity": -1,
                         "capacity_reserve_margin_derate_factor": 0.08,
                         "cc_cap_recovery": 22,
-                        "de_cap_recovery": 2,
+                        "de_cap_recovery": 3,
                         "existing_capacity": 0
                     }
                 }
@@ -3850,13 +3850,13 @@
                             0,
                             0
                         ],
-                        "af_duration": 0,
+                        "af_duration": 1,
                         "cumulative_capacity_init": -1,
                         "lifetime": 20,
                         "can_expand": true,
-                        "de_cost_perc": 0.065,
+                        "de_cost_perc": 0.04875,
                         "cc_cost_perc": 0.885,
-                        "cc_duration": 1,
+                        "cc_duration": 2,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 21013.094,
                         "Inertia_category": "solar",
@@ -3870,7 +3870,7 @@
                         "max_new_capacity": 10000,
                         "n_learning_pwl_segments": 7,
                         "end_vertex": "elec_OR",
-                        "cadr": 0.039,
+                        "cadr": 0.11,
                         "variable_om_cost": 0,
                         "capacity_size": 1,
                         "wacc": 0.043,
@@ -3882,13 +3882,13 @@
                                 "path": "system/vre_availability_2.csv"
                             }
                         },
-                        "af_cost_perc": 0,
+                        "af_cost_perc": 0.01625,
                         "de_wacc": 0.059,
                         "annualized_investment_cost": 100133,
                         "learning_type": "solar",
-                        "de_duration": 1,
+                        "de_duration": 3,
                         "max_capacity": 131536.1,
-                        "af_cap_recovery": 0,
+                        "af_cap_recovery": 1,
                         "constraints": {
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
@@ -3900,8 +3900,8 @@
                         "fixed_om_cost": 16970,
                         "max_cumul_capacity": -1,
                         "capacity_reserve_margin_derate_factor": 0.12,
-                        "cc_cap_recovery": 21,
-                        "de_cap_recovery": 1,
+                        "cc_cap_recovery": 22,
+                        "de_cap_recovery": 3,
                         "existing_capacity": 0
                     }
                 }
@@ -3934,13 +3934,13 @@
                             0,
                             0
                         ],
-                        "af_duration": 0,
+                        "af_duration": 1,
                         "cumulative_capacity_init": -1,
                         "lifetime": 20,
                         "can_expand": true,
-                        "de_cost_perc": 0.065,
+                        "de_cost_perc": 0.04875,
                         "cc_cost_perc": 0.885,
-                        "cc_duration": 1,
+                        "cc_duration": 2,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 32879.418,
                         "Inertia_category": "solar",
@@ -3954,7 +3954,7 @@
                         "max_new_capacity": 10000,
                         "n_learning_pwl_segments": 7,
                         "end_vertex": "elec_OR",
-                        "cadr": 0.039,
+                        "cadr": 0.11,
                         "variable_om_cost": 0,
                         "capacity_size": 1,
                         "wacc": 0.043,
@@ -3966,13 +3966,13 @@
                                 "path": "system/vre_availability_2.csv"
                             }
                         },
-                        "af_cost_perc": 0,
+                        "af_cost_perc": 0.01625,
                         "de_wacc": 0.059,
                         "annualized_investment_cost": 111999,
                         "learning_type": "solar",
-                        "de_duration": 1,
+                        "de_duration": 3,
                         "max_capacity": 131454,
-                        "af_cap_recovery": 0,
+                        "af_cap_recovery": 1,
                         "constraints": {
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
@@ -3984,8 +3984,8 @@
                         "fixed_om_cost": 16970,
                         "max_cumul_capacity": -1,
                         "capacity_reserve_margin_derate_factor": 0.12,
-                        "cc_cap_recovery": 21,
-                        "de_cap_recovery": 1,
+                        "cc_cap_recovery": 22,
+                        "de_cap_recovery": 3,
                         "existing_capacity": 0
                     }
                 }
@@ -4024,13 +4024,13 @@
                         "can_expand": true,
                         "de_cost_perc": 0.055,
                         "cc_cost_perc": 0.885,
-                        "cc_duration": 4,
+                        "cc_duration": 3,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 104350.39,
                         "Inertia_category": "offshore_wind",
-                        "max_new_capacity_init": 10000,
+                        "max_new_capacity_init": 200,
                         "commodity": "Electricity",
-                        "cagr": 0.1,
+                        "cagr": 0.162,
                         "cc_wacc": 0.06,
                         "cff": 1.109,
                         "af_wacc": 0.078,
@@ -4038,7 +4038,7 @@
                         "max_new_capacity": 10000,
                         "n_learning_pwl_segments": 7,
                         "end_vertex": "elec_OR",
-                        "cadr": 0.1,
+                        "cadr": 0.11,
                         "variable_om_cost": 0,
                         "capacity_size": 1,
                         "wacc": 0.052,
@@ -4054,7 +4054,7 @@
                         "de_wacc": 0.078,
                         "annualized_investment_cost": 400544,
                         "learning_type": "offshorewind",
-                        "de_duration": 2,
+                        "de_duration": 4,
                         "max_capacity": 128081.9,
                         "af_cap_recovery": 1,
                         "constraints": {
@@ -4068,8 +4068,8 @@
                         "fixed_om_cost": 70850,
                         "max_cumul_capacity": -1,
                         "capacity_reserve_margin_derate_factor": 0.4,
-                        "cc_cap_recovery": 24,
-                        "de_cap_recovery": 2,
+                        "cc_cap_recovery": 23,
+                        "de_cap_recovery": 4,
                         "existing_capacity": 0
                     }
                 }
@@ -4179,7 +4179,7 @@
                         "max_new_capacity": 10000,
                         "n_learning_pwl_segments": 7,
                         "end_vertex": "elec_UT",
-                        "cadr": 0.12,
+                        "cadr": 0.11,
                         "variable_om_cost": 0,
                         "capacity_size": 1,
                         "wacc": 0.051,
@@ -4195,7 +4195,7 @@
                         "de_wacc": 0.063,
                         "annualized_investment_cost": 111559,
                         "learning_type": "wind",
-                        "de_duration": 2,
+                        "de_duration": 3,
                         "max_capacity": 1567.4,
                         "af_cap_recovery": 1,
                         "constraints": {
@@ -4210,7 +4210,7 @@
                         "max_cumul_capacity": -1,
                         "capacity_reserve_margin_derate_factor": 0.08,
                         "cc_cap_recovery": 22,
-                        "de_cap_recovery": 2,
+                        "de_cap_recovery": 3,
                         "existing_capacity": 0
                     }
                 }
@@ -4261,9 +4261,9 @@
                         "af_wacc": 0.063,
                         "project_attrition": 1,
                         "max_new_capacity": 10000,
-                        "n_learning_pwl_segments": -1,
+                        "n_learning_pwl_segments": 7,
                         "end_vertex": "elec_UT",
-                        "cadr": 0.12,
+                        "cadr": 0.11,
                         "variable_om_cost": 0,
                         "capacity_size": 1,
                         "wacc": 0.051,
@@ -4279,7 +4279,7 @@
                         "de_wacc": 0.063,
                         "annualized_investment_cost": 118837,
                         "learning_type": "wind",
-                        "de_duration": 2,
+                        "de_duration": 3,
                         "max_capacity": 1541.3,
                         "af_cap_recovery": 1,
                         "constraints": {
@@ -4294,7 +4294,7 @@
                         "max_cumul_capacity": -1,
                         "capacity_reserve_margin_derate_factor": 0.08,
                         "cc_cap_recovery": 22,
-                        "de_cap_recovery": 2,
+                        "de_cap_recovery": 3,
                         "existing_capacity": 0
                     }
                 }
@@ -4327,13 +4327,13 @@
                             0,
                             0
                         ],
-                        "af_duration": 0,
+                        "af_duration": 1,
                         "cumulative_capacity_init": -1,
                         "lifetime": 20,
                         "can_expand": true,
-                        "de_cost_perc": 0.065,
+                        "de_cost_perc": 0.04875,
                         "cc_cost_perc": 0.885,
-                        "cc_duration": 1,
+                        "cc_duration": 2,
                         "capacity_in_progress_init": 600,
                         "interconnect_annuity": 21902.02,
                         "Inertia_category": "solar",
@@ -4345,9 +4345,9 @@
                         "af_wacc": 0.059,
                         "project_attrition": 1,
                         "max_new_capacity": 10000,
-                        "n_learning_pwl_segments": -1,
+                        "n_learning_pwl_segments": 7,
                         "end_vertex": "elec_UT",
-                        "cadr": 0.039,
+                        "cadr": 0.11,
                         "variable_om_cost": 0,
                         "capacity_size": 1,
                         "wacc": 0.043,
@@ -4359,13 +4359,13 @@
                                 "path": "system/vre_availability_2.csv"
                             }
                         },
-                        "af_cost_perc": 0,
+                        "af_cost_perc": 0.01625,
                         "de_wacc": 0.059,
                         "annualized_investment_cost": 100722,
                         "learning_type": "solar",
-                        "de_duration": 1,
+                        "de_duration": 3,
                         "max_capacity": 317031.9,
-                        "af_cap_recovery": 0,
+                        "af_cap_recovery": 1,
                         "constraints": {
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
@@ -4377,8 +4377,8 @@
                         "fixed_om_cost": 16970,
                         "max_cumul_capacity": -1,
                         "capacity_reserve_margin_derate_factor": 0.08,
-                        "cc_cap_recovery": 21,
-                        "de_cap_recovery": 1,
+                        "cc_cap_recovery": 22,
+                        "de_cap_recovery": 3,
                         "existing_capacity": 0
                     }
                 }
@@ -4411,13 +4411,13 @@
                             0,
                             0
                         ],
-                        "af_duration": 0,
+                        "af_duration": 1,
                         "cumulative_capacity_init": -1,
                         "lifetime": 20,
                         "can_expand": true,
-                        "de_cost_perc": 0.065,
+                        "de_cost_perc": 0.04875,
                         "cc_cost_perc": 0.885,
-                        "cc_duration": 1,
+                        "cc_duration": 2,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 34568.82,
                         "Inertia_category": "solar",
@@ -4429,9 +4429,9 @@
                         "af_wacc": 0.059,
                         "project_attrition": 1,
                         "max_new_capacity": 10000,
-                        "n_learning_pwl_segments": -1,
+                        "n_learning_pwl_segments": 7,
                         "end_vertex": "elec_UT",
-                        "cadr": 0.039,
+                        "cadr": 0.11,
                         "variable_om_cost": 0,
                         "capacity_size": 1,
                         "wacc": 0.043,
@@ -4443,13 +4443,13 @@
                                 "path": "system/vre_availability_2.csv"
                             }
                         },
-                        "af_cost_perc": 0,
+                        "af_cost_perc": 0.01625,
                         "de_wacc": 0.059,
                         "annualized_investment_cost": 113388,
                         "learning_type": "solar",
-                        "de_duration": 1,
+                        "de_duration": 3,
                         "max_capacity": 317024.4,
-                        "af_cap_recovery": 0,
+                        "af_cap_recovery": 1,
                         "constraints": {
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
@@ -4461,8 +4461,8 @@
                         "fixed_om_cost": 16970,
                         "max_cumul_capacity": -1,
                         "capacity_reserve_margin_derate_factor": 0.08,
-                        "cc_cap_recovery": 21,
-                        "de_cap_recovery": 1,
+                        "cc_cap_recovery": 22,
+                        "de_cap_recovery": 3,
                         "existing_capacity": 0
                     }
                 }
@@ -4513,9 +4513,9 @@
                         "af_wacc": 0.063,
                         "project_attrition": 1,
                         "max_new_capacity": 10000,
-                        "n_learning_pwl_segments": -1,
+                        "n_learning_pwl_segments": 7,
                         "end_vertex": "elec_WA",
-                        "cadr": 0.12,
+                        "cadr": 0.11,
                         "variable_om_cost": 0,
                         "capacity_size": 1,
                         "wacc": 0.051,
@@ -4531,7 +4531,7 @@
                         "de_wacc": 0.063,
                         "annualized_investment_cost": 133412,
                         "learning_type": "wind",
-                        "de_duration": 2,
+                        "de_duration": 3,
                         "max_capacity": 658.9,
                         "af_cap_recovery": 1,
                         "constraints": {
@@ -4546,7 +4546,7 @@
                         "max_cumul_capacity": -1,
                         "capacity_reserve_margin_derate_factor": 0.08,
                         "cc_cap_recovery": 22,
-                        "de_cap_recovery": 2,
+                        "de_cap_recovery": 3,
                         "existing_capacity": 0
                     }
                 }
@@ -4597,9 +4597,9 @@
                         "af_wacc": 0.063,
                         "project_attrition": 1,
                         "max_new_capacity": 10000,
-                        "n_learning_pwl_segments": -1,
+                        "n_learning_pwl_segments": 7,
                         "end_vertex": "elec_WA",
-                        "cadr": 0.12,
+                        "cadr": 0.11,
                         "variable_om_cost": 0,
                         "capacity_size": 1,
                         "wacc": 0.051,
@@ -4615,7 +4615,7 @@
                         "de_wacc": 0.063,
                         "annualized_investment_cost": 132504,
                         "learning_type": "wind",
-                        "de_duration": 2,
+                        "de_duration": 3,
                         "max_capacity": 604.3,
                         "af_cap_recovery": 1,
                         "constraints": {
@@ -4630,7 +4630,7 @@
                         "max_cumul_capacity": -1,
                         "capacity_reserve_margin_derate_factor": 0.08,
                         "cc_cap_recovery": 22,
-                        "de_cap_recovery": 2,
+                        "de_cap_recovery": 3,
                         "existing_capacity": 0
                     }
                 }
@@ -4663,13 +4663,13 @@
                             0,
                             0
                         ],
-                        "af_duration": 0,
+                        "af_duration": 1,
                         "cumulative_capacity_init": -1,
                         "lifetime": 20,
                         "can_expand": true,
-                        "de_cost_perc": 0.065,
+                        "de_cost_perc": 0.04875,
                         "cc_cost_perc": 0.885,
-                        "cc_duration": 1,
+                        "cc_duration": 2,
                         "capacity_in_progress_init": 100,
                         "interconnect_annuity": 11777.372,
                         "Inertia_category": "solar",
@@ -4681,9 +4681,9 @@
                         "af_wacc": 0.059,
                         "project_attrition": 1,
                         "max_new_capacity": 10000,
-                        "n_learning_pwl_segments": -1,
+                        "n_learning_pwl_segments": 7,
                         "end_vertex": "elec_WA",
-                        "cadr": 0.039,
+                        "cadr": 0.11,
                         "variable_om_cost": 0,
                         "capacity_size": 1,
                         "wacc": 0.043,
@@ -4695,13 +4695,13 @@
                                 "path": "system/vre_availability_2.csv"
                             }
                         },
-                        "af_cost_perc": 0,
+                        "af_cost_perc": 0.01625,
                         "de_wacc": 0.059,
                         "annualized_investment_cost": 90897,
                         "learning_type": "solar",
-                        "de_duration": 1,
+                        "de_duration": 3,
                         "max_capacity": 49116,
-                        "af_cap_recovery": 0,
+                        "af_cap_recovery": 1,
                         "constraints": {
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
@@ -4713,8 +4713,8 @@
                         "fixed_om_cost": 16970,
                         "max_cumul_capacity": -1,
                         "capacity_reserve_margin_derate_factor": 0.12,
-                        "cc_cap_recovery": 21,
-                        "de_cap_recovery": 1,
+                        "cc_cap_recovery": 22,
+                        "de_cap_recovery": 3,
                         "existing_capacity": 0
                     }
                 }
@@ -4747,13 +4747,13 @@
                             0,
                             0
                         ],
-                        "af_duration": 0,
+                        "af_duration": 1,
                         "cumulative_capacity_init": -1,
                         "lifetime": 20,
                         "can_expand": true,
-                        "de_cost_perc": 0.065,
+                        "de_cost_perc": 0.04875,
                         "cc_cost_perc": 0.885,
-                        "cc_duration": 1,
+                        "cc_duration": 2,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 25583.645,
                         "Inertia_category": "solar",
@@ -4765,9 +4765,9 @@
                         "af_wacc": 0.059,
                         "project_attrition": 1,
                         "max_new_capacity": 10000,
-                        "n_learning_pwl_segments": -1,
+                        "n_learning_pwl_segments": 7,
                         "end_vertex": "elec_WA",
-                        "cadr": 0.039,
+                        "cadr": 0.11,
                         "variable_om_cost": 0,
                         "capacity_size": 1,
                         "wacc": 0.043,
@@ -4779,13 +4779,13 @@
                                 "path": "system/vre_availability_2.csv"
                             }
                         },
-                        "af_cost_perc": 0,
+                        "af_cost_perc": 0.01625,
                         "de_wacc": 0.059,
                         "annualized_investment_cost": 104703,
                         "learning_type": "solar",
-                        "de_duration": 1,
+                        "de_duration": 3,
                         "max_capacity": 48994.8,
-                        "af_cap_recovery": 0,
+                        "af_cap_recovery": 1,
                         "constraints": {
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
@@ -4797,8 +4797,8 @@
                         "fixed_om_cost": 16970,
                         "max_cumul_capacity": -1,
                         "capacity_reserve_margin_derate_factor": 0.12,
-                        "cc_cap_recovery": 21,
-                        "de_cap_recovery": 1,
+                        "cc_cap_recovery": 22,
+                        "de_cap_recovery": 3,
                         "existing_capacity": 0
                     }
                 }
@@ -4837,21 +4837,21 @@
                         "can_expand": true,
                         "de_cost_perc": 0.055,
                         "cc_cost_perc": 0.885,
-                        "cc_duration": 4,
+                        "cc_duration": 3,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 67410.32,
                         "Inertia_category": "offshore_wind",
-                        "max_new_capacity_init": 10000,
+                        "max_new_capacity_init": 200,
                         "commodity": "Electricity",
-                        "cagr": 0.1,
+                        "cagr": 0.162,
                         "cc_wacc": 0.06,
                         "cff": 1.109,
                         "af_wacc": 0.078,
                         "project_attrition": 1,
                         "max_new_capacity": 10000,
-                        "n_learning_pwl_segments": -1,
+                        "n_learning_pwl_segments": 7,
                         "end_vertex": "elec_WA",
-                        "cadr": 0.1,
+                        "cadr": 0.11,
                         "variable_om_cost": 0,
                         "capacity_size": 1,
                         "wacc": 0.052,
@@ -4867,7 +4867,7 @@
                         "de_wacc": 0.078,
                         "annualized_investment_cost": 363604,
                         "learning_type": "offshorewind",
-                        "de_duration": 2,
+                        "de_duration": 4,
                         "max_capacity": 2505.2,
                         "af_cap_recovery": 1,
                         "constraints": {
@@ -4881,8 +4881,8 @@
                         "fixed_om_cost": 70850,
                         "max_cumul_capacity": -1,
                         "capacity_reserve_margin_derate_factor": 0.4,
-                        "cc_cap_recovery": 24,
-                        "de_cap_recovery": 2,
+                        "cc_cap_recovery": 23,
+                        "de_cap_recovery": 4,
                         "existing_capacity": 0
                     }
                 }
@@ -4990,9 +4990,9 @@
                         "af_wacc": 0.063,
                         "project_attrition": 1,
                         "max_new_capacity": 10000,
-                        "n_learning_pwl_segments": -1,
+                        "n_learning_pwl_segments": 7,
                         "end_vertex": "elec_WY",
-                        "cadr": 0.12,
+                        "cadr": 0.11,
                         "variable_om_cost": 0,
                         "capacity_size": 1,
                         "wacc": 0.051,
@@ -5008,7 +5008,7 @@
                         "de_wacc": 0.063,
                         "annualized_investment_cost": 111638,
                         "learning_type": "wind",
-                        "de_duration": 2,
+                        "de_duration": 3,
                         "max_capacity": 99878,
                         "af_cap_recovery": 1,
                         "constraints": {
@@ -5023,7 +5023,7 @@
                         "max_cumul_capacity": -1,
                         "capacity_reserve_margin_derate_factor": 0.08,
                         "cc_cap_recovery": 22,
-                        "de_cap_recovery": 2,
+                        "de_cap_recovery": 3,
                         "existing_capacity": 0
                     }
                 }
@@ -5074,9 +5074,9 @@
                         "af_wacc": 0.063,
                         "project_attrition": 1,
                         "max_new_capacity": 10000,
-                        "n_learning_pwl_segments": -1,
+                        "n_learning_pwl_segments": 7,
                         "end_vertex": "elec_WY",
-                        "cadr": 0.12,
+                        "cadr": 0.11,
                         "variable_om_cost": 0,
                         "capacity_size": 1,
                         "wacc": 0.051,
@@ -5092,7 +5092,7 @@
                         "de_wacc": 0.063,
                         "annualized_investment_cost": 116398,
                         "learning_type": "wind",
-                        "de_duration": 2,
+                        "de_duration": 3,
                         "max_capacity": 99631.6,
                         "af_cap_recovery": 1,
                         "constraints": {
@@ -5107,7 +5107,7 @@
                         "max_cumul_capacity": -1,
                         "capacity_reserve_margin_derate_factor": 0.08,
                         "cc_cap_recovery": 22,
-                        "de_cap_recovery": 2,
+                        "de_cap_recovery": 3,
                         "existing_capacity": 0
                     }
                 }
@@ -5140,13 +5140,13 @@
                             0,
                             0
                         ],
-                        "af_duration": 0,
+                        "af_duration": 1,
                         "cumulative_capacity_init": -1,
                         "lifetime": 20,
                         "can_expand": true,
-                        "de_cost_perc": 0.065,
+                        "de_cost_perc": 0.04875,
                         "cc_cost_perc": 0.885,
-                        "cc_duration": 1,
+                        "cc_duration": 2,
                         "capacity_in_progress_init": 200,
                         "interconnect_annuity": 15441.21,
                         "Inertia_category": "solar",
@@ -5158,9 +5158,9 @@
                         "af_wacc": 0.059,
                         "project_attrition": 1,
                         "max_new_capacity": 10000,
-                        "n_learning_pwl_segments": -1,
+                        "n_learning_pwl_segments": 7,
                         "end_vertex": "elec_WY",
-                        "cadr": 0.039,
+                        "cadr": 0.11,
                         "variable_om_cost": 0,
                         "capacity_size": 1,
                         "wacc": 0.043,
@@ -5172,13 +5172,13 @@
                                 "path": "system/vre_availability_2.csv"
                             }
                         },
-                        "af_cost_perc": 0,
+                        "af_cost_perc": 0.01625,
                         "de_wacc": 0.059,
                         "annualized_investment_cost": 94261,
                         "learning_type": "solar",
-                        "de_duration": 1,
+                        "de_duration": 3,
                         "max_capacity": 824207.5,
-                        "af_cap_recovery": 0,
+                        "af_cap_recovery": 1,
                         "constraints": {
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
@@ -5190,8 +5190,8 @@
                         "fixed_om_cost": 16970,
                         "max_cumul_capacity": -1,
                         "capacity_reserve_margin_derate_factor": 0.21,
-                        "cc_cap_recovery": 21,
-                        "de_cap_recovery": 1,
+                        "cc_cap_recovery": 22,
+                        "de_cap_recovery": 3,
                         "existing_capacity": 0
                     }
                 }
@@ -5224,13 +5224,13 @@
                             0,
                             0
                         ],
-                        "af_duration": 0,
+                        "af_duration": 1,
                         "cumulative_capacity_init": -1,
                         "lifetime": 20,
                         "can_expand": true,
-                        "de_cost_perc": 0.065,
+                        "de_cost_perc": 0.04875,
                         "cc_cost_perc": 0.885,
-                        "cc_duration": 1,
+                        "cc_duration": 2,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 28875.527,
                         "Inertia_category": "solar",
@@ -5242,9 +5242,9 @@
                         "af_wacc": 0.059,
                         "project_attrition": 1,
                         "max_new_capacity": 10000,
-                        "n_learning_pwl_segments": -1,
+                        "n_learning_pwl_segments": 7,
                         "end_vertex": "elec_WY",
-                        "cadr": 0.039,
+                        "cadr": 0.11,
                         "variable_om_cost": 0,
                         "capacity_size": 1,
                         "wacc": 0.043,
@@ -5256,13 +5256,13 @@
                                 "path": "system/vre_availability_2.csv"
                             }
                         },
-                        "af_cost_perc": 0,
+                        "af_cost_perc": 0.01625,
                         "de_wacc": 0.059,
                         "annualized_investment_cost": 107695,
                         "learning_type": "solar",
-                        "de_duration": 1,
+                        "de_duration": 3,
                         "max_capacity": 824001.6,
-                        "af_cap_recovery": 0,
+                        "af_cap_recovery": 1,
                         "constraints": {
                             "DevelopmentConstraint": true,
                             "CapacityConstraint": true,
@@ -5274,8 +5274,8 @@
                         "fixed_om_cost": 16970,
                         "max_cumul_capacity": -1,
                         "capacity_reserve_margin_derate_factor": 0.21,
-                        "cc_cap_recovery": 21,
-                        "de_cap_recovery": 1,
+                        "cc_cap_recovery": 22,
+                        "de_cap_recovery": 3,
                         "existing_capacity": 0
                     }
                 }
@@ -5314,11 +5314,11 @@
                         "can_expand": true,
                         "de_cost_perc": 0.09,
                         "cc_cost_perc": 0.845,
-                        "cc_duration": 1,
+                        "cc_duration": 2,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 20738.295938106698,
                         "Inertia_category": "egs",
-                        "max_new_capacity_init": 500,
+                        "max_new_capacity_init": 100,
                         "commodity": "Electricity",
                         "cagr": 0.397,
                         "cc_wacc": 0.055,
@@ -5358,7 +5358,7 @@
                         "fixed_om_cost": 100068.3,
                         "max_cumul_capacity": 85000,
                         "capacity_reserve_margin_derate_factor": 0.8,
-                        "cc_cap_recovery": 24,
+                        "cc_cap_recovery": 22,
                         "de_cap_recovery": 2,
                         "existing_capacity": 0
                     }
@@ -5398,11 +5398,11 @@
                         "can_expand": true,
                         "de_cost_perc": 0.09,
                         "cc_cost_perc": 0.845,
-                        "cc_duration": 1,
+                        "cc_duration": 2,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 20690.361901234457,
                         "Inertia_category": "egs",
-                        "max_new_capacity_init": 500,
+                        "max_new_capacity_init": 100,
                         "commodity": "Electricity",
                         "cagr": 0.397,
                         "cc_wacc": 0.055,
@@ -5442,7 +5442,7 @@
                         "fixed_om_cost": 103011.6,
                         "max_cumul_capacity": 85000,
                         "capacity_reserve_margin_derate_factor": 0.8,
-                        "cc_cap_recovery": 24,
+                        "cc_cap_recovery": 22,
                         "de_cap_recovery": 2,
                         "existing_capacity": 0
                     }
@@ -5482,11 +5482,11 @@
                         "can_expand": true,
                         "de_cost_perc": 0.09,
                         "cc_cost_perc": 0.845,
-                        "cc_duration": 1,
+                        "cc_duration": 2,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 20668.04272586091,
                         "Inertia_category": "egs",
-                        "max_new_capacity_init": 500,
+                        "max_new_capacity_init": 100,
                         "commodity": "Electricity",
                         "cagr": 0.397,
                         "cc_wacc": 0.055,
@@ -5526,7 +5526,7 @@
                         "fixed_om_cost": 110031.6,
                         "max_cumul_capacity": 85000,
                         "capacity_reserve_margin_derate_factor": 0.8,
-                        "cc_cap_recovery": 24,
+                        "cc_cap_recovery": 22,
                         "de_cap_recovery": 2,
                         "existing_capacity": 0
                     }
@@ -5566,11 +5566,11 @@
                         "can_expand": true,
                         "de_cost_perc": 0.09,
                         "cc_cost_perc": 0.845,
-                        "cc_duration": 1,
+                        "cc_duration": 2,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 20800.242140213544,
                         "Inertia_category": "egs",
-                        "max_new_capacity_init": 500,
+                        "max_new_capacity_init": 100,
                         "commodity": "Electricity",
                         "cagr": 0.397,
                         "cc_wacc": 0.055,
@@ -5610,7 +5610,7 @@
                         "fixed_om_cost": 115144.6,
                         "max_cumul_capacity": 85000,
                         "capacity_reserve_margin_derate_factor": 0.8,
-                        "cc_cap_recovery": 24,
+                        "cc_cap_recovery": 22,
                         "de_cap_recovery": 2,
                         "existing_capacity": 0
                     }
@@ -5650,11 +5650,11 @@
                         "can_expand": true,
                         "de_cost_perc": 0.09,
                         "cc_cost_perc": 0.845,
-                        "cc_duration": 1,
+                        "cc_duration": 2,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 22497.829650541014,
                         "Inertia_category": "egs",
-                        "max_new_capacity_init": 500,
+                        "max_new_capacity_init": 100,
                         "commodity": "Electricity",
                         "cagr": 0.397,
                         "cc_wacc": 0.055,
@@ -5694,7 +5694,7 @@
                         "fixed_om_cost": 118384.2,
                         "max_cumul_capacity": 85000,
                         "capacity_reserve_margin_derate_factor": 0.8,
-                        "cc_cap_recovery": 24,
+                        "cc_cap_recovery": 22,
                         "de_cap_recovery": 2,
                         "existing_capacity": 0
                     }
@@ -5734,11 +5734,11 @@
                         "can_expand": true,
                         "de_cost_perc": 0.09,
                         "cc_cost_perc": 0.845,
-                        "cc_duration": 1,
+                        "cc_duration": 2,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 39958.77831282528,
                         "Inertia_category": "egs",
-                        "max_new_capacity_init": 500,
+                        "max_new_capacity_init": 100,
                         "commodity": "Electricity",
                         "cagr": 0.397,
                         "cc_wacc": 0.055,
@@ -5778,7 +5778,7 @@
                         "fixed_om_cost": 125700.4,
                         "max_cumul_capacity": 85000,
                         "capacity_reserve_margin_derate_factor": 0.8,
-                        "cc_cap_recovery": 24,
+                        "cc_cap_recovery": 22,
                         "de_cap_recovery": 2,
                         "existing_capacity": 0
                     }
@@ -5818,11 +5818,11 @@
                         "can_expand": true,
                         "de_cost_perc": 0.09,
                         "cc_cost_perc": 0.845,
-                        "cc_duration": 1,
+                        "cc_duration": 2,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 50247.53028000459,
                         "Inertia_category": "egs",
-                        "max_new_capacity_init": 500,
+                        "max_new_capacity_init": 100,
                         "commodity": "Electricity",
                         "cagr": 0.397,
                         "cc_wacc": 0.055,
@@ -5862,7 +5862,7 @@
                         "fixed_om_cost": 101395.3,
                         "max_cumul_capacity": 85000,
                         "capacity_reserve_margin_derate_factor": 0.8,
-                        "cc_cap_recovery": 24,
+                        "cc_cap_recovery": 22,
                         "de_cap_recovery": 2,
                         "existing_capacity": 0
                     }
@@ -5902,11 +5902,11 @@
                         "can_expand": true,
                         "de_cost_perc": 0.09,
                         "cc_cost_perc": 0.845,
-                        "cc_duration": 1,
+                        "cc_duration": 2,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 49915.07766744257,
                         "Inertia_category": "egs",
-                        "max_new_capacity_init": 500,
+                        "max_new_capacity_init": 100,
                         "commodity": "Electricity",
                         "cagr": 0.397,
                         "cc_wacc": 0.055,
@@ -5946,7 +5946,7 @@
                         "fixed_om_cost": 102942.6,
                         "max_cumul_capacity": 85000,
                         "capacity_reserve_margin_derate_factor": 0.8,
-                        "cc_cap_recovery": 24,
+                        "cc_cap_recovery": 22,
                         "de_cap_recovery": 2,
                         "existing_capacity": 0
                     }
@@ -5986,11 +5986,11 @@
                         "can_expand": true,
                         "de_cost_perc": 0.09,
                         "cc_cost_perc": 0.845,
-                        "cc_duration": 1,
+                        "cc_duration": 2,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 42509.58252750314,
                         "Inertia_category": "egs",
-                        "max_new_capacity_init": 500,
+                        "max_new_capacity_init": 100,
                         "commodity": "Electricity",
                         "cagr": 0.397,
                         "cc_wacc": 0.055,
@@ -6030,7 +6030,7 @@
                         "fixed_om_cost": 112193.9,
                         "max_cumul_capacity": 85000,
                         "capacity_reserve_margin_derate_factor": 0.8,
-                        "cc_cap_recovery": 24,
+                        "cc_cap_recovery": 22,
                         "de_cap_recovery": 2,
                         "existing_capacity": 0
                     }
@@ -6070,11 +6070,11 @@
                         "can_expand": true,
                         "de_cost_perc": 0.09,
                         "cc_cost_perc": 0.845,
-                        "cc_duration": 1,
+                        "cc_duration": 2,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 42374.42924560874,
                         "Inertia_category": "egs",
-                        "max_new_capacity_init": 500,
+                        "max_new_capacity_init": 100,
                         "commodity": "Electricity",
                         "cagr": 0.397,
                         "cc_wacc": 0.055,
@@ -6114,7 +6114,7 @@
                         "fixed_om_cost": 120185.4,
                         "max_cumul_capacity": 85000,
                         "capacity_reserve_margin_derate_factor": 0.8,
-                        "cc_cap_recovery": 24,
+                        "cc_cap_recovery": 22,
                         "de_cap_recovery": 2,
                         "existing_capacity": 0
                     }
@@ -6154,11 +6154,11 @@
                         "can_expand": true,
                         "de_cost_perc": 0.09,
                         "cc_cost_perc": 0.845,
-                        "cc_duration": 1,
+                        "cc_duration": 2,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 40872.45331664377,
                         "Inertia_category": "egs",
-                        "max_new_capacity_init": 500,
+                        "max_new_capacity_init": 100,
                         "commodity": "Electricity",
                         "cagr": 0.397,
                         "cc_wacc": 0.055,
@@ -6198,7 +6198,7 @@
                         "fixed_om_cost": 121018.3,
                         "max_cumul_capacity": 85000,
                         "capacity_reserve_margin_derate_factor": 0.8,
-                        "cc_cap_recovery": 24,
+                        "cc_cap_recovery": 22,
                         "de_cap_recovery": 2,
                         "existing_capacity": 0
                     }
@@ -6238,11 +6238,11 @@
                         "can_expand": true,
                         "de_cost_perc": 0.09,
                         "cc_cost_perc": 0.845,
-                        "cc_duration": 1,
+                        "cc_duration": 2,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 29496.72584727124,
                         "Inertia_category": "egs",
-                        "max_new_capacity_init": 500,
+                        "max_new_capacity_init": 100,
                         "commodity": "Electricity",
                         "cagr": 0.397,
                         "cc_wacc": 0.055,
@@ -6282,7 +6282,7 @@
                         "fixed_om_cost": 124526.1,
                         "max_cumul_capacity": 85000,
                         "capacity_reserve_margin_derate_factor": 0.8,
-                        "cc_cap_recovery": 24,
+                        "cc_cap_recovery": 22,
                         "de_cap_recovery": 2,
                         "existing_capacity": 0
                     }
@@ -6322,11 +6322,11 @@
                         "can_expand": true,
                         "de_cost_perc": 0.09,
                         "cc_cost_perc": 0.845,
-                        "cc_duration": 1,
+                        "cc_duration": 2,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 40362.19207751984,
                         "Inertia_category": "egs",
-                        "max_new_capacity_init": 500,
+                        "max_new_capacity_init": 100,
                         "commodity": "Electricity",
                         "cagr": 0.397,
                         "cc_wacc": 0.055,
@@ -6366,7 +6366,7 @@
                         "fixed_om_cost": 127702.5,
                         "max_cumul_capacity": 85000,
                         "capacity_reserve_margin_derate_factor": 0.8,
-                        "cc_cap_recovery": 24,
+                        "cc_cap_recovery": 22,
                         "de_cap_recovery": 2,
                         "existing_capacity": 0
                     }
@@ -6406,11 +6406,11 @@
                         "can_expand": true,
                         "de_cost_perc": 0.09,
                         "cc_cost_perc": 0.845,
-                        "cc_duration": 1,
+                        "cc_duration": 2,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 37478.88012615738,
                         "Inertia_category": "egs",
-                        "max_new_capacity_init": 500,
+                        "max_new_capacity_init": 100,
                         "commodity": "Electricity",
                         "cagr": 0.397,
                         "cc_wacc": 0.055,
@@ -6450,7 +6450,7 @@
                         "fixed_om_cost": 118005.4,
                         "max_cumul_capacity": 85000,
                         "capacity_reserve_margin_derate_factor": 0.8,
-                        "cc_cap_recovery": 24,
+                        "cc_cap_recovery": 22,
                         "de_cap_recovery": 2,
                         "existing_capacity": 0
                     }
@@ -6490,11 +6490,11 @@
                         "can_expand": true,
                         "de_cost_perc": 0.09,
                         "cc_cost_perc": 0.845,
-                        "cc_duration": 1,
+                        "cc_duration": 2,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 17938.344,
                         "Inertia_category": "egs",
-                        "max_new_capacity_init": 500,
+                        "max_new_capacity_init": 100,
                         "commodity": "Electricity",
                         "cagr": 0.397,
                         "cc_wacc": 0.055,
@@ -6534,7 +6534,7 @@
                         "fixed_om_cost": 96147,
                         "max_cumul_capacity": 85000,
                         "capacity_reserve_margin_derate_factor": 0.8,
-                        "cc_cap_recovery": 24,
+                        "cc_cap_recovery": 22,
                         "de_cap_recovery": 2,
                         "existing_capacity": 0
                     }
@@ -6574,11 +6574,11 @@
                         "can_expand": true,
                         "de_cost_perc": 0.09,
                         "cc_cost_perc": 0.845,
-                        "cc_duration": 1,
+                        "cc_duration": 2,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 17938.344,
                         "Inertia_category": "egs",
-                        "max_new_capacity_init": 500,
+                        "max_new_capacity_init": 100,
                         "commodity": "Electricity",
                         "cagr": 0.397,
                         "cc_wacc": 0.055,
@@ -6618,7 +6618,7 @@
                         "fixed_om_cost": 96056.6,
                         "max_cumul_capacity": 85000,
                         "capacity_reserve_margin_derate_factor": 0.8,
-                        "cc_cap_recovery": 24,
+                        "cc_cap_recovery": 22,
                         "de_cap_recovery": 2,
                         "existing_capacity": 0
                     }
@@ -6658,11 +6658,11 @@
                         "can_expand": true,
                         "de_cost_perc": 0.09,
                         "cc_cost_perc": 0.845,
-                        "cc_duration": 1,
+                        "cc_duration": 2,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 17938.344,
                         "Inertia_category": "egs",
-                        "max_new_capacity_init": 500,
+                        "max_new_capacity_init": 100,
                         "commodity": "Electricity",
                         "cagr": 0.397,
                         "cc_wacc": 0.055,
@@ -6702,7 +6702,7 @@
                         "fixed_om_cost": 105737.5,
                         "max_cumul_capacity": 85000,
                         "capacity_reserve_margin_derate_factor": 0.8,
-                        "cc_cap_recovery": 24,
+                        "cc_cap_recovery": 22,
                         "de_cap_recovery": 2,
                         "existing_capacity": 0
                     }
@@ -6742,11 +6742,11 @@
                         "can_expand": true,
                         "de_cost_perc": 0.09,
                         "cc_cost_perc": 0.845,
-                        "cc_duration": 1,
+                        "cc_duration": 2,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 17938.344,
                         "Inertia_category": "egs",
-                        "max_new_capacity_init": 500,
+                        "max_new_capacity_init": 100,
                         "commodity": "Electricity",
                         "cagr": 0.397,
                         "cc_wacc": 0.055,
@@ -6786,7 +6786,7 @@
                         "fixed_om_cost": 106009.4,
                         "max_cumul_capacity": 85000,
                         "capacity_reserve_margin_derate_factor": 0.8,
-                        "cc_cap_recovery": 24,
+                        "cc_cap_recovery": 22,
                         "de_cap_recovery": 2,
                         "existing_capacity": 0
                     }
@@ -6826,11 +6826,11 @@
                         "can_expand": true,
                         "de_cost_perc": 0.09,
                         "cc_cost_perc": 0.845,
-                        "cc_duration": 1,
+                        "cc_duration": 2,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 17938.344,
                         "Inertia_category": "egs",
-                        "max_new_capacity_init": 500,
+                        "max_new_capacity_init": 100,
                         "commodity": "Electricity",
                         "cagr": 0.397,
                         "cc_wacc": 0.055,
@@ -6870,7 +6870,7 @@
                         "fixed_om_cost": 111428.5,
                         "max_cumul_capacity": 85000,
                         "capacity_reserve_margin_derate_factor": 0.8,
-                        "cc_cap_recovery": 24,
+                        "cc_cap_recovery": 22,
                         "de_cap_recovery": 2,
                         "existing_capacity": 0
                     }
@@ -6910,11 +6910,11 @@
                         "can_expand": true,
                         "de_cost_perc": 0.09,
                         "cc_cost_perc": 0.845,
-                        "cc_duration": 1,
+                        "cc_duration": 2,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 20672.389308257945,
                         "Inertia_category": "egs",
-                        "max_new_capacity_init": 500,
+                        "max_new_capacity_init": 100,
                         "commodity": "Electricity",
                         "cagr": 0.397,
                         "cc_wacc": 0.055,
@@ -6954,7 +6954,7 @@
                         "fixed_om_cost": 114281.8,
                         "max_cumul_capacity": 85000,
                         "capacity_reserve_margin_derate_factor": 0.8,
-                        "cc_cap_recovery": 24,
+                        "cc_cap_recovery": 22,
                         "de_cap_recovery": 2,
                         "existing_capacity": 0
                     }
@@ -6994,11 +6994,11 @@
                         "can_expand": true,
                         "de_cost_perc": 0.09,
                         "cc_cost_perc": 0.845,
-                        "cc_duration": 1,
+                        "cc_duration": 2,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 17938.343999999997,
                         "Inertia_category": "egs",
-                        "max_new_capacity_init": 500,
+                        "max_new_capacity_init": 100,
                         "commodity": "Electricity",
                         "cagr": 0.397,
                         "cc_wacc": 0.055,
@@ -7038,7 +7038,7 @@
                         "fixed_om_cost": 118773.5,
                         "max_cumul_capacity": 85000,
                         "capacity_reserve_margin_derate_factor": 0.8,
-                        "cc_cap_recovery": 24,
+                        "cc_cap_recovery": 22,
                         "de_cap_recovery": 2,
                         "existing_capacity": 0
                     }
@@ -7078,11 +7078,11 @@
                         "can_expand": true,
                         "de_cost_perc": 0.09,
                         "cc_cost_perc": 0.845,
-                        "cc_duration": 1,
+                        "cc_duration": 2,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 20247.624250249835,
                         "Inertia_category": "egs",
-                        "max_new_capacity_init": 500,
+                        "max_new_capacity_init": 100,
                         "commodity": "Electricity",
                         "cagr": 0.397,
                         "cc_wacc": 0.055,
@@ -7122,7 +7122,7 @@
                         "fixed_om_cost": 120265.9,
                         "max_cumul_capacity": 85000,
                         "capacity_reserve_margin_derate_factor": 0.8,
-                        "cc_cap_recovery": 24,
+                        "cc_cap_recovery": 22,
                         "de_cap_recovery": 2,
                         "existing_capacity": 0
                     }
@@ -7162,11 +7162,11 @@
                         "can_expand": true,
                         "de_cost_perc": 0.09,
                         "cc_cost_perc": 0.845,
-                        "cc_duration": 1,
+                        "cc_duration": 2,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 17938.344,
                         "Inertia_category": "egs",
-                        "max_new_capacity_init": 500,
+                        "max_new_capacity_init": 100,
                         "commodity": "Electricity",
                         "cagr": 0.397,
                         "cc_wacc": 0.055,
@@ -7206,7 +7206,7 @@
                         "fixed_om_cost": 121505.2,
                         "max_cumul_capacity": 85000,
                         "capacity_reserve_margin_derate_factor": 0.8,
-                        "cc_cap_recovery": 24,
+                        "cc_cap_recovery": 22,
                         "de_cap_recovery": 2,
                         "existing_capacity": 0
                     }
@@ -7246,11 +7246,11 @@
                         "can_expand": true,
                         "de_cost_perc": 0.09,
                         "cc_cost_perc": 0.845,
-                        "cc_duration": 1,
+                        "cc_duration": 2,
                         "capacity_in_progress_init": 0,
                         "interconnect_annuity": 17938.344,
                         "Inertia_category": "egs",
-                        "max_new_capacity_init": 500,
+                        "max_new_capacity_init": 100,
                         "commodity": "Electricity",
                         "cagr": 0.397,
                         "cc_wacc": 0.055,
@@ -7290,7 +7290,7 @@
                         "fixed_om_cost": 125615.6,
                         "max_cumul_capacity": 85000,
                         "capacity_reserve_margin_derate_factor": 0.8,
-                        "cc_cap_recovery": 24,
+                        "cc_cap_recovery": 22,
                         "de_cap_recovery": 2,
                         "existing_capacity": 0
                     }

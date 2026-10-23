@@ -1,4 +1,4 @@
-# Assets removed from wecc_20p_11z_allegs by filter_case_assets.py (substring match)
+# Assets removed from wecc_20p_11z by filter_case_assets.py (substring match)
 AZ_Deep_3_5_200_c161
 AZ_Deep_5_5_238_c172
 AZ_Deep_5_5_257_c171
