@@ -95,6 +95,8 @@ function build_case(name::AbstractString)
 
     # Marker (lets tooling tell generated cases apart) + slurm log dir
     touch(joinpath(case_dir, ".macro_case"))
+    # Self-ignoring folder: generated cases and their outputs never show up in git
+    write(joinpath(case_dir, ".gitignore"), "*\n")
     mkpath(joinpath(case_dir, "logs"))
 
     return case_dir, true

@@ -55,3 +55,8 @@ ExampleSystems/*/[0-9][0-9][0-9][0-9][0-9][0-9]_[0-9][0-9][0-9]/
 *.log
 /examples
 .claude/settings.local.json
+ExampleSystems/*/logs/
+ExampleSystems/*/slurm-*.out
+# Slurm logs from jobs submitted directly in a template folder.
+ExampleSystems/*/logs/
+ExampleSystems/*/slurm-*.out
