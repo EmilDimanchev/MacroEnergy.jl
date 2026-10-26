@@ -11,7 +11,8 @@
                     "unidirectional": true,
                     "has_capacity": false,
                     "end_vertex": "co2_sink_injection",
-                    "commodity": "CO2Captured"
+                    "commodity": "CO2Captured",
+                    "variable_om_cost": 28
                 },
                 "co2_edge": {
                     "unidirectional": true,
