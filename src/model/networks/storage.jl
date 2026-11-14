@@ -46,7 +46,7 @@ macro AbstractStorageBaseAttributes()
         # Learning
         learning_type::String = ""
         learning_parameter::Float64 = 0.0
-        n_learning_pwl_segments::Int64 = 7   # segments of the piece-wise linear learning curve
+        n_learning_pwl_segments::Int64 = 7   # unused: segment count is derived from init/max_cumul_capacity (breakpoints double from init)
         cumulative_capacity_init::Float64 = 0.0
         endogenous_capex_segment_chosen_track::Dict{Int64,Union{JuMPVariable}} = Dict(1 => Vector{VariableRef}())
         endogenous_capex_segment_chosen_from_relevant_period::Union{JuMPVariable,Float64} = Vector{VariableRef}()

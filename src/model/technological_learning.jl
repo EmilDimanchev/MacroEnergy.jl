@@ -124,10 +124,11 @@ function add_linearized_learning_cost!(model::Model, e::AbstractEdge, new_cap, s
     return aux, cost
 end
 
+# Number of segments follows from the breakpoints computed by prepare_learning_curves!
 function learning_n_segments(edges::Vector{AbstractEdge}, learning_tech::String)
-    n = unique(n_learning_pwl_segments.(edges))
-    length(n) == 1 || error("Learning technology '$learning_tech': all edges must have the same n_learning_pwl_segments, found $(sort(n))")
-    n[1] >= 1 || error("Learning technology '$learning_tech': n_learning_pwl_segments must be >= 1, got $(n[1])")
+    n = unique(length.(pwl_x_points.(edges)) .- 1)
+    length(n) == 1 || error("Learning technology '$learning_tech': all edges must have the same number of learning segments, found $(sort(n))")
+    n[1] >= 1 || error("Learning technology '$learning_tech': learning curve has no segments; was prepare_learning_curves! run?")
     return n[1]
 end
 
@@ -139,7 +140,6 @@ function prepare_learning_curves!(systems::Vector{System}, settings::NamedTuple)
     for system in systems, learning_tech in settings[:LearningTechnologies]
         learning_tech_edges = get_edges_of_type(system, learning_tech)
         isempty(learning_tech_edges) && continue
-        n_segments = learning_n_segments(learning_tech_edges, learning_tech)
 
         # Cumulative experience (and so the curve breakpoints) is modelled once per
         # technology in add_learning!, so all its edges must share these inputs
@@ -157,8 +157,7 @@ function prepare_learning_curves!(systems::Vector{System}, settings::NamedTuple)
                 error(string(e.id, " is a learning technology and max capacity is required for the big-M linearisation, but is not specified"))
             end
 
-            x_points, y_points = compute_pwl_coordinates(n_segments, init_cumul_capacity(e), max_cumul_capacity(e), investment_cost(e), learning_parameter(e))
-            x_points[2] > x_points[1] || error(string(e.id, ": init_cumul_capacity must be below the first learning breakpoint (max_cumul_capacity/2^", n_segments - 1, ")"))
+            x_points, y_points = compute_pwl_coordinates(init_cumul_capacity(e), max_cumul_capacity(e), investment_cost(e), learning_parameter(e))
 
             e.pwl_x_points = x_points
             # Learning lags by the construction (CC) duration
@@ -186,30 +185,27 @@ function get_edges_of_type(system::System, type::String)
     return tech_edges
 end
 
-function compute_pwl_coordinates(n_segments::Int, init_cumul_capacity::Float64, max_cumul_capacity::Float64, investment_cost::Float64, learning_parameter::Float64)
+function compute_pwl_coordinates(init_cumul_capacity::Float64, max_cumul_capacity::Float64, investment_cost::Float64, learning_parameter::Float64)
 
     if init_cumul_capacity <= 0
         error("Initial cumulative capacity must be greater than 0 for constructing learning curve")
+    end
+    if max_cumul_capacity <= init_cumul_capacity
+        error("Max cumulative capacity must be greater than initial cumulative capacity for constructing learning curve")
     end
     if learning_parameter == 1
         error("Learning parameter cannot be 1 for constructing learning curve")
     end
 
-    x_points = zeros(n_segments+1)
-    y_points = zeros(n_segments+1)
-    
-    # Define end points
-    x_points[1] = init_cumul_capacity
-    x_points[end] = max_cumul_capacity
-    
     # X coordinates for piece-wise linear curve
-    # X points are spaced exponentially
-    for k in 2:n_segments
-        x_points[k] = max_cumul_capacity/(2^(n_segments - k +1))
-    end
+    # X points double from the initial capacity; the last point is capped at max_cumul_capacity
+    n_segments = ceil(Int, log2(max_cumul_capacity/init_cumul_capacity))
+    x_points = [init_cumul_capacity*2.0^(k-1) for k in 1:n_segments]
+    push!(x_points, max_cumul_capacity)
 
     # Compute Y coordinates
-    for k in 1:n_segments+1        
+    y_points = zeros(n_segments+1)
+    for k in 1:n_segments+1
         cost_point = investment_cost*(x_points[k]/init_cumul_capacity)^(-learning_parameter)
         # Estimate cost from fixed capacity points
         y_points[k] = (1/(1-learning_parameter))*(x_points[k]*cost_point-investment_cost*init_cumul_capacity)
