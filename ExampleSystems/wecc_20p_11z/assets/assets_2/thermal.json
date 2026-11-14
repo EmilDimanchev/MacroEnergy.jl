@@ -4250,7 +4250,7 @@
                         "cumulative_capacity_init": -1,
                         "lifetime": 20,
                         "can_expand": true,
-                        "de_cost_perc": 0.036667,
+                        "de_cost_perc": 0.045,
                         "cc_cost_perc": 0.895,
                         "cc_duration": 2,
                         "capacity_in_progress_init": 130,
@@ -4277,7 +4277,7 @@
                         "availability": [
                             1
                         ],
-                        "af_cost_perc": 0.018333,
+                        "af_cost_perc": 0.01,
                         "ramp_down_fraction": 3.78,
                         "de_wacc": 0.078,
                         "annualized_investment_cost": 72111,
@@ -4538,7 +4538,7 @@
                         "cumulative_capacity_init": -1,
                         "lifetime": 20,
                         "can_expand": true,
-                        "de_cost_perc": 0.036667,
+                        "de_cost_perc": 0.045,
                         "cc_cost_perc": 0.895,
                         "cc_duration": 2,
                         "capacity_in_progress_init": 0,
@@ -4565,7 +4565,7 @@
                         "availability": [
                             1
                         ],
-                        "af_cost_perc": 0.018333,
+                        "af_cost_perc": 0.01,
                         "ramp_down_fraction": 3.78,
                         "de_wacc": 0.078,
                         "annualized_investment_cost": 98090,
@@ -4826,7 +4826,7 @@
                         "cumulative_capacity_init": -1,
                         "lifetime": 20,
                         "can_expand": true,
-                        "de_cost_perc": 0.036667,
+                        "de_cost_perc": 0.045,
                         "cc_cost_perc": 0.895,
                         "cc_duration": 2,
                         "capacity_in_progress_init": 0,
@@ -4853,7 +4853,7 @@
                         "availability": [
                             1
                         ],
-                        "af_cost_perc": 0.018333,
+                        "af_cost_perc": 0.01,
                         "ramp_down_fraction": 3.78,
                         "de_wacc": 0.078,
                         "annualized_investment_cost": 69804,
@@ -5114,7 +5114,7 @@
                         "cumulative_capacity_init": -1,
                         "lifetime": 20,
                         "can_expand": true,
-                        "de_cost_perc": 0.036667,
+                        "de_cost_perc": 0.045,
                         "cc_cost_perc": 0.895,
                         "cc_duration": 2,
                         "capacity_in_progress_init": 0,
@@ -5141,7 +5141,7 @@
                         "availability": [
                             1
                         ],
-                        "af_cost_perc": 0.018333,
+                        "af_cost_perc": 0.01,
                         "ramp_down_fraction": 3.78,
                         "de_wacc": 0.078,
                         "annualized_investment_cost": 79880,
@@ -5402,7 +5402,7 @@
                         "cumulative_capacity_init": -1,
                         "lifetime": 20,
                         "can_expand": true,
-                        "de_cost_perc": 0.036667,
+                        "de_cost_perc": 0.045,
                         "cc_cost_perc": 0.895,
                         "cc_duration": 2,
                         "capacity_in_progress_init": 0,
@@ -5429,7 +5429,7 @@
                         "availability": [
                             1
                         ],
-                        "af_cost_perc": 0.018333,
+                        "af_cost_perc": 0.01,
                         "ramp_down_fraction": 3.78,
                         "de_wacc": 0.078,
                         "annualized_investment_cost": 89471,
@@ -5690,7 +5690,7 @@
                         "cumulative_capacity_init": -1,
                         "lifetime": 20,
                         "can_expand": true,
-                        "de_cost_perc": 0.036667,
+                        "de_cost_perc": 0.045,
                         "cc_cost_perc": 0.895,
                         "cc_duration": 2,
                         "capacity_in_progress_init": 0,
@@ -5717,7 +5717,7 @@
                         "availability": [
                             1
                         ],
-                        "af_cost_perc": 0.018333,
+                        "af_cost_perc": 0.01,
                         "ramp_down_fraction": 3.78,
                         "de_wacc": 0.078,
                         "annualized_investment_cost": 72111,
@@ -5978,7 +5978,7 @@
                         "cumulative_capacity_init": -1,
                         "lifetime": 20,
                         "can_expand": true,
-                        "de_cost_perc": 0.036667,
+                        "de_cost_perc": 0.045,
                         "cc_cost_perc": 0.895,
                         "cc_duration": 2,
                         "capacity_in_progress_init": 650,
@@ -6005,7 +6005,7 @@
                         "availability": [
                             1
                         ],
-                        "af_cost_perc": 0.018333,
+                        "af_cost_perc": 0.01,
                         "ramp_down_fraction": 3.78,
                         "de_wacc": 0.078,
                         "annualized_investment_cost": 79880,
@@ -6266,7 +6266,7 @@
                         "cumulative_capacity_init": -1,
                         "lifetime": 20,
                         "can_expand": true,
-                        "de_cost_perc": 0.036667,
+                        "de_cost_perc": 0.045,
                         "cc_cost_perc": 0.895,
                         "cc_duration": 2,
                         "capacity_in_progress_init": 0,
@@ -6293,7 +6293,7 @@
                         "availability": [
                             1
                         ],
-                        "af_cost_perc": 0.018333,
+                        "af_cost_perc": 0.01,
                         "ramp_down_fraction": 3.78,
                         "de_wacc": 0.078,
                         "annualized_investment_cost": 89471,
@@ -6554,7 +6554,7 @@
                         "cumulative_capacity_init": -1,
                         "lifetime": 20,
                         "can_expand": true,
-                        "de_cost_perc": 0.036667,
+                        "de_cost_perc": 0.045,
                         "cc_cost_perc": 0.895,
                         "cc_duration": 2,
                         "capacity_in_progress_init": 0,
@@ -6581,7 +6581,7 @@
                         "availability": [
                             1
                         ],
-                        "af_cost_perc": 0.018333,
+                        "af_cost_perc": 0.01,
                         "ramp_down_fraction": 3.78,
                         "de_wacc": 0.078,
                         "annualized_investment_cost": 79880,
@@ -6842,7 +6842,7 @@
                         "cumulative_capacity_init": -1,
                         "lifetime": 20,
                         "can_expand": true,
-                        "de_cost_perc": 0.036667,
+                        "de_cost_perc": 0.045,
                         "cc_cost_perc": 0.895,
                         "cc_duration": 2,
                         "capacity_in_progress_init": 0,
@@ -6869,7 +6869,7 @@
                         "availability": [
                             1
                         ],
-                        "af_cost_perc": 0.018333,
+                        "af_cost_perc": 0.01,
                         "ramp_down_fraction": 3.78,
                         "de_wacc": 0.078,
                         "annualized_investment_cost": 89471,
@@ -7130,7 +7130,7 @@
                         "cumulative_capacity_init": -1,
                         "lifetime": 20,
                         "can_expand": true,
-                        "de_cost_perc": 0.036667,
+                        "de_cost_perc": 0.045,
                         "cc_cost_perc": 0.895,
                         "cc_duration": 2,
                         "capacity_in_progress_init": 0,
@@ -7157,7 +7157,7 @@
                         "availability": [
                             1
                         ],
-                        "af_cost_perc": 0.018333,
+                        "af_cost_perc": 0.01,
                         "ramp_down_fraction": 3.78,
                         "de_wacc": 0.078,
                         "annualized_investment_cost": 79880,

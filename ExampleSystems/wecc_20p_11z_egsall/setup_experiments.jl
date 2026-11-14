@@ -33,9 +33,9 @@ using Dates
 cases = [
     "nocd_nodi_noel_nocap",
     "nocd_nodi_noel_cap",
-    "cd_nodi_noel_cap",
     "cd_di_noel_cap",
     "cd_di_el_cap",
+    "cd_nodi_el_cap",
 ]
 
 # submit is read from the environment so the run_experiments.sh launcher can

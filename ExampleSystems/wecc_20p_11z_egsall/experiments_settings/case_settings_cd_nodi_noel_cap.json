@@ -25,7 +25,7 @@
     "DiscountRate": 0.02,
     "CapacityReserveMarginFlag": true,
     "CapacityReserveMargin": {"OR_WA": 0.15, "ID_UT_NV_MT_WY": 0.15, "CA": 0.15, "AZ_NM_CO": 0.15},
-    "InvestmentTaxCredit": true,
+    "InvestmentTaxCredit": false,
     "CO2Cap": true,
     "ProjectDevelopment": true,
     "DeploymentInertia": false,
