@@ -198,9 +198,11 @@ function compute_pwl_coordinates(init_cumul_capacity::Float64, max_cumul_capacit
     end
 
     # X coordinates for piece-wise linear curve
-    # X points double from the initial capacity; the last point is capped at max_cumul_capacity
+    # X points double from the initial capacity
+    # Each segment is a doubling of the previous until we reach the max
     n_segments = ceil(Int, log2(max_cumul_capacity/init_cumul_capacity))
     x_points = [init_cumul_capacity*2.0^(k-1) for k in 1:n_segments]
+    # The last point is capped at max_cumul_capacity
     push!(x_points, max_cumul_capacity)
 
     # Compute Y coordinates
