@@ -31,11 +31,12 @@ using Dates
 
 # ── Configuration ─────────────────────────────────────────────────────────────
 cases = [
-    "nocd_nodi_noel_nocap",
-    "nocd_nodi_noel_cap",
-    "cd_di_noel_cap",
-    "cd_di_el_cap",
-    "cd_nodi_el_cap",
+    "nocd_nodi_noel_nocap_noitc",
+    "nocd_nodi_noel_cap_noitc",
+    "cd_di_noel_cap_noitc",
+    "cd_di_el_cap_noitc",
+    "cd_nodi_el_cap_noitc",
+    "cd_di_el_cap_itc"
 ]
 
 # submit is read from the environment so the run_experiments.sh launcher can

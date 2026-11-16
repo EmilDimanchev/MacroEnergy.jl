@@ -142,6 +142,9 @@ function update_with_planning_solution!(g::AbstractStorage, planning_variable_va
         g.capacity = planning_variable_values[name(g.capacity)]
         g.new_capacity = value(x->planning_variable_values[name(x)], g.new_capacity)
         g.retired_capacity = value(x->planning_variable_values[name(x)], g.retired_capacity)
+        g.new_de_capacity = value(x->planning_variable_values[name(x)], g.new_de_capacity)
+        g.new_af_capacity = value(x->planning_variable_values[name(x)], g.new_af_capacity)
+        g.new_cc_capacity = value(x->planning_variable_values[name(x)], g.new_cc_capacity)
         curr_period = period_index(g)
         g.new_capacity_track[curr_period] = g.new_capacity
         g.retired_capacity_track[curr_period] = g.retired_capacity
@@ -174,6 +177,7 @@ function update_with_planning_solution!(e::AbstractEdge, planning_variable_value
         e.endog_annualized_investment_cost_times_newcapacity_de = value(x->planning_variable_values[name(x)], e.endog_annualized_investment_cost_times_newcapacity_de)
         e.endog_annualized_investment_cost_times_newcapacity_af = value(x->planning_variable_values[name(x)], e.endog_annualized_investment_cost_times_newcapacity_af)
         e.endog_annualized_investment_cost_times_newcapacity_cc = value(x->planning_variable_values[name(x)], e.endog_annualized_investment_cost_times_newcapacity_cc)
+        e.endog_capex_cost = value(x->planning_variable_values[name(x)], e.endog_capex_cost)
         
         curr_period = period_index(e)
         e.new_capacity_track[curr_period] = e.new_capacity

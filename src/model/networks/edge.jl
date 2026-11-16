@@ -443,10 +443,8 @@ start_vertex(e::AbstractEdge)::AbstractVertex = e.start_vertex;
 variable_om_cost(e::AbstractEdge) = e.variable_om_cost;
 wacc(e::AbstractEdge) = e.wacc;
 annualized_investment_cost(e::AbstractEdge) = e.annualized_investment_cost;
-function pv_period_investment_cost(e::AbstractEdge)::Union{Float64, Nothing}
-    iszero(e.endog_capex_cost) && return e.pv_period_investment_cost;
-    return value((1 - e.itc_schedule[period_index(e)]) * e.endog_capex_cost * e.annuities_mult + interconnect_annuity(e)*e.interconnect_annuities_mult)
-end
+# Set for non-learning assets only; see learning_pv_period_investment_cost for learning assets
+pv_period_investment_cost(e::AbstractEdge) = e.pv_period_investment_cost;
 cf_period_investment_cost(e::AbstractEdge) = e.cf_period_investment_cost;
 pv_period_fixed_om_cost(e::AbstractEdge) = e.pv_period_fixed_om_cost;
 cf_period_fixed_om_cost(e::AbstractEdge) = e.cf_period_fixed_om_cost;
@@ -682,67 +680,82 @@ function planning_model!(e::AbstractEdge, model::Model, settings::NamedTuple)
 
 end
 
+"""
+    stage_itcs(y, settings) -> (deploy_itc, cc_itc)
+
+ITC fractions applied to the deployment and construction (CC) cost components of an
+edge or storage in its period. With project development the full value of the ITC is
+credited at the CC stage, scaled up by the CC cost share so that total project cost
+still falls by `itc`; deployed capacity and the DE/AF stages get none. Without project
+development, or without a CC cost share to carry it, the ITC stays on deployed capacity.
+"""
+function stage_itcs(y::Union{AbstractEdge,AbstractStorage}, settings::NamedTuple)
+    itc = y.itc_schedule[period_index(y)]
+    itc_at_cc = settings[:ProjectDevelopment] && cc_cost_perc(y) > 0
+    return itc_at_cc ? (0.0, itc / cc_cost_perc(y)) : (itc, 0.0)
+end
+
 function compute_investment_costs!(e::AbstractEdge, model::Model, settings::NamedTuple, cost_type::Function=pv_period_investment_cost)
     if has_capacity(e)
         if can_expand(e)
 
-            # Apply subsidy depending on stage
-            de_itc_schedule = [e.itc_schedule[(e.de_duration+e.af_duration)+1:end]; zeros(min((e.de_duration+e.af_duration), length(e.itc_schedule)))]
-            af_itc_schedule = [e.itc_schedule[(e.af_duration)+1:end]; zeros(min((e.af_duration), length(e.itc_schedule)))]
+            # ITC on deployed capacity and on the CC stage (see stage_itcs)
+            deploy_itc, cc_itc = stage_itcs(e, settings)
+
 
             if cost_type == pv_period_investment_cost
                 # Costs used by model
                 if settings[:TechnologyLearning] && learning_type(e) in settings[:LearningTechnologies]
                     # Linearized learning
-                    model[:eInvestmentFixedCost] += (1 - e.itc_schedule[period_index(e)]) * e.endog_annualized_investment_cost_times_newcapacity * annuities_mult(e) + interconnect_annuity(e) * interconnect_annuities_mult(e) * new_capacity(e)
+                    model[:eInvestmentFixedCost] += (1 - deploy_itc) * e.endog_annualized_investment_cost_times_newcapacity * annuities_mult(e) + interconnect_annuity(e) * interconnect_annuities_mult(e) * new_capacity(e)
                     # @info "Annuities mult for edge $(id(e)) is $(annuities_mult(e))"
                     # Nonlinear version for benchmarking
                     # model[:eInvestmentFixedCost] += (1 - subsidy)*endog_annualized_investment_cost(e)*annuities_mult(e)*new_capacity(e)
 
                     # Shadow capacity for project development constraints (project development)
                     model[:eInvestmentFixedCost] +=
-                        e.endog_annualized_investment_cost_times_newcapacity_de * (1 - de_itc_schedule[period_index(e)]) * de_annuities_mult(e)
+                        e.endog_annualized_investment_cost_times_newcapacity_de * de_annuities_mult(e)
                     model[:eInvestmentFixedCost] +=
-                        e.endog_annualized_investment_cost_times_newcapacity_af * (1 - af_itc_schedule[period_index(e)]) * af_annuities_mult(e)
+                        e.endog_annualized_investment_cost_times_newcapacity_af * af_annuities_mult(e)
                     model[:eInvestmentFixedCost] +=
-                        e.endog_annualized_investment_cost_times_newcapacity_cc * (1 - e.itc_schedule[period_index(e)]) * cc_annuities_mult(e)
+                        e.endog_annualized_investment_cost_times_newcapacity_cc * (1 - cc_itc) * cc_annuities_mult(e)
 
                 elseif !settings[:TechnologyLearning] || !(learning_type(e) in settings[:LearningTechnologies])
                     # Technologies without endogenous learning
                     add_to_expression!(
                         model[:eInvestmentFixedCost],
-                        (1 - e.itc_schedule[period_index(e)]) * annualized_investment_cost(e) * annuities_mult(e) + interconnect_annuity(e) * interconnect_annuities_mult(e) ,
+                        (1 - deploy_itc) * annualized_investment_cost(e) * annuities_mult(e) + interconnect_annuity(e) * interconnect_annuities_mult(e) ,
                         new_capacity(e),
                     )
 
                     # Capacity for project development constraints (project development)
                     add_to_expression!(
                         model[:eInvestmentFixedCost],
-                        de_annualized_cost(e) * (1 - de_itc_schedule[period_index(e)]) * de_annuities_mult(e),
+                        de_annualized_cost(e) * de_annuities_mult(e),
                         new_de_capacity(e),
                     )
                     add_to_expression!(
                         model[:eInvestmentFixedCost],
-                        af_annualized_cost(e) * (1 - af_itc_schedule[period_index(e)]) * af_annuities_mult(e),
+                        af_annualized_cost(e) * af_annuities_mult(e),
                         new_af_capacity(e),
                     )
                     add_to_expression!(
                         model[:eInvestmentFixedCost],
-                        cc_annualized_cost(e) * (1 - e.itc_schedule[period_index(e)]) * cc_annuities_mult(e),
+                        cc_annualized_cost(e) * (1 - cc_itc) * cc_annuities_mult(e),
                         new_cc_capacity(e),
                     )
 
                 end
 
                 if settings[:ProjectDevelopment]
-                    e.new_capital = @expression(model, investment_cost(e) * (1 - de_cost_perc(e) - af_cost_perc(e) - cc_cost_perc(e)) * new_capacity(e) * (1 - e.itc_schedule[period_index(e)]))
+                    e.new_capital = @expression(model, investment_cost(e) * (1 - de_cost_perc(e) - af_cost_perc(e) - cc_cost_perc(e)) * new_capacity(e) * (1 - deploy_itc))
                 else
-                    e.new_capital = @expression(model, investment_cost(e) * new_capacity(e) * (1 - e.itc_schedule[period_index(e)]))
+                    e.new_capital = @expression(model, investment_cost(e) * new_capacity(e) * (1 - deploy_itc))
                 end
 
-                e.new_capital_de = @expression(model, investment_cost(e) * de_cost_perc(e) * new_de_capacity(e) * (1 - de_itc_schedule[period_index(e)]))
-                e.new_capital_af = @expression(model, investment_cost(e) * af_cost_perc(e) * new_af_capacity(e) * (1 - af_itc_schedule[period_index(e)]))
-                e.new_capital_cc = @expression(model, investment_cost(e) * cc_cost_perc(e) * new_cc_capacity(e) * (1 - e.itc_schedule[period_index(e)]))
+                e.new_capital_de = @expression(model, investment_cost(e) * de_cost_perc(e) * new_de_capacity(e))
+                e.new_capital_af = @expression(model, investment_cost(e) * af_cost_perc(e) * new_af_capacity(e) )
+                e.new_capital_cc = @expression(model, investment_cost(e) * cc_cost_perc(e) * new_cc_capacity(e) * (1 - cc_itc) )
 
             else
 
@@ -751,6 +764,10 @@ function compute_investment_costs!(e::AbstractEdge, model::Model, settings::Name
                     cost_type(e),
                     new_capacity(e),
                 )
+                # Undiscounted costs also include the project development stages
+                if cost_type == cf_period_investment_cost
+                    add_to_expression!(model[:eInvestmentFixedCost], sum(cf_stage_investment_costs(e, settings)))
+                end
             end
             
         end

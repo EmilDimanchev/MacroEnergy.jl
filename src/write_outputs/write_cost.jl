@@ -190,31 +190,30 @@ end
 """
     compute_investment_cost(o::T, settings) where T <: Union{AbstractEdge, AbstractStorage}
 
-Returns `(pv, de_pv, af_pv, cc_pv, cf)::NTuple{5,Float64}`: the total investment cost discounted to
-period start (PV), the three decomposed investment PV components (de, af, cc), and the undiscounted
-total cash flow (CF) for an edge or storage.
+Returns `(pv, de_pv, af_pv, cc_pv, cf, de_cf, af_cf, cc_cf)::NTuple{8,Float64}`: the investment cost
+of deployed capacity discounted to period start (PV), the three project development stage PV
+components (de, af, cc), and the matching undiscounted cash flows (CF) for an edge or storage.
 """
-function compute_investment_cost(o::T, settings::NamedTuple)::NTuple{5,Float64} where T <: Union{AbstractEdge, AbstractStorage}
-    (has_capacity(o) && can_expand(o)) || return (0.0, 0.0, 0.0, 0.0, 0.0)
+function compute_investment_cost(o::T, settings::NamedTuple)::NTuple{8,Float64} where T <: Union{AbstractEdge, AbstractStorage}
+    (has_capacity(o) && can_expand(o)) || return ntuple(_ -> 0.0, 8)
 
-    # Stage-dependent ITC schedules for the de/af components (needed in both branches below)
-    de_itc_schedule = [o.itc_schedule[(o.de_duration+o.af_duration)+1:end]; zeros(min((o.de_duration+o.af_duration), length(o.itc_schedule)))]
-    af_itc_schedule = [o.itc_schedule[(o.af_duration)+1:end]; zeros(min((o.af_duration), length(o.itc_schedule)))]
+    # ITC on deployed capacity and on the CC stage; DE/AF get none (consistent with the objective)
+    deploy_itc, cc_itc = stage_itcs(o, settings)
 
     if settings[:TechnologyLearning] && learning_type(o) in settings[:LearningTechnologies]
-        pv_times_new_cap = (1 - o.itc_schedule[period_index(o)]) * value(endog_annualized_investment_cost_times_newcapacity(o)) * annuities_mult(o) + interconnect_annuity(o) * interconnect_annuities_mult(o) * value(new_capacity(o))
+        pv_times_new_cap = (1 - deploy_itc) * value(endog_annualized_investment_cost_times_newcapacity(o)) * annuities_mult(o) + interconnect_annuity(o) * interconnect_annuities_mult(o) * value(new_capacity(o))
 
-        de_pv_times_new_de = value(endog_annualized_investment_cost_times_newcapacity_de(o)) * (1 - de_itc_schedule[period_index(o)]) * de_annuities_mult(o)
-        af_pv_times_new_af = value(endog_annualized_investment_cost_times_newcapacity_af(o)) * (1 - af_itc_schedule[period_index(o)]) * af_annuities_mult(o)
-        cc_pv_times_new_cc = value(endog_annualized_investment_cost_times_newcapacity_cc(o)) * (1 - o.itc_schedule[period_index(o)]) * cc_annuities_mult(o)
+        de_pv_times_new_de = value(endog_annualized_investment_cost_times_newcapacity_de(o)) * de_annuities_mult(o)
+        af_pv_times_new_af = value(endog_annualized_investment_cost_times_newcapacity_af(o)) * af_annuities_mult(o)
+        cc_pv_times_new_cc = value(endog_annualized_investment_cost_times_newcapacity_cc(o)) * (1 - cc_itc) * cc_annuities_mult(o)
 
     elseif !settings[:TechnologyLearning] || !(learning_type(o) in settings[:LearningTechnologies])
         
-        pv_times_new_cap = ((1 - o.itc_schedule[period_index(o)]) * annualized_investment_cost(o) * annuities_mult(o) + interconnect_annuity(o) * interconnect_annuities_mult(o) ) * value(new_capacity(o))
+        pv_times_new_cap = ((1 - deploy_itc) * annualized_investment_cost(o) * annuities_mult(o) + interconnect_annuity(o) * interconnect_annuities_mult(o) ) * value(new_capacity(o))
 
-        de_pv_times_new_de = (de_annualized_cost(o) * (1 - de_itc_schedule[period_index(o)]) * de_annuities_mult(o))*value(new_de_capacity(o))
-        af_pv_times_new_af = (af_annualized_cost(o) * (1 - af_itc_schedule[period_index(o)]) * af_annuities_mult(o))*value(new_af_capacity(o))
-        cc_pv_times_new_cc = (cc_annualized_cost(o) * (1 - o.itc_schedule[period_index(o)]) * cc_annuities_mult(o))*value(new_cc_capacity(o))
+        de_pv_times_new_de = (de_annualized_cost(o) * de_annuities_mult(o))*value(new_de_capacity(o))
+        af_pv_times_new_af = (af_annualized_cost(o) * af_annuities_mult(o))*value(new_af_capacity(o))
+        cc_pv_times_new_cc = (cc_annualized_cost(o) * (1 - cc_itc) * cc_annuities_mult(o))*value(new_cc_capacity(o))
 
     end
 
@@ -223,7 +222,8 @@ function compute_investment_cost(o::T, settings::NamedTuple)::NTuple{5,Float64} 
     cf = cf_period_investment_cost(o)
     isnothing(cf) && error("cf_period_investment_cost is not set for $(id(o)); call undo_discount_fixed_costs! before writing costs")
     cap = value(new_capacity(o))
-    return (pv_times_new_cap, de_pv_times_new_de, af_pv_times_new_af, cc_pv_times_new_cc, cf * cap)
+    de_cf, af_cf, cc_cf = cf_stage_investment_costs(o, settings)
+    return (pv_times_new_cap, de_pv_times_new_de, af_pv_times_new_af, cc_pv_times_new_cc, cf * cap, de_cf, af_cf, cc_cf)
 end
 
 """
@@ -624,7 +624,7 @@ function get_detailed_costs(system::System, settings::NamedTuple, scaling::Float
 
     # Collect edge costs (Investment/FixedOM are both discounted and undiscounted at period start; VariableOM/Fuel/Startup will be discounted later)
     for e in edges
-        inv_pv, inv_cf = compute_investment_cost(e)
+        inv_pv, inv_de, inv_af, inv_cc, inv_cf, inv_de_cf, inv_af_cf, inv_cc_cf = compute_investment_cost(e, settings)
         fom_pv, fom_cf = compute_fixed_om_cost(e)
         vom = compute_variable_om_cost(e)
         fuel = compute_fuel_cost(e)
@@ -642,6 +642,9 @@ function get_detailed_costs(system::System, settings::NamedTuple, scaling::Float
 
         for (category, cost_pv, cost_cf) in [
             (:Investment, inv_pv, inv_cf),
+            (:Investment_de, inv_de, inv_de_cf),
+            (:Investment_af, inv_af, inv_af_cf),
+            (:Investment_cc, inv_cc, inv_cc_cf),
             (:FixedOM, fom_pv, fom_cf),
             (:VariableOM, vom, vom), # first term is discounted later (vectorized)
             (:Fuel, fuel, fuel), # first term is discounted later (vectorized)
@@ -658,16 +661,17 @@ function get_detailed_costs(system::System, settings::NamedTuple, scaling::Float
 
     # Collect storage costs (Investment/FixedOM are both discounted and undiscounted at period start)
     for g in storages
-        inv_pv, inv_cf = compute_investment_cost(g)
+        inv_pv, inv_de, inv_af, inv_cc, inv_cf, inv_de_cf, inv_af_cf, inv_cc_cf = compute_investment_cost(g, settings)
         fom_pv, fom_cf = compute_fixed_om_cost(g)
-
-        (inv_pv == 0 && inv_cf == 0 && fom_pv == 0 && fom_cf == 0) && continue
 
         zone = get_zone_name(g)
         asset_type = get_type(storage_asset_map[id(g)])
 
         for (category, cost_pv, cost_cf) in [
             (:Investment, inv_pv, inv_cf),
+            (:Investment_de, inv_de, inv_de_cf),
+            (:Investment_af, inv_af, inv_af_cf),
+            (:Investment_cc, inv_cc, inv_cc_cf),
             (:FixedOM, fom_pv, fom_cf),
         ]
             (cost_pv == 0 && cost_cf == 0) && continue
@@ -817,7 +821,7 @@ function get_fixed_costs_benders(system::System, settings::NamedTuple, scaling::
 
     # Collect fixed costs from edges (Investment/FixedOM are both discounted and undiscounted at period start)
     for e in edges
-        inv_pv, inv_de, inv_af, inv_cc, inv_cf = compute_investment_cost(e, settings)
+        inv_pv, inv_de, inv_af, inv_cc, inv_cf, inv_de_cf, inv_af_cf, inv_cc_cf = compute_investment_cost(e, settings)
         fom_pv, fom_cf = compute_fixed_om_cost(e)
 
         #(inv_pv == 0 && inv_cf == 0 && fom_pv == 0 && fom_cf == 0) && continue
@@ -826,14 +830,12 @@ function get_fixed_costs_benders(system::System, settings::NamedTuple, scaling::
         #asset_type = get_type(edge_asset_map[id(e)])
         asset_id = string(get_resource_id(e, edge_asset_map))
 
-        # The de/af/cc components are decomposed pieces of the discounted (PV) investment
-        # cost only; their undiscounted entry is a 0.0 placeholder that is filtered out of
-        # the undiscounted DataFrame below.
+        # Investment covers deployed capacity; de/af/cc are the project development stages
         for (category, cost_pv, cost_cf) in [
             (:Investment, inv_pv, inv_cf),
-            (:Investment_de, inv_de, 0.0),
-            (:Investment_af, inv_af, 0.0),
-            (:Investment_cc, inv_cc, 0.0),
+            (:Investment_de, inv_de, inv_de_cf),
+            (:Investment_af, inv_af, inv_af_cf),
+            (:Investment_cc, inv_cc, inv_cc_cf),
             (:FixedOM, fom_pv, fom_cf),
         ]
             #(cost_pv == 0 && cost_cf == 0) && continue
@@ -847,7 +849,7 @@ function get_fixed_costs_benders(system::System, settings::NamedTuple, scaling::
 
     # Collect fixed costs from storages (Investment/FixedOM are both discounted and undiscounted at period start)
     for g in storages
-        inv_pv, inv_de, inv_af, inv_cc, inv_cf = compute_investment_cost(g, settings)
+        inv_pv, inv_de, inv_af, inv_cc, inv_cf, inv_de_cf, inv_af_cf, inv_cc_cf = compute_investment_cost(g, settings)
         fom_pv, fom_cf = compute_fixed_om_cost(g)
 
         # (inv_pv == 0 && inv_cf == 0 && fom_pv == 0 && fom_cf == 0) && continue
@@ -855,13 +857,12 @@ function get_fixed_costs_benders(system::System, settings::NamedTuple, scaling::
         zone = get_zone_name(g)
         asset_id = string(get_resource_id(g, storage_asset_map))
 
-        # de/af/cc are decomposed pieces of the discounted (PV) investment cost only;
-        # their undiscounted entry is a 0.0 placeholder (filtered out below).
+        # Investment covers deployed capacity; de/af/cc are the project development stages
         for (category, cost_pv, cost_cf) in [
             (:Investment, inv_pv, inv_cf),
-            (:Investment_de, inv_de, 0.0),
-            (:Investment_af, inv_af, 0.0),
-            (:Investment_cc, inv_cc, 0.0),
+            (:Investment_de, inv_de, inv_de_cf),
+            (:Investment_af, inv_af, inv_af_cf),
+            (:Investment_cc, inv_cc, inv_cc_cf),
             (:FixedOM, fom_pv, fom_cf),
         ]
             (cost_pv == 0 && cost_cf == 0) && continue
@@ -888,14 +889,9 @@ function get_fixed_costs_benders(system::System, settings::NamedTuple, scaling::
         values_undiscounted .*= scaling^2
     end
 
-    # The de/af/cc components are reported for the discounted output only; drop their
-    # placeholder rows so the undiscounted DataFrame is unchanged from before.
-    decomposed_cats = (:Investment_de, :Investment_af, :Investment_cc)
-    keep_und = [c ∉ decomposed_cats for c in categories]
-
     return (
         discounted = DataFrame(zone=zones, type=ids, category=categories, value=values_discounted),
-        undiscounted = DataFrame(zone=zones[keep_und], type=ids[keep_und], category=categories[keep_und], value=values_undiscounted[keep_und])
+        undiscounted = DataFrame(zone=zones, type=ids, category=categories, value=values_undiscounted)
     )
 end
 

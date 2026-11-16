@@ -272,10 +272,8 @@ storage_level(g::AbstractStorage) = g.storage_level;
 storage_level(g::AbstractStorage, t::Int64) = storage_level(g)[t];
 wacc(g::AbstractStorage) = g.wacc;
 annualized_investment_cost(g::AbstractStorage) = g.annualized_investment_cost;
-function pv_period_investment_cost(g::AbstractStorage)::Union{Float64, Nothing}
-    iszero(g.endog_capex_cost) && return g.pv_period_investment_cost;
-    return value((1-g.itc_schedule[period_index(g)]) * g.endog_capex_cost * g.annuities_mult + interconnect_annuity(g)*g.interconnect_annuities_mult)
-end
+# Set for non-learning assets only; see learning_pv_period_investment_cost for learning assets
+pv_period_investment_cost(g::AbstractStorage) = g.pv_period_investment_cost;
 cf_period_investment_cost(g::AbstractStorage) = g.cf_period_investment_cost;
 pv_period_fixed_om_cost(g::AbstractStorage) = g.pv_period_fixed_om_cost;
 cf_period_fixed_om_cost(g::AbstractStorage) = g.cf_period_fixed_om_cost;
@@ -611,15 +609,14 @@ function compute_investment_costs!(g::AbstractStorage, model::Model, settings::N
     if has_capacity(g)
         if can_expand(g)
 
-            # Apply subsidy depending on stage
-            de_itc_schedule = [g.itc_schedule[(g.de_duration+g.af_duration)+1:end]; zeros(min((g.de_duration+g.af_duration), length(g.itc_schedule)))]
-            af_itc_schedule = [g.itc_schedule[(g.af_duration)+1:end]; zeros(min((g.af_duration), length(g.itc_schedule)))]
+            # ITC on deployed capacity and on the CC stage (see stage_itcs)
+            deploy_itc, cc_itc = stage_itcs(g, settings)
 
             if cost_type == pv_period_investment_cost
 
                 add_to_expression!(
                 model[:eInvestmentFixedCost],
-                (1-g.itc_schedule[period_index(g)]) * annualized_investment_cost(g) * annuities_mult(g) + interconnect_annuity(g) * interconnect_annuities_mult(g),
+                (1-deploy_itc) * annualized_investment_cost(g) * annuities_mult(g) + interconnect_annuity(g) * interconnect_annuities_mult(g),
                 new_capacity(g),
                 )
                 # @info "Annuities mult for edge $(id(g)) is $(annuities_mult(g))"
@@ -627,29 +624,29 @@ function compute_investment_costs!(g::AbstractStorage, model::Model, settings::N
 
                 add_to_expression!(
                 model[:eInvestmentFixedCost],
-                de_annualized_cost(g)*de_annuities_mult(g)*(1-de_itc_schedule[period_index(g)]),
+                de_annualized_cost(g)*de_annuities_mult(g),
                 new_de_capacity(g),
                 )
                 add_to_expression!(
                     model[:eInvestmentFixedCost],
-                    af_annualized_cost(g)*af_annuities_mult(g)*(1-af_itc_schedule[period_index(g)]),
+                    af_annualized_cost(g)*af_annuities_mult(g),
                     new_af_capacity(g),
                 )
                 add_to_expression!(
                     model[:eInvestmentFixedCost],
-                    cc_annualized_cost(g)*cc_annuities_mult(g)*(1-g.itc_schedule[period_index(g)]) ,
+                    cc_annualized_cost(g)*cc_annuities_mult(g)*(1-cc_itc),
                     new_cc_capacity(g),
                 )
 
                 if settings[:ProjectDevelopment]
-                    g.new_capital = @expression(model, investment_cost(g) * (1 - de_cost_perc(g) - af_cost_perc(g) - cc_cost_perc(g)) * new_capacity(g) * (1 - g.itc_schedule[period_index(g)]))
+                    g.new_capital = @expression(model, investment_cost(g) * (1 - de_cost_perc(g) - af_cost_perc(g) - cc_cost_perc(g)) * new_capacity(g) * (1 - deploy_itc))
                 else
-                    g.new_capital = @expression(model, investment_cost(g) * new_capacity(g) * (1 - g.itc_schedule[period_index(g)]))
+                    g.new_capital = @expression(model, investment_cost(g) * new_capacity(g) * (1 - deploy_itc))
                 end
 
-                g.new_capital_de = @expression(model, investment_cost(g) * de_cost_perc(g) * new_de_capacity(g) * (1 - de_itc_schedule[period_index(g)]))
-                g.new_capital_af = @expression(model, investment_cost(g) * af_cost_perc(g) * new_af_capacity(g) * (1 - af_itc_schedule[period_index(g)]))
-                g.new_capital_cc = @expression(model, investment_cost(g) * cc_cost_perc(g) * new_cc_capacity(g) * (1 - g.itc_schedule[period_index(g)]))
+                g.new_capital_de = @expression(model, investment_cost(g) * de_cost_perc(g) * new_de_capacity(g))
+                g.new_capital_af = @expression(model, investment_cost(g) * af_cost_perc(g) * new_af_capacity(g))
+                g.new_capital_cc = @expression(model, investment_cost(g) * cc_cost_perc(g) * new_cc_capacity(g) * (1 - cc_itc))
             else
 
                 add_to_expression!(
@@ -657,6 +654,10 @@ function compute_investment_costs!(g::AbstractStorage, model::Model, settings::N
                         cost_type(g),
                         new_capacity(g),
                     )
+                # Undiscounted costs also include the project development stages
+                if cost_type == cf_period_investment_cost
+                    add_to_expression!(model[:eInvestmentFixedCost], sum(cf_stage_investment_costs(g, settings)))
+                end
             end
 
         end

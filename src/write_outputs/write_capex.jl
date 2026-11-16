@@ -92,13 +92,13 @@ end
 # If investment_cost == 0 but annualized_investment_cost is set, back-calculate the
 # upfront cost from the annualized cost and the capital recovery factor.
 # discount_rate is the fallback when wacc is missing, matching compute_annualized_costs!.
-# No ITC subsidy or discounting is applied (consistent with the total-capex logic).
+# ITC is applied as in the objective (see stage_itcs): on deployed capacity, or, with
+# project development, entirely on the CC stage. No discounting is applied.
 function _capex_values(obj::Union{AbstractEdge, AbstractStorage}, settings::NamedTuple)
     (has_capacity(obj) && can_expand(obj)) || return (0.0, 0.0, 0.0, 0.0)
     discount_rate = settings[:DiscountRate]
-    # Apply subsidy depending on stage
-    de_itc_schedule = [obj.itc_schedule[(obj.de_duration+obj.af_duration)+1:end]; zeros(min((obj.de_duration+obj.af_duration), length(obj.itc_schedule)))]
-    af_itc_schedule = [obj.itc_schedule[(obj.af_duration)+1:end]; zeros(min((obj.af_duration), length(obj.itc_schedule)))]
+    # ITC on deployed capacity and on the CC stage; DE/AF get none
+    deploy_itc, cc_itc = stage_itcs(obj, settings)
 
     if settings[:ProjectDevelopment]
         deployment_cost_perc = 1 - de_cost_perc(obj) - af_cost_perc(obj) - cc_cost_perc(obj)
@@ -121,11 +121,11 @@ function _capex_values(obj::Union{AbstractEdge, AbstractStorage}, settings::Name
         end
     end
 
-    capex    = (1-obj.itc_schedule[period_index(obj)]) * inv_cost * deployment_cost_perc * Float64(value(new_capacity(obj)))
+    capex    = (1-deploy_itc) * inv_cost * deployment_cost_perc * Float64(value(new_capacity(obj)))
     
-    capex_de = (1-de_itc_schedule[period_index(obj)]) * inv_cost * de_cost_perc(obj) * Float64(value(new_de_capacity(obj)))
-    capex_af = (1-af_itc_schedule[period_index(obj)]) * inv_cost * af_cost_perc(obj) * Float64(value(new_af_capacity(obj)))
-    capex_cc = (1-obj.itc_schedule[period_index(obj)]) * inv_cost * cc_cost_perc(obj) * Float64(value(new_cc_capacity(obj)))
+    capex_de = inv_cost * de_cost_perc(obj) * Float64(value(new_de_capacity(obj)))
+    capex_af = inv_cost * af_cost_perc(obj) * Float64(value(new_af_capacity(obj)))
+    capex_cc = (1-cc_itc) * inv_cost * cc_cost_perc(obj) * Float64(value(new_cc_capacity(obj)))
     
 
 

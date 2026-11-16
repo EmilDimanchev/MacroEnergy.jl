@@ -628,7 +628,9 @@ function discount_fixed_costs!(y::Union{AbstractEdge,AbstractStorage},settings::
     y.interconnect_annuities_mult = present_value_annuity_factor(discount_rate, interconnect_payment_years_remaining)
     
     if !settings[:TechnologyLearning] || !(learning_type(y) in settings[:LearningTechnologies]) 
-        y.pv_period_investment_cost = annualized_investment_cost(y) * y.annuities_mult + interconnect_annuity(y) * y.interconnect_annuities_mult
+        # Deployed capacity net of its ITC (the deployment share only with project development)
+        deploy_itc, _ = stage_itcs(y, settings)
+        y.pv_period_investment_cost = (1 - deploy_itc) * annualized_investment_cost(y) * y.annuities_mult + interconnect_annuity(y) * y.interconnect_annuities_mult
     end
 
     if settings[:ProjectDevelopment] 
@@ -676,9 +678,61 @@ function undo_discount_fixed_costs!(y::Union{AbstractEdge,AbstractStorage},setti
     # y.annualized_investment_cost = payment_years_remaining * annualized_investment_cost(y) * capital_recovery_factor(discount_rate, payment_years_remaining)
 
     # y.cf_period_investment_cost = payment_years_remaining * annualized_investment_cost(y)
-    y.cf_period_investment_cost = payment_years_remaining * pv_period_investment_cost(y) * capital_recovery_factor(wacc(y), payment_years_remaining)
+    pv = iszero(y.endog_capex_cost) ? pv_period_investment_cost(y) : learning_pv_period_investment_cost(y, settings)
+    y.cf_period_investment_cost = payment_years_remaining * pv * capital_recovery_factor(wacc(y), payment_years_remaining)
     y.cf_period_fixed_om_cost = period_lengths[period_idx] * fixed_om_cost(y)
     y.cf_period_variable_om_cost = period_lengths[period_idx] * variable_om_cost(y)
+end
+
+"""
+    learning_pv_period_investment_cost(y, settings)
+
+PV of the investment cost of one unit of deployed capacity for a learning asset, whose
+upfront capex (`endog_capex_cost`) comes from the learning curve. Mirrors the deployment
+term of the objective: annualized, the deployment share only with project development,
+and net of the ITC on deployed capacity (see `stage_itcs`).
+"""
+function learning_pv_period_investment_cost(y::Union{AbstractEdge,AbstractStorage}, settings::NamedTuple)
+    deploy_itc, _ = stage_itcs(y, settings)
+    deployment_share = settings[:ProjectDevelopment] ? 1 - de_cost_perc(y) - af_cost_perc(y) - cc_cost_perc(y) : 1.0
+    annualized_cost = value(y.endog_capex_cost) * deployment_share * capital_recovery_factor(wacc(y), capital_recovery_period(y))
+    return (1 - deploy_itc) * annualized_cost * y.annuities_mult + interconnect_annuity(y) * y.interconnect_annuities_mult
+end
+
+"""
+    cf_stage_investment_costs(y, settings) -> (cf_de, cf_af, cf_cc)
+
+Undiscounted (cash flow) investment costs of the project development stages (DE, AF, CC)
+for the new stage capacity of an edge or storage in its period. Mirrors
+`cf_period_investment_cost` for deployed capacity: the stage annuities paid within the
+modelling horizon, with the ITC credited at the CC stage (see `stage_itcs`). All zero
+without project development.
+"""
+function cf_stage_investment_costs(y::Union{AbstractEdge,AbstractStorage}, settings::NamedTuple)
+    (settings[:ProjectDevelopment] && has_capacity(y) && can_expand(y)) || return (0.0, 0.0, 0.0)
+    model_years_remaining = years_remaining(period_index(y), settings.PeriodLengths)
+    _, cc_itc = stage_itcs(y, settings)
+
+    # Annual payment of each stage for this period's new stage capacity, as in the objective
+    if y isa AbstractEdge && settings[:TechnologyLearning] && learning_type(y) in settings[:LearningTechnologies]
+        ann_de = value(endog_annualized_investment_cost_times_newcapacity_de(y))
+        ann_af = value(endog_annualized_investment_cost_times_newcapacity_af(y))
+        ann_cc = value(endog_annualized_investment_cost_times_newcapacity_cc(y))
+    else
+        ann_de = de_annualized_cost(y) * value(new_de_capacity(y))
+        ann_af = af_annualized_cost(y) * value(new_af_capacity(y))
+        ann_cc = cc_annualized_cost(y) * value(new_cc_capacity(y))
+    end
+
+    cf(ann, annuities_mult, w, cap_recovery) = begin
+        n = min(cap_recovery, model_years_remaining)
+        n * ann * annuities_mult * capital_recovery_factor(w, n)
+    end
+    return (
+        cf(ann_de, de_annuities_mult(y), de_wacc(y), de_cap_recovery(y)),
+        cf(ann_af, af_annuities_mult(y), af_wacc(y), af_cap_recovery(y)),
+        cf((1 - cc_itc) * ann_cc, cc_annuities_mult(y), cc_wacc(y), cc_cap_recovery(y)),
+    )
 end
 
 function undo_discount_fixed_costs!(g::Transformation,settings::NamedTuple)
@@ -709,7 +763,8 @@ function add_costs_not_seen_by_myopic!(y::Union{AbstractEdge,AbstractStorage}, s
     myopic_mult = present_value_annuity_factor(discount_rate, k_myopic)
 
     # TODO: We can reorganize this to not need to mutate the pv investment cost
-    y.pv_period_investment_cost += annualized_investment_cost(y) * (total_mult - myopic_mult)
+    deploy_itc, _ = stage_itcs(y, settings)
+    y.pv_period_investment_cost += (1 - deploy_itc) * annualized_investment_cost(y) * (total_mult - myopic_mult)
 end
 
 function add_costs_not_seen_by_myopic!(a::AbstractAsset,settings::NamedTuple)
