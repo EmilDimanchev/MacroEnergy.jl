@@ -435,7 +435,7 @@ end
 const COST_CATEGORIES = [:Investment, :FixedOM, :VariableOM, :Fuel, :Startup, :NonServedDemand, :Supply, :UnmetPolicyPenalty]
 
 # Categories discounted with discount_factor
-const FIXED_COST_CATEGORIES = Set([:Investment,:FixedOM])
+const FIXED_COST_CATEGORIES = Set([:Investment, :Investment_de, :Investment_af, :Investment_cc, :FixedOM])
 
 # Categories only for variable operating costs (discounted with discount_factor * opexmult)
 const VARIABLE_OPERATING_COST_CATEGORIES = Set([:VariableOM, :Fuel, :Startup, :NonServedDemand, :Supply, :UnmetPolicyPenalty])

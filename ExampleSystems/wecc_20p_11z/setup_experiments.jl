@@ -36,7 +36,8 @@ cases = [
     "cd_di_noel_cap_noitc",
     "cd_di_el_cap_noitc",
     "cd_nodi_el_cap_noitc",
-    "cd_di_el_cap_itc"
+    "cd_di_el_cap_itc",
+    "nocd_di_el_cap_noitc"
 ]
 
 # submit is read from the environment so the run_experiments.sh launcher can
