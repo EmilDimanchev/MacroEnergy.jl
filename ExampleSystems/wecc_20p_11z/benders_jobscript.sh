@@ -7,7 +7,7 @@
 #SBATCH --cpus-per-task=1
 #SBATCH --mem=400GB
 #SBATCH --output=logs/slurm-%j.out
-#SBATCH --time=10:00:00          # (HH:MM:SS)
+#SBATCH --time=12:00:00          # (HH:MM:SS)
 #SBATCH --mail-type=all          
 #SBATCH --mail-user=ed0400@princeton.edu
 
